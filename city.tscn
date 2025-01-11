@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://by3t1v2htia6n"]
+
+[ext_resource type="PackedScene" uid="uid://c0lk4iv0ikxf" path="res://mech.tscn" id="1_hpa3k"]
+[ext_resource type="PackedScene" uid="uid://bxbe0msbys2sf" path="res://building.tscn" id="2_m7k8b"]
+
+[sub_resource type="Environment" id="Environment_hpa3k"]
+
+[node name="City" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_hpa3k")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.644657, 0.764472, 0, -0.764472, 0.644657, -0.751532, 20.784, 9.88644)
+
+[node name="Ground" type="CSGBox3D" parent="."]
+use_collision = true
+size = Vector3(30, 1, 30)
+
+[node name="Mech" parent="." instance=ExtResource("1_hpa3k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+
+[node name="Building" parent="." instance=ExtResource("2_m7k8b")]
+transform = Transform3D(3.115, 0, 0, 0, 3.115, 0, 0, 0, 3.115, -7.0284, 1, 6.65286)
