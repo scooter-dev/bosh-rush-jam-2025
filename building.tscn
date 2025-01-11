@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bxbe0msbys2sf"]
+[gd_scene load_steps=7 format=3 uid="uid://bxbe0msbys2sf"]
 
 [ext_resource type="Texture2D" uid="uid://ikrh4ihgqf4e" path="res://office_building.png" id="1_5j34s"]
 
@@ -65,8 +65,13 @@ shader_parameter/uv2_offset = Vector3(0, 0, 0)
 [sub_resource type="BoxMesh" id="BoxMesh_rqn35"]
 material = SubResource("ShaderMaterial_qnfc1")
 
-[node name="Building" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_5j34s"]
+
+[node name="Building" type="StaticBody3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 material_override = SubResource("StandardMaterial3D_2yopf")
 mesh = SubResource("BoxMesh_rqn35")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_5j34s")
