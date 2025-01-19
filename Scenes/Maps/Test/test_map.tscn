@@ -1,0 +1,75 @@
+[gd_scene load_steps=11 format=3 uid="uid://cu8wfyiht1lyi"]
+
+[ext_resource type="PackedScene" uid="uid://c1g40osluc5on" path="res://SRC/Mech/player_mech.tscn" id="1_orjte"]
+[ext_resource type="Shader" uid="uid://d20ryyciv7x8g" path="res://SRC/Shaders/Sky.gdshader" id="2_61yvp"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_3gg6x"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_orjte"]
+seamless = true
+noise = SubResource("FastNoiseLite_3gg6x")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_61yvp"]
+albedo_texture = SubResource("NoiseTexture2D_orjte")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+
+[sub_resource type="Gradient" id="Gradient_61yvp"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.283019, 0.471698, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 1, 0.780029, 0.585938, 1, 0.127838, 0.242341, 0.460938, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_yxp5o"]
+gradient = SubResource("Gradient_61yvp")
+width = 32
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yxp5o"]
+shader = ExtResource("2_61yvp")
+shader_parameter/skyGradient = SubResource("GradientTexture1D_yxp5o")
+shader_parameter/direction = Vector3(0.64, 1, 0)
+
+[sub_resource type="Sky" id="Sky_1x7h3"]
+sky_material = SubResource("ShaderMaterial_yxp5o")
+
+[sub_resource type="Environment" id="Environment_jwv5c"]
+background_mode = 2
+sky = SubResource("Sky_1x7h3")
+
+[node name="TestMap" type="Node3D"]
+
+[node name="CSG" type="Node3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSG"]
+material_override = SubResource("StandardMaterial3D_61yvp")
+use_collision = true
+size = Vector3(60, 1, 60)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSG"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 4, -6.5)
+material_override = SubResource("StandardMaterial3D_61yvp")
+use_collision = true
+size = Vector3(4, 7, 4)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSG"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 4.75, 5)
+material_override = SubResource("StandardMaterial3D_61yvp")
+use_collision = true
+size = Vector3(4, 8.5, 4)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSG"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 3.75, 15.5)
+material_override = SubResource("StandardMaterial3D_61yvp")
+use_collision = true
+size = Vector3(4, 6.5, 4)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="CSG"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 4.75, -4.5)
+material_override = SubResource("StandardMaterial3D_61yvp")
+use_collision = true
+size = Vector3(4, 8.5, 4)
+
+[node name="PlayerMech" parent="." instance=ExtResource("1_orjte")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.29376, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_jwv5c")

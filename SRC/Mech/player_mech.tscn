@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://c1g40osluc5on"]
+
+[ext_resource type="Script" uid="uid://cyj8mpkhoulxo" path="res://SRC/Mech/player_mech.gd" id="1_b1ldv"]
+[ext_resource type="Script" uid="uid://fcbiot2w55f6" path="res://SRC/Mech/PlayerCam.gd" id="2_ond4c"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6d0cu"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ond4c"]
+size = Vector3(0.7, 2, 0.7)
+
+[node name="PlayerMech" type="CharacterBody3D" node_paths=PackedStringArray("cam")]
+collision_layer = 2
+script = ExtResource("1_b1ldv")
+cam = NodePath("CamY")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_6d0cu")
+
+[node name="CamY" type="Node3D" parent="." node_paths=PackedStringArray("camera", "camX")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.53265, 0)
+script = ExtResource("2_ond4c")
+camera = NodePath("CamX/Camera3D")
+camX = NodePath("CamX")
+
+[node name="CamX" type="Node3D" parent="CamY"]
+transform = Transform3D(1, 0, 0, 0, 0.856312, 0.516459, 0, -0.516459, 0.856312, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CamY/CamX"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.59)
+
+[node name="CharRotator" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharRotator"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_ond4c")

@@ -19,9 +19,12 @@ config/icon="res://icon.svg"
 
 OptionsManager="*res://SRC/Singletons/OptionsManager.gd"
 PlayerInput="*res://SRC/Singletons/PlayerInput.gd"
+MultiplayerManager="*res://SRC/Singletons/MultiplayerManager.gd"
 
 [display]
 
+window/size/viewport_width=1280
+window/size/viewport_height=720
 window/vsync/vsync_mode=2
 
 [input]
@@ -148,3 +151,8 @@ LOCK_MOUSE={
 
 common/physics_ticks_per_second=120
 common/max_physics_steps_per_frame=10
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
