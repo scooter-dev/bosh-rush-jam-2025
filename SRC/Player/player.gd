@@ -108,9 +108,9 @@ func _physics_process(delta: float) -> void:
 				rotDeltaSum = 0.0
 				Engine.time_scale = 1.0
 				if grabArea.grabbed:
-					grabArea.throw(-charRotator.global_basis.z, speenPower * 10 * launchPower)
+					grabArea.throw(-charRotator.global_basis.z, abs(speenPower) * 10 * launchPower)
 				else:
-					slideVelocity -= charRotator.global_basis.z * speenPower * 20000.0 * boostStrength
+					slideVelocity -= charRotator.global_basis.z * abs(speenPower) * 20000.0 * boostStrength
 				mode = RUNNING
 	primaryPressed = false
 	slideVelocity -= slideVelocity * delta * 6.0
