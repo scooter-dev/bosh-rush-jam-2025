@@ -24,6 +24,7 @@ func grabLetGo() ->void:
 						body.position = Vector3()
 						body.rotation = Vector3()
 						grabbed = body
+						break
 			else:
 				grabbed.reparent(WorldManager.currentLevel)
 				grabbed.setCol()
@@ -36,5 +37,5 @@ func throw(dir : Vector3, str : float) -> void:
 		grabbed.reparent(WorldManager.currentLevel)
 		grabbed.freeze = false
 		grabbed.apply_central_impulse(dir * str)
-		grabbed.setColDelay()
+		grabbed.thrown(player)
 		grabbed = null

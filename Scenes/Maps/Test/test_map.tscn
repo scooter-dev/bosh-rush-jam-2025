@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cu8wfyiht1lyi"]
+[gd_scene load_steps=19 format=3 uid="uid://cu8wfyiht1lyi"]
 
 [ext_resource type="Shader" uid="uid://dme6ddighar4q" path="res://SRC/Shaders/rgbTexture.gdshader" id="1_1x7h3"]
 [ext_resource type="PackedScene" uid="uid://c1g40osluc5on" path="res://SRC/Player/player.tscn" id="1_orjte"]
@@ -7,6 +7,8 @@
 [ext_resource type="Shader" uid="uid://d20ryyciv7x8g" path="res://SRC/Shaders/Sky.gdshader" id="2_61yvp"]
 [ext_resource type="Shader" uid="uid://cm8puby5gs7hp" path="res://SRC/Shaders/rgbTextureTriplanar.gdshader" id="3_jwv5c"]
 [ext_resource type="PackedScene" uid="uid://b2p1t0ogxv6di" path="res://SRC/Props/monitor.tscn" id="6_x8ovn"]
+[ext_resource type="PackedScene" uid="uid://bv2roejoa0822" path="res://SRC/Enemies/Zombie/zombie.tscn" id="8_6uoeq"]
+[ext_resource type="PackedScene" uid="uid://ry72u7xd6h2o" path="res://SRC/Props/FileCabinet.tscn" id="9_evenw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ra64b"]
 render_priority = 0
@@ -197,14 +199,28 @@ directional_shadow_max_distance = 30.0
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 2, 3, -6)
 shadow_enabled = true
+distance_fade_enabled = true
+distance_fade_begin = 45.0
+distance_fade_shadow = 45.0
+distance_fade_length = 0.0
 spot_range = 9.5
 spot_angle = 73.8592
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 23, 3, -6)
 shadow_enabled = true
+distance_fade_enabled = true
+distance_fade_begin = 45.0
+distance_fade_shadow = 45.0
+distance_fade_length = 0.0
 spot_range = 9.5
 spot_angle = 73.8592
 
 [node name="Monitor" parent="." instance=ExtResource("6_x8ovn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0.5, -20)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0.5, -21)
+
+[node name="Zombie" parent="." instance=ExtResource("8_6uoeq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0.5, -22.5)
+
+[node name="RigidBody3D" parent="." instance=ExtResource("9_evenw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5, 0.5, -18.5)

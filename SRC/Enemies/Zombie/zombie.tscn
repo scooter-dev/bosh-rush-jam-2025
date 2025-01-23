@@ -1,10 +1,13 @@
-[gd_scene load_steps=22 format=3 uid="uid://bv2roejoa0822"]
+[gd_scene load_steps=26 format=3 uid="uid://bv2roejoa0822"]
 
 [ext_resource type="Script" uid="uid://bfgukb7pitkw3" path="res://SRC/Enemies/Zombie/zombie.gd" id="1_a78ok"]
 [ext_resource type="PackedScene" uid="uid://cyn7tjf3k30" path="res://Assets/Character/Character.glb" id="2_83d2e"]
 [ext_resource type="AnimationLibrary" uid="uid://caegudku3ukav" path="res://Assets/Character/anims.res" id="3_84ahr"]
 [ext_resource type="Script" uid="uid://t7ao3qeustxk" path="res://SRC/Enemies/Zombie/ZombieAnimTree.gd" id="4_5qcea"]
 [ext_resource type="Script" uid="uid://ptjhn1unpc8h" path="res://SRC/Enemies/Zombie/detection_area.gd" id="5_b8cif"]
+[ext_resource type="PackedScene" uid="uid://bo2lyf4ubkwd" path="res://SRC/Enemies/damage_number_spawner.tscn" id="6_mr2mh"]
+[ext_resource type="Shader" uid="uid://cl251maua5v7a" path="res://SRC/Shaders/healthBar.tres" id="7_dda52"]
+[ext_resource type="PackedScene" uid="uid://cmxqstag27i4n" path="res://SRC/UI/3D/health_bar.tscn" id="7_dqpwf"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_a78ok"]
 height = 1.70703
@@ -82,10 +85,22 @@ node_connections = [&"B2_Atk", 0, &"B2_Hit", &"B2_Atk", 1, &"B2_AtkLR", &"B2_Atk
 [sub_resource type="SphereShape3D" id="SphereShape3D_5qcea"]
 radius = 8.14359
 
-[node name="Zombie" type="RigidBody3D" node_paths=PackedStringArray("anim_tree")]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_px5nj"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("7_dda52")
+shader_parameter/emptyColor = Color(1, 1, 1, 1)
+shader_parameter/fullColor = Color(1, 0, 0, 1)
+shader_parameter/fill = 1.0
+
+[node name="Zombie" type="RigidBody3D" node_paths=PackedStringArray("anim_tree", "damage_number_spawner", "health_bar")]
 collision_layer = 8
+collision_mask = 7
+lock_rotation = true
 script = ExtResource("1_a78ok")
 anim_tree = NodePath("AnimationTree")
+damage_number_spawner = NodePath("DamageNumberSpawner")
+health_bar = NodePath("HealthBar")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.853516, 0)
@@ -96,9 +111,9 @@ shape = SubResource("CylinderShape3D_a78ok")
 [node name="Skeleton3D" parent="Character/Armature" index="0"]
 bones/6/rotation = Quaternion(3.09086e-08, 0.707107, 0.707107, 3.09086e-08)
 bones/8/rotation = Quaternion(0.658114, 0.474342, 0.474342, -0.341886)
-bones/9/rotation = Quaternion(-0.496697, 0.138425, 0.0806029, 0.853014)
+bones/9/rotation = Quaternion(-0.495653, 0.138524, 0.0804334, 0.853622)
 bones/10/rotation = Quaternion(0.658114, -0.474342, -0.474342, -0.341886)
-bones/11/rotation = Quaternion(-0.471689, -0.14071, -0.0765446, 0.867094)
+bones/11/rotation = Quaternion(-0.47103, -0.140768, -0.0764377, 0.867452)
 
 [node name="CharacterMesh" parent="Character/Armature/Skeleton3D" index="0"]
 lod_bias = 5.0
@@ -140,6 +155,13 @@ script = ExtResource("5_b8cif")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionArea"]
 shape = SubResource("SphereShape3D_5qcea")
+
+[node name="DamageNumberSpawner" parent="." instance=ExtResource("6_mr2mh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.888931, 0)
+
+[node name="HealthBar" parent="." instance=ExtResource("7_dqpwf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.12959, 0)
+material_override = SubResource("ShaderMaterial_px5nj")
 
 [connection signal="body_entered" from="DetectionArea" to="DetectionArea" method="_on_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="DetectionArea" method="_on_body_exited"]

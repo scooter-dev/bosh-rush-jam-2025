@@ -52,12 +52,11 @@ points = PackedVector3Array(-0.235964, 0.0161031, 0.00596406, 0.0812461, 0.92113
 
 [node name="RigidBody3D" type="RigidBody3D"]
 collision_layer = 4
-collision_mask = 7
-mass = 8.0
+collision_mask = 15
 script = ExtResource("1_wvwx3")
+damage = 4.0
 
 [node name="FileCabinet" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9, 0, -1)
 material_override = SubResource("ShaderMaterial_r74bt")
 mesh = SubResource("ArrayMesh_3ln0a")
 skeleton = NodePath("")
@@ -66,5 +65,4 @@ metadata/extras = {
 }
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9, 0, -1)
 shape = SubResource("ConvexPolygonShape3D_dk0el")
