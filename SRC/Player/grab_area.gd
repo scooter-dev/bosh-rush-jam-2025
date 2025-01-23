@@ -6,12 +6,6 @@ class_name GrabArea
 
 var grabbed : GrabbableProp = null
 
-func _ready() -> void:
-	PlayerInput.primary.connect(onPrimary)
-
-func onPrimary() -> void:
-	grabLetGo.call_deferred()
-
 func grabLetGo() ->void:
 	match player.mode:
 		Player.RUNNING:

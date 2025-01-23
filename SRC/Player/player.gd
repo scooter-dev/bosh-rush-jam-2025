@@ -61,14 +61,16 @@ func _physics_process(delta: float) -> void:
 				
 				rotDeltaSum += angleDifference
 				prevRotation = currentRotation
+			if primaryPressed:
+				grabArea.grabLetGo()
 			if rotDeltaSum > 0.0:
 				rotDeltaSum = max(0.0, rotDeltaSum - 7.0 * delta)
 			else:
 				rotDeltaSum = min(0.0, rotDeltaSum + 7.0 * delta)
 			if abs(rotDeltaSum) > 2 * PI:
 				mode = SPEEN
-				rotDeltaSum = sign(rotDeltaSum) * 2.0
-				speenPower = 0.0
+				rotDeltaSum = sign(rotDeltaSum) * 4.0
+				speenPower = rotDeltaSum
 		GRABBING:
 			#groundVelocity.x -= groundVelocity.x * delta * damping
 			#groundVelocity.z -= groundVelocity.z * delta * damping
@@ -88,11 +90,11 @@ func _physics_process(delta: float) -> void:
 				#	if sign(rotDeltaSum) != sign(angleDifference):
 				#		rotDeltaSum = 0
 				
-				rotDeltaSum += angleDifference
+				rotDeltaSum += angleDifference * 0.25
 				prevRotation = currentRotation
 			
 			rotDeltaSum = lerpf(rotDeltaSum, 0.0, delta * 0.5)
-			speenPower = clamp(rotDeltaSum, -rotSpeedLimit, rotSpeedLimit)
+			speenPower = lerp(speenPower, clamp(rotDeltaSum, -rotSpeedLimit, rotSpeedLimit), delta * 8.0)
 			if primaryPressed:
 				Engine.time_scale = 0.06
 				mode = AIM
@@ -103,8 +105,12 @@ func _physics_process(delta: float) -> void:
 				rotDeltaSum = 0.0
 		AIM:
 			rotDeltaSum = lerpf(rotDeltaSum, 0.0, delta * 0.5)
-			speenPower = clamp(rotDeltaSum, -rotSpeedLimit, rotSpeedLimit)
-			if primaryPressed:
+			speenPower = lerp(speenPower, clamp(rotDeltaSum, -rotSpeedLimit, rotSpeedLimit), delta * 6.0)
+			if abs(speenPower) < 1.0:
+				mode = RUNNING
+				speenPower = 0.0
+				rotDeltaSum = 0.0
+			elif primaryPressed:
 				rotDeltaSum = 0.0
 				Engine.time_scale = 1.0
 				if grabArea.grabbed:
@@ -119,6 +125,15 @@ func _physics_process(delta: float) -> void:
 	label.text += "\nSLD: " + str(slideVelocity)
 	apply_central_force(slideVelocity)
 	slideVelocity = Vector3()
+
+func setMode(nMode : int) -> void:
+	match mode:
+		RUNNING:
+			pass
+		SPEEN:
+			pass
+		AIM:
+			pass
 
 func wrap_angle(angle: float) -> float:
 	while angle > PI:

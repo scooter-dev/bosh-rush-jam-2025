@@ -1,0 +1,38 @@
+[gd_scene load_steps=9 format=3 uid="uid://d6bsg66ea0km"]
+
+[ext_resource type="Shader" uid="uid://08ntj0c525et" path="res://SRC/Shaders/Decal.gdshader" id="1_eqsk3"]
+[ext_resource type="Script" uid="uid://dw88380ym44vq" path="res://SRC/Effects/foot_decal.gd" id="2_3ix6e"]
+
+[sub_resource type="Gradient" id="Gradient_px5nj"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.125523, 0.669456)
+colors = PackedColorArray(0, 0, 0, 0.568627, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_btmj8"]
+gradient = SubResource("Gradient_px5nj")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_btmj8"]
+offsets = PackedFloat32Array(0, 0.543933, 0.573222, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.752941, 1, 1, 1, 0.752941, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_iy44w"]
+gradient = SubResource("Gradient_btmj8")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_btmj8"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("1_eqsk3")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = SubResource("GradientTexture2D_btmj8")
+shader_parameter/vFade = SubResource("GradientTexture1D_iy44w")
+shader_parameter/scale_mod = 1.0
+shader_parameter/cube_half_size = 0.5
+
+[sub_resource type="BoxMesh" id="BoxMesh_iy44w"]
+
+[node name="FootDecal" type="MeshInstance3D"]
+material_override = SubResource("ShaderMaterial_btmj8")
+mesh = SubResource("BoxMesh_iy44w")
+script = ExtResource("2_3ix6e")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cu8wfyiht1lyi"]
+[gd_scene load_steps=30 format=3 uid="uid://cu8wfyiht1lyi"]
 
 [ext_resource type="Shader" uid="uid://dme6ddighar4q" path="res://SRC/Shaders/rgbTexture.gdshader" id="1_1x7h3"]
 [ext_resource type="PackedScene" uid="uid://c1g40osluc5on" path="res://SRC/Player/player.tscn" id="1_orjte"]
@@ -9,6 +9,11 @@
 [ext_resource type="PackedScene" uid="uid://b2p1t0ogxv6di" path="res://SRC/Props/monitor.tscn" id="6_x8ovn"]
 [ext_resource type="PackedScene" uid="uid://bv2roejoa0822" path="res://SRC/Enemies/Zombie/zombie.tscn" id="8_6uoeq"]
 [ext_resource type="PackedScene" uid="uid://ry72u7xd6h2o" path="res://SRC/Props/FileCabinet.tscn" id="9_evenw"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_8ns7u"]
+vertices = PackedVector3Array(-29.5, 5, -29.5, -29.5, 5, 29.5, 29.5, 5, 29.5, 29.5, 5, -29.5, 23, 2, -29.5, 29.5, 2, -29, 29.5, 2, -29.5, 8.5, 1, -20.5, 8.5, 1, -22.75, 7.5, 1, -23, 7.5, 1, -20.25, -3.25, 1, -28.25, -3.25, 1, -14.5, 7.5, 1, -28.25, 7.5, 1, -14.5, 15.5, 1, -20.25, 16.75, 1, -20.5, 16.5, 1, -22.75, 15.5, 1, -23, 9.75, 1, -20.25, 9.75, 1, -18.5, 15.5, 1, -18.5, 9.75, 1, -23.25, 15.5, 1, -28.25, 9.75, 1, -28.25, 17.75, 1, -20.25, 17.75, 1, -23.25, 28.5, 1, -15.5, 28.5, 1, -28.25, 17.75, 1, -15.5, 17.75, 1, -28.25, 15.5, 1, -9.5, 9.75, 1, -9.25, 16.5, 1, -7.75, 16.75, 1, -5.5, 17.75, 1, -5.25, 17.75, 1, -8.25, 28.5, 1, 1, 28.5, 1, -12.75, 17.75, 1, -12.75, 17.75, 1, 1, 8.5, 1, -4, 8.5, 1, -6.25, 7.5, 1, -6.5, 7.5, 1, -3.75, -3.25, 1, -12.25, -3.25, 1, 1.5, 7.5, 1, 1.5, 7.5, 1, -12.25, 15.5, 1, -5.25, 15.5, 1, -8, 9.75, 1, -6.75, 9.75, 1, -3.75, 15.5, 1, -2.5, 9.75, 1, -2.25, 9.75, 1, 11, 15.5, 1, 11)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Array(6, 5, 4), PackedInt32Array(7, 10, 8), PackedInt32Array(8, 10, 9), PackedInt32Array(9, 10, 11), PackedInt32Array(11, 10, 12), PackedInt32Array(11, 13, 9), PackedInt32Array(10, 14, 12), PackedInt32Array(17, 16, 18), PackedInt32Array(18, 16, 15), PackedInt32Array(15, 21, 19), PackedInt32Array(19, 21, 20), PackedInt32Array(7, 8, 19), PackedInt32Array(19, 8, 22), PackedInt32Array(19, 22, 18), PackedInt32Array(19, 18, 15), PackedInt32Array(24, 23, 22), PackedInt32Array(22, 23, 18), PackedInt32Array(16, 17, 25), PackedInt32Array(25, 17, 26), PackedInt32Array(25, 26, 27), PackedInt32Array(27, 26, 28), PackedInt32Array(27, 29, 25), PackedInt32Array(26, 30, 28), PackedInt32Array(21, 31, 20), PackedInt32Array(20, 31, 32), PackedInt32Array(34, 33, 35), PackedInt32Array(35, 33, 36), PackedInt32Array(36, 38, 35), PackedInt32Array(35, 38, 37), PackedInt32Array(36, 39, 38), PackedInt32Array(37, 40, 35), PackedInt32Array(41, 44, 42), PackedInt32Array(42, 44, 43), PackedInt32Array(44, 46, 43), PackedInt32Array(43, 46, 45), PackedInt32Array(44, 47, 46), PackedInt32Array(45, 48, 43), PackedInt32Array(33, 34, 50), PackedInt32Array(50, 34, 49), PackedInt32Array(50, 49, 51), PackedInt32Array(31, 50, 32), PackedInt32Array(32, 50, 51), PackedInt32Array(52, 41, 42), PackedInt32Array(42, 51, 52), PackedInt32Array(52, 51, 49), PackedInt32Array(52, 49, 53), PackedInt32Array(53, 54, 52), PackedInt32Array(55, 54, 56), PackedInt32Array(56, 54, 53)]
+geometry_parsed_geometry_type = 1
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ra64b"]
 render_priority = 0
@@ -68,113 +73,156 @@ sdfgi_min_cell_size = 0.273438
 sdfgi_cascade0_distance = 17.5
 sdfgi_max_distance = 140.0
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_evenw"]
+resource_local_to_scene = true
+friction = 0.0
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_lsk3j"]
+resource_local_to_scene = true
+friction = 0.0
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_u3ud0"]
+resource_local_to_scene = true
+friction = 0.0
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_v2uxg"]
+resource_local_to_scene = true
+friction = 0.0
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_u7qui"]
+resource_local_to_scene = true
+friction = 0.0
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_d6udr"]
+resource_local_to_scene = true
+friction = 0.0
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_t7i4n"]
+resource_local_to_scene = true
+friction = 0.0
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8pfw3"]
+resource_local_to_scene = true
+friction = 0.0
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_m5is2"]
+resource_local_to_scene = true
+friction = 0.0
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2rctc"]
+resource_local_to_scene = true
+friction = 0.0
+
 [node name="TestMap" type="Node3D"]
 script = ExtResource("1_ra64b")
 
-[node name="CSG" type="Node3D" parent="."]
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_8ns7u")
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="CSG"]
+[node name="CSG" type="Node3D" parent="NavigationRegion3D"]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="NavigationRegion3D/CSG"]
 material_override = SubResource("ShaderMaterial_ra64b")
 use_collision = true
 
-[node name="CSGBox3D" type="CSGBox3D" parent="CSG/CSGCombiner3D"]
+[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/CSG/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 material_override = SubResource("ShaderMaterial_jwv5c")
 use_collision = true
 size = Vector3(60, 4, 60)
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="CSG/CSGCombiner3D"]
+[node name="CSGBox3D2" type="CSGBox3D" parent="NavigationRegion3D/CSG/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23, 2.25, -22)
 material_override = SubResource("ShaderMaterial_6uoeq")
 operation = 2
 use_collision = true
 size = Vector3(12, 3.5, 14)
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="CSG/CSGCombiner3D"]
+[node name="CSGBox3D3" type="CSGBox3D" parent="NavigationRegion3D/CSG/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 2.25, -8.75)
 material_override = SubResource("StandardMaterial3D_61yvp")
 operation = 2
 use_collision = true
 size = Vector3(7, 3.5, 40.5)
 
-[node name="CSGBox3D4" type="CSGBox3D" parent="CSG/CSGCombiner3D"]
+[node name="CSGBox3D4" type="CSGBox3D" parent="NavigationRegion3D/CSG/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2.25, -21.5)
 material_override = SubResource("StandardMaterial3D_61yvp")
 operation = 2
 use_collision = true
 size = Vector3(12, 3.5, 15)
 
-[node name="CSGBox3D5" type="CSGBox3D" parent="CSG/CSGCombiner3D"]
+[node name="CSGBox3D5" type="CSGBox3D" parent="NavigationRegion3D/CSG/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2.25, -5.5)
 material_override = SubResource("StandardMaterial3D_61yvp")
 operation = 2
 use_collision = true
 size = Vector3(12, 3.5, 15)
 
-[node name="CSGBox3D6" type="CSGBox3D" parent="CSG/CSGCombiner3D"]
+[node name="CSGBox3D6" type="CSGBox3D" parent="NavigationRegion3D/CSG/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23, 2.25, -6)
 material_override = SubResource("StandardMaterial3D_61yvp")
 operation = 2
 use_collision = true
 size = Vector3(12, 3.5, 15)
 
-[node name="CSGBox3D7" type="CSGBox3D" parent="CSG/CSGCombiner3D"]
+[node name="CSGBox3D7" type="CSGBox3D" parent="NavigationRegion3D/CSG/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5, 1.75, -21.75)
 material_override = SubResource("StandardMaterial3D_61yvp")
 operation = 2
 use_collision = true
 size = Vector3(2, 2.5, 3.5)
 
-[node name="CSGBox3D14" type="CSGBox3D" parent="CSG/CSGCombiner3D"]
+[node name="CSGBox3D14" type="CSGBox3D" parent="NavigationRegion3D/CSG/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5, 1.75, -6.75)
 material_override = SubResource("StandardMaterial3D_61yvp")
 operation = 2
 use_collision = true
 size = Vector3(2, 2.5, 3.5)
 
-[node name="CSGBox3D8" type="CSGBox3D" parent="CSG/CSGCombiner3D"]
+[node name="CSGBox3D8" type="CSGBox3D" parent="NavigationRegion3D/CSG/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.75, 1.75, -21.75)
 material_override = SubResource("StandardMaterial3D_61yvp")
 operation = 2
 use_collision = true
 size = Vector3(2.5, 2.5, 3.5)
 
-[node name="CSGBox3D13" type="CSGBox3D" parent="CSG/CSGCombiner3D"]
+[node name="CSGBox3D13" type="CSGBox3D" parent="NavigationRegion3D/CSG/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.75, 1.75, -5.25)
 material_override = SubResource("StandardMaterial3D_61yvp")
 operation = 2
 use_collision = true
 size = Vector3(2.5, 2.5, 3.5)
 
-[node name="CSGBox3D9" type="CSGBox3D" parent="CSG/CSGCombiner3D"]
+[node name="CSGBox3D9" type="CSGBox3D" parent="NavigationRegion3D/CSG/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 2.75, -30.5)
 material_override = SubResource("StandardMaterial3D_61yvp")
 operation = 2
 use_collision = true
 size = Vector3(62, 2.5, 3)
 
-[node name="CSGBox3D10" type="CSGBox3D" parent="CSG/CSGCombiner3D"]
+[node name="CSGBox3D10" type="CSGBox3D" parent="NavigationRegion3D/CSG/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 2.75, 30.5)
 material_override = SubResource("StandardMaterial3D_61yvp")
 operation = 2
 use_collision = true
 size = Vector3(62, 2.5, 3)
 
-[node name="CSGBox3D11" type="CSGBox3D" parent="CSG/CSGCombiner3D"]
+[node name="CSGBox3D11" type="CSGBox3D" parent="NavigationRegion3D/CSG/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.25, 2.75, 0.75)
 material_override = SubResource("StandardMaterial3D_61yvp")
 operation = 2
 use_collision = true
 size = Vector3(2.5, 2.5, 62.5)
 
-[node name="CSGBox3D12" type="CSGBox3D" parent="CSG/CSGCombiner3D"]
+[node name="CSGBox3D12" type="CSGBox3D" parent="NavigationRegion3D/CSG/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.25, 2.75, 0.75)
 material_override = SubResource("StandardMaterial3D_61yvp")
 operation = 2
 use_collision = true
 size = Vector3(2.5, 2.5, 62.5)
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="CSG"]
+[node name="CSGBox3D3" type="CSGBox3D" parent="NavigationRegion3D/CSG"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
 material_override = SubResource("StandardMaterial3D_61yvp")
 cast_shadow = 3
@@ -197,7 +245,7 @@ directional_shadow_fade_start = 1.0
 directional_shadow_max_distance = 30.0
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 2, 3, -6)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 2, 3.5, -6)
 shadow_enabled = true
 distance_fade_enabled = true
 distance_fade_begin = 45.0
@@ -207,7 +255,7 @@ spot_range = 9.5
 spot_angle = 73.8592
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 23, 3, -6)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 23, 3.5, -6)
 shadow_enabled = true
 distance_fade_enabled = true
 distance_fade_begin = 45.0
@@ -219,8 +267,57 @@ spot_angle = 73.8592
 [node name="Monitor" parent="." instance=ExtResource("6_x8ovn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0.5, -21)
 
-[node name="Zombie" parent="." instance=ExtResource("8_6uoeq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0.5, -22.5)
-
 [node name="RigidBody3D" parent="." instance=ExtResource("9_evenw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5, 0.5, -18.5)
+
+[node name="Zombies" type="Node3D" parent="."]
+
+[node name="Zombie" parent="Zombies" instance=ExtResource("8_6uoeq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0.5, -23)
+physics_material_override = SubResource("PhysicsMaterial_evenw")
+speed = 4.0
+
+[node name="Zombie2" parent="Zombies" instance=ExtResource("8_6uoeq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0.5, -0.5)
+physics_material_override = SubResource("PhysicsMaterial_lsk3j")
+speed = 4.0
+
+[node name="Zombie3" parent="Zombies" instance=ExtResource("8_6uoeq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0.5, 0.5)
+physics_material_override = SubResource("PhysicsMaterial_u3ud0")
+speed = 4.0
+
+[node name="Zombie4" parent="Zombies" instance=ExtResource("8_6uoeq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5, 0.5, -7.5)
+physics_material_override = SubResource("PhysicsMaterial_v2uxg")
+speed = 4.0
+
+[node name="Zombie5" parent="Zombies" instance=ExtResource("8_6uoeq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0.5, -5.5)
+physics_material_override = SubResource("PhysicsMaterial_u7qui")
+speed = 4.0
+
+[node name="Zombie6" parent="Zombies" instance=ExtResource("8_6uoeq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.5, -9)
+physics_material_override = SubResource("PhysicsMaterial_d6udr")
+speed = 4.0
+
+[node name="Zombie7" parent="Zombies" instance=ExtResource("8_6uoeq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0.5, -3.5)
+physics_material_override = SubResource("PhysicsMaterial_t7i4n")
+speed = 4.0
+
+[node name="Zombie8" parent="Zombies" instance=ExtResource("8_6uoeq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0.5, -3.5)
+physics_material_override = SubResource("PhysicsMaterial_8pfw3")
+speed = 4.0
+
+[node name="Zombie9" parent="Zombies" instance=ExtResource("8_6uoeq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, -2.5)
+physics_material_override = SubResource("PhysicsMaterial_m5is2")
+speed = 4.0
+
+[node name="Zombie10" parent="Zombies" instance=ExtResource("8_6uoeq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 0.5, -9)
+physics_material_override = SubResource("PhysicsMaterial_2rctc")
+speed = 4.0
