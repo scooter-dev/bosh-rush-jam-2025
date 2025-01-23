@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Boss Rush Jam 2025"
-run/main_scene="uid://by3t1v2htia6n"
+run/main_scene="uid://cu8wfyiht1lyi"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 OptionsManager="*res://SRC/Singletons/OptionsManager.gd"
 PlayerInput="*res://SRC/Singletons/PlayerInput.gd"
 MultiplayerManager="*res://SRC/Singletons/MultiplayerManager.gd"
+WorldManager="*res://SRC/Singletons/WorldManager.gd"
 
 [display]
 
@@ -147,14 +148,24 @@ LOCK_MOUSE={
 ]
 }
 
+[layer_names]
+
+3d_physics/layer_1="World"
+3d_physics/layer_2="Player"
+3d_physics/layer_3="Grabbable"
+3d_physics/layer_4="Enemies"
+
 [physics]
 
 common/physics_ticks_per_second=120
 common/max_physics_steps_per_frame=10
+3d/physics_engine="Jolt Physics"
 
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+lights_and_shadows/directional_shadow/size=2048
 lights_and_shadows/directional_shadow/soft_shadow_filter_quality=4
 lights_and_shadows/positional_shadow/soft_shadow_filter_quality=5
+lights_and_shadows/positional_shadow/atlas_size=2048

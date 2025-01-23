@@ -1,0 +1,70 @@
+[gd_scene load_steps=9 format=3 uid="uid://c1g40osluc5on"]
+
+[ext_resource type="Script" uid="uid://cyj8mpkhoulxo" path="res://SRC/Player/player.gd" id="1_s38mn"]
+[ext_resource type="Script" uid="uid://fcbiot2w55f6" path="res://SRC/Player/PlayerCam.gd" id="2_ond4c"]
+[ext_resource type="Script" uid="uid://c444w35trxmhq" path="res://SRC/Player/char_rotator.gd" id="3_bph2u"]
+[ext_resource type="PackedScene" uid="uid://c4yr8vievny8j" path="res://SRC/Player/player_character.tscn" id="4_s38mn"]
+[ext_resource type="Script" uid="uid://db3l1llasw5sa" path="res://SRC/Player/grab_area.gd" id="5_alhff"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_s38mn"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_s38mn"]
+height = 1.69531
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_s38mn"]
+size = Vector3(1.4353, 1.73999, 1.24072)
+
+[node name="PlayerChair" type="RigidBody3D" node_paths=PackedStringArray("cam", "charRotator", "grabArea")]
+collision_layer = 2
+collision_mask = 7
+physics_material_override = SubResource("PhysicsMaterial_s38mn")
+can_sleep = false
+lock_rotation = true
+linear_damp = 2.0
+script = ExtResource("1_s38mn")
+cam = NodePath("CamY")
+charRotator = NodePath("CharRotator")
+grabArea = NodePath("CharRotator/GrabArea")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.847656, 0)
+shape = SubResource("CylinderShape3D_s38mn")
+
+[node name="CamY" type="Node3D" parent="." node_paths=PackedStringArray("camera", "camX")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 1.53265, 0)
+script = ExtResource("2_ond4c")
+camera = NodePath("CamX/Camera3D")
+camX = NodePath("CamX")
+
+[node name="CamX" type="Node3D" parent="CamY"]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0.866026, 0, -0.866026, 0.5, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CamY/CamX"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15)
+cull_mask = 1
+fov = 65.0
+far = 400.0
+
+[node name="CharRotator" type="Node3D" parent="." node_paths=PackedStringArray("player")]
+script = ExtResource("3_bph2u")
+player = NodePath("..")
+
+[node name="PlayerCharacter" parent="CharRotator" instance=ExtResource("4_s38mn")]
+
+[node name="GrabArea" type="Area3D" parent="CharRotator" node_paths=PackedStringArray("player")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.10643, -0.806772)
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+script = ExtResource("5_alhff")
+player = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharRotator/GrabArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0032959, -0.206665, 0.06488)
+shape = SubResource("BoxShape3D_s38mn")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0

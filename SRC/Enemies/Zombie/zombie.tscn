@@ -1,0 +1,148 @@
+[gd_scene load_steps=22 format=3 uid="uid://bv2roejoa0822"]
+
+[ext_resource type="Script" uid="uid://bfgukb7pitkw3" path="res://SRC/Enemies/Zombie/zombie.gd" id="1_a78ok"]
+[ext_resource type="PackedScene" uid="uid://cyn7tjf3k30" path="res://Assets/Character/Character.glb" id="2_83d2e"]
+[ext_resource type="AnimationLibrary" uid="uid://caegudku3ukav" path="res://Assets/Character/anims.res" id="3_84ahr"]
+[ext_resource type="Script" uid="uid://t7ao3qeustxk" path="res://SRC/Enemies/Zombie/ZombieAnimTree.gd" id="4_5qcea"]
+[ext_resource type="Script" uid="uid://ptjhn1unpc8h" path="res://SRC/Enemies/Zombie/detection_area.gd" id="5_b8cif"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_a78ok"]
+height = 1.70703
+radius = 0.424316
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_83d2e"]
+animation = &"AttackL"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_84ahr"]
+animation = &"AttackR"
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_5qcea"]
+filter_enabled = true
+filters = ["Armature/Skeleton3D:arm.l", "Armature/Skeleton3D:arm.r", "Armature/Skeleton3D:head", "Armature/Skeleton3D:shoulder.l", "Armature/Skeleton3D:shoulder.r", "Armature/Skeleton3D:torso"]
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_b8cif"]
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_83d2e"]
+filter_enabled = true
+filters = ["Armature/Skeleton3D:arm.l", "Armature/Skeleton3D:arm.r"]
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_mr2mh"]
+filter_enabled = true
+filters = ["Armature/Skeleton3D:head", "Armature/Skeleton3D:torso"]
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_84ahr"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5qcea"]
+animation = &"Grab"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dda52"]
+animation = &"Hit"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_b8cif"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeTimeSeek" id="AnimationNodeTimeSeek_84ahr"]
+
+[sub_resource type="AnimationNodeTimeSeek" id="AnimationNodeTimeSeek_5qcea"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_mr2mh"]
+animation = &"WaklFW"
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_dda52"]
+graph_offset = Vector2(-417.089, 10.6412)
+nodes/AtkL/node = SubResource("AnimationNodeAnimation_83d2e")
+nodes/AtkL/position = Vector2(-40, 700)
+nodes/AtkR/node = SubResource("AnimationNodeAnimation_84ahr")
+nodes/AtkR/position = Vector2(-40, 860)
+nodes/B2_Atk/node = SubResource("AnimationNodeBlend2_5qcea")
+nodes/B2_Atk/position = Vector2(640, 360)
+nodes/B2_AtkLR/node = SubResource("AnimationNodeBlend2_b8cif")
+nodes/B2_AtkLR/position = Vector2(460, 620)
+nodes/B2_Chase/node = SubResource("AnimationNodeBlend2_83d2e")
+nodes/B2_Chase/position = Vector2(120, 220)
+nodes/B2_Hit/node = SubResource("AnimationNodeBlend2_mr2mh")
+nodes/B2_Hit/position = Vector2(360, 300)
+nodes/B2_IdleWalk/node = SubResource("AnimationNodeBlend2_84ahr")
+nodes/B2_IdleWalk/position = Vector2(-140, 160)
+nodes/ChaseArms/node = SubResource("AnimationNodeAnimation_5qcea")
+nodes/ChaseArms/position = Vector2(-160, 460)
+nodes/Hit/node = SubResource("AnimationNodeAnimation_dda52")
+nodes/Hit/position = Vector2(100, 520)
+nodes/Idle/node = SubResource("AnimationNodeAnimation_b8cif")
+nodes/Idle/position = Vector2(-420, 120)
+nodes/TS_AtkL/node = SubResource("AnimationNodeTimeSeek_84ahr")
+nodes/TS_AtkL/position = Vector2(220, 660)
+nodes/TS_AtkR/node = SubResource("AnimationNodeTimeSeek_5qcea")
+nodes/TS_AtkR/position = Vector2(220, 840)
+nodes/Walk/node = SubResource("AnimationNodeAnimation_mr2mh")
+nodes/Walk/position = Vector2(-420, 280)
+nodes/output/position = Vector2(860, 380)
+node_connections = [&"B2_Atk", 0, &"B2_Hit", &"B2_Atk", 1, &"B2_AtkLR", &"B2_AtkLR", 0, &"TS_AtkL", &"B2_AtkLR", 1, &"TS_AtkR", &"B2_Chase", 0, &"B2_IdleWalk", &"B2_Chase", 1, &"ChaseArms", &"B2_Hit", 0, &"B2_Chase", &"B2_Hit", 1, &"Hit", &"B2_IdleWalk", 0, &"Idle", &"B2_IdleWalk", 1, &"Walk", &"TS_AtkL", 0, &"AtkL", &"TS_AtkR", 0, &"AtkR", &"output", 0, &"B2_Atk"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_5qcea"]
+radius = 8.14359
+
+[node name="Zombie" type="RigidBody3D" node_paths=PackedStringArray("anim_tree")]
+collision_layer = 8
+script = ExtResource("1_a78ok")
+anim_tree = NodePath("AnimationTree")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.853516, 0)
+shape = SubResource("CylinderShape3D_a78ok")
+
+[node name="Character" parent="." instance=ExtResource("2_83d2e")]
+
+[node name="Skeleton3D" parent="Character/Armature" index="0"]
+bones/6/rotation = Quaternion(3.09086e-08, 0.707107, 0.707107, 3.09086e-08)
+bones/8/rotation = Quaternion(0.658114, 0.474342, 0.474342, -0.341886)
+bones/9/rotation = Quaternion(-0.496697, 0.138425, 0.0806029, 0.853014)
+bones/10/rotation = Quaternion(0.658114, -0.474342, -0.474342, -0.341886)
+bones/11/rotation = Quaternion(-0.471689, -0.14071, -0.0765446, 0.867094)
+
+[node name="CharacterMesh" parent="Character/Armature/Skeleton3D" index="0"]
+lod_bias = 5.0
+
+[node name="ChairBase" parent="Character" index="1"]
+visible = false
+
+[node name="ChairSeat" parent="Character" index="2"]
+visible = false
+
+[node name="ChairBack" parent="Character" index="3"]
+visible = false
+
+[node name="AnimationPlayer" parent="Character" index="4"]
+libraries = {
+&"": ExtResource("3_84ahr")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="." node_paths=PackedStringArray("zombie")]
+root_node = NodePath("../Character")
+tree_root = SubResource("AnimationNodeBlendTree_dda52")
+anim_player = NodePath("../Character/AnimationPlayer")
+parameters/B2_Atk/blend_amount = 0.0
+parameters/B2_AtkLR/blend_amount = 0.0
+parameters/B2_Chase/blend_amount = 0.0
+parameters/B2_Hit/blend_amount = 0.0
+parameters/B2_IdleWalk/blend_amount = 0
+parameters/TS_AtkL/seek_request = -1.0
+parameters/TS_AtkR/seek_request = -1.0
+script = ExtResource("4_5qcea")
+zombie = NodePath("..")
+
+[node name="DetectionArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.954842, 0)
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("5_b8cif")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionArea"]
+shape = SubResource("SphereShape3D_5qcea")
+
+[connection signal="body_entered" from="DetectionArea" to="DetectionArea" method="_on_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="DetectionArea" method="_on_body_exited"]
+[connection signal="playerDetected" from="DetectionArea" to="." method="_on_detection_area_player_detected"]
+
+[editable path="Character"]
