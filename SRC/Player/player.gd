@@ -11,8 +11,6 @@ var damping : float = 30.0
 enum {RUNNING, GRABBING, SPEEN, AIM}
 
 var mode : int = RUNNING
-var grabbed : Node3D
-var turnSpeed : float = 1.0
 var hSpeed : float = 0.0
 
 @onready var prevRotation : float = charRotator.global_rotation.y
@@ -22,10 +20,12 @@ var rotResetTimer : float = 0.0
 @onready var label: Label = $Label
 var speenPower : float = 0.0
 
+#Stats
 var boostStrength : float = 0.3
 var launchPower : float = 0.25
 var grabStrength : float = 0.3
 var rotSpeedLimit : float = 6.0
+var turnSpeed : float = 0.25
 
 #var groundVelocity : Vector3 = Vector3()
 var slideVelocity : Vector3 = Vector3()
@@ -90,13 +90,13 @@ func _physics_process(delta: float) -> void:
 				#	if sign(rotDeltaSum) != sign(angleDifference):
 				#		rotDeltaSum = 0
 				
-				rotDeltaSum += angleDifference * 0.25
+				rotDeltaSum += angleDifference * turnSpeed
 				prevRotation = currentRotation
 			
 			rotDeltaSum = lerpf(rotDeltaSum, 0.0, delta * 0.5)
 			speenPower = lerp(speenPower, clamp(rotDeltaSum, -rotSpeedLimit, rotSpeedLimit), delta * 8.0)
 			if primaryPressed:
-				Engine.time_scale = 0.06
+				Engine.time_scale = 0.12 / max(abs(speenPower) / 6.0,0.25)
 				mode = AIM
 				#print("AIM")
 			if abs(speenPower) < 1:
@@ -104,7 +104,7 @@ func _physics_process(delta: float) -> void:
 				speenPower = 0.0
 				rotDeltaSum = 0.0
 		AIM:
-			rotDeltaSum = lerpf(rotDeltaSum, 0.0, delta * 0.5)
+			rotDeltaSum = lerpf(rotDeltaSum, 0.0, delta * 0.125)
 			speenPower = lerp(speenPower, clamp(rotDeltaSum, -rotSpeedLimit, rotSpeedLimit), delta * 6.0)
 			if abs(speenPower) < 1.0:
 				mode = RUNNING

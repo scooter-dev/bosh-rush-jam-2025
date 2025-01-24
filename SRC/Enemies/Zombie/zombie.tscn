@@ -211,9 +211,9 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 
 [node name="Skeleton3D" parent="CharacterRotator/Character/Armature" index="0"]
 bones/6/rotation = Quaternion(3.09086e-08, 0.707107, 0.707107, 3.09086e-08)
 bones/8/rotation = Quaternion(0.658114, 0.474342, 0.474342, -0.341886)
-bones/9/rotation = Quaternion(-0.490716, 0.138986, 0.0796323, 0.856469)
+bones/9/rotation = Quaternion(-0.493864, 0.138692, 0.0801432, 0.854658)
 bones/10/rotation = Quaternion(0.658114, -0.474342, -0.474342, -0.341886)
-bones/11/rotation = Quaternion(-0.467626, -0.141067, -0.0758853, 0.869291)
+bones/11/rotation = Quaternion(-0.469787, -0.140877, -0.076236, 0.868125)
 
 [node name="CharacterMesh" parent="CharacterRotator/Character/Armature/Skeleton3D" index="0"]
 extra_cull_margin = 6.0
@@ -222,11 +222,11 @@ lod_bias = 5.0
 [node name="PhysicalBoneSimulator3D" type="PhysicalBoneSimulator3D" parent="CharacterRotator/Character/Armature/Skeleton3D" index="1"]
 
 [node name="Physical Bone Bone_001" type="PhysicalBone3D" parent="CharacterRotator/Character/Armature/Skeleton3D/PhysicalBoneSimulator3D"]
-transform = Transform3D(-1, 0, 1.19209e-07, 0, 1, 0, -1.19209e-07, 0, -1, -8.56817e-08, 0.6, -0.0999999)
+transform = Transform3D(-1, 0, 1.19209e-07, 0, 1, 0, -1.19209e-07, 0, -1, -8.56817e-08, 0.6, -0.1)
 collision_layer = 0
 collision_mask = 7
 joint_type = 5
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.37607e-08, 0, 0.1)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.37608e-08, 0, 0.1)
 body_offset = Transform3D(1, 0, -1.19209e-07, -1.19209e-07, 0, -1, 0, 1, 0, 8.56817e-08, 0.1, 0)
 bone_name = "Bone.001"
 joint_constraints/x/linear_limit_enabled = true
@@ -468,12 +468,12 @@ transform = Transform3D(1, 4.13226e-31, 0, 0, 0, 1, -4.13226e-31, -1, 0, 5.59816
 shape = SubResource("BoxShape3D_btmj8")
 
 [node name="Physical Bone shoulder_l" type="PhysicalBone3D" parent="CharacterRotator/Character/Armature/Skeleton3D/PhysicalBoneSimulator3D"]
-transform = Transform3D(0.100001, 0.300001, -0.948683, 0.3, 0.9, 0.316229, 0.948683, -0.316228, 3.0912e-07, 0.15, 1.25, 1.57661e-07)
+transform = Transform3D(0.100001, 0.300001, -0.948683, 0.3, 0.9, 0.316229, 0.948683, -0.316228, 3.25613e-07, 0.15, 1.25, 5.39934e-08)
 collision_layer = 0
 collision_mask = 7
 joint_type = 5
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.18271e-07, 3.89191e-07, 0.158114)
-body_offset = Transform3D(1, 1.19209e-07, 3.71039e-07, 3.9641e-07, 5.75668e-07, -1, -2.98023e-08, 1, 5.54323e-07, 5.96046e-08, 0.158114, -4.76837e-07)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.10152e-07, -2.06031e-07, 0.158114)
+body_offset = Transform3D(1, 1.49012e-07, 3.86685e-07, 4.03861e-07, 5.45866e-07, -1, -8.9407e-08, 1, 5.49108e-07, 1.49012e-07, 0.158114, 1.19209e-07)
 bone_name = "shoulder.l"
 joint_constraints/x/linear_limit_enabled = true
 joint_constraints/x/linear_limit_upper = 0.0
@@ -544,12 +544,12 @@ transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_alfak")
 
 [node name="Physical Bone shoulder_r" type="PhysicalBone3D" parent="CharacterRotator/Character/Armature/Skeleton3D/PhysicalBoneSimulator3D"]
-transform = Transform3D(0.1, -0.300001, 0.948683, -0.299999, 0.9, 0.316229, -0.948684, -0.316227, 7.02087e-08, -0.15, 1.25, 8.4297e-07)
+transform = Transform3D(0.0999999, -0.300001, 0.948683, -0.299999, 0.9, 0.316229, -0.948684, -0.316227, 4.19357e-08, -0.149999, 1.25, 8.14697e-07)
 collision_layer = 0
 collision_mask = 7
 joint_type = 5
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.02976e-07, 1.88342e-06, 0.158114)
-body_offset = Transform3D(1, -1.2517e-06, -2.19792e-07, -9.01814e-08, 7.82052e-07, -1, 1.3113e-06, 1, 9.05246e-07, -2.68221e-07, 0.158114, -2.02656e-06)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.67754e-07, 1.88672e-06, 0.158114)
+body_offset = Transform3D(1, -1.2517e-06, -1.85519e-07, -6.03791e-08, 7.82052e-07, -1, 1.3411e-06, 1, 8.84384e-07, -2.38419e-07, 0.158114, -2.02656e-06)
 bone_name = "shoulder.r"
 joint_constraints/x/linear_limit_enabled = true
 joint_constraints/x/linear_limit_upper = 0.0
@@ -620,12 +620,12 @@ transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_xypls")
 
 [node name="Physical Bone arm_l" type="PhysicalBone3D" parent="CharacterRotator/Character/Armature/Skeleton3D/PhysicalBoneSimulator3D"]
-transform = Transform3D(5.27225e-07, 0.206723, 0.9784, -1.12991e-07, -0.9784, 0.206723, 1, -2.1954e-07, -4.92479e-07, 0.300041, 1.20002, -2.30799e-07)
+transform = Transform3D(4.839e-07, 0.199468, 0.979904, -1.46213e-07, -0.979904, 0.199468, 1, -2.39798e-07, -4.45011e-07, 0.300117, 1.20014, -2.30385e-07)
 collision_layer = 0
 collision_mask = 7
 joint_type = 2
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.23543e-07, 1.32428e-05, -4.49984e-05)
-body_offset = Transform3D(1, -1.89783e-07, -2.98757e-07, -3.51888e-08, 1, 0.000233904, 4.39719e-07, -0.000233874, 1, -1.23554e-07, -1.32322e-05, 4.50015e-05)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.23111e-07, 0.000109713, -0.000141888)
+body_offset = Transform3D(1, -1.50424e-07, -3.25777e-07, -3.47978e-08, 1, 0.000283182, 4.40116e-07, -0.000283152, 1, -1.23141e-07, -0.000109673, 0.000141919)
 bone_name = "arm.l"
 joint_constraints/swing_span = 30.0
 joint_constraints/twist_span = 2.0
@@ -638,12 +638,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.44089e-16, 0.298347, -2.328
 shape = SubResource("BoxShape3D_iy44w")
 
 [node name="Physical Bone arm_r" type="PhysicalBone3D" parent="CharacterRotator/Character/Armature/Skeleton3D/PhysicalBoneSimulator3D"]
-transform = Transform3D(-9.22664e-07, -0.259192, -0.965826, 2.55259e-07, -0.965826, 0.259192, -1, -7.38822e-09, 9.57294e-07, -0.29999, 1.19995, -6.70204e-08)
+transform = Transform3D(-9.18546e-07, -0.254419, -0.967094, 2.20552e-07, -0.967094, 0.254419, -1, 2.04008e-08, 9.44432e-07, -0.299965, 1.1999, -6.694e-08)
 collision_layer = 0
 collision_mask = 7
 joint_type = 2
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.3678e-10, -4.33874e-05, 2.21821e-05)
-body_offset = Transform3D(1, -2.60845e-07, -1.01684e-06, 1.42442e-07, 1, -0.000212401, 1.17162e-06, 0.00021255, 1, 8.48019e-10, 4.33922e-05, -2.21729e-05)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.22845e-10, -9.02264e-05, 6.02232e-05)
+body_offset = Transform3D(1, -2.88644e-07, -1.03377e-06, 1.42201e-07, 1, -0.000248984, 1.17429e-06, 0.000249147, 1, 7.59059e-10, 9.02414e-05, -6.02007e-05)
 bone_name = "arm.r"
 joint_constraints/swing_span = 30.0
 joint_constraints/twist_span = 2.0
@@ -674,7 +674,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.44089e-16, 0.298347, -2.328
 shape = SubResource("BoxShape3D_iy44w")
 
 [node name="Physical Bone leg_l" type="PhysicalBone3D" parent="CharacterRotator/Character/Armature/Skeleton3D/PhysicalBoneSimulator3D"]
-transform = Transform3D(1, -2.97572e-11, 0, -2.97572e-11, -1, 4.47038e-07, 0, -4.47038e-07, -1, 0.2, 0.6, -5.58794e-08)
+transform = Transform3D(1, -2.97572e-11, 0, -2.97572e-11, -1, 4.47038e-07, 0, -4.47038e-07, -1, 0.2, 0.6, -5.58793e-08)
 collision_layer = 0
 collision_mask = 7
 joint_type = 2
@@ -696,7 +696,7 @@ transform = Transform3D(1, -2.98304e-11, -1.19209e-07, 2.97576e-11, 1, -6.10948e
 collision_layer = 0
 collision_mask = 7
 joint_type = 2
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.57491e-15, 2.17054e-20, 3.55271e-14)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.57491e-15, 2.17053e-20, 3.55271e-14)
 body_offset = Transform3D(1, -2.98304e-11, -1.19209e-07, 2.97576e-11, 1, -6.10948e-07, 1.19209e-07, 6.10948e-07, 1, 3.57492e-15, 0, -3.55271e-14)
 bone_name = "head"
 joint_constraints/swing_span = 30.0
@@ -722,6 +722,10 @@ visible = false
 libraries = {
 &"": ExtResource("3_84ahr")
 }
+
+[node name="AttackArea" type="Area3D" parent="CharacterRotator"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterRotator/AttackArea"]
 
 [node name="AnimationTree" type="AnimationTree" parent="." node_paths=PackedStringArray("zombie")]
 root_node = NodePath("../CharacterRotator/Character")

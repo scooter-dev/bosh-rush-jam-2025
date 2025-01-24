@@ -273,7 +273,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5, 0.5, -18.5)
 [node name="Zombies" type="Node3D" parent="."]
 
 [node name="Zombie" parent="Zombies" instance=ExtResource("8_6uoeq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0.5, -23)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.5, 0.5, -9)
 physics_material_override = SubResource("PhysicsMaterial_evenw")
 speed = 4.0
 
