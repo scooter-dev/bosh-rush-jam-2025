@@ -1,0 +1,106 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmkswypvk04ct"]
+
+[ext_resource type="Texture2D" uid="uid://ukvvaflgwc33" path="res://SRC/zombie_transparent_eyes.png" id="1_qs8yo"]
+
+[sub_resource type="Gradient" id="Gradient_31q7d"]
+colors = PackedColorArray(0, 0.117647, 0, 0.768627, 0.368627, 0.368627, 0.368627, 0.87451)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qs8yo"]
+gradient = SubResource("Gradient_31q7d")
+
+[node name="ZombieUi" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainMenuContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenuContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="BaseMenuContainer" type="MarginContainer" parent="MainMenuContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ZombieFaceBackground" type="NinePatchRect" parent="MainMenuContainer/VBoxContainer/BaseMenuContainer"]
+custom_minimum_size = Vector2(1200, 600)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_qs8yo")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="GradientBackground" type="NinePatchRect" parent="MainMenuContainer/VBoxContainer/BaseMenuContainer"]
+custom_minimum_size = Vector2(1200, 600)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("GradientTexture2D_qs8yo")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="MenuItemsContainer" type="MarginContainer" parent="MainMenuContainer/VBoxContainer/BaseMenuContainer/GradientBackground"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="MainMenuContainer/VBoxContainer/BaseMenuContainer/GradientBackground/MenuItemsContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/h_separation = 100
+columns = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenuContainer/VBoxContainer/BaseMenuContainer/GradientBackground/MenuItemsContainer/GridContainer"]
+layout_mode = 2
+
+[node name="CheckButton4" type="CheckButton" parent="MainMenuContainer/VBoxContainer/BaseMenuContainer/GradientBackground/MenuItemsContainer/GridContainer/VBoxContainer"]
+layout_mode = 2
+text = "Check BOX "
+
+[node name="StatsContainer" type="VBoxContainer" parent="MainMenuContainer/VBoxContainer/BaseMenuContainer/GradientBackground/MenuItemsContainer/GridContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="MainMenuContainer/VBoxContainer/BaseMenuContainer/GradientBackground/MenuItemsContainer/GridContainer/StatsContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Stats:
+Zombies Killed:
+Projectiles Thrown:
+Degrees Turned:
+"
+
+[node name="HUD" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
