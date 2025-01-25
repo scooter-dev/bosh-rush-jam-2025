@@ -4,6 +4,7 @@ class_name Zombie
 
 @export var startHealth : int = 10
 @export var speed : float = 8
+@export var damage : int = 3
 
 ##How long the zombie chases the player when losing sight
 @export var memory : float = 4.0

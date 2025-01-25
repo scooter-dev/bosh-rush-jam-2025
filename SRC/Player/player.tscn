@@ -1,10 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://c1g40osluc5on"]
+[gd_scene load_steps=20 format=3 uid="uid://c1g40osluc5on"]
 
 [ext_resource type="Script" uid="uid://cyj8mpkhoulxo" path="res://SRC/Player/player.gd" id="1_s38mn"]
 [ext_resource type="Script" uid="uid://fcbiot2w55f6" path="res://SRC/Player/PlayerCam.gd" id="2_ond4c"]
 [ext_resource type="Script" uid="uid://c444w35trxmhq" path="res://SRC/Player/char_rotator.gd" id="3_bph2u"]
 [ext_resource type="PackedScene" uid="uid://c4yr8vievny8j" path="res://SRC/Player/player_character.tscn" id="4_s38mn"]
 [ext_resource type="Script" uid="uid://db3l1llasw5sa" path="res://SRC/Player/grab_area.gd" id="5_alhff"]
+[ext_resource type="Shader" uid="uid://dmbstd54hpvph" path="res://SRC/Shaders/rgbTextureDiscard.gdshader" id="6_4h03c"]
+[ext_resource type="Texture2D" uid="uid://byf3up8308jtk" path="res://Assets/Textures/Arrow.png" id="7_ywji5"]
+[ext_resource type="PackedScene" uid="uid://d6bsg66ea0km" path="res://SRC/Effects/foot_decal.tscn" id="8_c5aa8"]
+[ext_resource type="Shader" uid="uid://08ntj0c525et" path="res://SRC/Shaders/Decal.gdshader" id="9_vrj2a"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_s38mn"]
 friction = 0.0
@@ -15,6 +19,46 @@ height = 1.69531
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_s38mn"]
 size = Vector3(1.4353, 1.73999, 1.24072)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ywji5"]
+render_priority = 0
+shader = ExtResource("6_4h03c")
+shader_parameter/tex = ExtResource("7_ywji5")
+shader_parameter/red_color = Color(0.539063, 1, 0.5, 1)
+shader_parameter/green_color = Color(0.131989, 0.675781, 0, 1)
+shader_parameter/blue_color = Color(1, 1, 1, 1)
+shader_parameter/texScale = Vector2(1, 0.25)
+shader_parameter/texOffset = Vector2(0, 1.5)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_alhff"]
+size = Vector2(2, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_stxsp"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.125523, 0.669456)
+colors = PackedColorArray(0, 0, 0, 0.568627, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_btmj8"]
+gradient = SubResource("Gradient_stxsp")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_cygn4"]
+offsets = PackedFloat32Array(0, 0.543933, 0.573222, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.752941, 1, 1, 1, 0.752941, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_iy44w"]
+gradient = SubResource("Gradient_cygn4")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p82fg"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("9_vrj2a")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = SubResource("GradientTexture2D_btmj8")
+shader_parameter/vFade = SubResource("GradientTexture1D_iy44w")
+shader_parameter/scale_mod = 1.0
+shader_parameter/cube_half_size = 0.5
 
 [node name="PlayerChair" type="RigidBody3D" node_paths=PackedStringArray("cam", "charRotator", "grabArea")]
 collision_layer = 2
@@ -48,9 +92,10 @@ cull_mask = 1
 fov = 65.0
 far = 400.0
 
-[node name="CharRotator" type="Node3D" parent="." node_paths=PackedStringArray("player")]
+[node name="CharRotator" type="Node3D" parent="." node_paths=PackedStringArray("player", "arrow")]
 script = ExtResource("3_bph2u")
 player = NodePath("..")
+arrow = NodePath("Arrow")
 
 [node name="PlayerCharacter" parent="CharRotator" instance=ExtResource("4_s38mn")]
 
@@ -66,6 +111,16 @@ player = NodePath("../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0032959, -0.206665, 0.06488)
 shape = SubResource("BoxShape3D_s38mn")
 
+[node name="Arrow" type="MeshInstance3D" parent="CharRotator"]
+transform = Transform3D(-1.31134e-07, 0, 3, 0, 3, 0, -3, 0, -1.31134e-07, -1.46663e-07, 0.30455, -2.53867)
+material_override = SubResource("ShaderMaterial_ywji5")
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_alhff")
+
 [node name="Label" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 23.0
+
+[node name="FootDecal" parent="." instance=ExtResource("8_c5aa8")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_p82fg")

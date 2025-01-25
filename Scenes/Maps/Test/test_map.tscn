@@ -1,11 +1,11 @@
 [gd_scene load_steps=30 format=3 uid="uid://cu8wfyiht1lyi"]
 
-[ext_resource type="Shader" uid="uid://dme6ddighar4q" path="res://SRC/Shaders/rgbTexture.gdshader" id="1_1x7h3"]
 [ext_resource type="PackedScene" uid="uid://c1g40osluc5on" path="res://SRC/Player/player.tscn" id="1_orjte"]
 [ext_resource type="Script" uid="uid://dnev02fq78g5" path="res://Scenes/Maps/Level.gd" id="1_ra64b"]
 [ext_resource type="Texture2D" uid="uid://bkclfd3itw7r7" path="res://Assets/Textures/Carpet.png" id="1_yxp5o"]
 [ext_resource type="Shader" uid="uid://d20ryyciv7x8g" path="res://SRC/Shaders/Sky.gdshader" id="2_61yvp"]
 [ext_resource type="Shader" uid="uid://cm8puby5gs7hp" path="res://SRC/Shaders/rgbTextureTriplanar.gdshader" id="3_jwv5c"]
+[ext_resource type="Shader" uid="uid://dmbstd54hpvph" path="res://SRC/Shaders/rgbTextureDiscard.gdshader" id="4_evenw"]
 [ext_resource type="PackedScene" uid="uid://b2p1t0ogxv6di" path="res://SRC/Props/monitor.tscn" id="6_x8ovn"]
 [ext_resource type="PackedScene" uid="uid://bv2roejoa0822" path="res://SRC/Enemies/Zombie/zombie.tscn" id="8_6uoeq"]
 [ext_resource type="PackedScene" uid="uid://ry72u7xd6h2o" path="res://SRC/Props/FileCabinet.tscn" id="9_evenw"]
@@ -28,11 +28,13 @@ shader_parameter/uv1_blend_sharpness = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jwv5c"]
 render_priority = 0
-shader = ExtResource("1_1x7h3")
+shader = ExtResource("4_evenw")
 shader_parameter/tex = ExtResource("1_yxp5o")
 shader_parameter/red_color = Color(0.839844, 0.520776, 0.147629, 1)
 shader_parameter/green_color = Color(0.321823, 0.520947, 0.628906, 1)
 shader_parameter/blue_color = Color(1, 1, 1, 1)
+shader_parameter/texScale = Vector2(1, 1)
+shader_parameter/texOffset = Vector2(0, 0)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6uoeq"]
 render_priority = 0

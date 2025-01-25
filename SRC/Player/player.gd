@@ -116,7 +116,7 @@ func _physics_process(delta: float) -> void:
 				if grabArea.grabbed:
 					grabArea.throw(-charRotator.global_basis.z, abs(speenPower) * 5 * launchPower)
 				else:
-					slideVelocity -= charRotator.global_basis.z * abs(speenPower) * 20000.0 * boostStrength
+					slideVelocity -= charRotator.global_basis.z * abs(speenPower) * 10000.0 * boostStrength
 				mode = RUNNING
 	primaryPressed = false
 	slideVelocity -= slideVelocity * delta * 6.0

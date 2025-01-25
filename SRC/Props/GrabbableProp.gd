@@ -38,6 +38,7 @@ func _physics_process(delta: float) -> void:
 			thrower = null
 	prevVel = linear_velocity
 
+
 func setCol() -> void:
 	collision_layer = 4
 	collision_mask = mask
