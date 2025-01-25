@@ -8,6 +8,8 @@ class_name GrabbableProp
 
 var thrower : Node3D = null
 
+enum DamageType {ELECTRIC, WATER, FIRE, CAT}
+
 func _ready() -> void:
 	set_physics_process(false)
 
@@ -30,7 +32,7 @@ func _physics_process(delta: float) -> void:
 		if body is Zombie:
 			var dmg : int = int(damage * prevVel.length() / 6.0)
 			if dmg > 0:
-				body.onDamaged(dmg, thrower)
+				body.onDamaged(dmg, thrower, self)
 	if linear_velocity.length_squared() < 4.0:
 		tmr = max(0.0, tmr - delta)
 		if tmr < 0.001:
