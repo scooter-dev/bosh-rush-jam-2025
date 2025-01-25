@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://ukvvaflgwc33" path="res://SRC/zombie_transparent_eyes.png" id="1_qs8yo"]
 
 [sub_resource type="Gradient" id="Gradient_31q7d"]
-colors = PackedColorArray(0, 0.117647, 0, 0.768627, 0.368627, 0.368627, 0.368627, 0.87451)
+colors = PackedColorArray(0, 0.117647, 0, 0.921569, 0.368627, 0.368627, 0.368627, 0.431373)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_qs8yo"]
 gradient = SubResource("Gradient_31q7d")
@@ -65,33 +65,69 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
+metadata/_edit_use_anchors_ = true
 
 [node name="GridContainer" type="GridContainer" parent="MainMenuContainer/VBoxContainer/BaseMenuContainer/GradientBackground/MenuItemsContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/h_separation = 100
-columns = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MainMenuContainer/VBoxContainer/BaseMenuContainer/GradientBackground/MenuItemsContainer/GridContainer"]
+[node name="Main Menu Buttons Container" type="VBoxContainer" parent="MainMenuContainer/VBoxContainer/BaseMenuContainer/GradientBackground/MenuItemsContainer/GridContainer"]
 layout_mode = 2
-
-[node name="CheckButton4" type="CheckButton" parent="MainMenuContainer/VBoxContainer/BaseMenuContainer/GradientBackground/MenuItemsContainer/GridContainer/VBoxContainer"]
-layout_mode = 2
-text = "Check BOX "
-
-[node name="StatsContainer" type="VBoxContainer" parent="MainMenuContainer/VBoxContainer/BaseMenuContainer/GradientBackground/MenuItemsContainer/GridContainer"]
-layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 50
 alignment = 1
 
-[node name="Label" type="Label" parent="MainMenuContainer/VBoxContainer/BaseMenuContainer/GradientBackground/MenuItemsContainer/GridContainer/StatsContainer"]
+[node name="Button" type="Button" parent="MainMenuContainer/VBoxContainer/BaseMenuContainer/GradientBackground/MenuItemsContainer/GridContainer/Main Menu Buttons Container"]
 layout_mode = 2
-size_flags_vertical = 1
-text = "Stats:
-Zombies Killed:
-Projectiles Thrown:
-Degrees Turned:
-"
+theme_override_font_sizes/font_size = 30
+text = "Resume"
+
+[node name="Button2" type="Button" parent="MainMenuContainer/VBoxContainer/BaseMenuContainer/GradientBackground/MenuItemsContainer/GridContainer/Main Menu Buttons Container"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Settings"
+
+[node name="Button3" type="Button" parent="MainMenuContainer/VBoxContainer/BaseMenuContainer/GradientBackground/MenuItemsContainer/GridContainer/Main Menu Buttons Container"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Restart"
+
+[node name="Button4" type="Button" parent="MainMenuContainer/VBoxContainer/BaseMenuContainer/GradientBackground/MenuItemsContainer/GridContainer/Main Menu Buttons Container"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Exit"
+
+[node name="Stats Container" type="HBoxContainer" parent="MainMenuContainer/VBoxContainer/BaseMenuContainer/GradientBackground/MenuItemsContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="Label" type="Label" parent="MainMenuContainer/VBoxContainer/BaseMenuContainer/GradientBackground/MenuItemsContainer/GridContainer/Stats Container"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 20
+text = "Zombies Bopped:"
+autowrap_mode = 2
+
+[node name="Label2" type="Label" parent="MainMenuContainer/VBoxContainer/BaseMenuContainer/GradientBackground/MenuItemsContainer/GridContainer/Stats Container"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 20
+text = "Zombies Bopped:"
+autowrap_mode = 2
+
+[node name="Label3" type="Label" parent="MainMenuContainer/VBoxContainer/BaseMenuContainer/GradientBackground/MenuItemsContainer/GridContainer/Stats Container"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 20
+text = "Zombies Bopped:"
+autowrap_mode = 2
 
 [node name="HUD" type="MarginContainer" parent="."]
 layout_mode = 1
