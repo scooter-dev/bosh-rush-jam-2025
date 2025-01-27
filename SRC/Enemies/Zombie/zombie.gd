@@ -132,8 +132,6 @@ func onDamaged(damage : int ,instigator : Node3D = null, grabbable: GrabbablePro
 
 
 @export var living_shape: CollisionShape3D
-@export var dead_shape: CollisionShape3D
-@export var dead_shape_2: CollisionShape3D
 @export var foot_decal: FootDecal
 
 

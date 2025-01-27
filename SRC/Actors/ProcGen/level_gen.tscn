@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cojsefvig53m4"]
+
+[ext_resource type="Script" uid="uid://ckjpergtgginl" path="res://SRC/Actors/ProcGen/level_gen.gd" id="1_ch8g2"]
+
+[node name="LevelGen" type="Node3D"]
+script = ExtResource("1_ch8g2")

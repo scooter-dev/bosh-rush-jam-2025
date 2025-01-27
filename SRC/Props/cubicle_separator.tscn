@@ -1,0 +1,67 @@
+[gd_scene load_steps=7 format=4 uid="uid://csdskpeaitm02"]
+
+[ext_resource type="Shader" uid="uid://cra4e3ql2h74g" path="res://SRC/Shaders/GradientMappedLit.gdshader" id="1_42u1m"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tflir"]
+render_priority = 0
+shader = ExtResource("1_42u1m")
+shader_parameter/topColor = Color(0.898438, 0.850182, 0.758057, 1)
+shader_parameter/bottomColor = Color(0.578125, 0.53931, 0.47876, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mlk1r"]
+resource_name = "Grad"
+cull_mode = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_h5r4i"]
+_surfaces = [{
+"aabb": AABB(2.23517e-08, 0, -0.02, 2, 1.5, 0.04),
+"format": 34896613377,
+"index_count": 132,
+"index_data": PackedByteArray("AAAEAAIAEgACAAQAEgAOAAIAEgAEAA8AAgAOAAoAAgAKAAAACQAOABIACQASAA8AEwAKAA4ACQAHAA4AEwAOAAcACwAAAAoACwAKABMAFAAAAAsAFAAGAAAAAAAGAAQADAAUAAsACwATAAgADAALAAgACAATAAUABwAFABMACAADAAwACAAFAAMABwAVAAUAAwAFABUACQAVAAcADAAWABQAFAAWAAYADAADAA0ADAANABYAAwAVAAEAAQANAAMAEAAVAAkAEAABABUACQAPABAAAQAXAA0AEAAXAAEAFgANABcADwAXABAAFgAXABEADwARABcABgAWABEABAARAA8ABgARAAQA"),
+"lods": [0.00962418, PackedByteArray("AAAEAAIAAAAGAAQAAgAKAAAABgAAAAsACwAAAAoADAAGAAsADAALAAgACwAKAAgADAANAAYAAgAOAAoACAADAAwADAADAA0ACAAKAAUACAAFAAMACgAOAAcABwAFAAoACQAHAA4ABwAJAAUACQAOAAIAAwAFAAkACQACAA8AAgAEAA8AAwAJAAEAAQANAAMACQAPABAAEAABAAkABAARAA8ADwARABAAEAARAAEAAQARAA0ABgARAAQABgANABEA"), 0.0131517, PackedByteArray("AAAEAAIAAgAEAAEAAAAGAAQAAgAHAAAABgAAAAgABgADAAQAAQAEAAMAAwAGAAgACQACAAEAAwAJAAEACQAHAAIACAAFAAMAAwAFAAkACAAAAAUABwAJAAUABwAFAAAA"), 0.0303769, PackedByteArray("AAAEAAIAAgAEAAEAAgAFAAAAAQAEAAMAAwACAAEAAAADAAQAAwAFAAIAAwAAAAUA"), 0.0353041, PackedByteArray("AAABAAIAAwACAAEAAwAAAAIAAAADAAEA")],
+"name": "Grad",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("t/60Af//AABHAUr+AAAAALf+Sv7//wAARwG0AQAAAABHAUr+//8AALf+tAEAAAAARwG0Af//AAD//0r+/z8AALf+AAD/PwAAt/7///8/AAD//7QB/78AALf+AAD/vwAARwEAAP8/AAAAALQB/z8AAP//Sv7/vwAARwH///+/AABHAf///z8AAAAASv7/vwAAt/7///+/AAD//7QB/z8AAEcBAAD/vwAAt/5K/gAAAAAAALQB/78AAAAASv7/PwAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_1g2k6"]
+resource_name = "Office_Cube_002"
+_surfaces = [{
+"aabb": AABB(2.23517e-08, 0, -0.02, 2, 1.5, 0.04),
+"attribute_data": PackedByteArray("/38k//7/2YD/f9mA//8k////JP//f9mA/v/ZgP9/JP//f9mA/v8k//9/JP//3/9//9//f//f2YD/3/7//38k//+f/3//3/9//5/ZgP/fJP//3////58k//+f2YD/3////5/+///fJP//n/9//v/ZgP+f/v//n////9/+///f////3/9//5//f//f/3//n/9//58k///f2YD/fyT//5////9/2YD/n/9//3/ZgP7/2YD/n///"),
+"format": 34896613399,
+"index_count": 132,
+"index_data": PackedByteArray("AAAIAAIAAAAKAAgAGQAWAA0ADAANABYADAAWABoADAAbAA0AGgAWAAUABQAWABUAGQAVABYABQAVAAcAHAAVABkAHAAHABUAHQAHABwAHQAPAAcAHAAZAB4ADQAJABkAHgAZAAkADQAbAAkAHgAJAAQABAAJABsAHgAEAB8ABAAbAAYAIAAhACIAIAAjACEAJAAlABIAJgAkABIAJwAkACYAJgASACgAFAAkACcAKAASABAAEAASACUAKQAoABAAKQAqACgAEAAlABEAFAATACQAJAATACUAFAADABMAAQATAAMAAQAlABMAEQAlAAEAEQABACsAEQArAAsAFwAYAA4AFwAsABgA"),
+"lods": [0.00962418, PackedByteArray("AAAIAAIAAAAKAAgAAgAIABAACwACABAACwAQABEAEQABAAsACAASABAAEAASABEACgASAAgAEQASAAEACgATABIAAQASABMAFAATAAoAAQATAAMAFAADABMAFQAWAA0ADAANABYADAAWAAUABQAWABUADQAMAAkADQAJABUABQAVAAcABAAJAAwABAAMAAYADgAJAAQADgAVAAkADgAEABcAGAAHABUAGAAVAA4AFwAYAA4ADwAHABgAFwAPABgA"), 0.0131517, PackedByteArray("AAAIAAIAAAAKAAgACgADAAgAAQAIAAMAAgAIAAEACwACAAEABAAMAAYABAAJAAwADQAMAAkADAANAAUABQANAAcADQAJAAcADgAHAAkADgAJAAQADwAHAA4ABAAPAA4A"), 0.0303769, PackedByteArray("AAAIAAIAAgAIAAEAAAADAAgAAQAIAAMABAAFAAYABAAJAAUABQAJAAcABAAHAAkA"), 0.0353041, PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUA")],
+"material": SubResource("StandardMaterial3D_mlk1r"),
+"name": "Grad",
+"primitive": 3,
+"uv_scale": Vector4(2, 2, 0, 0),
+"vertex_count": 45,
+"vertex_data": PackedByteArray("t/60Af///n9HAUr+AAAAALf+Sv7///5/RwG0AQAAAABHAbQBAAD//7f+Sv7//wCARwFK/gAA//+3/rQB//8AgEcBSv7///5/t/60AQAA//9HAbQB///+f7f+////P/8/t/7///8/Gd///0r+/z//v7f+AAD/P1TVRwG0Af//AIBHAf///79UFkcB////P6cmAABK/v+/AAAAALQB/z8AAEcBAAD/PzYz//+0Af+//7///0r+/7//v0cBAAD/P1TVt/4AAP+/VNX//7QB/z//v7f+////v8jMt/5K/gAA//+3/gAA/7/8xUcBAAD/v/+/t/4AAP8/qulHAQAA/z///7f+////P4MqRwH///+/DwFHAf///z/fALf+////v6oqAAC0Af+/AAAAAEr+/z8AAEcBtAH//wAARwEAAP+/5SBHAUr+//8AALf+////vwAAt/5K/v//AAC3/kr+AAAAAEcBAAD/v1TV/3///////3//f///////f/9/////f////3////9/////f////3////9///////9/BtANIP9/AABUVVRV/3////rK9hUG0w0m/z//f/8//382SWRb/38AAP9/AABUVVRVVFVUVf9/AABj28k2/3////45AGMAAP9/CWr6Sv9//z881XsqlMAqAXrA9gBU1aoq/z//f/8//3//f/9/8V8GUP9//3//f/+//3//f////39UVVRV")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_h5r4i")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_42u1m"]
+points = PackedVector3Array(-0.0154753, -0.0157239, -0.0358606, 2.01548, 1.50779, 0.0276066, 2.01548, 1.50779, -0.0358606, -0.0154753, 1.50779, 0.0276066, 2.01548, -0.0157239, 0.0276066, 2.01548, -0.0157239, -0.0358606, -0.0154753, 1.50779, -0.0358606, -0.0154753, -0.0157239, 0.0276066)
+
+[node name="CubicleSeparator" type="RigidBody3D"]
+collision_layer = 0
+collision_mask = 15
+mass = 0.5
+
+[node name="CubicleSeparator" type="MeshInstance3D" parent="."]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_tflir")
+lod_bias = 5.0
+gi_mode = 2
+mesh = SubResource("ArrayMesh_1g2k6")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_42u1m")

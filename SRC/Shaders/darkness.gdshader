@@ -1,17 +1,12 @@
 shader_type spatial;
-
-uniform sampler2D gradient : repeat_disable;
-
-uniform vec4 topColor : source_color = vec4(1);
-uniform vec4 bottomColor : source_color = vec4(1);
+render_mode unshaded, cull_front;
 
 void vertex() {
 	// Called for every vertex the material is visible on.
 }
 
 void fragment() {
-	vec4 tex = texture(gradient, UV.yx);
-	ALBEDO = mix(topColor, bottomColor, UV.y).rgb * tex.rgb;
+	ALBEDO = vec3(0);
 }
 
 //void light() {

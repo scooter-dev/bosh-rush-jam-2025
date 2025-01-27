@@ -16,4 +16,16 @@ bones/9/rotation = Quaternion(-0.353408, 0.468597, 0.468632, 0.66023)
 bones/10/rotation = Quaternion(0.658114, -0.474342, -0.474342, -0.341886)
 bones/11/rotation = Quaternion(-0.333954, -0.482098, -0.454731, 0.670281)
 
+[node name="CharacterMesh" parent="Character/Armature/Skeleton3D" index="0"]
+gi_mode = 2
+
+[node name="ChairBase" parent="Character" index="1"]
+gi_mode = 2
+
+[node name="ChairSeat" parent="Character" index="2"]
+gi_mode = 2
+
+[node name="ChairBack" parent="Character" index="3"]
+gi_mode = 2
+
 [editable path="Character"]

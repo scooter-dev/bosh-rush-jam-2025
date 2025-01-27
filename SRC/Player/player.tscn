@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://c1g40osluc5on"]
+[gd_scene load_steps=21 format=3 uid="uid://c1g40osluc5on"]
 
 [ext_resource type="Script" uid="uid://cyj8mpkhoulxo" path="res://SRC/Player/player.gd" id="1_s38mn"]
 [ext_resource type="Script" uid="uid://fcbiot2w55f6" path="res://SRC/Player/PlayerCam.gd" id="2_ond4c"]
@@ -15,7 +15,9 @@ friction = 0.0
 bounce = 1.0
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_s38mn"]
-height = 1.69531
+height = 1.55835
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_c5aa8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_s38mn"]
 size = Vector3(1.4353, 1.73999, 1.24072)
@@ -74,8 +76,12 @@ charRotator = NodePath("CharRotator")
 grabArea = NodePath("CharRotator/GrabArea")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.847656, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.916136, 0)
 shape = SubResource("CylinderShape3D_s38mn")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.496392, 0)
+shape = SubResource("SphereShape3D_c5aa8")
 
 [node name="CamY" type="Node3D" parent="." node_paths=PackedStringArray("camera", "camX")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 1.53265, 0)

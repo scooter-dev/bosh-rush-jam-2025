@@ -1,0 +1,40 @@
+[gd_scene load_steps=8 format=3 uid="uid://dld86ghvbxsn6"]
+
+[ext_resource type="PackedScene" uid="uid://cbfnamxbsrff1" path="res://SRC/Props/CubicleDesk.tscn" id="1_ab4kf"]
+[ext_resource type="Script" uid="uid://dkw4hw5dchf86" path="res://SRC/Props/cubicle.gd" id="1_tsblb"]
+[ext_resource type="PackedScene" uid="uid://b2p1t0ogxv6di" path="res://SRC/Props/monitor.tscn" id="2_6l27d"]
+[ext_resource type="PackedScene" uid="uid://baaoq0v07g1tr" path="res://SRC/Props/office_chair.tscn" id="3_q6nfc"]
+[ext_resource type="PackedScene" uid="uid://c5dax5r7r6e70" path="res://SRC/Props/pc_tower.tscn" id="4_6l27d"]
+[ext_resource type="PackedScene" uid="uid://nxcuqqsmiic2" path="res://SRC/Props/printer.tscn" id="5_q6nfc"]
+[ext_resource type="PackedScene" uid="uid://csdskpeaitm02" path="res://SRC/Props/cubicle_separator.tscn" id="6_pie6l"]
+
+[node name="Cubicle" type="Node3D" node_paths=PackedStringArray("printer", "chair", "separator_right", "separator_left", "separator_back")]
+script = ExtResource("1_tsblb")
+printer = NodePath("Printer")
+chair = NodePath("OfficeChair")
+separator_right = NodePath("RightSeparator")
+separator_left = NodePath("LeftSeparator")
+separator_back = NodePath("BackSeparator")
+
+[node name="CubicleDesk" parent="." instance=ExtResource("1_ab4kf")]
+
+[node name="Monitor" parent="." instance=ExtResource("2_6l27d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 1.05, -0.6)
+
+[node name="OfficeChair" parent="." instance=ExtResource("3_q6nfc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0, 0.25)
+
+[node name="PCTower" parent="." instance=ExtResource("4_6l27d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 1, -0.65)
+
+[node name="Printer" parent="." instance=ExtResource("5_q6nfc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, 1, 0.3)
+
+[node name="RightSeparator" parent="." instance=ExtResource("6_pie6l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1)
+
+[node name="LeftSeparator" parent="." instance=ExtResource("6_pie6l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1)
+
+[node name="BackSeparator" parent="." instance=ExtResource("6_pie6l")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1, 0, -1)

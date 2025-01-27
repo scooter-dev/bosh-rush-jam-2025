@@ -1,4 +1,5 @@
 shader_type spatial;
+render_mode world_vertex_coords;
 
 uniform sampler2D tex;
 uniform vec4 red_color : source_color = vec4(1);

@@ -17,6 +17,9 @@ func interact() ->void:
 						body.reparent(self)
 						body.position = Vector3()
 						body.rotation = Vector3()
+						if body.grabPoint:
+							body.rotation = body.grabPoint.rotation
+							body.position = body.grabPoint.position
 						grabbed = body
 						return
 				for area : InteractionArea in get_overlapping_areas():

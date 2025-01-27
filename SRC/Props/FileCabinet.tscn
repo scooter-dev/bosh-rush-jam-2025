@@ -58,6 +58,7 @@ damage = 4.0
 
 [node name="FileCabinet" type="MeshInstance3D" parent="."]
 material_override = SubResource("ShaderMaterial_r74bt")
+gi_mode = 2
 mesh = SubResource("ArrayMesh_3ln0a")
 skeleton = NodePath("")
 metadata/extras = {

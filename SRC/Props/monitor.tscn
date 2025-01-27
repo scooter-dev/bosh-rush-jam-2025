@@ -91,6 +91,7 @@ script = ExtResource("1_or8vo")
 damage = 2.0
 
 [node name="Monitor" type="MeshInstance3D" parent="."]
+gi_mode = 2
 mesh = SubResource("ArrayMesh_pu07g")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("ShaderMaterial_cqjji")
