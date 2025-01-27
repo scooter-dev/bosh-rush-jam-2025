@@ -15,7 +15,7 @@ class_name Zombie
 @export var nav_agent: NavigationAgent3D
 @export var boneSimulator : PhysicalBoneSimulator3D
 signal dead
-signal damaged(amount : int)
+signal damaged(amount : int, instigator : Node3D, grabbable: GrabbableProp)
 
 var isDead : bool = false
 
@@ -115,7 +115,7 @@ func _on_detection_area_player_detected(player: Player) -> void:
 
 var recoveryTime : float = 0.0
 var stunTimer : float = 0.0
-func onDamaged(damage : int ,instigator : Node3D = null) -> void:
+func onDamaged(damage : int ,instigator : Node3D = null, grabbable: GrabbableProp = null) -> void:
 	if recoveryTime < 0.005:
 		recoveryTime = 0.2
 		if instigator:
@@ -126,7 +126,7 @@ func onDamaged(damage : int ,instigator : Node3D = null) -> void:
 		stunTimer = float(damage) * 0.25
 		damage_number_spawner.spawnDNumber(damage)
 		health_bar.setHealthRelative(float(health)/float(startHealth))
-		damaged.emit(damage)
+		damaged.emit(damage, instigator, grabbable)
 		if health <= 0:
 			die()
 
