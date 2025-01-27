@@ -5,6 +5,7 @@ class_name GrabbableProp
 @export var damage : float = 1
 
 @onready var mask : int = collision_mask
+@onready var layer : int = collision_layer
 
 var thrower : Node3D = null
 
@@ -40,10 +41,10 @@ func _physics_process(delta: float) -> void:
 
 
 func setCol() -> void:
-	collision_layer = 4
+	collision_layer = layer
 	collision_mask = mask
 
 func setColDelay() -> void:
 	await get_tree().create_timer(0.034).timeout
-	collision_layer = 4
+	collision_layer = layer
 	collision_mask = mask

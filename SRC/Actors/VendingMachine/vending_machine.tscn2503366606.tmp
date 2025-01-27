@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=4 uid="uid://dmkgyudote4ss"]
+[gd_scene load_steps=54 format=4 uid="uid://dmkgyudote4ss"]
 
 [ext_resource type="Texture2D" uid="uid://dhma06nv4bcls" path="res://Assets/Textures/crayola-13-grad.png" id="1_ofxub"]
 [ext_resource type="Script" uid="uid://bldfpgplvtpid" path="res://SRC/Actors/VendingMachine/vending_machine.gd" id="1_r2tdk"]
@@ -8,7 +8,6 @@
 [ext_resource type="FontFile" uid="uid://desuswgpydw03" path="res://Assets/Fonts/DIGITALDREAM.ttf" id="5_avwup"]
 [ext_resource type="Script" uid="uid://do2k0mkiodv3a" path="res://SRC/Actors/VendingMachine/item.gd" id="5_hn4wt"]
 [ext_resource type="PackedScene" uid="uid://baelilab75hld" path="res://SRC/Actors/VendingMachine/Plaque.tscn" id="6_n5qcu"]
-[ext_resource type="PackedScene" uid="uid://bd680ijokcdop" path="res://SRC/Actors/Interaction/InteractionArea.tscn" id="9_e1iq0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vdqpl"]
 resource_name = "GradColor"
@@ -521,159 +520,7 @@ emission_texture = SubResource("GradientTexture2D_e1iq0")
 [sub_resource type="QuadMesh" id="QuadMesh_8rd53"]
 size = Vector2(0.12, 0.055)
 
-[sub_resource type="Animation" id="Animation_n5qcu"]
-resource_name = "ShowItem"
-length = 2.0
-step = 0.1
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("VendingMachineHatch:rotation:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1.49001, -0.25, 0, 0.25, 0, 1.49001, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.5, 1.2, 1.8)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("VendingMachineHatch:rotation:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.5, 1.2, 1.8)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("VendingMachineHatch:rotation:z")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.5, 1.2, 1.8)
-}
-tracks/3/type = "bezier"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("ItemShow:position:x")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0.3, 1.5)
-}
-tracks/4/type = "bezier"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("ItemShow:position:y")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0.180025, -0.25, 0, 0.25, 0, 0.350732, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0.3, 1.5)
-}
-tracks/5/type = "bezier"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("ItemShow:position:z")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0.405187, -0.25, 0, 0.25, 0, 1.01241, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0.3, 1.5)
-}
-
-[sub_resource type="Animation" id="Animation_e1iq0"]
-length = 0.001
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("VendingMachineHatch:rotation:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("VendingMachineHatch:rotation:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("VendingMachineHatch:rotation:z")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/3/type = "bezier"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("ItemShow:position:x")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/4/type = "bezier"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("ItemShow:position:y")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0.180025, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/5/type = "bezier"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("ItemShow:position:z")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0.405187, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_e1iq0"]
-_data = {
-&"RESET": SubResource("Animation_e1iq0"),
-&"ShowItem": SubResource("Animation_n5qcu")
-}
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_n5qcu"]
-size = Vector3(1, 1.65918, 0.717651)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_4kcv3"]
-size = Vector3(1, 1, 0.501465)
-
-[node name="VendingMachine" type="Node3D" node_paths=PackedStringArray("camera", "l_browse_center", "l_keypad", "l_buy", "button_1", "num_panel", "itemsNode", "animation_player", "item_show")]
+[node name="VendingMachine" type="Node3D" node_paths=PackedStringArray("camera", "l_browse_center", "l_keypad", "l_buy", "button_1", "num_panel", "itemsNode")]
 script = ExtResource("1_r2tdk")
 camera = NodePath("Camera3D")
 l_browse_center = NodePath("LookPosition/LookCenter")
@@ -682,8 +529,6 @@ l_buy = NodePath("LookPosition/LookBuy")
 button_1 = NodePath("Buttons/Button1")
 num_panel = NodePath("NumPanel")
 itemsNode = NodePath("Items/Item")
-animation_player = NodePath("AnimationPlayer")
-item_show = NodePath("ItemShow/ShowMesh")
 
 [node name="VendingMachine" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_el7bl")
@@ -806,7 +651,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07, 1.35, 0.96)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.39, 1.19, 1)
 
 [node name="LookBuy" type="Node3D" parent="LookPosition"]
-transform = Transform3D(1, 0, 0, 0, 0.970917, 0.239415, 0, -0.239415, 0.970917, 0, 0.556769, 1.4046)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.34, 1.08)
 
 [node name="Items" type="Node3D" parent="."]
 
@@ -817,8 +662,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.291236, 1.40145, 0.124068)
 script = ExtResource("5_hn4wt")
 code = 483
 price = 40
-showRotation = Vector3(-45, 18, 0)
-offset = Vector3(0, -0.03, 0)
 
 [node name="GlueBottle" type="MeshInstance3D" parent="Items/Item/Glue"]
 mesh = SubResource("ArrayMesh_oayi3")
@@ -877,8 +720,6 @@ script = ExtResource("5_hn4wt")
 code = 168
 item = 2
 price = 50
-showRotation = Vector3(25, 0, 0)
-offset = Vector3(0, 0.05, 0)
 
 [node name="Tape" type="MeshInstance3D" parent="Items/Item/Tape"]
 mesh = SubResource("ArrayMesh_7udil")
@@ -895,8 +736,6 @@ script = ExtResource("5_hn4wt")
 code = 223
 item = 3
 price = 120
-showRotation = Vector3(0, 90, 25)
-offset = Vector3(0, 0.02, 0)
 
 [node name="PhoneBook" type="MeshInstance3D" parent="Items/Item/PhoneBook"]
 transform = Transform3D(-4.37114e-08, -1, -1.91069e-15, -4.37114e-08, 3.82137e-15, 1, -1, 4.37114e-08, -4.37114e-08, 0.0968711, 0, -1.49012e-08)
@@ -906,7 +745,7 @@ skeleton = NodePath("")
 [node name="Soda" type="Node3D" parent="Items/Item"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.341384, 1.13543, 0.136447)
 script = ExtResource("5_hn4wt")
-code = 85
+code = 874
 item = 4
 price = 30
 
@@ -933,11 +772,9 @@ skeleton = NodePath("")
 [node name="Candy" type="Node3D" parent="Items/Item"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0399803, 1.10921, 0.114707)
 script = ExtResource("5_hn4wt")
-code = 12
+code = 30
 item = 5
 price = 20
-showRotation = Vector3(15, 90, 45)
-offset = Vector3(0, 0.05, 0)
 
 [node name="Candy" type="MeshInstance3D" parent="Items/Item/Candy"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
@@ -975,7 +812,6 @@ script = ExtResource("5_hn4wt")
 code = 799
 item = 11
 price = 400
-offset = Vector3(0, 0.05, 0)
 
 [node name="LaserPointer" type="MeshInstance3D" parent="Items/Item/LaserPointer"]
 mesh = SubResource("ArrayMesh_m8nsp")
@@ -1013,6 +849,7 @@ item = NodePath("../../Item/PhoneBook")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07, 1.35, 0.96)
+current = true
 far = 10.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -1033,30 +870,3 @@ font_size = 54
 outline_size = 0
 horizontal_alignment = 0
 vertical_alignment = 0
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_e1iq0")
-}
-
-[node name="ItemShow" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.180025, 0.405187)
-
-[node name="ShowMesh" type="MeshInstance3D" parent="ItemShow"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-mesh = SubResource("ArrayMesh_wh8a1")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.875488, 0.355408)
-shape = SubResource("BoxShape3D_n5qcu")
-
-[node name="InteractionArea" parent="." instance=ExtResource("9_e1iq0")]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.19209e-07, 0.822237, 0.618056)
-shape = SubResource("BoxShape3D_4kcv3")
-
-[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
-[connection signal="interacted" from="InteractionArea" to="." method="_on_interaction_area_interacted"]

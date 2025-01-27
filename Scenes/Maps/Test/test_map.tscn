@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://cu8wfyiht1lyi"]
+[gd_scene load_steps=31 format=3 uid="uid://cu8wfyiht1lyi"]
 
 [ext_resource type="PackedScene" uid="uid://c1g40osluc5on" path="res://SRC/Player/player.tscn" id="1_orjte"]
 [ext_resource type="Script" uid="uid://dnev02fq78g5" path="res://Scenes/Maps/Level.gd" id="1_ra64b"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b2p1t0ogxv6di" path="res://SRC/Props/monitor.tscn" id="6_x8ovn"]
 [ext_resource type="PackedScene" uid="uid://bv2roejoa0822" path="res://SRC/Enemies/Zombie/zombie.tscn" id="8_6uoeq"]
 [ext_resource type="PackedScene" uid="uid://ry72u7xd6h2o" path="res://SRC/Props/FileCabinet.tscn" id="9_evenw"]
+[ext_resource type="PackedScene" uid="uid://dmkgyudote4ss" path="res://SRC/Actors/VendingMachine/vending_machine.tscn" id="10_lsk3j"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_8ns7u"]
 vertices = PackedVector3Array(-29.5, 5, -29.5, -29.5, 5, 29.5, 29.5, 5, 29.5, 29.5, 5, -29.5, 23, 2, -29.5, 29.5, 2, -29, 29.5, 2, -29.5, 8.5, 1, -20.5, 8.5, 1, -22.75, 7.5, 1, -23, 7.5, 1, -20.25, -3.25, 1, -28.25, -3.25, 1, -14.5, 7.5, 1, -28.25, 7.5, 1, -14.5, 15.5, 1, -20.25, 16.75, 1, -20.5, 16.5, 1, -22.75, 15.5, 1, -23, 9.75, 1, -20.25, 9.75, 1, -18.5, 15.5, 1, -18.5, 9.75, 1, -23.25, 15.5, 1, -28.25, 9.75, 1, -28.25, 17.75, 1, -20.25, 17.75, 1, -23.25, 28.5, 1, -15.5, 28.5, 1, -28.25, 17.75, 1, -15.5, 17.75, 1, -28.25, 15.5, 1, -9.5, 9.75, 1, -9.25, 16.5, 1, -7.75, 16.75, 1, -5.5, 17.75, 1, -5.25, 17.75, 1, -8.25, 28.5, 1, 1, 28.5, 1, -12.75, 17.75, 1, -12.75, 17.75, 1, 1, 8.5, 1, -4, 8.5, 1, -6.25, 7.5, 1, -6.5, 7.5, 1, -3.75, -3.25, 1, -12.25, -3.25, 1, 1.5, 7.5, 1, 1.5, 7.5, 1, -12.25, 15.5, 1, -5.25, 15.5, 1, -8, 9.75, 1, -6.75, 9.75, 1, -3.75, 15.5, 1, -2.5, 9.75, 1, -2.25, 9.75, 1, 11, 15.5, 1, 11)
@@ -323,3 +324,6 @@ speed = 4.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 0.5, -9)
 physics_material_override = SubResource("PhysicsMaterial_2rctc")
 speed = 4.0
+
+[node name="VendingMachine" parent="." instance=ExtResource("10_lsk3j")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 20, 0.5, -15)

@@ -9,6 +9,8 @@ var rotMomentum : float = 0.0
 var baseSpRot : float = 0.0
 var lastRot : float = 0.0
 func _physics_process(delta: float) -> void:
+	if !player.playerEnabled:
+		return
 	match player.mode:
 		Player.RUNNING:
 			arrow.visible = false

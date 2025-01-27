@@ -102,7 +102,7 @@ arrow = NodePath("Arrow")
 [node name="GrabArea" type="Area3D" parent="CharRotator" node_paths=PackedStringArray("player")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.10643, -0.806772)
 collision_layer = 0
-collision_mask = 4
+collision_mask = 16
 monitorable = false
 script = ExtResource("5_alhff")
 player = NodePath("../..")

@@ -6,7 +6,7 @@ class_name GrabArea
 
 var grabbed : GrabbableProp = null
 
-func grabLetGo() ->void:
+func interact() ->void:
 	match player.mode:
 		Player.RUNNING:
 			if !grabbed:
@@ -18,7 +18,10 @@ func grabLetGo() ->void:
 						body.position = Vector3()
 						body.rotation = Vector3()
 						grabbed = body
-						break
+						return
+				for area : InteractionArea in get_overlapping_areas():
+					area.onInteracted(player)
+					return
 			else:
 				grabbed.reparent(WorldManager.currentLevel)
 				grabbed.setCol()

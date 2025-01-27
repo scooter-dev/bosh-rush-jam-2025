@@ -22,6 +22,7 @@ OptionsManager="*res://SRC/Singletons/OptionsManager.gd"
 PlayerInput="*res://SRC/Singletons/PlayerInput.gd"
 MultiplayerManager="*res://SRC/Singletons/MultiplayerManager.gd"
 WorldManager="*res://SRC/Singletons/WorldManager.gd"
+PlayerManager="*res://SRC/Singletons/PlayerManager.gd"
 
 [display]
 
@@ -160,6 +161,7 @@ LOCK_MOUSE={
 3d_physics/layer_2="Player"
 3d_physics/layer_3="Grabbable"
 3d_physics/layer_4="Enemies"
+3d_physics/layer_5="Interactables"
 
 [physics]
 

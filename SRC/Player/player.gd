@@ -2,6 +2,8 @@ extends RigidBody3D
 
 class_name Player
 
+var playerEnabled : bool = true
+
 @export var cam : PlayerCamera
 @export var charRotator : CharRotator
 @export var grabArea : GrabArea
@@ -21,11 +23,6 @@ var rotResetTimer : float = 0.0
 var speenPower : float = 0.0
 
 #Stats
-var boostStrength : float = 0.3
-var launchPower : float = 0.25
-var grabStrength : float = 0.3
-var rotSpeedLimit : float = 6.0
-var turnSpeed : float = 0.25
 
 #var groundVelocity : Vector3 = Vector3()
 var slideVelocity : Vector3 = Vector3()
@@ -34,11 +31,15 @@ func _ready() -> void:
 	PlayerInput.primary.connect(onPrimary)
 
 func onPrimary() -> void:
+	if !playerEnabled:
+		return
 	primaryPressed = true
 
 var primaryPressed : bool = false
 
 func _physics_process(delta: float) -> void:
+	if !playerEnabled:
+		return
 	#groundVelocity = Vector3()
 	hSpeed = linear_velocity.length()
 	var dir : Vector3 = cam.global_basis.x * PlayerInput.fbrl.x + cam.global_basis.z * PlayerInput.fbrl.y
@@ -62,7 +63,7 @@ func _physics_process(delta: float) -> void:
 				rotDeltaSum += angleDifference
 				prevRotation = currentRotation
 			if primaryPressed:
-				grabArea.grabLetGo()
+				grabArea.interact()
 			if rotDeltaSum > 0.0:
 				rotDeltaSum = max(0.0, rotDeltaSum - 7.0 * delta)
 			else:
@@ -90,11 +91,11 @@ func _physics_process(delta: float) -> void:
 				#	if sign(rotDeltaSum) != sign(angleDifference):
 				#		rotDeltaSum = 0
 				
-				rotDeltaSum += angleDifference * turnSpeed
+				rotDeltaSum += angleDifference * PlayerManager.turnSpeed
 				prevRotation = currentRotation
 			
 			rotDeltaSum = lerpf(rotDeltaSum, 0.0, delta * 0.5)
-			speenPower = lerp(speenPower, clamp(rotDeltaSum, -rotSpeedLimit, rotSpeedLimit), delta * 8.0)
+			speenPower = lerp(speenPower, clamp(rotDeltaSum, -PlayerManager.rotSpeedLimit, PlayerManager.rotSpeedLimit), delta * 8.0)
 			if primaryPressed:
 				Engine.time_scale = 0.12 / max(abs(speenPower) / 6.0,0.25)
 				mode = AIM
@@ -105,7 +106,7 @@ func _physics_process(delta: float) -> void:
 				rotDeltaSum = 0.0
 		AIM:
 			rotDeltaSum = lerpf(rotDeltaSum, 0.0, delta * 0.125)
-			speenPower = lerp(speenPower, clamp(rotDeltaSum, -rotSpeedLimit, rotSpeedLimit), delta * 6.0)
+			speenPower = lerp(speenPower, clamp(rotDeltaSum, -PlayerManager.rotSpeedLimit, PlayerManager.rotSpeedLimit), delta * 6.0)
 			if abs(speenPower) < 1.0:
 				mode = RUNNING
 				speenPower = 0.0
@@ -114,9 +115,9 @@ func _physics_process(delta: float) -> void:
 				rotDeltaSum = 0.0
 				Engine.time_scale = 1.0
 				if grabArea.grabbed:
-					grabArea.throw(-charRotator.global_basis.z, abs(speenPower) * 5 * launchPower)
+					grabArea.throw(-charRotator.global_basis.z, abs(speenPower) * 5 * PlayerManager.launchPower)
 				else:
-					slideVelocity -= charRotator.global_basis.z * abs(speenPower) * 10000.0 * boostStrength
+					slideVelocity -= charRotator.global_basis.z * abs(speenPower) * 10000.0 * PlayerManager.boostStrength
 				mode = RUNNING
 	primaryPressed = false
 	slideVelocity -= slideVelocity * delta * 6.0
@@ -141,3 +142,6 @@ func wrap_angle(angle: float) -> float:
 	while angle < -PI:
 		angle += TAU
 	return angle
+
+func togglePlayer(state : bool) -> void:
+	playerEnabled = state
