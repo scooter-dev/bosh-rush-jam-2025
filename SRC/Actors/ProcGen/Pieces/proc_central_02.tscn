@@ -1,9 +1,18 @@
-[gd_scene load_steps=23 format=4 uid="uid://gu8j0uahgrwr"]
+[gd_scene load_steps=32 format=4 uid="uid://gu8j0uahgrwr"]
 
 [ext_resource type="Shader" uid="uid://cm8puby5gs7hp" path="res://SRC/Shaders/rgbTextureTriplanar.gdshader" id="1_cg4ug"]
 [ext_resource type="Texture2D" uid="uid://bkclfd3itw7r7" path="res://Assets/Textures/Carpet.png" id="2_gdw6g"]
 [ext_resource type="Shader" uid="uid://drr0gce6cncf3" path="res://SRC/Shaders/darkness.gdshader" id="3_gdw6g"]
 [ext_resource type="LightmapGIData" uid="uid://bfjkikc831yoj" path="res://SRC/Actors/ProcGen/Pieces/proc_central_02.lmbake" id="4_j6fbb"]
+[ext_resource type="PackedScene" uid="uid://clia3vdl0lx6b" path="res://SRC/Props/kitchen_cabinet.tscn" id="5_ix423"]
+[ext_resource type="PackedScene" uid="uid://du0qcs2uip754" path="res://SRC/Props/fridge.tscn" id="6_fwufk"]
+[ext_resource type="PackedScene" uid="uid://dkgf6jirhyb8p" path="res://SRC/Props/kitchen_sink.tscn" id="7_j5e52"]
+[ext_resource type="PackedScene" uid="uid://c88ouf7ib6xac" path="res://SRC/Props/potted_plant.tscn" id="8_apwt7"]
+[ext_resource type="PackedScene" uid="uid://nxcuqqsmiic2" path="res://SRC/Props/printer.tscn" id="8_ny34u"]
+[ext_resource type="PackedScene" uid="uid://sa0wntr25m1l" path="res://SRC/Props/table.tscn" id="9_fmyke"]
+[ext_resource type="PackedScene" uid="uid://befpbpoyyfsw1" path="res://SRC/Props/water_jug.tscn" id="10_apwt7"]
+[ext_resource type="PackedScene" uid="uid://dld86ghvbxsn6" path="res://SRC/Props/cubicle.tscn" id="11_fmyke"]
+[ext_resource type="PackedScene" uid="uid://ry72u7xd6h2o" path="res://SRC/Props/FileCabinet.tscn" id="12_njhyc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_j6fbb"]
 size = Vector3(40, 1, 40)
@@ -184,3 +193,163 @@ skeleton = NodePath("")
 quality = 2
 generate_probes_subdiv = 4
 light_data = ExtResource("4_j6fbb")
+
+[node name="Cubicle2" parent="." instance=ExtResource("11_fmyke")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3.15424, 0.00618985, -0.16787)
+
+[node name="Cubicle3" parent="." instance=ExtResource("11_fmyke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.22283, 0.00619009, -3.20021)
+
+[node name="Cubicle8" parent="." instance=ExtResource("11_fmyke")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.1474, 0.00618985, -0.16787)
+
+[node name="Cubicle9" parent="." instance=ExtResource("11_fmyke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.21599, 0.00619009, -3.20021)
+
+[node name="Cubicle4" parent="." instance=ExtResource("11_fmyke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.49893, 0, -7.51025)
+
+[node name="Cubicle5" parent="." instance=ExtResource("11_fmyke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.501073, 0, -7.51025)
+
+[node name="Cubicle6" parent="." instance=ExtResource("11_fmyke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.50107, 0, -7.51025)
+
+[node name="Cubicle" parent="." instance=ExtResource("11_fmyke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.49893, 0, -7.51025)
+
+[node name="Cubicle7" parent="." instance=ExtResource("11_fmyke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.50582, 0.00619009, -7.52091)
+
+[node name="WaterJug2" parent="." instance=ExtResource("10_apwt7")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.91235, 4.76837e-07, 0.341738)
+
+[node name="RecordRoom" type="Node3D" parent="."]
+
+[node name="FilingCabinet" parent="RecordRoom" instance=ExtResource("12_njhyc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 2)
+
+[node name="FilingCabinet2" parent="RecordRoom" instance=ExtResource("12_njhyc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 2)
+
+[node name="FilingCabinet3" parent="RecordRoom" instance=ExtResource("12_njhyc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 2)
+
+[node name="FilingCabinet4" parent="RecordRoom" instance=ExtResource("12_njhyc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 2)
+
+[node name="FilingCabinet5" parent="RecordRoom" instance=ExtResource("12_njhyc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.50336, 0, 2)
+
+[node name="FilingCabinet6" parent="RecordRoom" instance=ExtResource("12_njhyc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.50336, 0, 2)
+
+[node name="FilingCabinet7" parent="RecordRoom" instance=ExtResource("12_njhyc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.503358, 0, 2)
+
+[node name="FilingCabinet8" parent="RecordRoom" instance=ExtResource("12_njhyc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.50336, 0, 2)
+
+[node name="FilingCabinet9" parent="RecordRoom" instance=ExtResource("12_njhyc")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.50336, 0, 7.54582)
+
+[node name="FilingCabinet10" parent="RecordRoom" instance=ExtResource("12_njhyc")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2.50336, 0, 7.54582)
+
+[node name="FilingCabinet11" parent="RecordRoom" instance=ExtResource("12_njhyc")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3.50336, 0, 7.54582)
+
+[node name="FilingCabinet12" parent="RecordRoom" instance=ExtResource("12_njhyc")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.503358, 0, 7.54582)
+
+[node name="FilingCabinet13" parent="RecordRoom" instance=ExtResource("12_njhyc")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2, 0, 7.54582)
+
+[node name="FilingCabinet14" parent="RecordRoom" instance=ExtResource("12_njhyc")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3, 0, 7.54582)
+
+[node name="FilingCabinet15" parent="RecordRoom" instance=ExtResource("12_njhyc")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4, 0, 7.54582)
+
+[node name="FilingCabinet16" parent="RecordRoom" instance=ExtResource("12_njhyc")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0, 7.54582)
+
+[node name="FilingCabinet17" parent="RecordRoom" instance=ExtResource("12_njhyc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.75468, 0, 2)
+
+[node name="FilingCabinet18" parent="RecordRoom" instance=ExtResource("12_njhyc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.75468, 0, 2)
+
+[node name="FilingCabinet19" parent="RecordRoom" instance=ExtResource("12_njhyc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.75468, 0, 2)
+
+[node name="FilingCabinet20" parent="RecordRoom" instance=ExtResource("12_njhyc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.75468, 0, 2)
+
+[node name="FilingCabinet21" parent="RecordRoom" instance=ExtResource("12_njhyc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.25132, 0, 2)
+
+[node name="FilingCabinet22" parent="RecordRoom" instance=ExtResource("12_njhyc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.25132, 0, 2)
+
+[node name="FilingCabinet23" parent="RecordRoom" instance=ExtResource("12_njhyc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.25132, 0, 2)
+
+[node name="FilingCabinet24" parent="RecordRoom" instance=ExtResource("12_njhyc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.25132, 0, 2)
+
+[node name="FilingCabinet25" parent="RecordRoom" instance=ExtResource("12_njhyc")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 8.25132, 0, 7.54582)
+
+[node name="FilingCabinet26" parent="RecordRoom" instance=ExtResource("12_njhyc")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 7.25132, 0, 7.54582)
+
+[node name="FilingCabinet27" parent="RecordRoom" instance=ExtResource("12_njhyc")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6.25132, 0, 7.54582)
+
+[node name="FilingCabinet28" parent="RecordRoom" instance=ExtResource("12_njhyc")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 9.25132, 0, 7.54582)
+
+[node name="FilingCabinet29" parent="RecordRoom" instance=ExtResource("12_njhyc")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 7.75468, 0, 7.54582)
+
+[node name="FilingCabinet30" parent="RecordRoom" instance=ExtResource("12_njhyc")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6.75468, 0, 7.54582)
+
+[node name="FilingCabinet31" parent="RecordRoom" instance=ExtResource("12_njhyc")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 5.75468, 0, 7.54582)
+
+[node name="FilingCabinet32" parent="RecordRoom" instance=ExtResource("12_njhyc")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 8.75468, 0, 7.54582)
+
+[node name="Printer" parent="RecordRoom" instance=ExtResource("8_ny34u")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.73589, 0.979683, 7.27625)
+
+[node name="Table" parent="RecordRoom" instance=ExtResource("9_fmyke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.50842, 2.38419e-07, 7.04474)
+
+[node name="Kitchen" type="Node3D" parent="."]
+
+[node name="KitchenCabinet" parent="Kitchen" instance=ExtResource("5_ix423")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -0.141224, -4.61936e-07, -14.788)
+
+[node name="KitchenCabinet3" parent="Kitchen" instance=ExtResource("5_ix423")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -0.141224, -4.61936e-07, -13.1843)
+
+[node name="KitchenCabinet2" parent="Kitchen" instance=ExtResource("5_ix423")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -0.141224, -4.61936e-07, -13.9867)
+
+[node name="Fridge" parent="Kitchen" instance=ExtResource("6_fwufk")]
+transform = Transform3D(1.62921e-07, 0, -1, 0, 1, 0, 1, 0, 1.62921e-07, -0.109768, 3.72529e-09, -15.9331)
+
+[node name="PottedPlant" parent="Kitchen" instance=ExtResource("8_apwt7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.62027, 0.00327798, -12.1466)
+
+[node name="Table" parent="Kitchen" instance=ExtResource("9_fmyke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.92862, 0, -16.0408)
+
+[node name="KitchenSink" parent="Kitchen" instance=ExtResource("7_j5e52")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.169065, 0, -12.3855)
+
+[node name="WaterJug" parent="Kitchen" instance=ExtResource("10_apwt7")]
+transform = Transform3D(-0.998915, 0.0280643, 0.0371774, 0.0296394, 0.998656, 0.0425189, -0.0359342, 0.0435747, -0.998404, 7.39069, 0, -12.0881)
