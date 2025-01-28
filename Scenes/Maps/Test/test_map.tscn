@@ -1,10 +1,9 @@
-[gd_scene load_steps=34 format=3 uid="uid://cu8wfyiht1lyi"]
+[gd_scene load_steps=11 format=3 uid="uid://cu8wfyiht1lyi"]
 
 [ext_resource type="PackedScene" uid="uid://c1g40osluc5on" path="res://SRC/Player/player.tscn" id="1_orjte"]
 [ext_resource type="Script" uid="uid://dnev02fq78g5" path="res://Scenes/Maps/Level.gd" id="1_ra64b"]
 [ext_resource type="Shader" uid="uid://d20ryyciv7x8g" path="res://SRC/Shaders/Sky.gdshader" id="2_61yvp"]
-[ext_resource type="PackedScene" uid="uid://lkyrgi5lf1an" path="res://SRC/proc_central_01.tscn" id="6_x8ovn"]
-[ext_resource type="PackedScene" uid="uid://bv2roejoa0822" path="res://SRC/Enemies/Zombie/zombie.tscn" id="8_6uoeq"]
+[ext_resource type="PackedScene" uid="uid://lkyrgi5lf1an" path="res://SRC/Actors/ProcGen/Pieces/proc_central_01.tscn" id="6_x8ovn"]
 [ext_resource type="PackedScene" uid="uid://dmkgyudote4ss" path="res://SRC/Actors/VendingMachine/vending_machine.tscn" id="10_lsk3j"]
 
 [sub_resource type="Gradient" id="Gradient_61yvp"]
@@ -31,94 +30,6 @@ sdfgi_min_cell_size = 0.273438
 sdfgi_cascade0_distance = 17.5
 sdfgi_max_distance = 140.0
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_evenw"]
-resource_local_to_scene = true
-friction = 0.0
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_x8ovn"]
-resource_local_to_scene = true
-friction = 0.0
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ra64b"]
-resource_local_to_scene = true
-friction = 0.0
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6uoeq"]
-resource_local_to_scene = true
-friction = 0.0
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_lsk3j"]
-resource_local_to_scene = true
-friction = 0.0
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_u3ud0"]
-resource_local_to_scene = true
-friction = 0.0
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_v2uxg"]
-resource_local_to_scene = true
-friction = 0.0
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_u7qui"]
-resource_local_to_scene = true
-friction = 0.0
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_d6udr"]
-resource_local_to_scene = true
-friction = 0.0
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_t7i4n"]
-resource_local_to_scene = true
-friction = 0.0
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8pfw3"]
-resource_local_to_scene = true
-friction = 0.0
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_m5is2"]
-resource_local_to_scene = true
-friction = 0.0
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2rctc"]
-resource_local_to_scene = true
-friction = 0.0
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_dgrer"]
-resource_local_to_scene = true
-friction = 0.0
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bon8n"]
-resource_local_to_scene = true
-friction = 0.0
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_uhoje"]
-resource_local_to_scene = true
-friction = 0.0
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_iampv"]
-resource_local_to_scene = true
-friction = 0.0
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_251hl"]
-resource_local_to_scene = true
-friction = 0.0
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8ns7u"]
-resource_local_to_scene = true
-friction = 0.0
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ykhry"]
-resource_local_to_scene = true
-friction = 0.0
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8eilv"]
-resource_local_to_scene = true
-friction = 0.0
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7v47q"]
-resource_local_to_scene = true
-friction = 0.0
-
 [node name="TestMap" type="Node3D"]
 script = ExtResource("1_ra64b")
 
@@ -130,6 +41,7 @@ environment = SubResource("Environment_jwv5c")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.607473, 0.223863, -0.762143, 0, 0.959467, 0.281822, 0.79434, 0.171199, -0.58285, 0, 14, 0)
+visible = false
 light_color = Color(1, 0.846161, 0.722656, 1)
 light_bake_mode = 0
 shadow_enabled = true
@@ -139,94 +51,6 @@ directional_shadow_fade_start = 1.0
 directional_shadow_max_distance = 30.0
 
 [node name="Zombies" type="Node3D" parent="."]
-
-[node name="Zombie" parent="Zombies" instance=ExtResource("8_6uoeq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 0.5, -8.5)
-physics_material_override = SubResource("PhysicsMaterial_evenw")
-
-[node name="Zombie2" parent="Zombies" instance=ExtResource("8_6uoeq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0.5, -4)
-physics_material_override = SubResource("PhysicsMaterial_x8ovn")
-
-[node name="Zombie3" parent="Zombies" instance=ExtResource("8_6uoeq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0.5, -7)
-physics_material_override = SubResource("PhysicsMaterial_ra64b")
-
-[node name="Zombie4" parent="Zombies" instance=ExtResource("8_6uoeq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0.5, 4.5)
-physics_material_override = SubResource("PhysicsMaterial_6uoeq")
-
-[node name="Zombie5" parent="Zombies" instance=ExtResource("8_6uoeq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.5, 12)
-physics_material_override = SubResource("PhysicsMaterial_lsk3j")
-
-[node name="Zombie6" parent="Zombies" instance=ExtResource("8_6uoeq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0.5, 14.5)
-physics_material_override = SubResource("PhysicsMaterial_u3ud0")
-
-[node name="Zombie7" parent="Zombies" instance=ExtResource("8_6uoeq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.5, 16.5)
-physics_material_override = SubResource("PhysicsMaterial_v2uxg")
-
-[node name="Zombie8" parent="Zombies" instance=ExtResource("8_6uoeq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0.5, 16)
-physics_material_override = SubResource("PhysicsMaterial_u7qui")
-
-[node name="Zombie9" parent="Zombies" instance=ExtResource("8_6uoeq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0.5, 17)
-physics_material_override = SubResource("PhysicsMaterial_d6udr")
-
-[node name="Zombie10" parent="Zombies" instance=ExtResource("8_6uoeq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.5, 11)
-physics_material_override = SubResource("PhysicsMaterial_t7i4n")
-
-[node name="Zombie11" parent="Zombies" instance=ExtResource("8_6uoeq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0.5, 10.5)
-physics_material_override = SubResource("PhysicsMaterial_8pfw3")
-
-[node name="Zombie12" parent="Zombies" instance=ExtResource("8_6uoeq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0.5, 4)
-physics_material_override = SubResource("PhysicsMaterial_m5is2")
-
-[node name="Zombie13" parent="Zombies" instance=ExtResource("8_6uoeq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0.5, 6)
-physics_material_override = SubResource("PhysicsMaterial_2rctc")
-
-[node name="Zombie14" parent="Zombies" instance=ExtResource("8_6uoeq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, 0.5, -5)
-physics_material_override = SubResource("PhysicsMaterial_dgrer")
-
-[node name="Zombie16" parent="Zombies" instance=ExtResource("8_6uoeq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0.5, -13)
-physics_material_override = SubResource("PhysicsMaterial_bon8n")
-
-[node name="Zombie17" parent="Zombies" instance=ExtResource("8_6uoeq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0.5, -15)
-physics_material_override = SubResource("PhysicsMaterial_uhoje")
-
-[node name="Zombie18" parent="Zombies" instance=ExtResource("8_6uoeq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0.5, -15.5)
-physics_material_override = SubResource("PhysicsMaterial_iampv")
-
-[node name="Zombie19" parent="Zombies" instance=ExtResource("8_6uoeq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.5, 3.5)
-physics_material_override = SubResource("PhysicsMaterial_251hl")
-
-[node name="Zombie20" parent="Zombies" instance=ExtResource("8_6uoeq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5, 0.5, 5)
-physics_material_override = SubResource("PhysicsMaterial_8ns7u")
-
-[node name="Zombie21" parent="Zombies" instance=ExtResource("8_6uoeq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.5, 17)
-physics_material_override = SubResource("PhysicsMaterial_ykhry")
-
-[node name="Zombie22" parent="Zombies" instance=ExtResource("8_6uoeq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0.5, 3)
-physics_material_override = SubResource("PhysicsMaterial_8eilv")
-
-[node name="Zombie15" parent="Zombies" instance=ExtResource("8_6uoeq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0.5, -10.5)
-physics_material_override = SubResource("PhysicsMaterial_7v47q")
 
 [node name="VendingMachine" parent="." instance=ExtResource("10_lsk3j")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 20, 0.5, -15)
