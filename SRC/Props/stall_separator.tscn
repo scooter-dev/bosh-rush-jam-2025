@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=4 uid="uid://c4jik0t6rst00"]
+
+[ext_resource type="Texture2D" uid="uid://dhma06nv4bcls" path="res://Assets/Textures/crayola-13-grad.png" id="1_mbckg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ghy0"]
+resource_name = "GradColor"
+cull_mode = 2
+albedo_texture = ExtResource("1_mbckg")
+texture_repeat = false
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_yfquc"]
+_surfaces = [{
+"aabb": AABB(0, 0, -0.57, 0.03, 2.2, 1.57),
+"format": 34359742465,
+"index_count": 60,
+"index_data": PackedByteArray("CAAFAAYABwAGAAUACQAHAAUACAAJAAUABwAEAAYACgAIAAYACgAGAAQACwAEAAcACwAKAAQACQALAAcAAgAKAAsACwAJAAIAAQAIAAoAAgABAAoAAwAJAAgAAQADAAgAAgAJAAAAAAABAAIAAwAAAAkAAAADAAEA"),
+"lods": [9.76055e-06, PackedByteArray("AAABAAIAAAADAAEAAgABAAQAAwAAAAUAAgAFAAAAAQADAAYAAwAFAAYAAQAGAAQABwAFAAIABwAGAAUAAgAEAAcABwAEAAYA")],
+"name": "GradColor",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("AAAAAAAAAACG6xG/gML1PAAAAAAAAIA/gML1PAAAAACG6xG/AAAAAAAAAAAAAIA/gML1PM3MDEAAAIA/AAAAAM3MDECG6xG/AAAAAM3MDEAAAIA/gML1PM3MDECG6xG/AAAAAM3MjD8AAIA/AAAAAM3MjD+G6xG/gML1PM3MjD8AAIA/gML1PM3MjD+G6xG/")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_3p8ap"]
+resource_name = "Office_Cube_019"
+_surfaces = [{
+"aabb": AABB(0, 0, -0.57, 0.03, 2.2, 1.57),
+"attribute_data": PackedByteArray("mgFkPwQ6tz6aAWQ/BDq3PpoBZD8EOrc+mgFkPwQ6tz6aAWQ/BDq3PpoBZD8EOrc+mgFkPwQ6tz6aAWQ/BDq3PpoBZD8EOrc+mgFkPwQ6tz6aAWQ/BDq3PpoBZD8EOrc+mgFkPwQ6tz6aAWQ/BDq3PpoBZD8EOrc+mgFkPwQ6tz6aAWQ/BDq3PpoBZD8EOrc+mgFkPwQ6tz6aAWQ/BDq3PpoBZD8EOrc+mgFkPwQ6tz6aAWQ/BDq3PpoBZD8EOrc+mgFkPwAyHjyaAWQ/ADIePJoBZD8AMh48mgFkPwAyHjyaAWQ/ADIePJoBZD8AMh48mgFkPwAyHjyaAWQ/ADIePA=="),
+"format": 34359742487,
+"index_count": 60,
+"index_data": PackedByteArray("GAAVABYAGAAZABUAFAAZABgAFAAXABkAGgARABIAGgAbABEAEAAbABoAEAATABsAHAANAA4AHAAdAA0ADAAdABwADAAPAB0AAAABAAIAAAADAAEABAAFAAYABAAHAAUACAAeAAoAHwAeAAgAHgAfAAsAHgALAAkA"),
+"lods": [9.76055e-06, PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACwAJAAgADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA")],
+"material": SubResource("StandardMaterial3D_0ghy0"),
+"name": "GradColor",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 32,
+"vertex_data": PackedByteArray("AAAAAAAAAACG6xG/gML1PAAAAAAAAIA/gML1PAAAAACG6xG/AAAAAAAAAAAAAIA/gML1PM3MDECG6xG/AAAAAM3MDEAAAIA/AAAAAM3MDECG6xG/gML1PM3MDEAAAIA/gML1PAAAAACG6xG/AAAAAM3MDECG6xG/AAAAAAAAAACG6xG/gML1PM3MDECG6xG/gML1PAAAAAAAAIA/AAAAAM3MDEAAAIA/gML1PM3MDEAAAIA/AAAAAAAAAAAAAIA/gML1PAAAAACG6xG/gML1PM3MDEAAAIA/gML1PM3MDECG6xG/gML1PAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAM3MDECG6xG/AAAAAM3MDEAAAIA/AAAAAAAAAACG6xG/AAAAAM3MjD8AAIA/AAAAAM3MjD+G6xG/gML1PM3MjD+G6xG/gML1PM3MjD8AAIA/gML1PM3MjD8AAIA/AAAAAM3MjD8AAIA/AAAAAM3MjD+G6xG/gML1PM3MjD+G6xG//38AAP///7//fwAA////v/9/AAD///+//38AAP///7//f///////v/9///////+//3///////7//f///////v/////////+//////////7//////////v/////////+//3//f////z//f/9/////P/9//3////8//3//f////z////9/////v////3////+/////f////7////9/////vwAA/3////+/AAD/f////78AAP9/////vwAA/3////+/AAD/f////78AAP9/////v////3////+/////f////7//f/9/////P/9//3////8//////////7//////////vw==")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_yfquc")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o5e76"]
+size = Vector3(0.0729492, 2.20142, 1.57781)
+
+[node name="StallSeparator" type="RigidBody3D"]
+collision_layer = 0
+collision_mask = 15
+
+[node name="BathroomStall" type="MeshInstance3D" parent="."]
+gi_mode = 2
+mesh = SubResource("ArrayMesh_3p8ap")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0135254, 1.09929, 0.213611)
+shape = SubResource("BoxShape3D_o5e76")

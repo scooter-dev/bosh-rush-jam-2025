@@ -62,13 +62,13 @@ func _process(delta: float) -> void:
 	leak.emitting = ray_cast_3d.get_collider() == null
 "
 
-[sub_resource type="Gradient" id="Gradient_7v0ia"]
+[sub_resource type="Gradient" id="Gradient_o7mop"]
 interpolation_mode = 2
 offsets = PackedFloat32Array(0.121212, 0.632035)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_o7mop"]
-gradient = SubResource("Gradient_7v0ia")
+gradient = SubResource("Gradient_o7mop")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
