@@ -115,7 +115,7 @@ func _on_detection_area_player_detected(player: Player) -> void:
 
 var recoveryTime : float = 0.0
 var stunTimer : float = 0.0
-func onDamaged(damage : int ,instigator : Node3D = null, grabbable: GrabbableProp = null) -> void:
+func onDamaged(damage : int ,instigator : Node3D = null, grabbable: GrabbableProp = null) -> bool:
 	if recoveryTime < 0.005:
 		recoveryTime = 0.2
 		if instigator:
@@ -129,6 +129,8 @@ func onDamaged(damage : int ,instigator : Node3D = null, grabbable: GrabbablePro
 		damaged.emit(damage, instigator, grabbable)
 		if health <= 0:
 			die()
+		return true
+	return false
 
 
 @export var living_shape: CollisionShape3D

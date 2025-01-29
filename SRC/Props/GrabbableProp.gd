@@ -2,9 +2,17 @@ extends RigidBody3D
 
 class_name GrabbableProp
 
+##How much damage deals when going at 6 m/s
 @export var damage : float = 1
+##Weight class to compare to player strength
 @export var weightClass : int = 1
+##How many times can deal damage before breaking
+@export var health : int = 5
 @export var grabPoint : Node3D
+##Chance to drop an item
+@export var dropChance : float = 1.0
+##Loot that it can drop
+@export var lootTable : Array[LootEntry]
 
 
 @onready var mask : int = collision_mask
@@ -41,7 +49,12 @@ func _physics_process(delta: float) -> void:
 		if body is Zombie:
 			var dmg : int = int(damage * prevVel.length() / 6.0)
 			if dmg > 0:
-				body.onDamaged(dmg, thrower, self)
+				if body.onDamaged(dmg, thrower, self):
+					health -= 1
+					dropItem()
+				if health == 0:
+					die()
+					return
 	if linear_velocity.length_squared() < 4.0:
 		tmr = max(0.0, tmr - delta)
 		if tmr < 0.001:
@@ -50,6 +63,30 @@ func _physics_process(delta: float) -> void:
 			thrower = null
 	prevVel = linear_velocity
 
+func die() -> void:
+	pass
+
+const ITEM_DROP = preload("res://SRC/Items/item_drop.tscn")
+func dropItem() -> void:
+	var drop : ItemDrop = ITEM_DROP.instantiate()
+	
+	var item : int
+	var total : float = 0.0
+	for l : LootEntry in lootTable:
+		total += l.chance
+	var rand : float = randf_range(0.0, total)
+	var sum : float = 0.0
+	for l : LootEntry in lootTable:
+		var pSum = sum
+		sum += l.chance
+		if pSum < rand and sum >= rand:
+			item = l.item
+			break
+	
+	drop.item = item
+	drop.velocity = Vector3(randf_range(-1,1),1,randf_range(-1,1)).normalized() * randf_range(2,6)
+	WorldManager.currentLevel.add_child(drop)
+	drop.global_position = global_position
 
 func setCol() -> void:
 	collision_layer = layer
