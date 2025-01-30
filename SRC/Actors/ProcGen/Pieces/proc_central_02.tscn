@@ -157,6 +157,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_xg084")
 
 [node name="proc_central_02" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.56474, -0.438709, 7.07996)
 
 [node name="MainGeo" type="Node3D" parent="."]
 
@@ -194,33 +195,6 @@ skeleton = NodePath("")
 quality = 2
 generate_probes_subdiv = 0
 light_data = ExtResource("4_j6fbb")
-
-[node name="Cubicle2" parent="." instance=ExtResource("11_fmyke")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3.15424, 0.00618985, -0.16787)
-
-[node name="Cubicle3" parent="." instance=ExtResource("11_fmyke")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.22283, 0.00619009, -3.20021)
-
-[node name="Cubicle8" parent="." instance=ExtResource("11_fmyke")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.1474, 0.00618985, -0.16787)
-
-[node name="Cubicle9" parent="." instance=ExtResource("11_fmyke")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.21599, 0.00619009, -3.20021)
-
-[node name="Cubicle4" parent="." instance=ExtResource("11_fmyke")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.49893, 0, -7.51025)
-
-[node name="Cubicle5" parent="." instance=ExtResource("11_fmyke")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.501073, 0, -7.51025)
-
-[node name="Cubicle6" parent="." instance=ExtResource("11_fmyke")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.50107, 0, -7.51025)
-
-[node name="Cubicle" parent="." instance=ExtResource("11_fmyke")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.49893, 0, -7.51025)
-
-[node name="Cubicle7" parent="." instance=ExtResource("11_fmyke")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.50582, 0.00619009, -7.52091)
 
 [node name="WaterJug2" parent="." instance=ExtResource("10_apwt7")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.91235, 4.76837e-07, 0.341738)
@@ -329,31 +303,179 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.7358
 [node name="Table" parent="RecordRoom" instance=ExtResource("9_fmyke")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.50842, 2.38419e-07, 7.04474)
 
-[node name="Kitchen" type="Node3D" parent="."]
+[node name="Kitchen1" type="Node3D" parent="."]
 
-[node name="KitchenCabinet" parent="Kitchen" instance=ExtResource("5_ix423")]
+[node name="KitchenCabinet" parent="Kitchen1" instance=ExtResource("5_ix423")]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -0.141224, -4.61936e-07, -14.788)
 
-[node name="KitchenCabinet3" parent="Kitchen" instance=ExtResource("5_ix423")]
+[node name="KitchenCabinet3" parent="Kitchen1" instance=ExtResource("5_ix423")]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -0.141224, -4.61936e-07, -13.1843)
 
-[node name="KitchenCabinet2" parent="Kitchen" instance=ExtResource("5_ix423")]
+[node name="KitchenCabinet2" parent="Kitchen1" instance=ExtResource("5_ix423")]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -0.141224, -4.61936e-07, -13.9867)
 
-[node name="Fridge" parent="Kitchen" instance=ExtResource("6_fwufk")]
+[node name="Fridge" parent="Kitchen1" instance=ExtResource("6_fwufk")]
 transform = Transform3D(1.62921e-07, 0, -1, 0, 1, 0, 1, 0, 1.62921e-07, -0.109768, 3.72529e-09, -15.9331)
 
-[node name="PottedPlant" parent="Kitchen" instance=ExtResource("8_apwt7")]
+[node name="PottedPlant" parent="Kitchen1" instance=ExtResource("8_apwt7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.62027, 0.00327798, -12.1466)
 
-[node name="Table" parent="Kitchen" instance=ExtResource("9_fmyke")]
+[node name="Table" parent="Kitchen1" instance=ExtResource("9_fmyke")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.92862, 0, -16.0408)
 
-[node name="KitchenSink" parent="Kitchen" instance=ExtResource("7_j5e52")]
+[node name="KitchenSink" parent="Kitchen1" instance=ExtResource("7_j5e52")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.169065, 0, -12.3855)
 
-[node name="WaterJug" parent="Kitchen" instance=ExtResource("10_apwt7")]
+[node name="WaterJug" parent="Kitchen1" instance=ExtResource("10_apwt7")]
 transform = Transform3D(-0.998915, 0.0280643, 0.0371774, 0.0296394, 0.998656, 0.0425189, -0.0359342, 0.0435747, -0.998404, 7.39069, 0, -12.0881)
+
+[node name="Kitchen2" type="Node3D" parent="."]
+transform = Transform3D(0.00886604, 0, -0.999961, 0, 1, 0, 0.999961, 0, 0.00886604, 13.527, 0, 3.333)
+
+[node name="KitchenCabinet" parent="Kitchen2" instance=ExtResource("5_ix423")]
+transform = Transform3D(-1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -1, 2.55354, 0, -2.91677)
+
+[node name="KitchenCabinet3" parent="Kitchen2" instance=ExtResource("5_ix423")]
+transform = Transform3D(-1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -1, 0.949844, 0, -2.91677)
+
+[node name="KitchenCabinet2" parent="Kitchen2" instance=ExtResource("5_ix423")]
+transform = Transform3D(-1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -1, 1.75224, 0, -2.91677)
+
+[node name="Fridge" parent="Kitchen2" instance=ExtResource("6_fwufk")]
+transform = Transform3D(-1, 0, -1.21072e-07, 0, 1, 0, 1.21072e-07, 0, -1, 3.69864, 0, -2.88531)
+
+[node name="PottedPlant" parent="Kitchen2" instance=ExtResource("8_apwt7")]
+transform = Transform3D(-4.19095e-08, 0, -1, 0, 1, 0, 1, 0, -4.19095e-08, -1.42964, 0, 2.47634)
+
+[node name="Table" parent="Kitchen2" instance=ExtResource("9_fmyke")]
+transform = Transform3D(-4.19095e-08, 0, -1, 0, 1, 0, 1, 0, -4.19095e-08, -1.16825, 0, -1.53737)
+
+[node name="KitchenSink" parent="Kitchen2" instance=ExtResource("7_j5e52")]
+transform = Transform3D(-1, 0, 8.6613e-08, 0, 1, 0, -8.6613e-08, 0, -1, 0.151043, 0, -2.94461)
+
+[node name="WaterJug" parent="Kitchen2" instance=ExtResource("10_apwt7")]
+transform = Transform3D(-0.998915, 0.0280643, 0.0371774, 0.0296394, 0.998656, 0.0425189, -0.0359342, 0.0435747, -0.998404, 3.48177, -0.187438, 3.05494)
+
+[node name="Office1" type="Node3D" parent="."]
+
+[node name="Cubicle2" parent="Office1" instance=ExtResource("11_fmyke")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3.15424, 0.00618985, -0.16787)
+
+[node name="Cubicle3" parent="Office1" instance=ExtResource("11_fmyke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.22283, 0.00619009, -3.20021)
+
+[node name="Cubicle8" parent="Office1" instance=ExtResource("11_fmyke")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.1474, 0.00618985, -0.16787)
+
+[node name="Cubicle9" parent="Office1" instance=ExtResource("11_fmyke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.21599, 0.00619009, -3.20021)
+
+[node name="Cubicle4" parent="Office1" instance=ExtResource("11_fmyke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.49893, 0, -7.51025)
+
+[node name="Cubicle5" parent="Office1" instance=ExtResource("11_fmyke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.501073, 0, -7.51025)
+
+[node name="Cubicle6" parent="Office1" instance=ExtResource("11_fmyke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.50107, 0, -7.51025)
+
+[node name="Cubicle" parent="Office1" instance=ExtResource("11_fmyke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.49893, 0, -7.51025)
+
+[node name="Cubicle7" parent="Office1" instance=ExtResource("11_fmyke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.50582, 0.00619009, -7.52091)
+
+[node name="Office2" type="Node3D" parent="."]
+
+[node name="Cubicle10" parent="Office2" instance=ExtResource("11_fmyke")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15.3611, 0, -3.07598)
+
+[node name="Cubicle11" parent="Office2" instance=ExtResource("11_fmyke")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15.3611, 0, -5.07598)
+
+[node name="Cubicle12" parent="Office2" instance=ExtResource("11_fmyke")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15.3611, 0, -7.07598)
+
+[node name="Cubicle14" parent="Office2" instance=ExtResource("11_fmyke")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15.3718, 0.00619009, -9.08073)
+
+[node name="Cubicle13" parent="Office2" instance=ExtResource("11_fmyke")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -9.02735, 0, -9.07835)
+
+[node name="Cubicle15" parent="Office2" instance=ExtResource("11_fmyke")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -9.02735, 0, -7.07835)
+
+[node name="Cubicle16" parent="Office2" instance=ExtResource("11_fmyke")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -9.02735, 0, -5.07835)
+
+[node name="Cubicle17" parent="Office2" instance=ExtResource("11_fmyke")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -9.01669, 0.00619009, -3.0736)
+
+[node name="Office3" type="Node3D" parent="."]
+
+[node name="Cubicle10" parent="Office3" instance=ExtResource("11_fmyke")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -17.7667, 0, 17.2027)
+
+[node name="Cubicle11" parent="Office3" instance=ExtResource("11_fmyke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.8353, 0, 11.8353)
+
+[node name="Cubicle12" parent="Office3" instance=ExtResource("11_fmyke")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -15.7599, 0, 17.2027)
+
+[node name="Cubicle13" parent="Office3" instance=ExtResource("11_fmyke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.8284, 0, 11.8353)
+
+[node name="PottedPlant" parent="Office3" instance=ExtResource("8_apwt7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.22915, 0, 16.742)
+
+[node name="PottedPlant2" parent="Office3" instance=ExtResource("8_apwt7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.22915, 0, 18.155)
+
+[node name="PottedPlant3" parent="Office3" instance=ExtResource("8_apwt7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.38458, 0, 15.7615)
+
+[node name="Office4" type="Node3D" parent="."]
+
+[node name="Cubicle10" parent="Office4" instance=ExtResource("11_fmyke")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3.36696, 0.00618985, 15.1994)
+
+[node name="Cubicle11" parent="Office4" instance=ExtResource("11_fmyke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.09714, 0.00619009, 9.32783)
+
+[node name="Cubicle12" parent="Office4" instance=ExtResource("11_fmyke")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.36012, 0.00618985, 15.1994)
+
+[node name="Cubicle13" parent="Office4" instance=ExtResource("11_fmyke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.10398, 0.00619009, 9.32783)
+
+[node name="Office5" type="Node3D" parent="."]
+
+[node name="Cubicle14" parent="Office5" instance=ExtResource("11_fmyke")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -17.7667, 0, 8.06127)
+
+[node name="Cubicle15" parent="Office5" instance=ExtResource("11_fmyke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.8353, 0, 2.69383)
+
+[node name="Cubicle16" parent="Office5" instance=ExtResource("11_fmyke")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -15.7599, 0, 8.06127)
+
+[node name="Cubicle17" parent="Office5" instance=ExtResource("11_fmyke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.8284, 0, 2.69383)
+
+[node name="PottedPlant4" parent="Office5" instance=ExtResource("8_apwt7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.22915, 0, 9.24516)
+
+[node name="PottedPlant5" parent="Office5" instance=ExtResource("8_apwt7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.4558, 0, 4.90092)
+
+[node name="FilingCabinet" parent="Office5" instance=ExtResource("12_njhyc")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7.74019, 0, 2.15188)
+
+[node name="Table" parent="Office5" instance=ExtResource("9_fmyke")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.94384, 0, 3.88899)
+
+[node name="Printer" parent="Office5" instance=ExtResource("8_ny34u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.8881, 1.03378, 4.28837)
 
 [node name="Probes" type="Node3D" parent="."]
 visible = false
