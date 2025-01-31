@@ -16,6 +16,7 @@ class_name ItemDrop
 @export var wires: MeshInstance3D
 @export var chip: MeshInstance3D
 @export var circuit_board: MeshInstance3D
+@export var oil: MeshInstance3D
 
 @onready var dss : PhysicsDirectSpaceState3D = get_world_3d().direct_space_state
 var ray : PhysicsRayQueryParameters3D
@@ -77,6 +78,8 @@ func showMesh() -> void:
 			circuit_board.visible = true
 		PlayerManager.e_items.PEN:
 			pen.visible = true
+		PlayerManager.e_items.OIL:
+			oil.visible = true
 
 @export var meshHolder: Node3D
 

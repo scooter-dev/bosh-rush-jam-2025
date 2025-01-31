@@ -11,6 +11,7 @@ func _ready() -> void:
 		items[item.code] = item
 	set_physics_process(shopping)
 	PlayerInput.primary.connect(onPrimaryPressed)
+	PlayerInput.back.connect(onBack)
 
 @export var camera : Camera3D
 @export var l_browse_center : Node3D
@@ -45,6 +46,10 @@ func stopShopping() -> void:
 	player.cam.camera.current = true
 	player.visible = true
 	set_physics_process(shopping)
+
+func onBack() -> void:
+	if shopping:
+		stopShopping()
 
 func onPrimaryPressed() -> void:
 	if shopping:

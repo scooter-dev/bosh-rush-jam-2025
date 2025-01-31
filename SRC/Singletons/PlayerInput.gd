@@ -26,6 +26,9 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("PRIMARY"):
 		primary.emit()
 	
+	if Input.is_action_just_pressed("BACK"):
+		back.emit()
+	
 	if Input.is_action_pressed("SECONDARY"):
 		fbrl = (get_tree().root.get_mouse_position() - get_tree().root.size * 0.5).normalized()
 	else:
