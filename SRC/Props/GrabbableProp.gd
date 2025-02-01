@@ -46,7 +46,7 @@ var tmr : float = 0.0
 var prevVel : Vector3 = Vector3()
 func _physics_process(delta: float) -> void:
 	for body : Node in get_colliding_bodies():
-		if body is Zombie:
+		if body is Zombie or body is BossZombie:
 			var dmg : int = int(damage * prevVel.length() / 6.0)
 			if dmg > 0:
 				if body.onDamaged(dmg, thrower, self):

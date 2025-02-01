@@ -12,9 +12,9 @@ func _ready() -> void:
 	pass
 
 func _physics_process(_delta):
-	aiTick()
+	aiTick(_delta)
 
-func aiTick() -> void:
+func aiTick(_delta : float) -> void:
 	pass
 
 func aiReaction(amount : int, instigator : Node3D, grabbable: GrabbableProp) -> void:

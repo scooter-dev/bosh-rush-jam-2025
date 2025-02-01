@@ -12,6 +12,7 @@ class_name PaperAttack
 
 
 func _ready() -> void:
+	ray.add_exception(instigator)
 	ray.target_position.z = -speed * 1.1 * get_physics_process_delta_time()
 	set_physics_process(false)
 
