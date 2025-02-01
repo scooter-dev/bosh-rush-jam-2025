@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://cmkswypvk04ct"]
+[gd_scene load_steps=5 format=3 uid="uid://cmkswypvk04ct"]
 
+[ext_resource type="Script" uid="uid://b7adi2ag43ou5" path="res://SRC/UI/ZombieMenus/main_menu.gd" id="1_a76il"]
 [ext_resource type="Texture2D" uid="uid://ukvvaflgwc33" path="res://SRC/zombie_transparent_eyes.png" id="1_qs8yo"]
 
 [sub_resource type="Gradient" id="Gradient_31q7d"]
@@ -8,13 +9,15 @@ colors = PackedColorArray(0, 0.117647, 0, 0.921569, 0.368627, 0.368627, 0.368627
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_qs8yo"]
 gradient = SubResource("Gradient_31q7d")
 
-[node name="ZombieUi" type="Control"]
+[node name="ZombieUi" type="Control" node_paths=PackedStringArray("resume_button")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_a76il")
+resume_button = NodePath("MainMenuContainer/VBoxContainer/BaseMenuContainer/GradientBackground/MenuItemsContainer/GridContainer/Main Menu Buttons Container/ResumeButton")
 
 [node name="MainMenuContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -81,29 +84,30 @@ size_flags_vertical = 3
 theme_override_constants/separation = 50
 alignment = 1
 
-[node name="Button" type="Button" parent="MainMenuContainer/VBoxContainer/BaseMenuContainer/GradientBackground/MenuItemsContainer/GridContainer/Main Menu Buttons Container"]
+[node name="ResumeButton" type="Button" parent="MainMenuContainer/VBoxContainer/BaseMenuContainer/GradientBackground/MenuItemsContainer/GridContainer/Main Menu Buttons Container"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Resume"
 
-[node name="Button2" type="Button" parent="MainMenuContainer/VBoxContainer/BaseMenuContainer/GradientBackground/MenuItemsContainer/GridContainer/Main Menu Buttons Container"]
+[node name="SettingsMenuButton" type="Button" parent="MainMenuContainer/VBoxContainer/BaseMenuContainer/GradientBackground/MenuItemsContainer/GridContainer/Main Menu Buttons Container"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Settings"
 
-[node name="Button3" type="Button" parent="MainMenuContainer/VBoxContainer/BaseMenuContainer/GradientBackground/MenuItemsContainer/GridContainer/Main Menu Buttons Container"]
+[node name="HelpMenuButton" type="Button" parent="MainMenuContainer/VBoxContainer/BaseMenuContainer/GradientBackground/MenuItemsContainer/GridContainer/Main Menu Buttons Container"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "Restart"
+text = "Controls"
 
 [node name="Button4" type="Button" parent="MainMenuContainer/VBoxContainer/BaseMenuContainer/GradientBackground/MenuItemsContainer/GridContainer/Main Menu Buttons Container"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "Exit"
+text = "Button4"
 
 [node name="Stats Container" type="HBoxContainer" parent="MainMenuContainer/VBoxContainer/BaseMenuContainer/GradientBackground/MenuItemsContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 6
+theme_override_constants/separation = 50
 
 [node name="Label" type="Label" parent="MainMenuContainer/VBoxContainer/BaseMenuContainer/GradientBackground/MenuItemsContainer/GridContainer/Stats Container"]
 custom_minimum_size = Vector2(300, 100)

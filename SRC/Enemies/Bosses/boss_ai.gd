@@ -5,11 +5,9 @@ class_name BossAi
 @export var boss : BossZombie
 
 func _ready() -> void:
-	boss.damaged.connect(aiReaction)
-	boss.dead.connect(aiDefeat)
-
-	GrabbableProp.DamageType.CAT
-	pass
+    boss.damaged.connect(aiReaction)
+    boss.dead.connect(aiDefeat)
+    pass
 
 func _physics_process(_delta):
 	aiTick(_delta)

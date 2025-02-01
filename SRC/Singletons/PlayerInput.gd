@@ -11,6 +11,7 @@ signal secondary
 signal back
 signal SWL
 signal SWR
+signal pause
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
@@ -36,3 +37,6 @@ func _physics_process(delta: float) -> void:
 	fbrl += Input.get_vector("L","R","FW","BW",0.1)
 	fbrl.limit_length()
 	set_deferred("ml_udrl", Vector2())
+
+	if Input.is_action_pressed("ui_menu"):
+		pause.emit()
