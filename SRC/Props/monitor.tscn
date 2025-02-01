@@ -1,7 +1,32 @@
-[gd_scene load_steps=10 format=4 uid="uid://b2p1t0ogxv6di"]
+[gd_scene load_steps=15 format=4 uid="uid://b2p1t0ogxv6di"]
 
 [ext_resource type="Script" uid="uid://dr1s4oydh70go" path="res://SRC/Props/GrabbableProp.gd" id="1_or8vo"]
+[ext_resource type="Script" uid="uid://bcoqlkknoa2km" path="res://SRC/Items/LootEntry.gd" id="2_cqjji"]
 [ext_resource type="Shader" uid="uid://cra4e3ql2h74g" path="res://SRC/Shaders/GradientMappedLit.gdshader" id="2_e3r4y"]
+
+[sub_resource type="Resource" id="Resource_6lpe8"]
+script = ExtResource("2_cqjji")
+item = 7
+chance = 60.0
+metadata/_custom_type_script = ExtResource("2_cqjji")
+
+[sub_resource type="Resource" id="Resource_20xuu"]
+script = ExtResource("2_cqjji")
+item = 6
+chance = 5.0
+metadata/_custom_type_script = ExtResource("2_cqjji")
+
+[sub_resource type="Resource" id="Resource_c3g04"]
+script = ExtResource("2_cqjji")
+item = 9
+chance = 2.0
+metadata/_custom_type_script = ExtResource("2_cqjji")
+
+[sub_resource type="Resource" id="Resource_m1veg"]
+script = ExtResource("2_cqjji")
+item = 8
+chance = 1.0
+metadata/_custom_type_script = ExtResource("2_cqjji")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mlk1r"]
 resource_name = "Grad"
@@ -89,6 +114,8 @@ collision_mask = 15
 linear_damp = 1.0
 script = ExtResource("1_or8vo")
 damage = 2.0
+dropChance = 0.3
+lootTable = Array[ExtResource("2_cqjji")]([SubResource("Resource_6lpe8"), SubResource("Resource_20xuu"), SubResource("Resource_c3g04"), SubResource("Resource_m1veg")])
 
 [node name="Monitor" type="MeshInstance3D" parent="."]
 gi_mode = 2

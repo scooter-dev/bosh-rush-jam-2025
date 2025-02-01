@@ -1,7 +1,56 @@
-[gd_scene load_steps=7 format=4 uid="uid://dr8kkj7iimr4f"]
+[gd_scene load_steps=16 format=4 uid="uid://dr8kkj7iimr4f"]
 
 [ext_resource type="Script" uid="uid://dr1s4oydh70go" path="res://SRC/Props/GrabbableProp.gd" id="1_4ce6m"]
 [ext_resource type="Texture2D" uid="uid://dhma06nv4bcls" path="res://Assets/Textures/crayola-13-grad.png" id="2_78kgd"]
+[ext_resource type="Script" uid="uid://bcoqlkknoa2km" path="res://SRC/Items/LootEntry.gd" id="2_dispg"]
+
+[sub_resource type="Resource" id="Resource_yqhjj"]
+script = ExtResource("2_dispg")
+item = 3
+chance = 30.0
+metadata/_custom_type_script = ExtResource("2_dispg")
+
+[sub_resource type="Resource" id="Resource_64wjx"]
+script = ExtResource("2_dispg")
+item = 0
+chance = 10.0
+metadata/_custom_type_script = ExtResource("2_dispg")
+
+[sub_resource type="Resource" id="Resource_qw2v8"]
+script = ExtResource("2_dispg")
+item = 1
+chance = 5.0
+metadata/_custom_type_script = ExtResource("2_dispg")
+
+[sub_resource type="Resource" id="Resource_rjklo"]
+script = ExtResource("2_dispg")
+item = 5
+chance = 5.0
+metadata/_custom_type_script = ExtResource("2_dispg")
+
+[sub_resource type="Resource" id="Resource_v6jcu"]
+script = ExtResource("2_dispg")
+item = 10
+chance = 20.0
+metadata/_custom_type_script = ExtResource("2_dispg")
+
+[sub_resource type="Resource" id="Resource_ohorf"]
+script = ExtResource("2_dispg")
+item = 12
+chance = 2.0
+metadata/_custom_type_script = ExtResource("2_dispg")
+
+[sub_resource type="Resource" id="Resource_22a8s"]
+script = ExtResource("2_dispg")
+item = 2
+chance = 10.0
+metadata/_custom_type_script = ExtResource("2_dispg")
+
+[sub_resource type="Resource" id="Resource_b85nf"]
+script = ExtResource("2_dispg")
+item = 7
+chance = 10.0
+metadata/_custom_type_script = ExtResource("2_dispg")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ghy0"]
 resource_name = "GradColor"
@@ -53,6 +102,9 @@ mass = 3.0
 script = ExtResource("1_4ce6m")
 damage = 15.0
 weightClass = 3
+health = 20
+dropChance = 0.7
+lootTable = Array[ExtResource("2_dispg")]([SubResource("Resource_yqhjj"), SubResource("Resource_64wjx"), SubResource("Resource_qw2v8"), SubResource("Resource_rjklo"), SubResource("Resource_v6jcu"), SubResource("Resource_ohorf"), SubResource("Resource_22a8s"), SubResource("Resource_b85nf")])
 
 [node name="Cabinet" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, 0)

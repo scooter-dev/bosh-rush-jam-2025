@@ -22,6 +22,9 @@ func interact() ->void:
 							body.position = body.grabPoint.position
 						grabbed = body
 						return
+					elif body.has_method("onInteracted"):
+						body.onInteracted(player)
+						return
 				for area : InteractionArea in get_overlapping_areas():
 					area.onInteracted(player)
 					return

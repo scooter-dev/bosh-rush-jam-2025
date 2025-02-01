@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c1g40osluc5on"]
+[gd_scene load_steps=22 format=3 uid="uid://c1g40osluc5on"]
 
 [ext_resource type="Script" uid="uid://cyj8mpkhoulxo" path="res://SRC/Player/player.gd" id="1_s38mn"]
 [ext_resource type="Script" uid="uid://fcbiot2w55f6" path="res://SRC/Player/PlayerCam.gd" id="2_ond4c"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://byf3up8308jtk" path="res://Assets/Textures/Arrow.png" id="7_ywji5"]
 [ext_resource type="PackedScene" uid="uid://d6bsg66ea0km" path="res://SRC/Effects/foot_decal.tscn" id="8_c5aa8"]
 [ext_resource type="Shader" uid="uid://08ntj0c525et" path="res://SRC/Shaders/Decal.gdshader" id="9_vrj2a"]
+[ext_resource type="PackedScene" uid="uid://bo2lyf4ubkwd" path="res://SRC/Enemies/damage_number_spawner.tscn" id="10_vrj2a"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_s38mn"]
 friction = 0.0
@@ -62,7 +63,7 @@ shader_parameter/vFade = SubResource("GradientTexture1D_iy44w")
 shader_parameter/scale_mod = 1.0
 shader_parameter/cube_half_size = 0.5
 
-[node name="PlayerChair" type="RigidBody3D" node_paths=PackedStringArray("cam", "charRotator", "grabArea")]
+[node name="PlayerChair" type="RigidBody3D" node_paths=PackedStringArray("cam", "charRotator", "grabArea", "damageNumberSpawner")]
 collision_layer = 2
 collision_mask = 15
 physics_material_override = SubResource("PhysicsMaterial_s38mn")
@@ -74,6 +75,7 @@ script = ExtResource("1_s38mn")
 cam = NodePath("CamY")
 charRotator = NodePath("CharRotator")
 grabArea = NodePath("CharRotator/GrabArea")
+damageNumberSpawner = NodePath("DamageNumberSpawner")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.916136, 0)
@@ -130,3 +132,6 @@ offset_bottom = 23.0
 [node name="FootDecal" parent="." instance=ExtResource("8_c5aa8")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 material_override = SubResource("ShaderMaterial_p82fg")
+
+[node name="DamageNumberSpawner" parent="." instance=ExtResource("10_vrj2a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.69452, 0)

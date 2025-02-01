@@ -45,3 +45,14 @@ func update() -> void:
 		for c : Node3D in get_children():
 			if !c.visible:
 				c.queue_free()
+		
+		if !hasPrinter:
+			printer.queue_free()
+		if !hasChair:
+			chair.queue_free()
+		if !hasRight:
+			separator_right.queue_free()
+		if !hasLeft:
+			separator_left.queue_free()
+		if !hasBack:
+			separator_back.queue_free()

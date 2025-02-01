@@ -1,7 +1,38 @@
-[gd_scene load_steps=7 format=4 uid="uid://bowtpcvupn2eg"]
+[gd_scene load_steps=13 format=4 uid="uid://bowtpcvupn2eg"]
 
 [ext_resource type="Texture2D" uid="uid://dhma06nv4bcls" path="res://Assets/Textures/crayola-13-grad.png" id="1_017eq"]
 [ext_resource type="Script" uid="uid://dr1s4oydh70go" path="res://SRC/Props/GrabbableProp.gd" id="1_mjr5x"]
+[ext_resource type="Script" uid="uid://bcoqlkknoa2km" path="res://SRC/Items/LootEntry.gd" id="2_7mpee"]
+
+[sub_resource type="Resource" id="Resource_neo28"]
+script = ExtResource("2_7mpee")
+item = 7
+chance = 20.0
+metadata/_custom_type_script = ExtResource("2_7mpee")
+
+[sub_resource type="Resource" id="Resource_uf1c6"]
+script = ExtResource("2_7mpee")
+item = 6
+chance = 20.0
+metadata/_custom_type_script = ExtResource("2_7mpee")
+
+[sub_resource type="Resource" id="Resource_07y4g"]
+script = ExtResource("2_7mpee")
+item = 9
+chance = 5.0
+metadata/_custom_type_script = ExtResource("2_7mpee")
+
+[sub_resource type="Resource" id="Resource_asy81"]
+script = ExtResource("2_7mpee")
+item = 8
+chance = 1.0
+metadata/_custom_type_script = ExtResource("2_7mpee")
+
+[sub_resource type="Resource" id="Resource_6jjnm"]
+script = ExtResource("2_7mpee")
+item = 12
+chance = 2.0
+metadata/_custom_type_script = ExtResource("2_7mpee")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ghy0"]
 resource_name = "GradColor"
@@ -51,6 +82,10 @@ collision_layer = 20
 collision_mask = 15
 script = ExtResource("1_mjr5x")
 damage = 6.0
+weightClass = 2
+health = 12
+dropChance = 0.4
+lootTable = Array[ExtResource("2_7mpee")]([SubResource("Resource_neo28"), SubResource("Resource_uf1c6"), SubResource("Resource_07y4g"), SubResource("Resource_asy81"), SubResource("Resource_6jjnm")])
 
 [node name="Microwave" type="MeshInstance3D" parent="."]
 gi_mode = 2

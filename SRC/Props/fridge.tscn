@@ -1,7 +1,50 @@
-[gd_scene load_steps=7 format=4 uid="uid://du0qcs2uip754"]
+[gd_scene load_steps=15 format=4 uid="uid://du0qcs2uip754"]
 
 [ext_resource type="Texture2D" uid="uid://dhma06nv4bcls" path="res://Assets/Textures/crayola-13-grad.png" id="1_0sh5o"]
 [ext_resource type="Script" uid="uid://dr1s4oydh70go" path="res://SRC/Props/GrabbableProp.gd" id="1_u1frw"]
+[ext_resource type="Script" uid="uid://bcoqlkknoa2km" path="res://SRC/Items/LootEntry.gd" id="2_ve48j"]
+
+[sub_resource type="Resource" id="Resource_2tui3"]
+script = ExtResource("2_ve48j")
+item = 4
+chance = 20.0
+metadata/_custom_type_script = ExtResource("2_ve48j")
+
+[sub_resource type="Resource" id="Resource_qhrlm"]
+script = ExtResource("2_ve48j")
+item = 5
+chance = 20.0
+metadata/_custom_type_script = ExtResource("2_ve48j")
+
+[sub_resource type="Resource" id="Resource_a155g"]
+script = ExtResource("2_ve48j")
+item = 9
+chance = 3.0
+metadata/_custom_type_script = ExtResource("2_ve48j")
+
+[sub_resource type="Resource" id="Resource_rjf65"]
+script = ExtResource("2_ve48j")
+item = 8
+chance = 1.0
+metadata/_custom_type_script = ExtResource("2_ve48j")
+
+[sub_resource type="Resource" id="Resource_76lvl"]
+script = ExtResource("2_ve48j")
+item = 6
+chance = 10.0
+metadata/_custom_type_script = ExtResource("2_ve48j")
+
+[sub_resource type="Resource" id="Resource_suijk"]
+script = ExtResource("2_ve48j")
+item = 7
+chance = 5.0
+metadata/_custom_type_script = ExtResource("2_ve48j")
+
+[sub_resource type="Resource" id="Resource_x8og3"]
+script = ExtResource("2_ve48j")
+item = 12
+chance = 2.0
+metadata/_custom_type_script = ExtResource("2_ve48j")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ghy0"]
 resource_name = "GradColor"
@@ -53,6 +96,9 @@ mass = 3.0
 script = ExtResource("1_u1frw")
 damage = 25.0
 weightClass = 4
+health = 30
+dropChance = 0.9
+lootTable = Array[ExtResource("2_ve48j")]([SubResource("Resource_2tui3"), SubResource("Resource_qhrlm"), SubResource("Resource_a155g"), SubResource("Resource_rjf65"), SubResource("Resource_76lvl"), SubResource("Resource_suijk"), SubResource("Resource_x8og3")])
 
 [node name="Fridge" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45, 0, 0)

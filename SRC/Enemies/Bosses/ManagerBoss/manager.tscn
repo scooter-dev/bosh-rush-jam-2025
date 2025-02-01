@@ -1,0 +1,54 @@
+[gd_scene load_steps=11 format=3 uid="uid://dpp5kwx2brt4j"]
+
+[ext_resource type="Script" uid="uid://b1ub7malgxo06" path="res://SRC/Enemies/Bosses/boss_enemy.gd" id="1_280ne"]
+[ext_resource type="PackedScene" uid="uid://d6bsg66ea0km" path="res://SRC/Effects/foot_decal.tscn" id="2_icph8"]
+[ext_resource type="Shader" uid="uid://08ntj0c525et" path="res://SRC/Shaders/Decal.gdshader" id="3_5uh6l"]
+[ext_resource type="Script" uid="uid://bmcmi0po4hwtf" path="res://SRC/Enemies/Bosses/ManagerBoss/managerAI.gd" id="4_5uh6l"]
+
+[sub_resource type="Gradient" id="Gradient_px5nj"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.125523, 0.669456)
+colors = PackedColorArray(0, 0, 0, 0.568627, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_btmj8"]
+gradient = SubResource("Gradient_px5nj")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_btmj8"]
+offsets = PackedFloat32Array(0, 0.543933, 0.573222, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.752941, 1, 1, 1, 0.752941, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_iy44w"]
+gradient = SubResource("Gradient_btmj8")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3qnrk"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("3_5uh6l")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = SubResource("GradientTexture2D_btmj8")
+shader_parameter/vFade = SubResource("GradientTexture1D_iy44w")
+shader_parameter/scale_mod = 1.0
+shader_parameter/cube_half_size = 0.5
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5uh6l"]
+
+[node name="Manager" type="RigidBody3D" node_paths=PackedStringArray("nav_agent")]
+can_sleep = false
+lock_rotation = true
+script = ExtResource("1_280ne")
+nav_agent = NodePath("NavigationAgent3D")
+
+[node name="FootDecal" parent="." instance=ExtResource("2_icph8")]
+material_override = SubResource("ShaderMaterial_3qnrk")
+
+[node name="AI" type="Node" parent="." node_paths=PackedStringArray("boss")]
+script = ExtResource("4_5uh6l")
+boss = NodePath("..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_5uh6l")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]

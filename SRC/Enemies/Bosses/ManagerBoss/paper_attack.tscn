@@ -1,0 +1,82 @@
+[gd_scene load_steps=16 format=3 uid="uid://hu5h0yhignoa"]
+
+[ext_resource type="Script" uid="uid://vvgg7q5dkguy" path="res://SRC/Enemies/Bosses/ManagerBoss/paper_attack.gd" id="1_7f8il"]
+[ext_resource type="Shader" uid="uid://dmbstd54hpvph" path="res://SRC/Shaders/rgbTextureDiscard.gdshader" id="2_jssfv"]
+[ext_resource type="Texture2D" uid="uid://byf3up8308jtk" path="res://Assets/Textures/Arrow.png" id="3_b22gy"]
+[ext_resource type="PackedScene" uid="uid://b3pxc4b04uii1" path="res://SRC/Effects/PaperTrail.tscn" id="4_b22gy"]
+[ext_resource type="PackedScene" uid="uid://d6bsg66ea0km" path="res://SRC/Effects/foot_decal.tscn" id="5_0o07n"]
+[ext_resource type="Shader" uid="uid://08ntj0c525et" path="res://SRC/Shaders/Decal.gdshader" id="6_slgfv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_701wg"]
+render_priority = 0
+shader = ExtResource("2_jssfv")
+shader_parameter/tex = ExtResource("3_b22gy")
+shader_parameter/red_color = Color(1, 1, 1, 1)
+shader_parameter/green_color = Color(1, 0, 0, 1)
+shader_parameter/blue_color = Color(1, 1, 1, 1)
+shader_parameter/texScale = Vector2(1, 0.25)
+shader_parameter/texOffset = Vector2(0, 1.5)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_7f8il"]
+size = Vector2(2, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jssfv"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_jssfv"]
+size = Vector3(0.3, 0.1, 0.4)
+
+[sub_resource type="Gradient" id="Gradient_px5nj"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.125523, 0.669456)
+colors = PackedColorArray(0, 0, 0, 0.568627, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_btmj8"]
+gradient = SubResource("Gradient_px5nj")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_btmj8"]
+offsets = PackedFloat32Array(0, 0.543933, 0.573222, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.752941, 1, 1, 1, 0.752941, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_iy44w"]
+gradient = SubResource("Gradient_btmj8")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qn50k"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("6_slgfv")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = SubResource("GradientTexture2D_btmj8")
+shader_parameter/vFade = SubResource("GradientTexture1D_iy44w")
+shader_parameter/scale_mod = 1.0
+shader_parameter/cube_half_size = 0.5
+
+[node name="PaperAttack" type="Node3D" node_paths=PackedStringArray("arrow", "paperProjectile", "ray", "foot_decal")]
+script = ExtResource("1_7f8il")
+arrow = NodePath("Arrow")
+paperProjectile = NodePath("Paper")
+ray = NodePath("Paper/RayCast3D")
+foot_decal = NodePath("Paper/FootDecal")
+
+[node name="Arrow" type="MeshInstance3D" parent="."]
+transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, 0, 0.0296094, -1.60758)
+material_override = SubResource("ShaderMaterial_701wg")
+mesh = SubResource("PlaneMesh_7f8il")
+
+[node name="Paper" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.775928, 0)
+material_override = SubResource("StandardMaterial3D_jssfv")
+gi_mode = 2
+mesh = SubResource("BoxMesh_jssfv")
+
+[node name="RayCast3D" type="RayCast3D" parent="Paper"]
+target_position = Vector3(0, 0, -1)
+collision_mask = 11
+
+[node name="PaperTrail" parent="Paper" instance=ExtResource("4_b22gy")]
+
+[node name="FootDecal" parent="Paper" instance=ExtResource("5_0o07n")]
+transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 1, 0, -0.43533, 0)
+material_override = SubResource("ShaderMaterial_qn50k")
+skeleton = NodePath("../..")

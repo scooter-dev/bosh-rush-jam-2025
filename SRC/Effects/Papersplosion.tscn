@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://cf5rq7wb1kn2i"]
+
+[ext_resource type="Texture2D" uid="uid://g3q3leiqn3ju" path="res://Assets/Textures/Paper.png" id="1_hd2b2"]
+[ext_resource type="Script" uid="uid://dbth2e487osp2" path="res://SRC/Effects/papersplosion.gd" id="2_j3imx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r6m8j"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_hd2b2")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_e0s8i"]
+material = SubResource("StandardMaterial3D_r6m8j")
+
+[sub_resource type="Gradient" id="Gradient_vgyx0"]
+offsets = PackedFloat32Array(0, 0.741071, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="Papersplosion" type="CPUParticles3D"]
+gi_mode = 2
+emitting = false
+amount = 64
+lifetime = 1.5
+one_shot = true
+explosiveness = 1.0
+mesh = SubResource("QuadMesh_e0s8i")
+direction = Vector3(0, 1, 0)
+spread = 90.0
+gravity = Vector3(0, -1, 0)
+initial_velocity_min = 0.5
+initial_velocity_max = 2.0
+radial_accel_min = -0.7
+radial_accel_max = 0.7
+damping_min = 0.1
+damping_max = 0.1
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_min = 0.4
+scale_amount_max = 0.4
+color_ramp = SubResource("Gradient_vgyx0")
+script = ExtResource("2_j3imx")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

@@ -67,6 +67,7 @@ collision_mask = 15
 script = ExtResource("1_nti4c")
 damage = 8.0
 weightClass = 2
+health = 10
 grabPoint = NodePath("Node3D")
 
 [node name="Table" type="MeshInstance3D" parent="."]

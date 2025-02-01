@@ -1,6 +1,25 @@
-[gd_scene load_steps=17 format=4 uid="uid://baaoq0v07g1tr"]
+[gd_scene load_steps=21 format=4 uid="uid://baaoq0v07g1tr"]
 
 [ext_resource type="Script" uid="uid://dr1s4oydh70go" path="res://SRC/Props/GrabbableProp.gd" id="1_aydci"]
+[ext_resource type="Script" uid="uid://bcoqlkknoa2km" path="res://SRC/Items/LootEntry.gd" id="2_mdksw"]
+
+[sub_resource type="Resource" id="Resource_d64pl"]
+script = ExtResource("2_mdksw")
+item = 2
+chance = 10.0
+metadata/_custom_type_script = ExtResource("2_mdksw")
+
+[sub_resource type="Resource" id="Resource_a3nm3"]
+script = ExtResource("2_mdksw")
+item = 6
+chance = 10.0
+metadata/_custom_type_script = ExtResource("2_mdksw")
+
+[sub_resource type="Resource" id="Resource_rsmk7"]
+script = ExtResource("2_mdksw")
+item = 1
+chance = 20.0
+metadata/_custom_type_script = ExtResource("2_mdksw")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mdksw"]
 albedo_color = Color(0.121094, 0.121094, 0.121094, 1)
@@ -128,6 +147,9 @@ collision_mask = 15
 script = ExtResource("1_aydci")
 damage = 5.0
 weightClass = 2
+health = 10
+dropChance = 0.7
+lootTable = Array[ExtResource("2_mdksw")]([SubResource("Resource_d64pl"), SubResource("Resource_a3nm3"), SubResource("Resource_rsmk7")])
 
 [node name="ChairBase" type="MeshInstance3D" parent="."]
 material_override = SubResource("StandardMaterial3D_mdksw")

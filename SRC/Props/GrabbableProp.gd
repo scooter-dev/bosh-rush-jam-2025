@@ -68,6 +68,12 @@ func die() -> void:
 
 const ITEM_DROP = preload("res://SRC/Items/item_drop.tscn")
 func dropItem() -> void:
+	if lootTable.size() == 0:
+		return
+	
+	if randf_range(0,1) > dropChance:
+		return
+	
 	var drop : ItemDrop = ITEM_DROP.instantiate()
 	
 	var item : int

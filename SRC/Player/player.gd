@@ -7,6 +7,7 @@ var playerEnabled : bool = true
 @export var cam : PlayerCamera
 @export var charRotator : CharRotator
 @export var grabArea : GrabArea
+@export var damageNumberSpawner : DamageNSpawner
 var acceleration : float = 12.0
 var damping : float = 30.0
 
@@ -14,6 +15,7 @@ enum {RUNNING, GRABBING, SPEEN, AIM}
 
 var mode : int = RUNNING
 var hSpeed : float = 0.0
+var health : int = 10
 
 @onready var prevRotation : float = charRotator.global_rotation.y
 
@@ -26,6 +28,9 @@ var speenPower : float = 0.0
 
 #var groundVelocity : Vector3 = Vector3()
 var slideVelocity : Vector3 = Vector3()
+
+func _enter_tree() -> void:
+	PlayerManager.player = self
 
 func _ready() -> void:
 	PlayerInput.primary.connect(onPrimary)
@@ -41,6 +46,7 @@ func _physics_process(delta: float) -> void:
 	if !playerEnabled:
 		return
 	#groundVelocity = Vector3()
+	iTime = max(0.0, iTime - delta)
 	hSpeed = linear_velocity.length()
 	var dir : Vector3 = cam.global_basis.x * PlayerInput.fbrl.x + cam.global_basis.z * PlayerInput.fbrl.y
 	dir = dir.limit_length()
@@ -145,3 +151,18 @@ func wrap_angle(angle: float) -> float:
 
 func togglePlayer(state : bool) -> void:
 	playerEnabled = state
+
+var iTime : float = 0.0
+func onDamaged(damage : int, instigator : Node3D) -> void:
+	if iTime < 0.001:
+		iTime = 0.2
+		health -= damage
+		damageNumberSpawner.spawnDNumber(damage)
+		print("player damage")
+		if health <= 0:
+			die()
+		
+
+func die() -> void:
+	return
+	togglePlayer(false)

@@ -714,6 +714,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.9, 0, -2.3)
 [node name="Trash3" parent="Props/BigRoom01/Misc" instance=ExtResource("27_6tmo3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.85, 0, 1.75)
 
+[node name="Trash4" parent="Props/BigRoom01/Misc" instance=ExtResource("27_6tmo3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.7, 0, 7.2)
+
+[node name="Trash5" parent="Props/BigRoom01/Misc" instance=ExtResource("27_6tmo3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7, 0, 7.2)
+
+[node name="Trash6" parent="Props/BigRoom01/Misc" instance=ExtResource("27_6tmo3")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.55, 0, 7.3)
+
+[node name="Trash7" parent="Props/BigRoom01/Misc" instance=ExtResource("27_6tmo3")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.45, 0, -6.95)
+
+[node name="Trash8" parent="Props/BigRoom01/Misc" instance=ExtResource("27_6tmo3")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 17.9, 0, -7.25)
+
+[node name="Trash9" parent="Props/BigRoom01/Misc" instance=ExtResource("27_6tmo3")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 27.4, 0, -7.2)
+
+[node name="Trash10" parent="Props/BigRoom01/Misc" instance=ExtResource("27_6tmo3")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 26, 0, -1.9)
+
 [node name="SmallOffices01" type="Node3D" parent="Props"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.75, 0, 4)
 
@@ -785,6 +806,12 @@ transform = Transform3D(0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, 0.75, 0, 8
 
 [node name="Trash" parent="Props/SmallOffices01" instance=ExtResource("27_6tmo3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -2.2)
+
+[node name="Trash3" parent="Props/SmallOffices01" instance=ExtResource("27_6tmo3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7, 0, 2.2)
+
+[node name="Trash4" parent="Props/SmallOffices01" instance=ExtResource("27_6tmo3")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3, 0, 4.55)
 
 [node name="Trash2" parent="Props/SmallOffices01" instance=ExtResource("27_6tmo3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.150001, 0, 8.7)

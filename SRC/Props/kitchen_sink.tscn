@@ -1,7 +1,50 @@
-[gd_scene load_steps=13 format=4 uid="uid://dkgf6jirhyb8p"]
+[gd_scene load_steps=21 format=4 uid="uid://dkgf6jirhyb8p"]
 
 [ext_resource type="Texture2D" uid="uid://dhma06nv4bcls" path="res://Assets/Textures/crayola-13-grad.png" id="1_7v0ia"]
 [ext_resource type="Script" uid="uid://dr1s4oydh70go" path="res://SRC/Props/GrabbableProp.gd" id="1_o7mop"]
+[ext_resource type="Script" uid="uid://bcoqlkknoa2km" path="res://SRC/Items/LootEntry.gd" id="2_bwxq6"]
+
+[sub_resource type="Resource" id="Resource_dtwlt"]
+script = ExtResource("2_bwxq6")
+item = 0
+chance = 20.0
+metadata/_custom_type_script = ExtResource("2_bwxq6")
+
+[sub_resource type="Resource" id="Resource_3qgp7"]
+script = ExtResource("2_bwxq6")
+item = 2
+chance = 20.0
+metadata/_custom_type_script = ExtResource("2_bwxq6")
+
+[sub_resource type="Resource" id="Resource_jebuy"]
+script = ExtResource("2_bwxq6")
+item = 6
+chance = 10.0
+metadata/_custom_type_script = ExtResource("2_bwxq6")
+
+[sub_resource type="Resource" id="Resource_prkol"]
+script = ExtResource("2_bwxq6")
+item = 5
+chance = 5.0
+metadata/_custom_type_script = ExtResource("2_bwxq6")
+
+[sub_resource type="Resource" id="Resource_npfww"]
+script = ExtResource("2_bwxq6")
+item = 3
+chance = 5.0
+metadata/_custom_type_script = ExtResource("2_bwxq6")
+
+[sub_resource type="Resource" id="Resource_35mbo"]
+script = ExtResource("2_bwxq6")
+item = 7
+chance = 3.0
+metadata/_custom_type_script = ExtResource("2_bwxq6")
+
+[sub_resource type="Resource" id="Resource_088a8"]
+script = ExtResource("2_bwxq6")
+item = 12
+chance = 1.0
+metadata/_custom_type_script = ExtResource("2_bwxq6")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ghy0"]
 resource_name = "GradColor"
@@ -95,6 +138,9 @@ mass = 1.5
 script = ExtResource("1_o7mop")
 damage = 8.0
 weightClass = 3
+health = 8
+dropChance = 0.8
+lootTable = Array[ExtResource("2_bwxq6")]([SubResource("Resource_dtwlt"), SubResource("Resource_3qgp7"), SubResource("Resource_jebuy"), SubResource("Resource_prkol"), SubResource("Resource_npfww"), SubResource("Resource_35mbo"), SubResource("Resource_088a8")])
 
 [node name="KitchenCabinet_001" type="MeshInstance3D" parent="KitchenSink"]
 gi_mode = 2

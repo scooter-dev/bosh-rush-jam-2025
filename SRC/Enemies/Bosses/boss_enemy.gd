@@ -20,7 +20,7 @@ var invulnerable: bool = true
 var speed: float = 200
 var desired_rotation: float = 0.00
 
-var targetPosition : Vector3
+var targetPosition : Vector3 = Vector3()
 var spawnPosition : Vector3
 
 func _ready():
@@ -31,7 +31,7 @@ func _physics_process(_delta):
 		nav_agent.target_position = targetPosition
 		var next_position: Vector3 = nav_agent.get_next_path_position()
 		apply_central_force((next_position-global_position)* Vector3(1,0,1) * speed)
-	rotatorNode.global_rotation.y = desired_rotation
+	#rotatorNode.global_rotation.y = desired_rotation
 	
 
 func getPlanarDistanceToTargetSq():
@@ -48,7 +48,8 @@ func attackOnBoss(damage : int ,instigator : Node3D = null) -> void:
 		damage_number_spawner.spawnDNumber(damage)
 		if health <= 0:
 			die()
-        
+		
+
 func die() -> void:
 	isDead = true
 	dead.emit()

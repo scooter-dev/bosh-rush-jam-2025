@@ -1,6 +1,18 @@
 extends AnimationTree
 
 @export var zombie : Zombie
+@export var zombieAttackArea : ZombieAttackArea
+
+func _ready() -> void:
+	zombieAttackArea.playerInArea.connect(onAttackPlayer)
+
+func onAttackPlayer() -> void:
+	if self["parameters/B2_AtkLR/blend_amount"] > 0.5:
+		self["parameters/B2_AtkLR/blend_amount"] = 0
+	else:
+		self["parameters/B2_AtkLR/blend_amount"] = 1
+	self["parameters/OST_Attack/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_ABORT
+	self["parameters/OST_Attack/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
 
 func _process(delta: float) -> void:
 	var zSpeed : float = zombie.linear_velocity.length()

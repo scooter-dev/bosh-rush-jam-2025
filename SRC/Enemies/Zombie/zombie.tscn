@@ -1,10 +1,10 @@
-[gd_scene load_steps=56 format=3 uid="uid://bv2roejoa0822"]
+[gd_scene load_steps=57 format=3 uid="uid://bv2roejoa0822"]
 
 [ext_resource type="Script" uid="uid://bfgukb7pitkw3" path="res://SRC/Enemies/Zombie/zombie.gd" id="1_a78ok"]
 [ext_resource type="PackedScene" uid="uid://cyn7tjf3k30" path="res://Assets/Character/Character.glb" id="2_83d2e"]
 [ext_resource type="Script" uid="uid://bxclughrapnkq" path="res://SRC/Enemies/Zombie/zombie_rotator.gd" id="2_iy44w"]
 [ext_resource type="Script" uid="uid://t7ao3qeustxk" path="res://SRC/Enemies/Zombie/ZombieAnimTree.gd" id="4_5qcea"]
-[ext_resource type="Script" path="res://SRC/Enemies/Zombie/attack_area.gd" id="5_6wiwi"]
+[ext_resource type="Script" uid="uid://b3kyr7uqlmnrb" path="res://SRC/Enemies/Zombie/attack_area.gd" id="5_6wiwi"]
 [ext_resource type="Script" uid="uid://ptjhn1unpc8h" path="res://SRC/Enemies/Zombie/detection_area.gd" id="5_b8cif"]
 [ext_resource type="PackedScene" uid="uid://bo2lyf4ubkwd" path="res://SRC/Enemies/damage_number_spawner.tscn" id="6_mr2mh"]
 [ext_resource type="Shader" uid="uid://cl251maua5v7a" path="res://SRC/Shaders/healthBar.tres" id="7_dda52"]
@@ -54,6 +54,7 @@ size = Vector3(0.4, 0.395, 0.425)
 
 [sub_resource type="Animation" id="Animation_kw2ks"]
 resource_name = "AttackL"
+step = 0.01
 tracks/0/type = "rotation_3d"
 tracks/0/imported = true
 tracks/0/enabled = true
@@ -124,21 +125,10 @@ tracks/8/keys = {
 "method": &"doDamage"
 }]
 }
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("../AttackArea:attackCalled")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(1),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
 
 [sub_resource type="Animation" id="Animation_i8p4y"]
 resource_name = "AttackR"
+step = 0.01
 tracks/0/type = "rotation_3d"
 tracks/0/imported = true
 tracks/0/enabled = true
@@ -195,6 +185,20 @@ tracks/7/path = NodePath("Armature/Skeleton3D:arm.r")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = PackedFloat32Array(0, 1, -0.364911, -0.434004, -0.677044, 0.46914, 0.0333333, 1, -0.364911, -0.434004, -0.677044, 0.46914, 0.0666667, 1, -0.364162, -0.434545, -0.6749, 0.472298, 0.1, 1, -0.361986, -0.43606, -0.668701, 0.481308, 0.133333, 1, -0.358444, -0.438347, -0.658706, 0.495457, 0.166667, 1, -0.353563, -0.441168, -0.645108, 0.514004, 0.2, 1, -0.347363, -0.444265, -0.62809, 0.536163, 0.233333, 1, -0.339877, -0.447371, -0.607874, 0.561099, 0.266667, 1, -0.331172, -0.450233, -0.584764, 0.587934, 0.3, 1, -0.321371, -0.452627, -0.559179, 0.615767, 0.333333, 1, -0.310657, -0.454381, -0.531666, 0.643709, 0.366667, 1, -0.299281, -0.455392, -0.502901, 0.670925, 0.4, 1, -0.287551, -0.45563, -0.473665, 0.696676, 0.433333, 1, -0.275821, -0.455148, -0.444809, 0.720353, 0.466667, 1, -0.264473, -0.454067, -0.417215, 0.741491, 0.5, 1, -0.253897, -0.452565, -0.391758, 0.759768, 0.533333, 1, -0.244475, -0.450856, -0.369275, 0.774982, 0.566667, 1, -0.236572, -0.44917, -0.350552, 0.787016, 0.6, 1, -0.230535, -0.447734, -0.336323, 0.795786, 0.633333, 1, -0.226686, -0.446754, -0.327288, 0.801191, 0.666667, 1, -0.225336, -0.446399, -0.324125, 0.803053, 0.7, 1, -0.230046, -0.447612, -0.335175, 0.79648, 0.733333, 1, -0.242761, -0.450509, -0.365205, 0.777646, 0.766667, 1, -0.261202, -0.453652, -0.409315, 0.747285, 0.8, 1, -0.282838, -0.455519, -0.462028, 0.706425, 0.866667, 1, -0.325412, -0.451738, -0.569678, 0.604572, 0.9, 1, -0.342255, -0.446454, -0.614259, 0.553378, 0.933333, 1, -0.354646, -0.440573, -0.648107, 0.509979, 0.966667, 1, -0.362265, -0.43587, -0.669495, 0.480163, 1, 1, -0.364911, -0.434004, -0.677044, 0.46914)
+tracks/8/type = "method"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../AttackArea")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.666667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"doDamage"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_t4b61"]
 resource_name = "Grab"
@@ -498,18 +502,6 @@ tracks/7/keys = PackedFloat32Array(0, 1, -0.364911, -0.434004, -0.677044, 0.4691
 
 [sub_resource type="Animation" id="Animation_iy44w"]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../AttackArea:attackCalled")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
 
 [sub_resource type="Animation" id="Animation_c0v0e"]
 resource_name = "Sit"
@@ -645,17 +637,16 @@ _data = {
 &"WaklFW": SubResource("Animation_q22ae")
 }
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_jix6e"]
+size = Vector3(0.515, 1.39417, 0.455)
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_83d2e"]
 animation = &"AttackL"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_84ahr"]
 animation = &"AttackR"
 
-[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_5qcea"]
-filter_enabled = true
-filters = ["Armature/Skeleton3D:arm.l", "Armature/Skeleton3D:arm.r", "Armature/Skeleton3D:head", "Armature/Skeleton3D:shoulder.l", "Armature/Skeleton3D:shoulder.r", "Armature/Skeleton3D:torso"]
-
-[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_b8cif"]
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_iy44w"]
 
 [sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_83d2e"]
 filter_enabled = true
@@ -676,9 +667,22 @@ animation = &"Hit"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_b8cif"]
 animation = &"Idle"
 
-[sub_resource type="AnimationNodeTimeSeek" id="AnimationNodeTimeSeek_84ahr"]
+[sub_resource type="Curve" id="Curve_iy44w"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
 
-[sub_resource type="AnimationNodeTimeSeek" id="AnimationNodeTimeSeek_5qcea"]
+[sub_resource type="Curve" id="Curve_6wiwi"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_jix6e"]
+filter_enabled = true
+filters = ["../AttackArea", "Armature/Skeleton3D:arm.l", "Armature/Skeleton3D:arm.r", "Armature/Skeleton3D:head", "Armature/Skeleton3D:shoulder.l", "Armature/Skeleton3D:shoulder.r", "Armature/Skeleton3D:torso"]
+fadein_time = 0.3
+fadein_curve = SubResource("Curve_iy44w")
+fadeout_time = 0.4
+fadeout_curve = SubResource("Curve_6wiwi")
+break_loop_at_end = true
 
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_iy44w"]
 
@@ -686,14 +690,13 @@ animation = &"Idle"
 animation = &"WaklFW"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_dda52"]
+graph_offset = Vector2(-439.497, 22.8726)
 nodes/AtkL/node = SubResource("AnimationNodeAnimation_83d2e")
-nodes/AtkL/position = Vector2(-40, 700)
+nodes/AtkL/position = Vector2(180, 700)
 nodes/AtkR/node = SubResource("AnimationNodeAnimation_84ahr")
-nodes/AtkR/position = Vector2(-40, 860)
-nodes/B2_Atk/node = SubResource("AnimationNodeBlend2_5qcea")
-nodes/B2_Atk/position = Vector2(640, 360)
-nodes/B2_AtkLR/node = SubResource("AnimationNodeBlend2_b8cif")
-nodes/B2_AtkLR/position = Vector2(460, 620)
+nodes/AtkR/position = Vector2(180, 860)
+nodes/B2_AtkLR/node = SubResource("AnimationNodeBlend2_iy44w")
+nodes/B2_AtkLR/position = Vector2(460, 640)
 nodes/B2_Chase/node = SubResource("AnimationNodeBlend2_83d2e")
 nodes/B2_Chase/position = Vector2(120, 220)
 nodes/B2_Hit/node = SubResource("AnimationNodeBlend2_mr2mh")
@@ -706,16 +709,14 @@ nodes/Hit/node = SubResource("AnimationNodeAnimation_dda52")
 nodes/Hit/position = Vector2(100, 520)
 nodes/Idle/node = SubResource("AnimationNodeAnimation_b8cif")
 nodes/Idle/position = Vector2(-720, 100)
-nodes/TS_AtkL/node = SubResource("AnimationNodeTimeSeek_84ahr")
-nodes/TS_AtkL/position = Vector2(220, 660)
-nodes/TS_AtkR/node = SubResource("AnimationNodeTimeSeek_5qcea")
-nodes/TS_AtkR/position = Vector2(220, 840)
+nodes/OST_Attack/node = SubResource("AnimationNodeOneShot_jix6e")
+nodes/OST_Attack/position = Vector2(640, 340)
 nodes/TS_IR/node = SubResource("AnimationNodeTimeScale_iy44w")
 nodes/TS_IR/position = Vector2(-191.57, 211.14)
 nodes/Walk/node = SubResource("AnimationNodeAnimation_mr2mh")
 nodes/Walk/position = Vector2(-720, 260)
 nodes/output/position = Vector2(860, 380)
-node_connections = [&"B2_Atk", 0, &"B2_Hit", &"B2_Atk", 1, &"B2_AtkLR", &"B2_AtkLR", 0, &"TS_AtkL", &"B2_AtkLR", 1, &"TS_AtkR", &"B2_Chase", 0, &"TS_IR", &"B2_Chase", 1, &"ChaseArms", &"B2_Hit", 0, &"B2_Chase", &"B2_Hit", 1, &"Hit", &"B2_IdleWalk", 0, &"Idle", &"B2_IdleWalk", 1, &"Walk", &"TS_AtkL", 0, &"AtkL", &"TS_AtkR", 0, &"AtkR", &"TS_IR", 0, &"B2_IdleWalk", &"output", 0, &"B2_Atk"]
+node_connections = [&"B2_AtkLR", 0, &"AtkL", &"B2_AtkLR", 1, &"AtkR", &"B2_Chase", 0, &"TS_IR", &"B2_Chase", 1, &"ChaseArms", &"B2_Hit", 0, &"B2_Chase", &"B2_Hit", 1, &"Hit", &"B2_IdleWalk", 0, &"Idle", &"B2_IdleWalk", 1, &"Walk", &"OST_Attack", 0, &"B2_Hit", &"OST_Attack", 1, &"B2_AtkLR", &"TS_IR", 0, &"B2_IdleWalk", &"output", 0, &"OST_Attack"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_5qcea"]
 radius = 8.14359
@@ -790,9 +791,9 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 
 bones/6/rotation = Quaternion(3.09086e-08, 0.707107, 0.707107, 3.09086e-08)
 bones/7/rotation = Quaternion(0, 4.37114e-08, 0, 1)
 bones/8/rotation = Quaternion(0.658114, 0.474342, 0.474342, -0.341886)
-bones/9/rotation = Quaternion(-0.49398, 0.138681, 0.080162, 0.854591)
+bones/9/rotation = Quaternion(-0.470082, 0.140851, 0.0762838, 0.867966)
 bones/10/rotation = Quaternion(0.658114, -0.474342, -0.474342, -0.341886)
-bones/11/rotation = Quaternion(-0.469861, -0.140871, -0.076248, 0.868086)
+bones/11/rotation = Quaternion(-0.453137, -0.142307, -0.0735341, 0.876931)
 
 [node name="CharacterMesh" parent="CharacterRotator/Character/Armature/Skeleton3D" index="0"]
 extra_cull_margin = 6.0
@@ -1030,12 +1031,12 @@ transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_6wiwi")
 
 [node name="Physical Bone torso" type="PhysicalBone3D" parent="CharacterRotator/Character/Armature/Skeleton3D/PhysicalBoneSimulator3D"]
-transform = Transform3D(1, 6.27833e-07, -6.9663e-07, -6.96629e-07, -8.04663e-07, -1, -6.27833e-07, 1, -8.04663e-07, -7.76723e-07, 0.950104, 1.66148e-06)
+transform = Transform3D(1, -4.44702e-07, -9.30753e-07, -9.30754e-07, -6.63042e-07, -1, 4.44701e-07, 1, -6.63042e-07, -5.70252e-07, 0.950067, 1.49571e-05)
 collision_layer = 0
 collision_mask = 7
 joint_type = 2
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.02062e-06, -1.40956e-06, 0.350104)
-body_offset = Transform3D(1, 7.15255e-07, -6.9663e-07, -6.96629e-07, -8.04663e-07, -1, -7.15256e-07, 1, -8.04662e-07, -7.76723e-07, 0.350104, 1.69128e-06)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.96071e-07, -1.47548e-05, 0.350067)
+body_offset = Transform3D(1, -3.57279e-07, -9.30754e-07, -9.30754e-07, -6.63042e-07, -1, 3.57279e-07, 1, -6.63042e-07, -5.70251e-07, 0.350067, 1.49869e-05)
 bone_name = "torso"
 joint_constraints/swing_span = 30.0
 joint_constraints/twist_span = 2.0
@@ -1048,12 +1049,12 @@ transform = Transform3D(1, 4.13226e-31, 0, 0, 0, 1, -4.13226e-31, -1, 0, 5.59816
 shape = SubResource("BoxShape3D_btmj8")
 
 [node name="Physical Bone shoulder_l" type="PhysicalBone3D" parent="CharacterRotator/Character/Armature/Skeleton3D/PhysicalBoneSimulator3D"]
-transform = Transform3D(0.100035, 0.300013, -0.948675, 0.299995, 0.899993, 0.316252, 0.948681, -0.316234, 2.84384e-05, 0.150011, 1.24998, 2.22436e-05)
+transform = Transform3D(0.100098, 0.300036, -0.948662, 0.299963, 0.899989, 0.316293, 0.948685, -0.316224, 8.78328e-05, 0.150034, 1.24996, 1.57785e-05)
 collision_layer = 0
 collision_mask = 7
 joint_type = 5
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.31103e-05, 1.53192e-05, 0.158129)
-body_offset = Transform3D(1, -7.15256e-06, 3.57069e-05, 3.55729e-05, 1.45298e-05, -1, 7.03335e-06, 1, 1.46963e-05, 1.74642e-05, 0.158129, -1.7643e-05)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.25867e-05, 2.61571e-05, 0.158159)
+body_offset = Transform3D(1, 4.20213e-06, 0.000105876, 0.000105735, 3.72094e-05, -1, -4.32134e-06, 1, 3.73684e-05, 5.84126e-06, 0.158159, -3.20673e-05)
 bone_name = "shoulder.l"
 joint_constraints/x/linear_limit_enabled = true
 joint_constraints/x/linear_limit_upper = 0.0
@@ -1124,12 +1125,12 @@ transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_alfak")
 
 [node name="Physical Bone shoulder_r" type="PhysicalBone3D" parent="CharacterRotator/Character/Armature/Skeleton3D/PhysicalBoneSimulator3D"]
-transform = Transform3D(0.0999923, -0.299996, 0.948685, -0.3, 0.900002, 0.316222, -0.948684, -0.316225, -5.60323e-06, -0.150039, 1.25005, -1.3072e-05)
+transform = Transform3D(0.0999651, -0.299976, 0.948695, -0.299973, 0.900021, 0.316194, -0.948696, -0.316191, -1.41511e-05, -0.150076, 1.25003, -1.36469e-05)
 collision_layer = 0
 collision_mask = 7
 joint_type = 5
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.68081e-06, -5.80754e-05, 0.158136)
-body_offset = Transform3D(1, -2.83122e-06, 6.77183e-06, 6.8171e-06, -4.33878e-06, -1, 2.80142e-06, 1, -4.39361e-06, -5.75185e-06, 0.158136, 5.87702e-05)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.55533e-07, -5.20969e-05, 0.158176)
+body_offset = Transform3D(1, -3.86536e-05, 2.41049e-05, 2.41471e-05, -2.93131e-05, -1, 3.86536e-05, 1, -2.93769e-05, -4.47035e-06, 0.158176, 5.67436e-05)
 bone_name = "shoulder.r"
 joint_constraints/x/linear_limit_enabled = true
 joint_constraints/x/linear_limit_upper = 0.0
@@ -1200,12 +1201,12 @@ transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_xypls")
 
 [node name="Physical Bone arm_l" type="PhysicalBone3D" parent="CharacterRotator/Character/Armature/Skeleton3D/PhysicalBoneSimulator3D"]
-transform = Transform3D(-8.62408e-06, 0.199235, 0.979952, 9.94886e-06, -0.979952, 0.199235, 1, 1.14676e-05, 6.46903e-06, 0.3004, 1.20071, 1.71801e-05)
+transform = Transform3D(-1.09926e-05, 0.253461, 0.967346, 1.67821e-05, -0.967345, 0.253461, 1, 1.90203e-05, 6.38007e-06, 0.300261, 1.20066, 0.000948105)
 collision_layer = 0
 collision_mask = 7
 joint_type = 2
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.69987e-05, 0.000611915, -0.000532295)
-body_offset = Transform3D(1, 1.10803e-05, 6.0219e-06, -1.1091e-05, 1, 0.000250697, -6.10215e-06, -0.000250518, 1, 1.69952e-05, -0.000611782, 0.000532448)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000947928, 0.000575908, -0.000420779)
+body_offset = Transform3D(1, 1.85435e-05, 5.67969e-06, -1.85605e-05, 1, 6.17653e-05, -5.7986e-06, -6.16759e-05, 1, 0.00094792, -0.0005759, 0.000420809)
 bone_name = "arm.l"
 joint_constraints/swing_span = 30.0
 joint_constraints/twist_span = 2.0
@@ -1218,12 +1219,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.44089e-16, 0.298347, -2.328
 shape = SubResource("BoxShape3D_iy44w")
 
 [node name="Physical Bone arm_r" type="PhysicalBone3D" parent="CharacterRotator/Character/Armature/Skeleton3D/PhysicalBoneSimulator3D"]
-transform = Transform3D(6.01925e-07, -0.25428, -0.967131, 2.16233e-06, -0.967131, 0.25428, -1, -2.24432e-06, -3.23011e-08, -0.299871, 1.19921, -0.000201495)
+transform = Transform3D(4.45284e-07, -0.291094, -0.956694, 1.89581e-06, -0.956694, 0.291094, -1, -1.94333e-06, 1.25859e-07, -0.29998, 1.19916, -0.000179607)
 collision_layer = 0
 collision_mask = 7
 joint_type = 2
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000201644, -0.000727564, 0.000324271)
-body_offset = Transform3D(1, 2.33391e-06, 6.87928e-07, -2.33996e-06, 1, -0.000275984, -6.31764e-07, 0.000276014, 1, 0.000201646, 0.000727654, -0.00032407)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000179756, -0.000793283, 0.000262545)
+body_offset = Transform3D(1, 1.73491e-06, 7.83156e-07, -1.79809e-06, 1, -0.000208586, -7.286e-07, 0.000208676, 1, 0.000179757, 0.000793338, -0.00026238)
 bone_name = "arm.r"
 joint_constraints/swing_span = 30.0
 joint_constraints/twist_span = 2.0
@@ -1236,12 +1237,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.44089e-16, 0.298347, -2.328
 shape = SubResource("BoxShape3D_iy44w")
 
 [node name="Physical Bone leg_r" type="PhysicalBone3D" parent="CharacterRotator/Character/Armature/Skeleton3D/PhysicalBoneSimulator3D"]
-transform = Transform3D(1, -2.97572e-11, 0, -2.97572e-11, -1, 4.47038e-07, 0, -4.47038e-07, -1, -0.200001, 0.6, -1.22935e-07)
+transform = Transform3D(1, -2.97899e-11, 2.70006e-13, -2.97899e-11, -1, 9.23872e-07, 2.70006e-13, -9.23872e-07, -1, -0.200001, 0.6, -6.10948e-07)
 collision_layer = 0
 collision_mask = 7
 joint_type = 2
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.15256e-07, -4.1655e-14, -9.31323e-08)
-body_offset = Transform3D(1, -2.97572e-11, 0, 2.97572e-11, 1, -4.47038e-07, 0, 4.47038e-07, 1, -7.15256e-07, 0, 9.31323e-08)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.15256e-07, -1.1921e-07, -5.81145e-07)
+body_offset = Transform3D(1, -2.97899e-11, 2.70006e-13, 2.97899e-11, 1, -9.23872e-07, -2.70006e-13, 9.23872e-07, 1, -7.15256e-07, 1.19209e-07, 5.81145e-07)
 bone_name = "leg.r"
 joint_constraints/swing_span = 30.0
 joint_constraints/twist_span = 2.0
@@ -1254,12 +1255,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.44089e-16, 0.298347, -2.328
 shape = SubResource("BoxShape3D_iy44w")
 
 [node name="Physical Bone leg_l" type="PhysicalBone3D" parent="CharacterRotator/Character/Armature/Skeleton3D/PhysicalBoneSimulator3D"]
-transform = Transform3D(1, -2.97572e-11, 0, -2.97572e-11, -1, 4.47038e-07, 0, -4.47038e-07, -1, 0.2, 0.6, -5.58793e-08)
+transform = Transform3D(1, -2.95763e-11, 6.39488e-14, -2.95763e-11, -1, 1.19209e-07, 6.39488e-14, -1.19209e-07, -1, 0.2, 0.6, -8.03175e-07)
 collision_layer = 0
 collision_mask = 7
 joint_type = 2
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.27826e-07, -1.16477e-14, -2.6077e-08)
-body_offset = Transform3D(1, -2.97572e-11, 0, 2.97572e-11, 1, -4.47038e-07, 0, 4.47038e-07, 1, 3.27826e-07, 0, 2.6077e-08)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.27826e-07, -1.19209e-07, -7.73373e-07)
+body_offset = Transform3D(1, -2.95763e-11, 6.39488e-14, 2.95763e-11, 1, -1.19209e-07, -6.39488e-14, 1.19209e-07, 1, 3.27826e-07, 1.19209e-07, 7.73373e-07)
 bone_name = "leg.l"
 joint_constraints/swing_span = 30.0
 joint_constraints/twist_span = 2.0
@@ -1272,11 +1273,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.44089e-16, 0.298347, -2.328
 shape = SubResource("BoxShape3D_iy44w")
 
 [node name="Physical Bone head" type="PhysicalBone3D" parent="CharacterRotator/Character/Armature/Skeleton3D/PhysicalBoneSimulator3D"]
-transform = Transform3D(1, 2.23501e-07, -2.71201e-06, -2.23517e-07, 1, -5.99027e-06, 2.71201e-06, 5.99027e-06, 1, -2.22043e-17, 1.3, -2.98023e-08)
+transform = Transform3D(1, 7.95058e-07, -4.8907e-06, -7.95077e-07, 1, -4.03076e-06, 4.8907e-06, 4.03076e-06, 1, -2.22043e-17, 1.3, -2.98023e-08)
 collision_layer = 0
 collision_mask = 7
 joint_type = 2
-body_offset = Transform3D(1, 2.23501e-07, -2.71201e-06, -2.23517e-07, 1, -5.99027e-06, 2.71201e-06, 5.99027e-06, 1, 0, 0, 0)
+body_offset = Transform3D(1, 7.95058e-07, -4.8907e-06, -7.95077e-07, 1, -4.03076e-06, 4.8907e-06, 4.03076e-06, 1, 0, 0, 0)
 bone_name = "head"
 joint_constraints/swing_span = 30.0
 joint_constraints/twist_span = 2.0
@@ -1303,6 +1304,7 @@ libraries = {
 }
 
 [node name="AttackArea" type="Area3D" parent="CharacterRotator" node_paths=PackedStringArray("zombie")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0736, 0.367322)
 collision_layer = 0
 collision_mask = 2
 monitorable = false
@@ -1310,21 +1312,24 @@ script = ExtResource("5_6wiwi")
 zombie = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterRotator/AttackArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.085144, 0)
+shape = SubResource("BoxShape3D_jix6e")
 
-[node name="AnimationTree" type="AnimationTree" parent="." node_paths=PackedStringArray("zombie")]
+[node name="AnimationTree" type="AnimationTree" parent="." node_paths=PackedStringArray("zombie", "zombieAttackArea")]
 root_node = NodePath("../CharacterRotator/Character")
 tree_root = SubResource("AnimationNodeBlendTree_dda52")
 anim_player = NodePath("../CharacterRotator/Character/AnimationPlayer")
-parameters/B2_Atk/blend_amount = 0.0
 parameters/B2_AtkLR/blend_amount = 0.0
 parameters/B2_Chase/blend_amount = 0.0
 parameters/B2_Hit/blend_amount = 0.0
-parameters/B2_IdleWalk/blend_amount = 0
-parameters/TS_AtkL/seek_request = -1.0
-parameters/TS_AtkR/seek_request = -1.0
+parameters/B2_IdleWalk/blend_amount = false
+parameters/OST_Attack/active = false
+parameters/OST_Attack/internal_active = false
+parameters/OST_Attack/request = 0
 parameters/TS_IR/scale = 1.0
 script = ExtResource("4_5qcea")
 zombie = NodePath("..")
+zombieAttackArea = NodePath("../CharacterRotator/AttackArea")
 
 [node name="DetectionArea" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.954842, 0)

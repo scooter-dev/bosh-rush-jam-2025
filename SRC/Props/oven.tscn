@@ -1,7 +1,44 @@
-[gd_scene load_steps=7 format=4 uid="uid://byfqiv1j440wp"]
+[gd_scene load_steps=14 format=4 uid="uid://byfqiv1j440wp"]
 
 [ext_resource type="Script" uid="uid://dr1s4oydh70go" path="res://SRC/Props/GrabbableProp.gd" id="1_1yr3c"]
 [ext_resource type="Texture2D" uid="uid://dhma06nv4bcls" path="res://Assets/Textures/crayola-13-grad.png" id="1_8k1p7"]
+[ext_resource type="Script" uid="uid://bcoqlkknoa2km" path="res://SRC/Items/LootEntry.gd" id="2_q4mek"]
+
+[sub_resource type="Resource" id="Resource_puxjl"]
+script = ExtResource("2_q4mek")
+item = 2
+chance = 30.0
+metadata/_custom_type_script = ExtResource("2_q4mek")
+
+[sub_resource type="Resource" id="Resource_odt12"]
+script = ExtResource("2_q4mek")
+item = 6
+chance = 10.0
+metadata/_custom_type_script = ExtResource("2_q4mek")
+
+[sub_resource type="Resource" id="Resource_b8p5w"]
+script = ExtResource("2_q4mek")
+item = 7
+chance = 5.0
+metadata/_custom_type_script = ExtResource("2_q4mek")
+
+[sub_resource type="Resource" id="Resource_bvydx"]
+script = ExtResource("2_q4mek")
+item = 9
+chance = 2.0
+metadata/_custom_type_script = ExtResource("2_q4mek")
+
+[sub_resource type="Resource" id="Resource_dbbxp"]
+script = ExtResource("2_q4mek")
+item = 8
+chance = 1.0
+metadata/_custom_type_script = ExtResource("2_q4mek")
+
+[sub_resource type="Resource" id="Resource_q4mek"]
+script = ExtResource("2_q4mek")
+item = 12
+chance = 5.0
+metadata/_custom_type_script = ExtResource("2_q4mek")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ghy0"]
 resource_name = "GradColor"
@@ -52,6 +89,9 @@ collision_mask = 15
 script = ExtResource("1_1yr3c")
 damage = 15.0
 weightClass = 3
+health = 15
+dropChance = 0.5
+lootTable = Array[ExtResource("2_q4mek")]([SubResource("Resource_puxjl"), SubResource("Resource_odt12"), SubResource("Resource_b8p5w"), SubResource("Resource_bvydx"), SubResource("Resource_dbbxp"), SubResource("Resource_q4mek")])
 
 [node name="Oven" type="MeshInstance3D" parent="."]
 gi_mode = 2

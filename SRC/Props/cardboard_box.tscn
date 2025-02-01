@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://dbuynwribjihl"]
+[gd_scene load_steps=18 format=4 uid="uid://dbuynwribjihl"]
 
 [ext_resource type="Texture2D" uid="uid://dhma06nv4bcls" path="res://Assets/Textures/crayola-13-grad.png" id="1_gixsj"]
 [ext_resource type="Script" uid="uid://dr1s4oydh70go" path="res://SRC/Props/GrabbableProp.gd" id="1_u8wfj"]
@@ -7,7 +7,7 @@
 [sub_resource type="Resource" id="Resource_0mijv"]
 script = ExtResource("2_q4ggy")
 item = 0
-chance = 10.0
+chance = 5.0
 metadata/_custom_type_script = ExtResource("2_q4ggy")
 
 [sub_resource type="Resource" id="Resource_70ceh"]
@@ -19,19 +19,49 @@ metadata/_custom_type_script = ExtResource("2_q4ggy")
 [sub_resource type="Resource" id="Resource_otp3r"]
 script = ExtResource("2_q4ggy")
 item = 2
-chance = 10.0
+chance = 20.0
 metadata/_custom_type_script = ExtResource("2_q4ggy")
 
 [sub_resource type="Resource" id="Resource_q6ku6"]
 script = ExtResource("2_q4ggy")
 item = 6
-chance = 10.0
+chance = 5.0
 metadata/_custom_type_script = ExtResource("2_q4ggy")
 
 [sub_resource type="Resource" id="Resource_1fkyb"]
 script = ExtResource("2_q4ggy")
 item = 10
-chance = 10.0
+chance = 5.0
+metadata/_custom_type_script = ExtResource("2_q4ggy")
+
+[sub_resource type="Resource" id="Resource_eimbg"]
+script = ExtResource("2_q4ggy")
+item = 7
+chance = 3.0
+metadata/_custom_type_script = ExtResource("2_q4ggy")
+
+[sub_resource type="Resource" id="Resource_q4ggy"]
+script = ExtResource("2_q4ggy")
+item = 12
+chance = 1.0
+metadata/_custom_type_script = ExtResource("2_q4ggy")
+
+[sub_resource type="Resource" id="Resource_wncvg"]
+script = ExtResource("2_q4ggy")
+item = 8
+chance = 1.0
+metadata/_custom_type_script = ExtResource("2_q4ggy")
+
+[sub_resource type="Resource" id="Resource_th113"]
+script = ExtResource("2_q4ggy")
+item = 9
+chance = 1.0
+metadata/_custom_type_script = ExtResource("2_q4ggy")
+
+[sub_resource type="Resource" id="Resource_51e11"]
+script = ExtResource("2_q4ggy")
+item = 7
+chance = 5.0
 metadata/_custom_type_script = ExtResource("2_q4ggy")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ghy0"]
@@ -82,9 +112,8 @@ collision_layer = 20
 collision_mask = 15
 script = ExtResource("1_u8wfj")
 damage = 4.0
-health = 3
-dropChance = 0.7
-lootTable = Array[ExtResource("2_q4ggy")]([SubResource("Resource_0mijv"), SubResource("Resource_70ceh"), SubResource("Resource_otp3r"), SubResource("Resource_q6ku6"), SubResource("Resource_1fkyb")])
+dropChance = 0.5
+lootTable = Array[ExtResource("2_q4ggy")]([SubResource("Resource_0mijv"), SubResource("Resource_70ceh"), SubResource("Resource_otp3r"), SubResource("Resource_q6ku6"), SubResource("Resource_1fkyb"), SubResource("Resource_eimbg"), SubResource("Resource_q4ggy"), SubResource("Resource_wncvg"), SubResource("Resource_th113"), SubResource("Resource_51e11")])
 
 [node name="CardboardBox" type="MeshInstance3D" parent="."]
 gi_mode = 2

@@ -1,6 +1,7 @@
 extends Node
 
 var player : Player
+var otherPlayers : Array[Player]
 
 enum e_items {GLUE, STAPLES, TAPE, PHONE_BOOK, SODA, CANDY, TUBING, WIRES, CHIP, CIRCUIT_BOARD, PEN, LASER_POINTER, OIL}
 

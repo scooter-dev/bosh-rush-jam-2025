@@ -1,6 +1,6 @@
 extends Area3D
 
-class_name AttackArea
+class_name ZombieAttackArea
 
 @export var zombie : Zombie
 
@@ -24,9 +24,13 @@ func onBodyExited(body : Node3D) -> void:
 
 func doDamage() -> void:
 	for player : Player in get_overlapping_bodies():
-		pass
+		player.onDamaged(zombie.damage, self)
+		print("dmgplayer")
 
 func _physics_process(delta: float) -> void:
 	if !attackCalled:
 		attackCalled = true
 		playerInArea.emit()
+		print("atk called")
+		await get_tree().create_timer(1.0).timeout
+		attackCalled = false

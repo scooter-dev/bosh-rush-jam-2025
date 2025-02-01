@@ -1,7 +1,14 @@
-[gd_scene load_steps=7 format=4 uid="uid://biouhomflvqko"]
+[gd_scene load_steps=9 format=4 uid="uid://biouhomflvqko"]
 
 [ext_resource type="Texture2D" uid="uid://dhma06nv4bcls" path="res://Assets/Textures/crayola-13-grad.png" id="1_3v3lx"]
 [ext_resource type="Script" uid="uid://dr1s4oydh70go" path="res://SRC/Props/GrabbableProp.gd" id="1_7djs0"]
+[ext_resource type="Script" uid="uid://bcoqlkknoa2km" path="res://SRC/Items/LootEntry.gd" id="2_rskxd"]
+
+[sub_resource type="Resource" id="Resource_gsdrv"]
+script = ExtResource("2_rskxd")
+item = 1
+chance = 10.0
+metadata/_custom_type_script = ExtResource("2_rskxd")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ghy0"]
 resource_name = "GradColor"
@@ -51,6 +58,8 @@ collision_layer = 20
 collision_mask = 15
 script = ExtResource("1_7djs0")
 damage = 3.0
+dropChance = 0.5
+lootTable = Array[ExtResource("2_rskxd")]([SubResource("Resource_gsdrv")])
 
 [node name="Pallet" type="MeshInstance3D" parent="."]
 gi_mode = 2

@@ -1,7 +1,32 @@
-[gd_scene load_steps=8 format=4 uid="uid://c5dax5r7r6e70"]
+[gd_scene load_steps=13 format=4 uid="uid://c5dax5r7r6e70"]
 
 [ext_resource type="Script" uid="uid://dr1s4oydh70go" path="res://SRC/Props/GrabbableProp.gd" id="1_cn2gt"]
+[ext_resource type="Script" uid="uid://bcoqlkknoa2km" path="res://SRC/Items/LootEntry.gd" id="2_8mixw"]
 [ext_resource type="Shader" uid="uid://cra4e3ql2h74g" path="res://SRC/Shaders/GradientMappedLit.gdshader" id="2_jyyqj"]
+
+[sub_resource type="Resource" id="Resource_q3l1b"]
+script = ExtResource("2_8mixw")
+item = 6
+chance = 30.0
+metadata/_custom_type_script = ExtResource("2_8mixw")
+
+[sub_resource type="Resource" id="Resource_2rgy6"]
+script = ExtResource("2_8mixw")
+item = 7
+chance = 20.0
+metadata/_custom_type_script = ExtResource("2_8mixw")
+
+[sub_resource type="Resource" id="Resource_byv5x"]
+script = ExtResource("2_8mixw")
+item = 8
+chance = 2.0
+metadata/_custom_type_script = ExtResource("2_8mixw")
+
+[sub_resource type="Resource" id="Resource_s1gdn"]
+script = ExtResource("2_8mixw")
+item = 9
+chance = 5.0
+metadata/_custom_type_script = ExtResource("2_8mixw")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8mixw"]
 render_priority = 0
@@ -55,6 +80,9 @@ collision_layer = 20
 collision_mask = 15
 script = ExtResource("1_cn2gt")
 damage = 3.0
+health = 10
+dropChance = 0.3
+lootTable = Array[ExtResource("2_8mixw")]([SubResource("Resource_q3l1b"), SubResource("Resource_2rgy6"), SubResource("Resource_byv5x"), SubResource("Resource_s1gdn")])
 
 [node name="PC" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
