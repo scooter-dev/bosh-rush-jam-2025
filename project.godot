@@ -28,9 +28,12 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 [dialogic]
 
 directories/dch_directory={
+"Speakers": "res://SRC/Dialogic/Speakers.dch",
+"You": "res://SRC/Dialogic/You.dch",
 "janitor": "res://SRC/Dialogic/janitor.dch"
 }
 directories/dtl_directory={
+"Intro": "res://SRC/Dialogic/Intro.dtl",
 "JanitorTalk": "res://SRC/Dialogic/JanitorTalk.dtl"
 }
 variables={

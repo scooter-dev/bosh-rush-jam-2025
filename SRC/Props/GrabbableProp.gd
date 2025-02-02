@@ -39,7 +39,16 @@ func unselected() -> void:
 		#print("unselelele")
 		highlightMesh.visible = false
 
+const HIT_1 = preload("res://Assets/Audio/SFX/hit1.ogg")
+const HIT_2 = preload("res://Assets/Audio/SFX/hit2.ogg")
+const PUFF = preload("res://Assets/Audio/SFX/puff.wav")
+
+var sound : AudioStreamPlayer3D
 func _ready() -> void:
+	sound = AudioStreamPlayer3D.new()
+	sound.attenuation_filter_cutoff_hz = 20500
+	sound.panning_strength = 0.8
+	add_child(sound)
 	set_physics_process(false)
 
 
@@ -68,6 +77,7 @@ func _physics_process(delta: float) -> void:
 			if dmg > 0:
 				if body.onDamaged(dmg, thrower, self):
 					health -= 1
+					hitSound()
 					for i in range(int(PlayerManager.luck)):
 						dropItem()
 				if health == 0:
@@ -81,11 +91,17 @@ func _physics_process(delta: float) -> void:
 			thrower = null
 	prevVel = linear_velocity
 
+func hitSound() -> void:
+	sound.stream = HIT_1 if randf_range(0,1) > 0.5 else HIT_2
+	sound.play()
+
 const PUFF_OF_SMOKE = preload("res://SRC/Effects/puff_of_smoke.tscn")
 func die() -> void:
 	var puff : CPUParticles3D = PUFF_OF_SMOKE.instantiate()
 	WorldManager.currentLevel.add_child(puff)
 	puff.global_position = global_position
+	sound.stream = PUFF
+	sound.play()
 	queue_free()
 
 const ITEM_DROP = preload("res://SRC/Items/item_drop.tscn")

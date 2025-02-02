@@ -1,6 +1,7 @@
-[gd_scene load_steps=19 format=4 uid="uid://bm2vugn4ets25"]
+[gd_scene load_steps=20 format=4 uid="uid://bm2vugn4ets25"]
 
 [ext_resource type="Script" uid="uid://dr1s4oydh70go" path="res://SRC/Props/GrabbableProp.gd" id="1_t5dnj"]
+[ext_resource type="AudioStream" uid="uid://cid3o15gcng0w" path="res://Assets/Audio/SFX/waterFountain.ogg" id="1_tbiur"]
 [ext_resource type="Texture2D" uid="uid://dhma06nv4bcls" path="res://Assets/Textures/crayola-13-grad.png" id="1_wpe01"]
 [ext_resource type="Script" uid="uid://bcoqlkknoa2km" path="res://SRC/Items/LootEntry.gd" id="2_akust"]
 
@@ -15,9 +16,16 @@ script/source = "extends MeshInstance3D
 
 @export var ray_cast_3d: RayCast3D
 @export var leak: CPUParticles3D
+@export var audio: AudioStreamPlayer3D
+
 
 func _process(delta: float) -> void:
 	leak.emitting = ray_cast_3d.get_collider() == null
+	if leak.emitting:
+		if !audio.playing:
+			audio.play()
+	else:
+		audio.stop()
 "
 
 [sub_resource type="Gradient" id="Gradient_7v0ia"]
@@ -124,13 +132,14 @@ points = PackedVector3Array(0.0311621, 0.916627, 0.25419, -0.307704, 0.593073, -
 
 [node name="ToiletSink" type="Node3D"]
 
-[node name="Pipe" type="MeshInstance3D" parent="." node_paths=PackedStringArray("ray_cast_3d", "leak")]
+[node name="Pipe" type="MeshInstance3D" parent="." node_paths=PackedStringArray("ray_cast_3d", "leak", "audio")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.98023e-08)
 gi_mode = 2
 mesh = SubResource("CylinderMesh_dhtvx")
 script = SubResource("GDScript_wpe01")
 ray_cast_3d = NodePath("RayCast3D")
 leak = NodePath("Leak")
+audio = NodePath("Audio")
 
 [node name="Leak" type="CPUParticles3D" parent="Pipe"]
 emitting = false
@@ -148,6 +157,10 @@ color = Color(0.270813, 0.564692, 0.679688, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
 target_position = Vector3(0, 1, 0)
 collision_mask = 4
+
+[node name="Audio" type="AudioStreamPlayer3D" parent="Pipe"]
+stream = ExtResource("1_tbiur")
+panning_strength = 0.8
 
 [node name="BathroomSink" type="RigidBody3D" parent="." node_paths=PackedStringArray("highlightMesh")]
 collision_layer = 20

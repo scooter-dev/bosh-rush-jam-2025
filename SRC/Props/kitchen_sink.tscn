@@ -1,8 +1,9 @@
-[gd_scene load_steps=23 format=4 uid="uid://dkgf6jirhyb8p"]
+[gd_scene load_steps=24 format=4 uid="uid://dkgf6jirhyb8p"]
 
 [ext_resource type="Texture2D" uid="uid://dhma06nv4bcls" path="res://Assets/Textures/crayola-13-grad.png" id="1_7v0ia"]
 [ext_resource type="Script" uid="uid://dr1s4oydh70go" path="res://SRC/Props/GrabbableProp.gd" id="1_o7mop"]
 [ext_resource type="Script" uid="uid://bcoqlkknoa2km" path="res://SRC/Items/LootEntry.gd" id="2_bwxq6"]
+[ext_resource type="AudioStream" uid="uid://cid3o15gcng0w" path="res://Assets/Audio/SFX/waterFountain.ogg" id="4_8enc5"]
 
 [sub_resource type="Resource" id="Resource_dtwlt"]
 script = ExtResource("2_bwxq6")
@@ -117,9 +118,15 @@ script/source = "extends MeshInstance3D
 
 @export var ray_cast_3d: RayCast3D
 @export var leak: CPUParticles3D
+@export var audio: AudioStreamPlayer3D
 
 func _process(delta: float) -> void:
 	leak.emitting = ray_cast_3d.get_collider() == null
+	if leak.emitting:
+		if !audio.playing:
+			audio.play()
+	else:
+		audio.stop()
 "
 
 [sub_resource type="Gradient" id="Gradient_o7mop"]
@@ -174,13 +181,14 @@ mesh = SubResource("ArrayMesh_58wrh")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.98023e-08, 0.5, -0.4)
 shape = SubResource("BoxShape3D_7v0ia")
 
-[node name="Pipe" type="MeshInstance3D" parent="." node_paths=PackedStringArray("ray_cast_3d", "leak")]
+[node name="Pipe" type="MeshInstance3D" parent="." node_paths=PackedStringArray("ray_cast_3d", "leak", "audio")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.45)
 gi_mode = 2
 mesh = SubResource("CylinderMesh_7v0ia")
 script = SubResource("GDScript_7v0ia")
 ray_cast_3d = NodePath("RayCast3D")
 leak = NodePath("Leak")
+audio = NodePath("Audio")
 
 [node name="Leak" type="CPUParticles3D" parent="Pipe"]
 emitting = false
@@ -198,3 +206,7 @@ color = Color(0.270813, 0.564692, 0.679688, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
 target_position = Vector3(0, 1, 0)
 collision_mask = 4
+
+[node name="Audio" type="AudioStreamPlayer3D" parent="Pipe"]
+stream = ExtResource("4_8enc5")
+panning_strength = 0.8

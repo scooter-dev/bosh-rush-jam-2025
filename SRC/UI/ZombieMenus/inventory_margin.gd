@@ -53,7 +53,7 @@ func changeCount(newCount: int, itemName: PlayerManager.e_items) -> void:
 			currentLabel = wiresCount
 		e_items.TAPE:
 			currentLabel = tapeCount
-	currentLabel.set_text(String.num(newCount))
+	currentLabel.set_text("%d" % newCount)
 	print_debug("yum, a"+ PlayerManager.getItemName(itemName)+ ". Now you have "+String.num(newCount))
 	if newCount > 0:
 		currentLabel.get_parent().show()

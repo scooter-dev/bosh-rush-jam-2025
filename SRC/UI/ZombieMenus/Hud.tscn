@@ -490,6 +490,7 @@ grow_vertical = 2
 text = "50"
 
 [node name="VSeparator" type="VSeparator" parent="MarginContainer/HBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_constants/separation = 400
 

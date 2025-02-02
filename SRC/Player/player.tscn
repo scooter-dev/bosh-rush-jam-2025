@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://c1g40osluc5on"]
+[gd_scene load_steps=30 format=3 uid="uid://c1g40osluc5on"]
 
 [ext_resource type="Script" uid="uid://cyj8mpkhoulxo" path="res://SRC/Player/player.gd" id="1_s38mn"]
 [ext_resource type="Script" uid="uid://fcbiot2w55f6" path="res://SRC/Player/PlayerCam.gd" id="2_ond4c"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bo2lyf4ubkwd" path="res://SRC/Enemies/damage_number_spawner.tscn" id="10_vrj2a"]
 [ext_resource type="PackedScene" uid="uid://bkw03pro1k11i" path="res://SRC/UI/ZombieMenus/Hud.tscn" id="11_stxsp"]
 [ext_resource type="PackedScene" uid="uid://cmkswypvk04ct" path="res://SRC/UI/ZombieMenus/ZombieUI.tscn" id="13_p82fg"]
+[ext_resource type="AudioStream" uid="uid://dpdyucl5adkb" path="res://Assets/Audio/SFX/rollLoop.ogg" id="14_an2fb"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_s38mn"]
 friction = 0.0
@@ -80,6 +81,22 @@ shader_parameter/cube_half_size = 0.5
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_stxsp"]
 bg_color = Color(0, 0, 0, 1)
 
+[sub_resource type="GDScript" id="GDScript_p82fg"]
+script/source = "extends AudioStreamPlayer3D
+
+@export var player : Player
+
+func _process(delta: float) -> void:
+	if player.linear_velocity.length_squared() > 1.0:
+		if !playing:
+			play()
+		volume_db = lerp(volume_db, 0.0, delta * 8.0)
+	else:
+		volume_linear = lerp(volume_linear, 0.0, delta * 8.0)
+		if volume_linear < 0.001:
+			stop()
+"
+
 [node name="PlayerChair" type="RigidBody3D" node_paths=PackedStringArray("cam", "charRotator", "grabArea", "damageNumberSpawner", "laser", "fade_out")]
 collision_layer = 2
 collision_mask = 15
@@ -121,6 +138,10 @@ cull_mask = 1
 current = true
 fov = 65.0
 far = 400.0
+
+[node name="AudioListener3D" type="AudioListener3D" parent="CamY"]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 0, -0.03265, 0)
+current = true
 
 [node name="CharRotator" type="Node3D" parent="." node_paths=PackedStringArray("player", "arrow")]
 script = ExtResource("3_bph2u")
@@ -164,6 +185,7 @@ mesh = SubResource("CylinderMesh_cygn4")
 skeleton = NodePath("../..")
 
 [node name="Label" type="Label" parent="."]
+visible = false
 offset_right = 40.0
 offset_bottom = 23.0
 
@@ -190,3 +212,9 @@ layer = 2
 [node name="ZombieUi" parent="CanvasLayer" instance=ExtResource("13_p82fg")]
 visible = false
 isPauseMenu = true
+
+[node name="RollStreamPlayer" type="AudioStreamPlayer3D" parent="." node_paths=PackedStringArray("player")]
+stream = ExtResource("14_an2fb")
+panning_strength = 0.8
+script = SubResource("GDScript_p82fg")
+player = NodePath("..")

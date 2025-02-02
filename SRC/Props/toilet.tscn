@@ -1,5 +1,6 @@
-[gd_scene load_steps=21 format=4 uid="uid://bnwig8beae5ro"]
+[gd_scene load_steps=22 format=4 uid="uid://bnwig8beae5ro"]
 
+[ext_resource type="AudioStream" uid="uid://cid3o15gcng0w" path="res://Assets/Audio/SFX/waterFountain.ogg" id="1_c8hj0"]
 [ext_resource type="Texture2D" uid="uid://dhma06nv4bcls" path="res://Assets/Textures/crayola-13-grad.png" id="1_koc8v"]
 [ext_resource type="Script" uid="uid://dr1s4oydh70go" path="res://SRC/Props/GrabbableProp.gd" id="1_tcpp3"]
 [ext_resource type="Script" uid="uid://bcoqlkknoa2km" path="res://SRC/Items/LootEntry.gd" id="2_gtbvd"]
@@ -15,9 +16,15 @@ script/source = "extends MeshInstance3D
 
 @export var ray_cast_3d: RayCast3D
 @export var leak: CPUParticles3D
+@export var audio: AudioStreamPlayer3D
 
 func _process(delta: float) -> void:
 	leak.emitting = ray_cast_3d.get_collider() == null
+	if leak.emitting:
+		if !audio.playing:
+			audio.play
+	else:
+		audio.stop()
 "
 
 [sub_resource type="Gradient" id="Gradient_7v0ia"]
@@ -130,13 +137,14 @@ points = PackedVector3Array(-0.297803, 0.577693, -0.453197, 0.252672, 0.994277, 
 
 [node name="Toilet" type="Node3D"]
 
-[node name="Pipe" type="MeshInstance3D" parent="." node_paths=PackedStringArray("ray_cast_3d", "leak")]
+[node name="Pipe" type="MeshInstance3D" parent="." node_paths=PackedStringArray("ray_cast_3d", "leak", "audio")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.05)
 gi_mode = 2
 mesh = SubResource("CylinderMesh_tcpp3")
 script = SubResource("GDScript_gtbvd")
 ray_cast_3d = NodePath("RayCast3D")
 leak = NodePath("Leak")
+audio = NodePath("Audio")
 
 [node name="Leak" type="CPUParticles3D" parent="Pipe"]
 emitting = false
@@ -154,6 +162,10 @@ color = Color(0.270813, 0.564692, 0.679688, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
 target_position = Vector3(0, 1, 0)
 collision_mask = 4
+
+[node name="Audio" type="AudioStreamPlayer3D" parent="Pipe"]
+stream = ExtResource("1_c8hj0")
+panning_strength = 0.8
 
 [node name="Toilet" type="RigidBody3D" parent="." node_paths=PackedStringArray("highlightMesh")]
 collision_layer = 20
