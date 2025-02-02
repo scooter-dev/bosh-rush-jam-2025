@@ -14,7 +14,6 @@ var target : Player
 func _ready() -> void:
 	super()
 	target = PlayerManager.player
-	state = CHASE
 	await get_tree().physics_frame
 
 func activate() -> void:
@@ -59,4 +58,7 @@ func aiReaction(amount : int, instigator : Node3D, grabbable: GrabbableProp) -> 
 
 func aiDefeat() -> void:
 	$"../CharacterRotator/Character/Armature/Skeleton3D/PhysicalBoneSimulator3D".physical_bones_start_simulation()
-	PlayerManager.keys.append("ceo")
+	PlayerManager.keys.append("rooftop")
+
+func fightStart() -> void:
+	state = CHASE
