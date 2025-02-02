@@ -1,4 +1,4 @@
-[gd_scene load_steps=91 format=4 uid="uid://gu8j0uahgrwr"]
+[gd_scene load_steps=92 format=4 uid="uid://gu8j0uahgrwr"]
 
 [ext_resource type="Shader" uid="uid://cm8puby5gs7hp" path="res://SRC/Shaders/rgbTextureTriplanar.gdshader" id="1_cg4ug"]
 [ext_resource type="Script" uid="uid://cqj86bbuq5axm" path="res://SRC/Actors/ProcGen/Pieces/ProceduralPiece.gd" id="1_facvb"]
@@ -27,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://cjjnt5aka3dhk" path="res://SRC/Props/trash.tscn" id="25_ae25m"]
 [ext_resource type="PackedScene" uid="uid://b2p1t0ogxv6di" path="res://SRC/Props/monitor.tscn" id="26_1xix2"]
 [ext_resource type="PackedScene" uid="uid://bv2roejoa0822" path="res://SRC/Enemies/Zombie/zombie.tscn" id="27_fs3fk"]
+[ext_resource type="PackedScene" uid="uid://bdehricvsx6gs" path="res://SRC/Props/door.tscn" id="28_facvb"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_j6fbb"]
 size = Vector3(40, 1, 40)
@@ -1132,3 +1133,65 @@ mesh = SubResource("QuadMesh_43vgf")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Barriers/Z-"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, 1.5, 0)
 shape = SubResource("BoxShape3D_ontly")
+
+[node name="Doors" type="Node3D" parent="."]
+
+[node name="Door" parent="Doors" instance=ExtResource("28_facvb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.95, 0, 1.2)
+
+[node name="Door2" parent="Doors" instance=ExtResource("28_facvb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.05, 0, 1.2)
+
+[node name="Door14" parent="Doors" instance=ExtResource("28_facvb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -16.8)
+
+[node name="Door15" parent="Doors" instance=ExtResource("28_facvb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -16.8)
+
+[node name="Door16" parent="Doors" instance=ExtResource("28_facvb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.05, 0, -16.8)
+
+[node name="Door17" parent="Doors" instance=ExtResource("28_facvb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.05, 0, -1.25)
+
+[node name="Door18" parent="Doors" instance=ExtResource("28_facvb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 0, 1.2)
+
+[node name="Door19" parent="Doors" instance=ExtResource("28_facvb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 0, 10.2)
+
+[node name="Door20" parent="Doors" instance=ExtResource("28_facvb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.05, 0, -11.2)
+
+[node name="Door3" parent="Doors" instance=ExtResource("28_facvb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.05, 0, 7.8)
+
+[node name="Door4" parent="Doors" instance=ExtResource("28_facvb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9.75, 0, 4.05)
+
+[node name="Door5" parent="Doors" instance=ExtResource("28_facvb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.2, 0, 12)
+
+[node name="Door6" parent="Doors" instance=ExtResource("28_facvb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.8, 0, 14)
+
+[node name="Door7" parent="Doors" instance=ExtResource("28_facvb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.8, 0, 10.05)
+
+[node name="Door8" parent="Doors" instance=ExtResource("28_facvb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.2, 0, 14.05)
+
+[node name="Door9" parent="Doors" instance=ExtResource("28_facvb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.2, 0, 6.05)
+
+[node name="Door10" parent="Doors" instance=ExtResource("28_facvb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8.2, 0, -3.65)
+
+[node name="Door11" parent="Doors" instance=ExtResource("28_facvb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8.15, 0, -8)
+
+[node name="Door12" parent="Doors" instance=ExtResource("28_facvb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 16.8, 0, -8)
+
+[node name="Door13" parent="Doors" instance=ExtResource("28_facvb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 16.8, 0, -3.6)
