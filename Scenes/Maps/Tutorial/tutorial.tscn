@@ -1,0 +1,921 @@
+[gd_scene load_steps=30 format=4 uid="uid://d2a1pvu2l8nt4"]
+
+[ext_resource type="PackedScene" uid="uid://bj76op4qds1fb" path="res://SRC/Actors/Elevator/elevator.tscn" id="1_0klb4"]
+[ext_resource type="Script" uid="uid://dme2a1a6hugg0" path="res://addons/lightmap_probe_grid/lightmap_probe_grid.gd" id="2_6rh3t"]
+[ext_resource type="Shader" uid="uid://drr0gce6cncf3" path="res://SRC/Shaders/darkness.gdshader" id="2_atqr4"]
+[ext_resource type="Shader" uid="uid://cm8puby5gs7hp" path="res://SRC/Shaders/rgbTextureTriplanar.gdshader" id="3_ayvyj"]
+[ext_resource type="Texture2D" uid="uid://bkclfd3itw7r7" path="res://Assets/Textures/Carpet.png" id="4_rxbiu"]
+[ext_resource type="LightmapGIData" uid="uid://kyce5s43roy1" path="res://Scenes/Maps/Tutorial/tutorial.lmbake" id="6_rxbiu"]
+[ext_resource type="PackedScene" uid="uid://dld86ghvbxsn6" path="res://SRC/Props/cubicle.tscn" id="7_2iq6n"]
+[ext_resource type="PackedScene" uid="uid://c88ouf7ib6xac" path="res://SRC/Props/potted_plant.tscn" id="8_63j4r"]
+[ext_resource type="PackedScene" uid="uid://befpbpoyyfsw1" path="res://SRC/Props/water_jug.tscn" id="9_brwpm"]
+[ext_resource type="PackedScene" uid="uid://cjjnt5aka3dhk" path="res://SRC/Props/trash.tscn" id="10_f1a3i"]
+[ext_resource type="PackedScene" uid="uid://ry72u7xd6h2o" path="res://SRC/Props/FileCabinet.tscn" id="11_4liku"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bdbkr"]
+render_priority = 0
+shader = ExtResource("2_atqr4")
+shader_parameter/offset = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xph0m"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_bdbkr")
+shader = ExtResource("2_atqr4")
+shader_parameter/offset = 0.01
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_605vl"]
+next_pass = SubResource("ShaderMaterial_xph0m")
+albedo_color = Color(1, 0.91864, 0.832031, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pe84n"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_2e27r"]
+_surfaces = [{
+"aabb": AABB(-12.3, 0, -19.3, 24.6, 3, 19.3),
+"format": 34359742465,
+"index_count": 186,
+"index_data": PackedByteArray("AAABAAIAAgABAAMAAAAEAAEAAgADAAUABgAEAAAABQADAAcABgAIAAQACQAIAAYACQAKAAgABQAHAAsADAALAAcADAAHAA0ADgAMAA0ADgANAA8AEAAOAA8AEAAPABEAEAARABIAEAASABMAEwASABQAEwAUABUAFQAUABYAFQAWABcAFwAWABgAFwAYABkAGgAZABgAGgAYABsAGgAbABwAGgAcAB0AHgAdABwAHgAcAB8AIAAeAB8AIAAfACEAIgAgACEAIgAhACMAIgAjACQAIgAkACUAJgAlACQAJgAkACcAJgAnACgAJgAoACkAKQAoACoAKQAqACsALAArACoALAAqAC0ALAAtAC4ALAAuAC8AMAAvAC4AMAAuADEAMgAwADEAMgAxADMANAAyADMANAAzADUANAA1ADYANAA2ADcAOAA3ADYAOAA2ADkAOAA5ADoAOAA6ADsAOwA6ADwAOwA8AD0APQA8AD4APQA+AD8A"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 64,
+"vertex_data": PackedByteArray("AACAwAAAAAAAAODAAACAwAAAQEAAABDBAACAwAAAAAAAABDBmpmJwAAAQEAAABDBAACAwAAAQEAAAODAmpmJwAAAAAAAABDBAACAvwAAAAAAAODAmpmJwAAAQEAAAODAAACAvwAAQEAAAODAAACAvwAAAAAAAACAAACAvwAAQEAAAACAmpmJwAAAAAAAAODAzcxEwQAAAAAAAODAzcxEwQAAQEAAAODAzcxEwQAAAAAAAFDBzcxEwQAAQEAAAFDBmpmJwAAAAAAAAFDBmpmJwAAAQEAAAFDBmpmJwAAAQEAAADDBmpmJwAAAAAAAADDB//9/wAAAQEAAADDB//9/wAAAAAAAADDBAACAwAAAQEAAAFDBAACAwAAAAAAAAFDBAACAvwAAQEAAAFDBAACAvwAAAAAAAFDBAACAvwAAAADNzFTBAACAvwAAQEDNzFTBAACAwAAAQEDNzFTBAACAwAAAAADNzFTBAACAwAAAAABmZprBAACAwAAAQEBmZprBAACAQAAAAABmZprBAACAQAAAQEBmZprBAACAQAAAAADNzFTBAACAQAAAQEDNzFTBAACAPwAAQEDNzFTBAACAPwAAAADNzFTBAACAPwAAAAAAAFDBAACAPwAAQEAAAFDBAACAQAAAQEAAAFDBAACAQAAAAAAAAFDBAACAQAAAQEAAADDBAACAQAAAAAAAADDBmpmJQAAAAAAAADDBmpmJQAAAQEAAADDBmpmJQAAAQEAAAFDBmpmJQAAAAAAAAFDBzcxEQQAAAAAAAFDBzcxEQQAAQEAAAFDBzcxEQQAAAAAAAODAzcxEQQAAQEAAAODAmpmJQAAAAAAAAODAmpmJQAAAQEAAAODAmpmJQAAAQEAAABDBmpmJQAAAAAAAABDBAACAQAAAAAAAABDBAACAQAAAQEAAABDBAACAQAAAQEAAAODAAACAQAAAAAAAAODAAACAPwAAQEAAAODAAACAPwAAAAAAAODAAACAPwAAQEAAAACAAACAPwAAAAAAAACA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_63j4r"]
+resource_name = "OfficeLayouts_Cube_003"
+lightmap_size_hint = Vector2i(418, 426)
+_surfaces = [{
+"aabb": AABB(-12.3, 0, -19.3, 24.6, 3, 19.3),
+"attribute_data": PackedByteArray("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"),
+"format": 34359742519,
+"index_count": 186,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEAJAAlACYAJAAnACUAKAApACoAKAArACkALAAtAC4ALAAvAC0AMAAxADIAMAAzADEANAA1ADYANAA3ADUAOAA5ADoAOAA7ADkAPAA9AD4APAA/AD0AQABBAEIAQABDAEEARABFAEYARABHAEUASABJAEoASABLAEkATABNAE4ATABPAE0AUABRAFIAUABTAFEAVABVAFYAVABXAFUAWABZAFoAWABbAFkAXABdAF4AXABfAF0AYABhAGIAYABjAGEAZABlAGYAZABnAGUAaABpAGoAaABrAGkAbABtAG4AbABvAG0AcABxAHIAcABzAHEAdAB1AHYAdAB3AHUAeAB5AHoAeAB7AHkA"),
+"material": SubResource("StandardMaterial3D_pe84n"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 124,
+"vertex_data": PackedByteArray("AACAwAAAAAAAAODAAACAwAAAQEAAABDBAACAwAAAAAAAABDBAACAwAAAQEAAAODAmpmJQAAAAAAAADDBAACAQAAAQEAAADDBmpmJQAAAQEAAADDBAACAQAAAAAAAADDBAACAvwAAAAAAAACAAACAvwAAQEAAAODAAACAvwAAAAAAAODAAACAvwAAQEAAAACAmpmJQAAAAAAAAODAmpmJQAAAQEAAABDBmpmJQAAAAAAAABDBmpmJQAAAQEAAAODAAACAQAAAAAAAABDBmpmJQAAAQEAAABDBAACAQAAAQEAAABDBmpmJQAAAAAAAABDBAACAwAAAAABmZprBAACAwAAAQEDNzFTBAACAwAAAQEBmZprBAACAwAAAAADNzFTBmpmJQAAAAAAAADDBmpmJQAAAQEAAAFDBmpmJQAAAAAAAAFDBmpmJQAAAQEAAADDB//9/wAAAAAAAADDBAACAwAAAQEAAAFDBAACAwAAAAAAAAFDB//9/wAAAQEAAADDBAACAQAAAAADNzFTBAACAQAAAQEBmZprBAACAQAAAQEDNzFTBAACAQAAAAABmZprBmpmJwAAAAAAAAFDBmpmJwAAAQEAAADDBmpmJwAAAAAAAADDBmpmJwAAAQEAAAFDBAACAvwAAAADNzFTBAACAvwAAQEAAAFDBAACAvwAAQEDNzFTBAACAvwAAAAAAAFDBAACAQAAAAABmZprBAACAwAAAQEBmZprBAACAQAAAQEBmZprBAACAwAAAAABmZprBmpmJwAAAAAAAABDBmpmJwAAAQEAAAODAmpmJwAAAAAAAAODAmpmJwAAAQEAAABDBAACAPwAAAAAAAFDBAACAPwAAQEDNzFTBAACAPwAAQEAAAFDBAACAPwAAAADNzFTBAACAPwAAAAAAAODAAACAPwAAQEAAAACAAACAPwAAAAAAAACAAACAPwAAQEAAAODAAACAwAAAAAAAABDBmpmJwAAAQEAAABDBmpmJwAAAAAAAABDBAACAwAAAQEAAABDBAACAQAAAAADNzFTBAACAPwAAQEDNzFTBAACAPwAAAADNzFTBAACAQAAAQEDNzFTBAACAvwAAAADNzFTBAACAwAAAQEDNzFTBAACAwAAAAADNzFTBAACAvwAAQEDNzFTBzcxEQQAAAAAAAODAzcxEQQAAQEAAAFDBzcxEQQAAQEAAAODAzcxEQQAAAAAAAFDBAACAvwAAAAAAAODAAACAwAAAQEAAAODAAACAwAAAAAAAAODAAACAvwAAQEAAAODAzcxEQQAAAAAAAFDBmpmJQAAAQEAAAFDBzcxEQQAAQEAAAFDBmpmJQAAAAAAAAFDBAACAQAAAAAAAAODAAACAPwAAQEAAAODAAACAPwAAAAAAAODAAACAQAAAQEAAAODAmpmJQAAAAAAAAODAzcxEQQAAQEAAAODAmpmJQAAAQEAAAODAzcxEQQAAAAAAAODAAACAQAAAAAAAABDBAACAQAAAQEAAAODAAACAQAAAAAAAAODAAACAQAAAQEAAABDBzcxEwQAAAAAAAFDBzcxEwQAAQEAAAODAzcxEwQAAQEAAAFDBzcxEwQAAAAAAAODAAACAQAAAAAAAAFDBAACAQAAAQEAAADDBAACAQAAAAAAAADDBAACAQAAAQEAAAFDBmpmJwAAAAAAAADDB//9/wAAAQEAAADDB//9/wAAAAAAAADDBmpmJwAAAQEAAADDBAACAPwAAAAAAAFDBAACAQAAAQEAAAFDBAACAQAAAAAAAAFDBAACAPwAAQEAAAFDBmpmJwAAAAAAAAFDBzcxEwQAAQEAAAFDBmpmJwAAAQEAAAFDBzcxEwQAAAAAAAFDBAACAwAAAAAAAAFDBAACAvwAAQEAAAFDBAACAvwAAAAAAAFDBAACAwAAAQEAAAFDBzcxEwQAAAAAAAODAmpmJwAAAQEAAAODAzcxEwQAAQEAAAODAmpmJwAAAAAAAAODA//8AgP///7///wCA////v///AID///+///8AgP///7//f/9/////P/9//3////8//3//f////z//f/9/////P///AID///+///8AgP///7///wCA////v///AID///+///8AgP///7///wCA////v///AID///+///8AgP///7//////////P/////////8//////////z//////////P///AID///+///8AgP///7///wCA////v///AID///+///8AgP///7///wCA////v///AID///+///8AgP///7///wCA////v///AID///+///8AgP///7///wCA////vwAAAID///+/AAAAgP///78AAACA////vwAAAID///+/AAAAgP///78AAACA////vwAAAID///+/AAAAgP///7///wCA////v///AID///+///8AgP///7///wCA////v/9//3////8//3//f////z//f/9/////P/9//3////8/AAAAgP///78AAACA////vwAAAID///+/AAAAgP///78AAACA////vwAAAID///+/AAAAgP///78AAACA////vwAAAID///+/AAAAgP///78AAACA////vwAAAID///+//////////z//////////P/////////8//////////z//////////P/////////8//////////z//////////P/////////8//////////z//////////P/////////8/AAAAgP///78AAACA////vwAAAID///+/AAAAgP///7//////////P/////////8//////////z//////////P/9//3////8//3//f////z//f/9/////P/9//3////8//////////z//////////P/////////8//////////z//////////P/////////8//////////z//////////PwAAAID///+/AAAAgP///78AAACA////vwAAAID///+///8AgP///7///wCA////v///AID///+///8AgP///78AAACA////vwAAAID///+/AAAAgP///78AAACA////v/9//3////8//3//f////z//f/9/////P/9//3////8//3//f////z//f/9/////P/9//3////8//3//f////z//f/9/////P/9//3////8//3//f////z//f/9/////P/9//3////8//3//f////z//f/9/////P/9//3////8//////////z//////////P/////////8//////////z8=")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_2e27r")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2iq6n"]
+render_priority = 0
+shader = ExtResource("3_ayvyj")
+shader_parameter/tex = ExtResource("4_rxbiu")
+shader_parameter/red_color = Color(0.910156, 0.794165, 0.398193, 1)
+shader_parameter/green_color = Color(0, 0.217712, 0.679688, 1)
+shader_parameter/blue_color = Color(1, 1, 1, 1)
+shader_parameter/uvScale = Vector3(0.25, 0.25, 0.25)
+shader_parameter/uvOffset = Vector3(0, 0, 0)
+shader_parameter/uv1_blend_sharpness = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o6pom"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ui74t"]
+_surfaces = [{
+"aabb": AABB(-12.3, 0, -19.3, 24.6, 1e-05, 19.3),
+"format": 34896613377,
+"index_count": 90,
+"index_data": PackedByteArray("AAABAAIAAQADAAQAAQAEAAUAAQAGAAMAAQAFAAcACAAHAAUACAAFAAkABwAIAAoACgAIAAsADAAGAAEADAABAAAAAAANAAwAAAAOAA0ADgAPAA0ADQAPABAADwAOABEADwARABIAEwAMABQABgAMABUAFQAMABMABgAVABYAFgAVABcAGAAGABYAGAAWABkAEwAaABUAEwAbABoAHAAaABsAHAAbAB0AGgAcAB4AHgAcAB8A"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 32,
+"vertex_data": PackedByteArray("l3UAAJBTAABfVgAAF24AAF9WAACQUwAAX1YAACWjAABfVgAAnogAAEBTAACeiAAAl3UAACWjAABAUwAAF24AAAAAAAAlowAAQFMAACWjAABAUwAAkFMAAAAAAACQUwAAZ4oAAJBTAABnigAAlU8AAJd1AACVTwAAn6kAAAAAAACfqQAAlU8AAF9WAACVTwAAX1YAAAAAAACfqQAAF24AAJ+pAACQUwAAn6kAAJ6IAABnigAAJaMAAJ+pAAAlowAAl3UAAP//AABnigAA//8AAL6sAACeiAAAvqwAABduAAD//wAAkFMAAL6sAACQUwAAvqwAACWjAAD//wAAJaMAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_brwpm"]
+resource_name = "OfficeLayouts_Cube_005"
+lightmap_size_hint = Vector2i(330, 390)
+_surfaces = [{
+"aabb": AABB(-12.3, 0, -19.3, 24.6, 1e-05, 19.3),
+"attribute_data": PackedByteArray("AAAAAAAAgD90cT0+/FqnPgAAAAAAAIA/DJjGOl9G3D4AAAAAAACAPwyYxjr8Wqc+AAAAAAAAgD8AAAAAAAAAAAAAAAAAAIA/AAAAAAAAAAAAAAAAAACAPwAAAAAAAAAAAAAAAAAAgD8lyNM+ghhIPwAAAAAAAIA/JcjTPiqSYj8AAAAAAACAP8JB3T4qkmI/AAAAAAAAgD90cT0+kA4jPwAAAAAAAIA/DJjGOpAOIz8AAAAAAACAP8JB3T6CGEg/AAAAAAAAgD9z/mw/0Qt9PwAAAAAAAIA/wkHdPtELfT8AAAAAAACAP8JB3T7ani0/AAAAAAAAgD9z/mw/2p4tPwAAAAAAAIA/JVqdPvxapz4AAAAAAACAPyVanT4vap8+AAAAAAAAgD90cT0+L2qfPgAAAAAAAIA/SUz7PoEKqDoAAAAAAACAP0lM+z4vap8+AAAAAAAAgD8MmMY6L2qfPgAAAAAAAIA/DJjGOoEKqDoAAAAAAACAP0lM+z5fRtw+AAAAAAAAgD9JTPs+/FqnPgAAAAAAAIA/SUz7PuCYCD8AAAAAAACAPyVanT6QDiM/AAAAAAAAgD9JTPs+kA4jPwAAAAAAAIA/dHE9Pvurfz8AAAAAAACAPyVanT77q38/AAAAAAAAgD9bWAI/4JgIPwAAAAAAAIA/W1gCP19G3D4AAAAAAACAP7Scfz/8Wqc+AAAAAAAAgD9bWAI//FqnPgAAAAAAAIA/W1gCP5AOIz8AAAAAAACAP7Scfz+QDiM/"),
+"format": 34359742519,
+"index_count": 90,
+"index_data": PackedByteArray("AAABAAIAAwAEAAUABgAHAAgAAQAJAAoABgAIAAsADAALAAgADAAIAA0ACwAMAA4ADgAMAA8AEAAJAAEAEAABAAAAAAARABAAAAASABEAEgATABEAEQATABQAEwASABUAEwAVABYAFwAQABgACQAQABkAGQAQABcACQAZABoAGgAZABsAHAAJABoAHAAaAB0AFwAeABkAFwAfAB4AIAAeAB8AIAAfACEAHgAgACIAIgAgACMA"),
+"material": SubResource("StandardMaterial3D_o6pom"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 36,
+"vertex_data": PackedByteArray("2AWAvwAAAABOAFDBPAGAwAAAAACJADDBPAGAwAAAAABOAFDBPAGAwAAAAACJADDBPAGAwAAAAAAAAuDAPAGAwAAAAADEABDBPAGAwAAAAACJADDBPAGAwAAAAADEABDBM5qJwAAAAADEABDB2AWAvwAAAAAAAuDAPAGAwAAAAAAAAuDAM5qJwAAAAACJADDBzcxEwQAAAAAAAuDAM5qJwAAAAAAAAuDAM5qJwAAAAABOAFDBzcxEwQAAAABOAFDBEPN/PwAAAABOAFDBEPN/PwAAAAB+zVTB2AWAvwAAAAB+zVTBVPx/QAAAAABmZprBVPx/QAAAAAB+zVTBPAGAwAAAAAB+zVTBPAGAwAAAAABmZprBVPx/QAAAAACJADDBVPx/QAAAAABOAFDBVPx/QAAAAADEABDBEPN/PwAAAAAAAuDAVPx/QAAAAAAAAuDA2AWAvwAAAAAAAAAAEPN/PwAAAAAAAAAAIpeJQAAAAADEABDBIpeJQAAAAACJADDBzcxEQQAAAABOAFDBIpeJQAAAAABOAFDBIpeJQAAAAAAAAuDAzcxEQQAAAAAAAuDA/3/9//7//7//f/3//v//v/9//f/+//+//3/9//7//7//f/3//v//v/9//f/+//+//3/9//7//7//f/3//v//v/9//f/+//+//3/9//7//7//f/3//v//v/9//f/+//+//3/9//7//7//f/3//v//v/9//f/+//+//3/9//7//7//f/3//v//v/9//f/+//+//3/9//7//7//f/3//v//v/9//f/+//+//3/9//7//7//f/3//v//v/9//f/+//+//3/9//7//7//f/3//v//v/9//f/+//+//3/9//7//7//f/3//v//v/9//f/+//+//3/9//7//7//f/3//v//v/9//f/+//+//3/9//7//7//f/3//v//v/9//f/+//+/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_ui74t")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_atqr4"]
+data = PackedVector3Array(-4, 0, -7, -4, 3, -9, -4, 0, -9, -4, 0, -7, -4, 3, -7, -4, 3, -9, 4.3, 0, -11, 4, 3, -11, 4.3, 3, -11, 4.3, 0, -11, 4, 0, -11, 4, 3, -11, -1, 0, 0, -1, 3, -7, -1, 0, -7, -1, 0, 0, -1, 3, 0, -1, 3, -7, 4.3, 0, -7, 4.3, 3, -9, 4.3, 0, -9, 4.3, 0, -7, 4.3, 3, -7, 4.3, 3, -9, 4, 0, -9, 4.3, 3, -9, 4, 3, -9, 4, 0, -9, 4.3, 0, -9, 4.3, 3, -9, -4, 0, -19.3, -4, 3, -13.3, -4, 3, -19.3, -4, 0, -19.3, -4, 0, -13.3, -4, 3, -13.3, 4.3, 0, -11, 4.3, 3, -13, 4.3, 0, -13, 4.3, 0, -11, 4.3, 3, -11, 4.3, 3, -13, -4, 0, -11, -4, 3, -13, -4, 0, -13, -4, 0, -11, -4, 3, -11, -4, 3, -13, 4, 0, -13.3, 4, 3, -19.3, 4, 3, -13.3, 4, 0, -13.3, 4, 0, -19.3, 4, 3, -19.3, -4.3, 0, -13, -4.3, 3, -11, -4.3, 0, -11, -4.3, 0, -13, -4.3, 3, -13, -4.3, 3, -11, -1, 0, -13.3, -1, 3, -13, -1, 3, -13.3, -1, 0, -13.3, -1, 0, -13, -1, 3, -13, 4, 0, -19.3, -4, 3, -19.3, 4, 3, -19.3, 4, 0, -19.3, -4, 0, -19.3, -4, 3, -19.3, -4.3, 0, -9, -4.3, 3, -7, -4.3, 0, -7, -4.3, 0, -9, -4.3, 3, -9, -4.3, 3, -7, 1, 0, -13, 1, 3, -13.3, 1, 3, -13, 1, 0, -13, 1, 0, -13.3, 1, 3, -13.3, 1, 0, -7, 1, 3, 0, 1, 0, 0, 1, 0, -7, 1, 3, -7, 1, 3, 0, -4, 0, -9, -4.3, 3, -9, -4.3, 0, -9, -4, 0, -9, -4, 3, -9, -4.3, 3, -9, 4, 0, -13.3, 1, 3, -13.3, 1, 0, -13.3, 4, 0, -13.3, 4, 3, -13.3, 1, 3, -13.3, -1, 0, -13.3, -4, 3, -13.3, -4, 0, -13.3, -1, 0, -13.3, -1, 3, -13.3, -4, 3, -13.3, 12.3, 0, -7, 12.3, 3, -13, 12.3, 3, -7, 12.3, 0, -7, 12.3, 0, -13, 12.3, 3, -13, -1, 0, -7, -4, 3, -7, -4, 0, -7, -1, 0, -7, -1, 3, -7, -4, 3, -7, 12.3, 0, -13, 4.3, 3, -13, 12.3, 3, -13, 12.3, 0, -13, 4.3, 0, -13, 4.3, 3, -13, 4, 0, -7, 1, 3, -7, 1, 0, -7, 4, 0, -7, 4, 3, -7, 1, 3, -7, 4.3, 0, -7, 12.3, 3, -7, 4.3, 3, -7, 4.3, 0, -7, 12.3, 0, -7, 12.3, 3, -7, 4, 0, -9, 4, 3, -7, 4, 0, -7, 4, 0, -9, 4, 3, -9, 4, 3, -7, -12.3, 0, -13, -12.3, 3, -7, -12.3, 3, -13, -12.3, 0, -13, -12.3, 0, -7, -12.3, 3, -7, 4, 0, -13, 4, 3, -11, 4, 0, -11, 4, 0, -13, 4, 3, -13, 4, 3, -11, -4.3, 0, -11, -4, 3, -11, -4, 0, -11, -4.3, 0, -11, -4.3, 3, -11, -4, 3, -11, 1, 0, -13, 4, 3, -13, 4, 0, -13, 1, 0, -13, 1, 3, -13, 4, 3, -13, -4.3, 0, -13, -12.3, 3, -13, -4.3, 3, -13, -4.3, 0, -13, -12.3, 0, -13, -12.3, 3, -13, -4, 0, -13, -1, 3, -13, -1, 0, -13, -4, 0, -13, -4, 3, -13, -1, 3, -13, -12.3, 0, -7, -4.3, 3, -7, -12.3, 3, -7, -12.3, 0, -7, -4.3, 0, -7, -4.3, 3, -7)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0klb4"]
+size = Vector3(40, 1, 40)
+
+[sub_resource type="Gradient" id="Gradient_ayvyj"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_sgerw"]
+gradient = SubResource("Gradient_ayvyj")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rxbiu"]
+albedo_color = Color(0.621094, 0.621094, 0.621094, 1)
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_operator = 1
+emission_texture = SubResource("GradientTexture1D_sgerw")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_joqe1"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_xg084"]
+_surfaces = [{
+"aabb": AABB(-20, -0.5, -20, 40, 1, 40),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAACAAEAAwAEAAEABQAAAAIAAwAAAAUABAAGAAIABQACAAYAAwAHAAQAAwAFAAcABwAGAAQABwAFAAYA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAP//AAAAAP//AAAAAAAA/////wAAAAAAAAAAAAD/////AAAAAP//AAD//wAA////////AAD//wAAAAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_2iq6n"]
+resource_name = "OfficeLayouts_Cube"
+lightmap_size_hint = Vector2i(898, 1606)
+_surfaces = [{
+"aabb": AABB(-20, -0.5, -20, 40, 1, 40),
+"attribute_data": PackedByteArray("wP6/PgAAgD+D238/7vICP6D/Hz/A/z8/7t55P8AiUTyg/x8/AACAP+7eeT/u8gI/wP6/PsD/Pz+D238/wCJRPMD+vz7A/z8/YFhlP4wuujyg/x8/AP//PvRUaz/XfwU/oP8fP8D/Pz/0VGs/jC66PMD+vz4A//8+YFhlP9d/BT/A/r8+AP//Pnkscj9W8Xk8oP8fPwD9fz7lL2w/KJYDP6D/Hz8A//8+5S9sP1bxeTzA/r8+AP1/Pnkscj8olgM/wP6/PgD9fz5pB3M/bGT3PKD/Hz8AAAAA/gN5P4ZpBz+g/x8/AP1/Pv4DeT9sZPc8wP6/PgAAAABpB3M/hmkHPwD5/z0A//8+b31kP1c6oznA/r8+AP1/Pr31ETqUhf8+wP6/PgD//z699RE6VzqjOQD5/z0A/X8+b31kP5SF/z6g/x8/AP//Pr31ETo2PQA/4P9fPwD9fz5vfWQ/met/P+D/Xz8A//8+vfUROpnrfz+g/x8/AP1/Pm99ZD82PQA/"),
+"format": 34359742519,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_joqe1"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AACgwQAAAL8AAKBBAACgwQAAAD8AAKDBAACgwQAAAD8AAKBBAACgwQAAAL8AAKDBAACgwQAAAL8AAKDBAACgQQAAAD8AAKDBAACgwQAAAD8AAKDBAACgQQAAAL8AAKDBAACgQQAAAL8AAKDBAACgQQAAAD8AAKBBAACgQQAAAD8AAKDBAACgQQAAAL8AAKBBAACgQQAAAL8AAKBBAACgwQAAAD8AAKBBAACgQQAAAD8AAKBBAACgwQAAAL8AAKBBAACgwQAAAL8AAKDBAACgQQAAAL8AAKBBAACgQQAAAL8AAKDBAACgwQAAAL8AAKBBAACgQQAAAD8AAKDBAACgwQAAAD8AAKBBAACgwQAAAD8AAKDBAACgQQAAAD8AAKBBAgAEgAGA/P8CAASAAYD8/wIABIABgPz/AgAEgAGA/P/+//7//3/+//7//v//f/7//v/+//9//v/+//7//3/+//r/AID+f/7/+v8AgP5//v/6/wCA/n/+//r/AID+f/7//3//fwCA/v//f/9/AID+//9//38AgP7//3//fwCA/v8AgAEA/v//vwCAAQD+//+/AIABAP7//78AgAEA/v//v/5//v8AAP6//n/+/wAA/r/+f/7/AAD+v/5//v8AAP6/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_xg084")
+
+[node name="Tutorial" type="Node3D"]
+
+[node name="Elevator" parent="." instance=ExtResource("1_0klb4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 2)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="TutorialWalls" type="MeshInstance3D" parent="StaticBody3D"]
+material_override = SubResource("StandardMaterial3D_605vl")
+mesh = SubResource("ArrayMesh_63j4r")
+skeleton = NodePath("")
+
+[node name="TutorialFloor" type="MeshInstance3D" parent="StaticBody3D"]
+material_override = SubResource("ShaderMaterial_2iq6n")
+mesh = SubResource("ArrayMesh_brwpm")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_atqr4")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_0klb4")
+
+[node name="Ceiling" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, 0)
+material_override = SubResource("StandardMaterial3D_rxbiu")
+cast_shadow = 3
+mesh = SubResource("ArrayMesh_2iq6n")
+skeleton = NodePath("")
+
+[node name="Probes" type="Node3D" parent="."]
+visible = false
+
+[node name="LightmapProbeGrid" type="Node3D" parent="Probes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.35, -3.44309)
+script = ExtResource("2_6rh3t")
+size = Vector3(1, 1.5, 6.11647)
+probes_number = Vector3i(2, 2, 4)
+far_distance = 1.0
+object_size = 1.0
+metadata/_custom_type_script = ExtResource("2_6rh3t")
+
+[node name="LightmapProbe 0, 0, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.75, 3.05824)
+
+[node name="LightmapProbe 0, 0, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.75, 1.01941)
+
+[node name="LightmapProbe 0, 0, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.75, -1.01941)
+
+[node name="LightmapProbe 0, 0, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.75, -3.05824)
+
+[node name="LightmapProbe 0, 1, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -0.75, 3.05824)
+
+[node name="LightmapProbe 0, 1, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -0.75, 1.01941)
+
+[node name="LightmapProbe 0, 1, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -0.75, -1.01941)
+
+[node name="LightmapProbe 0, 1, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -0.75, -3.05824)
+
+[node name="LightmapProbe 1, 0, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.75, 3.05824)
+
+[node name="LightmapProbe 1, 0, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.75, 1.01941)
+
+[node name="LightmapProbe 1, 0, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.75, -1.01941)
+
+[node name="LightmapProbe 1, 0, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.75, -3.05824)
+
+[node name="LightmapProbe 1, 1, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -0.75, 3.05824)
+
+[node name="LightmapProbe 1, 1, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -0.75, 1.01941)
+
+[node name="LightmapProbe 1, 1, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -0.75, -1.01941)
+
+[node name="LightmapProbe 1, 1, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -0.75, -3.05824)
+
+[node name="LightmapProbeGrid2" type="Node3D" parent="Probes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0625923, 1.35, -10.0029)
+script = ExtResource("2_6rh3t")
+size = Vector3(6.6552, 1.5, 4.84921)
+probes_number = Vector3i(5, 2, 4)
+far_distance = 1.0
+object_size = 1.0
+metadata/_custom_type_script = ExtResource("2_6rh3t")
+
+[node name="LightmapProbe 0, 0, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3276, 0.75, 2.4246)
+
+[node name="LightmapProbe 0, 0, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3276, 0.75, 0.808201)
+
+[node name="LightmapProbe 0, 0, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3276, 0.75, -0.808201)
+
+[node name="LightmapProbe 0, 0, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3276, 0.75, -2.4246)
+
+[node name="LightmapProbe 0, 1, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3276, -0.75, 2.4246)
+
+[node name="LightmapProbe 0, 1, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3276, -0.75, 0.808201)
+
+[node name="LightmapProbe 0, 1, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3276, -0.75, -0.808201)
+
+[node name="LightmapProbe 0, 1, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3276, -0.75, -2.4246)
+
+[node name="LightmapProbe 1, 0, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6638, 0.75, 2.4246)
+
+[node name="LightmapProbe 1, 0, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6638, 0.75, 0.808201)
+
+[node name="LightmapProbe 1, 0, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6638, 0.75, -0.808201)
+
+[node name="LightmapProbe 1, 0, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6638, 0.75, -2.4246)
+
+[node name="LightmapProbe 1, 1, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6638, -0.75, 2.4246)
+
+[node name="LightmapProbe 1, 1, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6638, -0.75, 0.808201)
+
+[node name="LightmapProbe 1, 1, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6638, -0.75, -0.808201)
+
+[node name="LightmapProbe 1, 1, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6638, -0.75, -2.4246)
+
+[node name="LightmapProbe 2, 0, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 2.4246)
+
+[node name="LightmapProbe 2, 0, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0.808201)
+
+[node name="LightmapProbe 2, 0, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, -0.808201)
+
+[node name="LightmapProbe 2, 0, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, -2.4246)
+
+[node name="LightmapProbe 2, 1, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, 2.4246)
+
+[node name="LightmapProbe 2, 1, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, 0.808201)
+
+[node name="LightmapProbe 2, 1, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, -0.808201)
+
+[node name="LightmapProbe 2, 1, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, -2.4246)
+
+[node name="LightmapProbe 3, 0, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6638, 0.75, 2.4246)
+
+[node name="LightmapProbe 3, 0, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6638, 0.75, 0.808201)
+
+[node name="LightmapProbe 3, 0, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6638, 0.75, -0.808201)
+
+[node name="LightmapProbe 3, 0, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6638, 0.75, -2.4246)
+
+[node name="LightmapProbe 3, 1, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6638, -0.75, 2.4246)
+
+[node name="LightmapProbe 3, 1, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6638, -0.75, 0.808201)
+
+[node name="LightmapProbe 3, 1, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6638, -0.75, -0.808201)
+
+[node name="LightmapProbe 3, 1, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6638, -0.75, -2.4246)
+
+[node name="LightmapProbe 4, 0, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3276, 0.75, 2.4246)
+
+[node name="LightmapProbe 4, 0, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3276, 0.75, 0.808201)
+
+[node name="LightmapProbe 4, 0, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3276, 0.75, -0.808201)
+
+[node name="LightmapProbe 4, 0, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3276, 0.75, -2.4246)
+
+[node name="LightmapProbe 4, 1, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3276, -0.75, 2.4246)
+
+[node name="LightmapProbe 4, 1, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3276, -0.75, 0.808201)
+
+[node name="LightmapProbe 4, 1, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3276, -0.75, -0.808201)
+
+[node name="LightmapProbe 4, 1, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3276, -0.75, -2.4246)
+
+[node name="LightmapProbeGrid3" type="Node3D" parent="Probes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.36259, 1.35, -10.0029)
+script = ExtResource("2_6rh3t")
+size = Vector3(6.6552, 1.5, 4.84921)
+probes_number = Vector3i(5, 2, 4)
+far_distance = 1.0
+object_size = 1.0
+metadata/_custom_type_script = ExtResource("2_6rh3t")
+
+[node name="LightmapProbe 0, 0, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3276, 0.75, 2.4246)
+
+[node name="LightmapProbe 0, 0, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3276, 0.75, 0.808201)
+
+[node name="LightmapProbe 0, 0, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3276, 0.75, -0.808201)
+
+[node name="LightmapProbe 0, 0, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3276, 0.75, -2.4246)
+
+[node name="LightmapProbe 0, 1, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3276, -0.75, 2.4246)
+
+[node name="LightmapProbe 0, 1, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3276, -0.75, 0.808201)
+
+[node name="LightmapProbe 0, 1, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3276, -0.75, -0.808201)
+
+[node name="LightmapProbe 0, 1, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3276, -0.75, -2.4246)
+
+[node name="LightmapProbe 1, 0, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6638, 0.75, 2.4246)
+
+[node name="LightmapProbe 1, 0, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6638, 0.75, 0.808201)
+
+[node name="LightmapProbe 1, 0, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6638, 0.75, -0.808201)
+
+[node name="LightmapProbe 1, 0, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6638, 0.75, -2.4246)
+
+[node name="LightmapProbe 1, 1, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6638, -0.75, 2.4246)
+
+[node name="LightmapProbe 1, 1, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6638, -0.75, 0.808201)
+
+[node name="LightmapProbe 1, 1, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6638, -0.75, -0.808201)
+
+[node name="LightmapProbe 1, 1, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6638, -0.75, -2.4246)
+
+[node name="LightmapProbe 2, 0, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 2.4246)
+
+[node name="LightmapProbe 2, 0, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0.808201)
+
+[node name="LightmapProbe 2, 0, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, -0.808201)
+
+[node name="LightmapProbe 2, 0, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, -2.4246)
+
+[node name="LightmapProbe 2, 1, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, 2.4246)
+
+[node name="LightmapProbe 2, 1, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, 0.808201)
+
+[node name="LightmapProbe 2, 1, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, -0.808201)
+
+[node name="LightmapProbe 2, 1, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, -2.4246)
+
+[node name="LightmapProbe 3, 0, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6638, 0.75, 2.4246)
+
+[node name="LightmapProbe 3, 0, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6638, 0.75, 0.808201)
+
+[node name="LightmapProbe 3, 0, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6638, 0.75, -0.808201)
+
+[node name="LightmapProbe 3, 0, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6638, 0.75, -2.4246)
+
+[node name="LightmapProbe 3, 1, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6638, -0.75, 2.4246)
+
+[node name="LightmapProbe 3, 1, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6638, -0.75, 0.808201)
+
+[node name="LightmapProbe 3, 1, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6638, -0.75, -0.808201)
+
+[node name="LightmapProbe 3, 1, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6638, -0.75, -2.4246)
+
+[node name="LightmapProbe 4, 0, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3276, 0.75, 2.4246)
+
+[node name="LightmapProbe 4, 0, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3276, 0.75, 0.808201)
+
+[node name="LightmapProbe 4, 0, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3276, 0.75, -0.808201)
+
+[node name="LightmapProbe 4, 0, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3276, 0.75, -2.4246)
+
+[node name="LightmapProbe 4, 1, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3276, -0.75, 2.4246)
+
+[node name="LightmapProbe 4, 1, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3276, -0.75, 0.808201)
+
+[node name="LightmapProbe 4, 1, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3276, -0.75, -0.808201)
+
+[node name="LightmapProbe 4, 1, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3276, -0.75, -2.4246)
+
+[node name="LightmapProbeGrid4" type="Node3D" parent="Probes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.38741, 1.35, -10.0029)
+script = ExtResource("2_6rh3t")
+size = Vector3(6.6552, 1.5, 4.84921)
+probes_number = Vector3i(5, 2, 4)
+far_distance = 1.0
+object_size = 1.0
+metadata/_custom_type_script = ExtResource("2_6rh3t")
+
+[node name="LightmapProbe 0, 0, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3276, 0.75, 2.4246)
+
+[node name="LightmapProbe 0, 0, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3276, 0.75, 0.808201)
+
+[node name="LightmapProbe 0, 0, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3276, 0.75, -0.808201)
+
+[node name="LightmapProbe 0, 0, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3276, 0.75, -2.4246)
+
+[node name="LightmapProbe 0, 1, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3276, -0.75, 2.4246)
+
+[node name="LightmapProbe 0, 1, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3276, -0.75, 0.808201)
+
+[node name="LightmapProbe 0, 1, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3276, -0.75, -0.808201)
+
+[node name="LightmapProbe 0, 1, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3276, -0.75, -2.4246)
+
+[node name="LightmapProbe 1, 0, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6638, 0.75, 2.4246)
+
+[node name="LightmapProbe 1, 0, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6638, 0.75, 0.808201)
+
+[node name="LightmapProbe 1, 0, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6638, 0.75, -0.808201)
+
+[node name="LightmapProbe 1, 0, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6638, 0.75, -2.4246)
+
+[node name="LightmapProbe 1, 1, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6638, -0.75, 2.4246)
+
+[node name="LightmapProbe 1, 1, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6638, -0.75, 0.808201)
+
+[node name="LightmapProbe 1, 1, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6638, -0.75, -0.808201)
+
+[node name="LightmapProbe 1, 1, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6638, -0.75, -2.4246)
+
+[node name="LightmapProbe 2, 0, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 2.4246)
+
+[node name="LightmapProbe 2, 0, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0.808201)
+
+[node name="LightmapProbe 2, 0, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, -0.808201)
+
+[node name="LightmapProbe 2, 0, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, -2.4246)
+
+[node name="LightmapProbe 2, 1, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, 2.4246)
+
+[node name="LightmapProbe 2, 1, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, 0.808201)
+
+[node name="LightmapProbe 2, 1, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, -0.808201)
+
+[node name="LightmapProbe 2, 1, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, -2.4246)
+
+[node name="LightmapProbe 3, 0, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6638, 0.75, 2.4246)
+
+[node name="LightmapProbe 3, 0, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6638, 0.75, 0.808201)
+
+[node name="LightmapProbe 3, 0, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6638, 0.75, -0.808201)
+
+[node name="LightmapProbe 3, 0, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6638, 0.75, -2.4246)
+
+[node name="LightmapProbe 3, 1, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6638, -0.75, 2.4246)
+
+[node name="LightmapProbe 3, 1, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6638, -0.75, 0.808201)
+
+[node name="LightmapProbe 3, 1, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6638, -0.75, -0.808201)
+
+[node name="LightmapProbe 3, 1, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6638, -0.75, -2.4246)
+
+[node name="LightmapProbe 4, 0, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3276, 0.75, 2.4246)
+
+[node name="LightmapProbe 4, 0, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3276, 0.75, 0.808201)
+
+[node name="LightmapProbe 4, 0, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3276, 0.75, -0.808201)
+
+[node name="LightmapProbe 4, 0, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3276, 0.75, -2.4246)
+
+[node name="LightmapProbe 4, 1, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3276, -0.75, 2.4246)
+
+[node name="LightmapProbe 4, 1, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3276, -0.75, 0.808201)
+
+[node name="LightmapProbe 4, 1, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3276, -0.75, -0.808201)
+
+[node name="LightmapProbe 4, 1, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3276, -0.75, -2.4246)
+
+[node name="LightmapProbeGrid5" type="Node3D" parent="Probes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0374073, 1.35, -16.4029)
+script = ExtResource("2_6rh3t")
+size = Vector3(6.6552, 1.5, 4.84921)
+probes_number = Vector3i(5, 2, 4)
+far_distance = 1.0
+object_size = 1.0
+metadata/_custom_type_script = ExtResource("2_6rh3t")
+
+[node name="LightmapProbe 0, 0, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3276, 0.75, 2.4246)
+
+[node name="LightmapProbe 0, 0, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3276, 0.75, 0.808201)
+
+[node name="LightmapProbe 0, 0, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3276, 0.75, -0.808201)
+
+[node name="LightmapProbe 0, 0, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3276, 0.75, -2.4246)
+
+[node name="LightmapProbe 0, 1, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3276, -0.75, 2.4246)
+
+[node name="LightmapProbe 0, 1, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3276, -0.75, 0.808201)
+
+[node name="LightmapProbe 0, 1, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3276, -0.75, -0.808201)
+
+[node name="LightmapProbe 0, 1, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3276, -0.75, -2.4246)
+
+[node name="LightmapProbe 1, 0, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6638, 0.75, 2.4246)
+
+[node name="LightmapProbe 1, 0, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6638, 0.75, 0.808201)
+
+[node name="LightmapProbe 1, 0, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6638, 0.75, -0.808201)
+
+[node name="LightmapProbe 1, 0, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6638, 0.75, -2.4246)
+
+[node name="LightmapProbe 1, 1, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6638, -0.75, 2.4246)
+
+[node name="LightmapProbe 1, 1, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6638, -0.75, 0.808201)
+
+[node name="LightmapProbe 1, 1, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6638, -0.75, -0.808201)
+
+[node name="LightmapProbe 1, 1, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6638, -0.75, -2.4246)
+
+[node name="LightmapProbe 2, 0, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 2.4246)
+
+[node name="LightmapProbe 2, 0, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0.808201)
+
+[node name="LightmapProbe 2, 0, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, -0.808201)
+
+[node name="LightmapProbe 2, 0, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, -2.4246)
+
+[node name="LightmapProbe 2, 1, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, 2.4246)
+
+[node name="LightmapProbe 2, 1, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, 0.808201)
+
+[node name="LightmapProbe 2, 1, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, -0.808201)
+
+[node name="LightmapProbe 2, 1, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, -2.4246)
+
+[node name="LightmapProbe 3, 0, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6638, 0.75, 2.4246)
+
+[node name="LightmapProbe 3, 0, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6638, 0.75, 0.808201)
+
+[node name="LightmapProbe 3, 0, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6638, 0.75, -0.808201)
+
+[node name="LightmapProbe 3, 0, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6638, 0.75, -2.4246)
+
+[node name="LightmapProbe 3, 1, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6638, -0.75, 2.4246)
+
+[node name="LightmapProbe 3, 1, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6638, -0.75, 0.808201)
+
+[node name="LightmapProbe 3, 1, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6638, -0.75, -0.808201)
+
+[node name="LightmapProbe 3, 1, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6638, -0.75, -2.4246)
+
+[node name="LightmapProbe 4, 0, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3276, 0.75, 2.4246)
+
+[node name="LightmapProbe 4, 0, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3276, 0.75, 0.808201)
+
+[node name="LightmapProbe 4, 0, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3276, 0.75, -0.808201)
+
+[node name="LightmapProbe 4, 0, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3276, 0.75, -2.4246)
+
+[node name="LightmapProbe 4, 1, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3276, -0.75, 2.4246)
+
+[node name="LightmapProbe 4, 1, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3276, -0.75, 0.808201)
+
+[node name="LightmapProbe 4, 1, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3276, -0.75, -0.808201)
+
+[node name="LightmapProbe 4, 1, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3276, -0.75, -2.4246)
+
+[node name="LightmapGI" type="LightmapGI" parent="."]
+generate_probes_subdiv = 0
+light_data = ExtResource("6_rxbiu")
+
+[node name="Props" type="Node3D" parent="."]
+
+[node name="Cubicle" parent="Props" instance=ExtResource("7_2iq6n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.35, 0, -11.95)
+hasRight = false
+hasBack = false
+
+[node name="Cubicle2" parent="Props" instance=ExtResource("7_2iq6n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.35, 0, -11.95)
+hasRight = false
+hasBack = false
+
+[node name="Cubicle3" parent="Props" instance=ExtResource("7_2iq6n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.35, 0, -11.95)
+hasRight = false
+hasBack = false
+
+[node name="Cubicle4" parent="Props" instance=ExtResource("7_2iq6n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.35, 0, -11.95)
+hasLeft = false
+hasRight = false
+hasBack = false
+
+[node name="Cubicle5" parent="Props" instance=ExtResource("7_2iq6n")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -11.35, 0, -8)
+hasRight = false
+hasBack = false
+
+[node name="Cubicle6" parent="Props" instance=ExtResource("7_2iq6n")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -9.35, 0, -8)
+hasRight = false
+hasBack = false
+
+[node name="Cubicle7" parent="Props" instance=ExtResource("7_2iq6n")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -7.35, 0, -8)
+hasRight = false
+hasBack = false
+
+[node name="Cubicle8" parent="Props" instance=ExtResource("7_2iq6n")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -5.35, 0, -8)
+hasLeft = false
+hasRight = false
+hasBack = false
+
+[node name="Cubicle9" parent="Props" instance=ExtResource("7_2iq6n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.3, 0, -11.95)
+hasRight = false
+hasBack = false
+
+[node name="Cubicle10" parent="Props" instance=ExtResource("7_2iq6n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.3, 0, -11.95)
+hasRight = false
+hasBack = false
+
+[node name="Cubicle11" parent="Props" instance=ExtResource("7_2iq6n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.3, 0, -11.95)
+hasRight = false
+hasBack = false
+
+[node name="Cubicle12" parent="Props" instance=ExtResource("7_2iq6n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3, 0, -11.95)
+hasLeft = false
+hasRight = false
+hasBack = false
+
+[node name="Cubicle13" parent="Props" instance=ExtResource("7_2iq6n")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 5.3, 0, -8)
+hasRight = false
+hasBack = false
+
+[node name="Cubicle14" parent="Props" instance=ExtResource("7_2iq6n")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 7.3, 0, -8)
+hasRight = false
+hasBack = false
+
+[node name="Cubicle15" parent="Props" instance=ExtResource("7_2iq6n")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 9.3, 0, -8)
+hasRight = false
+hasBack = false
+
+[node name="Cubicle16" parent="Props" instance=ExtResource("7_2iq6n")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 11.3, 0, -8)
+hasLeft = false
+hasRight = false
+hasBack = false
+
+[node name="Cubicle17" parent="Props" instance=ExtResource("7_2iq6n")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.025, 0, -18.375)
+hasRight = false
+hasBack = false
+
+[node name="Cubicle18" parent="Props" instance=ExtResource("7_2iq6n")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.025, 0, -16.375)
+hasRight = false
+hasBack = false
+
+[node name="Cubicle19" parent="Props" instance=ExtResource("7_2iq6n")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.025, 0, -14.375)
+hasRight = false
+hasBack = false
+
+[node name="Cubicle22" parent="Props" instance=ExtResource("7_2iq6n")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 2.925, 0, -14.375)
+hasRight = false
+hasBack = false
+
+[node name="Cubicle23" parent="Props" instance=ExtResource("7_2iq6n")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 2.925, 0, -16.375)
+hasRight = false
+hasBack = false
+
+[node name="Cubicle24" parent="Props" instance=ExtResource("7_2iq6n")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 2.925, 0, -18.375)
+hasLeft = false
+hasRight = false
+hasBack = false
+
+[node name="PottedPlant" parent="Props" instance=ExtResource("8_63j4r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6, 0, -7.4)
+
+[node name="PottedPlant2" parent="Props" instance=ExtResource("8_63j4r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6, 0, -7.4)
+
+[node name="PottedPlant3" parent="Props" instance=ExtResource("8_63j4r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6, 0, -12.6)
+
+[node name="PottedPlant4" parent="Props" instance=ExtResource("8_63j4r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6, 0, -12.6)
+
+[node name="WaterJug" parent="Props" instance=ExtResource("9_brwpm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.25, 0, -12.7)
+
+[node name="Trash" parent="Props" instance=ExtResource("10_f1a3i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.25, 0, -12.65)
+
+[node name="FilingCabinet" parent="Props" instance=ExtResource("11_4liku")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1.5, 0, -7.05)
+
+[node name="FilingCabinet2" parent="Props" instance=ExtResource("11_4liku")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2.05, 0, -7.05)
+
+[node name="FilingCabinet3" parent="Props" instance=ExtResource("11_4liku")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2.6, 0, -7.05)
+
+[node name="FilingCabinet4" parent="Props" instance=ExtResource("11_4liku")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0, -19.3)
+
+[node name="FilingCabinet5" parent="Props" instance=ExtResource("11_4liku")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05, 0, -19.3)
+
+[node name="FilingCabinet6" parent="Props" instance=ExtResource("11_4liku")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -19.3)

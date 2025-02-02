@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cu8wfyiht1lyi"]
+[gd_scene load_steps=41 format=3 uid="uid://cu8wfyiht1lyi"]
 
 [ext_resource type="PackedScene" uid="uid://c1g40osluc5on" path="res://SRC/Player/player.tscn" id="1_orjte"]
 [ext_resource type="Script" uid="uid://dnev02fq78g5" path="res://Scenes/Maps/Level.gd" id="1_ra64b"]
@@ -31,6 +31,151 @@ sdfgi_min_cell_size = 0.273438
 sdfgi_cascade0_distance = 17.5
 sdfgi_max_distance = 140.0
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qph74"]
+resource_local_to_scene = true
+friction = 0.0
+bounce = 0.4
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_x8ovn"]
+resource_local_to_scene = true
+friction = 0.0
+bounce = 0.4
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ra64b"]
+resource_local_to_scene = true
+friction = 0.0
+bounce = 0.4
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6uoeq"]
+resource_local_to_scene = true
+friction = 0.0
+bounce = 0.4
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_evenw"]
+resource_local_to_scene = true
+friction = 0.0
+bounce = 0.4
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_lsk3j"]
+resource_local_to_scene = true
+friction = 0.0
+bounce = 0.4
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_u3ud0"]
+resource_local_to_scene = true
+friction = 0.0
+bounce = 0.4
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_v2uxg"]
+resource_local_to_scene = true
+friction = 0.0
+bounce = 0.4
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_u7qui"]
+resource_local_to_scene = true
+friction = 0.0
+bounce = 0.4
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_d6udr"]
+resource_local_to_scene = true
+friction = 0.0
+bounce = 0.4
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_t7i4n"]
+resource_local_to_scene = true
+friction = 0.0
+bounce = 0.4
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8pfw3"]
+resource_local_to_scene = true
+friction = 0.0
+bounce = 0.4
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_m5is2"]
+resource_local_to_scene = true
+friction = 0.0
+bounce = 0.4
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2rctc"]
+resource_local_to_scene = true
+friction = 0.0
+bounce = 0.4
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_dgrer"]
+resource_local_to_scene = true
+friction = 0.0
+bounce = 0.4
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bon8n"]
+resource_local_to_scene = true
+friction = 0.0
+bounce = 0.4
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_uhoje"]
+resource_local_to_scene = true
+friction = 0.0
+bounce = 0.4
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_iampv"]
+resource_local_to_scene = true
+friction = 0.0
+bounce = 0.4
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_251hl"]
+resource_local_to_scene = true
+friction = 0.0
+bounce = 0.4
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8ns7u"]
+resource_local_to_scene = true
+friction = 0.0
+bounce = 0.4
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ykhry"]
+resource_local_to_scene = true
+friction = 0.0
+bounce = 0.4
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8eilv"]
+resource_local_to_scene = true
+friction = 0.0
+bounce = 0.4
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7v47q"]
+resource_local_to_scene = true
+friction = 0.0
+bounce = 0.4
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ngfl7"]
+resource_local_to_scene = true
+friction = 0.0
+bounce = 0.4
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qxh3i"]
+resource_local_to_scene = true
+friction = 0.0
+bounce = 0.4
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_nmbgc"]
+resource_local_to_scene = true
+friction = 0.0
+bounce = 0.4
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1n5jn"]
+resource_local_to_scene = true
+friction = 0.0
+bounce = 0.4
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_30ds2"]
+resource_local_to_scene = true
+friction = 0.0
+bounce = 0.4
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qvy5a"]
+resource_local_to_scene = true
+friction = 0.0
+bounce = 0.4
+
 [node name="TestMap" type="Node3D"]
 script = ExtResource("1_ra64b")
 
@@ -61,6 +206,93 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 20, 0.
 [node name="Z+" parent="Proc_Central_01/Barriers" index="2"]
 visible = false
 collision_layer = 0
+
+[node name="Zombie" parent="Proc_Central_01/Zombies" index="0"]
+physics_material_override = SubResource("PhysicsMaterial_qph74")
+
+[node name="Zombie2" parent="Proc_Central_01/Zombies" index="1"]
+physics_material_override = SubResource("PhysicsMaterial_x8ovn")
+
+[node name="Zombie3" parent="Proc_Central_01/Zombies" index="2"]
+physics_material_override = SubResource("PhysicsMaterial_ra64b")
+
+[node name="Zombie4" parent="Proc_Central_01/Zombies" index="3"]
+physics_material_override = SubResource("PhysicsMaterial_6uoeq")
+
+[node name="Zombie5" parent="Proc_Central_01/Zombies" index="4"]
+physics_material_override = SubResource("PhysicsMaterial_evenw")
+
+[node name="Zombie6" parent="Proc_Central_01/Zombies" index="5"]
+physics_material_override = SubResource("PhysicsMaterial_lsk3j")
+
+[node name="Zombie7" parent="Proc_Central_01/Zombies" index="6"]
+physics_material_override = SubResource("PhysicsMaterial_u3ud0")
+
+[node name="Zombie8" parent="Proc_Central_01/Zombies" index="7"]
+physics_material_override = SubResource("PhysicsMaterial_v2uxg")
+
+[node name="Zombie9" parent="Proc_Central_01/Zombies" index="8"]
+physics_material_override = SubResource("PhysicsMaterial_u7qui")
+
+[node name="Zombie10" parent="Proc_Central_01/Zombies" index="9"]
+physics_material_override = SubResource("PhysicsMaterial_d6udr")
+
+[node name="Zombie11" parent="Proc_Central_01/Zombies" index="10"]
+physics_material_override = SubResource("PhysicsMaterial_t7i4n")
+
+[node name="Zombie12" parent="Proc_Central_01/Zombies" index="11"]
+physics_material_override = SubResource("PhysicsMaterial_8pfw3")
+
+[node name="Zombie13" parent="Proc_Central_01/Zombies" index="12"]
+physics_material_override = SubResource("PhysicsMaterial_m5is2")
+
+[node name="Zombie14" parent="Proc_Central_01/Zombies" index="13"]
+physics_material_override = SubResource("PhysicsMaterial_2rctc")
+
+[node name="Zombie15" parent="Proc_Central_01/Zombies" index="14"]
+physics_material_override = SubResource("PhysicsMaterial_dgrer")
+
+[node name="Zombie16" parent="Proc_Central_01/Zombies" index="15"]
+physics_material_override = SubResource("PhysicsMaterial_bon8n")
+
+[node name="Zombie17" parent="Proc_Central_01/Zombies" index="16"]
+physics_material_override = SubResource("PhysicsMaterial_uhoje")
+
+[node name="Zombie18" parent="Proc_Central_01/Zombies" index="17"]
+physics_material_override = SubResource("PhysicsMaterial_iampv")
+
+[node name="Zombie19" parent="Proc_Central_01/Zombies" index="18"]
+physics_material_override = SubResource("PhysicsMaterial_251hl")
+
+[node name="Zombie20" parent="Proc_Central_01/Zombies" index="19"]
+physics_material_override = SubResource("PhysicsMaterial_8ns7u")
+
+[node name="Zombie21" parent="Proc_Central_01/Zombies" index="20"]
+physics_material_override = SubResource("PhysicsMaterial_ykhry")
+
+[node name="Zombie22" parent="Proc_Central_01/Zombies" index="21"]
+physics_material_override = SubResource("PhysicsMaterial_8eilv")
+
+[node name="Zombie23" parent="Proc_Central_01/Zombies" index="22"]
+physics_material_override = SubResource("PhysicsMaterial_7v47q")
+
+[node name="Zombie24" parent="Proc_Central_01/Zombies" index="23"]
+physics_material_override = SubResource("PhysicsMaterial_ngfl7")
+
+[node name="Zombie25" parent="Proc_Central_01/Zombies" index="24"]
+physics_material_override = SubResource("PhysicsMaterial_qxh3i")
+
+[node name="Zombie26" parent="Proc_Central_01/Zombies" index="25"]
+physics_material_override = SubResource("PhysicsMaterial_nmbgc")
+
+[node name="Zombie27" parent="Proc_Central_01/Zombies" index="26"]
+physics_material_override = SubResource("PhysicsMaterial_1n5jn")
+
+[node name="Zombie28" parent="Proc_Central_01/Zombies" index="27"]
+physics_material_override = SubResource("PhysicsMaterial_30ds2")
+
+[node name="Zombie29" parent="Proc_Central_01/Zombies" index="28"]
+physics_material_override = SubResource("PhysicsMaterial_qvy5a")
 
 [node name="Proc_Central_02" parent="." instance=ExtResource("6_x8ovn")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -40, 0, 0)

@@ -12,7 +12,7 @@ var ray : PhysicsRayQueryParameters3D
 
 func _ready() -> void:
 	ray = PhysicsRayQueryParameters3D.new()
-	ray.collision_mask = 3
+	ray.collision_mask = 3 + 32
 
 func _physics_process(delta: float) -> void:
 	for P : Player in detectedPlayers:

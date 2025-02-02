@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=4 uid="uid://gu8j0uahgrwr"]
+[gd_scene load_steps=52 format=4 uid="uid://gu8j0uahgrwr"]
 
 [ext_resource type="Shader" uid="uid://cm8puby5gs7hp" path="res://SRC/Shaders/rgbTextureTriplanar.gdshader" id="1_cg4ug"]
 [ext_resource type="Texture2D" uid="uid://bkclfd3itw7r7" path="res://Assets/Textures/Carpet.png" id="2_gdw6g"]
@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://c5dax5r7r6e70" path="res://SRC/Props/pc_tower.tscn" id="24_oyv1v"]
 [ext_resource type="PackedScene" uid="uid://cjjnt5aka3dhk" path="res://SRC/Props/trash.tscn" id="25_ae25m"]
 [ext_resource type="PackedScene" uid="uid://b2p1t0ogxv6di" path="res://SRC/Props/monitor.tscn" id="26_1xix2"]
+[ext_resource type="PackedScene" uid="uid://bv2roejoa0822" path="res://SRC/Enemies/Zombie/zombie.tscn" id="27_fs3fk"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_j6fbb"]
 size = Vector3(40, 1, 40)
@@ -84,6 +85,7 @@ shadow_mesh = SubResource("ArrayMesh_ieith")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xph0m"]
 render_priority = 0
 shader = ExtResource("3_gdw6g")
+shader_parameter/offset = 0.01
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j6fbb"]
 next_pass = SubResource("ShaderMaterial_xph0m")
@@ -168,8 +170,37 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_xg084")
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_facvb"]
+resource_local_to_scene = true
+friction = 0.0
+bounce = 0.4
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_fs3fk"]
+resource_local_to_scene = true
+friction = 0.0
+bounce = 0.4
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_lbh0e"]
+resource_local_to_scene = true
+friction = 0.0
+bounce = 0.4
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_43vgf"]
+resource_local_to_scene = true
+friction = 0.0
+bounce = 0.4
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ontly"]
+resource_local_to_scene = true
+friction = 0.0
+bounce = 0.4
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bjaah"]
+resource_local_to_scene = true
+friction = 0.0
+bounce = 0.4
+
 [node name="proc_central_02" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.56474, -0.438709, 7.07996)
 
 [node name="MainGeo" type="Node3D" parent="."]
 
@@ -373,27 +404,49 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3.154
 
 [node name="Cubicle3" parent="Office1" instance=ExtResource("11_fmyke")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.22283, 0.00619009, -3.20021)
+hasPrinter = false
 
 [node name="Cubicle8" parent="Office1" instance=ExtResource("11_fmyke")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.1474, 0.00618985, -0.16787)
+hasPrinter = false
+hasChair = false
+hasRight = false
 
 [node name="Cubicle9" parent="Office1" instance=ExtResource("11_fmyke")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.21599, 0.00619009, -3.20021)
+hasLeft = false
 
 [node name="Cubicle4" parent="Office1" instance=ExtResource("11_fmyke")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.49893, 0, -7.51025)
+hasChair = false
+hasLeft = false
+hasRight = false
+hasBack = false
 
 [node name="Cubicle5" parent="Office1" instance=ExtResource("11_fmyke")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.501073, 0, -7.51025)
+hasPrinter = false
+hasBack = false
 
 [node name="Cubicle6" parent="Office1" instance=ExtResource("11_fmyke")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.50107, 0, -7.51025)
+hasPrinter = false
+hasLeft = false
+hasRight = false
+hasBack = false
 
 [node name="Cubicle" parent="Office1" instance=ExtResource("11_fmyke")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.49893, 0, -7.51025)
+hasPrinter = false
+hasChair = false
+hasLeft = false
+hasBack = false
 
 [node name="Cubicle7" parent="Office1" instance=ExtResource("11_fmyke")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.50582, 0.00619009, -7.52091)
+hasChair = false
+hasRight = false
+hasBack = false
 
 [node name="WaterJug2" parent="Office1" instance=ExtResource("10_apwt7")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.91235, 4.76837e-07, 0.341738)
@@ -4354,3 +4407,169 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.04265, 2.0994, 1.96219)
 
 [node name="Cubicle" parent="." instance=ExtResource("11_fmyke")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.69744, 0.052546, -12.9434)
+
+[node name="Zombies" type="Node3D" parent="."]
+
+[node name="Zombie" parent="Zombies" instance=ExtResource("27_fs3fk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.63878, 0, -0.783195)
+physics_material_override = SubResource("PhysicsMaterial_facvb")
+
+[node name="Zombie2" parent="Zombies" instance=ExtResource("27_fs3fk")]
+transform = Transform3D(0.342479, 0, 0.939525, 0, 1, 0, -0.939525, 0, 0.342479, 2.0757, 0, -4.76129)
+physics_material_override = SubResource("PhysicsMaterial_fs3fk")
+
+[node name="Zombie3" parent="Zombies" instance=ExtResource("27_fs3fk")]
+transform = Transform3D(0.987372, 0, -0.158417, 0, 1, 0, 0.158417, 0, 0.987372, 10.9022, 0, -3.21202)
+physics_material_override = SubResource("PhysicsMaterial_lbh0e")
+
+[node name="Zombie4" parent="Zombies" instance=ExtResource("27_fs3fk")]
+transform = Transform3D(-0.168593, 0, 0.985686, 0, 1, 0, -0.985686, 0, -0.168593, 14.7493, 0, -2.53825)
+physics_material_override = SubResource("PhysicsMaterial_43vgf")
+
+[node name="Zombie5" parent="Zombies" instance=ExtResource("27_fs3fk")]
+transform = Transform3D(0.747207, 0, 0.664592, 0, 1, 0, -0.664592, 0, 0.747207, 11.652, 0, 4.08708)
+physics_material_override = SubResource("PhysicsMaterial_ontly")
+
+[node name="Zombie6" parent="Zombies" instance=ExtResource("27_fs3fk")]
+transform = Transform3D(-0.926207, 0, 0.377017, 0, 1, 0, -0.377017, 0, -0.926207, 14.3661, 0, 6.24687)
+physics_material_override = SubResource("PhysicsMaterial_bjaah")
+
+[node name="Zombie7" parent="Zombies" instance=ExtResource("27_fs3fk")]
+transform = Transform3D(-0.926207, 0, 0.377017, 0, 1, 0, -0.377017, 0, -0.926207, 5.91641, 0, 5.58929)
+physics_material_override = SubResource("PhysicsMaterial_bjaah")
+
+[node name="Zombie8" parent="Zombies" instance=ExtResource("27_fs3fk")]
+transform = Transform3D(-0.926207, 0, 0.377017, 0, 1, 0, -0.377017, 0, -0.926207, -2.18268, 0, 5.4498)
+physics_material_override = SubResource("PhysicsMaterial_bjaah")
+
+[node name="Zombie9" parent="Zombies" instance=ExtResource("27_fs3fk")]
+transform = Transform3D(-0.408188, 0, -0.912899, 0, 1, 0, 0.912899, 0, -0.408188, 1.7343, 0, 3.67777)
+physics_material_override = SubResource("PhysicsMaterial_bjaah")
+
+[node name="Zombie10" parent="Zombies" instance=ExtResource("27_fs3fk")]
+transform = Transform3D(-0.999851, 0, -0.0172952, 0, 1, 0, 0.0172952, 0, -0.999851, -3.0657, 0, 9.92777)
+physics_material_override = SubResource("PhysicsMaterial_bjaah")
+
+[node name="Zombie11" parent="Zombies" instance=ExtResource("27_fs3fk")]
+transform = Transform3D(-0.0853128, 0, -0.996355, 0, 1, 0, 0.996355, 0, -0.0853128, 1.36625, 0, 13.318)
+physics_material_override = SubResource("PhysicsMaterial_bjaah")
+
+[node name="Zombie12" parent="Zombies" instance=ExtResource("27_fs3fk")]
+transform = Transform3D(-0.0853128, 0, -0.996355, 0, 1, 0, 0.996355, 0, -0.0853128, -2.24941, 0, 11.967)
+physics_material_override = SubResource("PhysicsMaterial_bjaah")
+
+[node name="Zombie13" parent="Zombies" instance=ExtResource("27_fs3fk")]
+transform = Transform3D(-0.862691, 0, -0.505733, 0, 1, 0, 0.505733, 0, -0.862691, 10.1309, 0, 12.8386)
+physics_material_override = SubResource("PhysicsMaterial_bjaah")
+
+[node name="Zombie14" parent="Zombies" instance=ExtResource("27_fs3fk")]
+transform = Transform3D(0.808422, 0, 0.588604, 0, 1, 0, -0.588604, 0, 0.808422, 10.9485, 0, 15.3965)
+physics_material_override = SubResource("PhysicsMaterial_bjaah")
+
+[node name="Zombie15" parent="Zombies" instance=ExtResource("27_fs3fk")]
+transform = Transform3D(0.957007, 0, -0.290068, 0, 1, 0, 0.290068, 0, 0.957007, 14.7367, 0, 13.0535)
+physics_material_override = SubResource("PhysicsMaterial_bjaah")
+
+[node name="Zombie16" parent="Zombies" instance=ExtResource("27_fs3fk")]
+transform = Transform3D(0.957007, 0, -0.290068, 0, 1, 0, 0.290068, 0, 0.957007, 12.1755, 0, 17.4222)
+physics_material_override = SubResource("PhysicsMaterial_bjaah")
+
+[node name="Zombie17" parent="Zombies" instance=ExtResource("27_fs3fk")]
+transform = Transform3D(0.957007, 0, -0.290068, 0, 1, 0, 0.290068, 0, 0.957007, -11.2329, 0, 13.6431)
+physics_material_override = SubResource("PhysicsMaterial_bjaah")
+
+[node name="Zombie18" parent="Zombies" instance=ExtResource("27_fs3fk")]
+transform = Transform3D(0.957007, 0, -0.290068, 0, 1, 0, 0.290068, 0, 0.957007, -13.838, 0, 14.3414)
+physics_material_override = SubResource("PhysicsMaterial_bjaah")
+
+[node name="Zombie19" parent="Zombies" instance=ExtResource("27_fs3fk")]
+transform = Transform3D(0.957007, 0, -0.290068, 0, 1, 0, 0.290068, 0, 0.957007, -5.52611, 0, 9.69065)
+physics_material_override = SubResource("PhysicsMaterial_bjaah")
+
+[node name="Zombie20" parent="Zombies" instance=ExtResource("27_fs3fk")]
+transform = Transform3D(0.957007, 0, -0.290068, 0, 1, 0, 0.290068, 0, 0.957007, -12.0721, 0, 16.1119)
+physics_material_override = SubResource("PhysicsMaterial_bjaah")
+
+[node name="Zombie21" parent="Zombies" instance=ExtResource("27_fs3fk")]
+transform = Transform3D(0.957007, 0, -0.290068, 0, 1, 0, 0.290068, 0, 0.957007, -12.8671, 0, 6.6426)
+physics_material_override = SubResource("PhysicsMaterial_bjaah")
+
+[node name="Zombie22" parent="Zombies" instance=ExtResource("27_fs3fk")]
+transform = Transform3D(0.957007, 0, -0.290068, 0, 1, 0, 0.290068, 0, 0.957007, -11.8987, 0, 3.91844)
+physics_material_override = SubResource("PhysicsMaterial_bjaah")
+
+[node name="Zombie23" parent="Zombies" instance=ExtResource("27_fs3fk")]
+transform = Transform3D(0.957007, 0, -0.290068, 0, 1, 0, 0.290068, 0, 0.957007, -17.8009, 0, -4.4571)
+physics_material_override = SubResource("PhysicsMaterial_bjaah")
+
+[node name="Zombie24" parent="Zombies" instance=ExtResource("27_fs3fk")]
+transform = Transform3D(0.957007, 0, -0.290068, 0, 1, 0, 0.290068, 0, 0.957007, -17.7454, 0, -15.1807)
+physics_material_override = SubResource("PhysicsMaterial_bjaah")
+
+[node name="Zombie25" parent="Zombies" instance=ExtResource("27_fs3fk")]
+transform = Transform3D(0.957007, 0, -0.290068, 0, 1, 0, 0.290068, 0, 0.957007, -12.1859, 0, -14.5108)
+physics_material_override = SubResource("PhysicsMaterial_bjaah")
+
+[node name="Zombie26" parent="Zombies" instance=ExtResource("27_fs3fk")]
+transform = Transform3D(0.957007, 0, -0.290068, 0, 1, 0, 0.290068, 0, 0.957007, -12.2054, 0, -9.07203)
+physics_material_override = SubResource("PhysicsMaterial_bjaah")
+
+[node name="Zombie27" parent="Zombies" instance=ExtResource("27_fs3fk")]
+transform = Transform3D(0.957007, 0, -0.290068, 0, 1, 0, 0.290068, 0, 0.957007, -5.86594, 0, -13.034)
+physics_material_override = SubResource("PhysicsMaterial_bjaah")
+
+[node name="Zombie28" parent="Zombies" instance=ExtResource("27_fs3fk")]
+transform = Transform3D(0.957007, 0, -0.290068, 0, 1, 0, 0.290068, 0, 0.957007, -12.3022, 0, -6.16122)
+physics_material_override = SubResource("PhysicsMaterial_bjaah")
+
+[node name="Zombie29" parent="Zombies" instance=ExtResource("27_fs3fk")]
+transform = Transform3D(0.234158, 0, 0.972199, 0, 1, 0, -0.972199, 0, 0.234158, -11.6221, 0, -3.60936)
+physics_material_override = SubResource("PhysicsMaterial_bjaah")
+
+[node name="Zombie30" parent="Zombies" instance=ExtResource("27_fs3fk")]
+transform = Transform3D(0.445011, 0, 0.895526, 0, 1, 0, -0.895526, 0, 0.445011, -3.69173, 0, -13.7828)
+physics_material_override = SubResource("PhysicsMaterial_bjaah")
+
+[node name="Zombie31" parent="Zombies" instance=ExtResource("27_fs3fk")]
+transform = Transform3D(0.445011, 0, 0.895526, 0, 1, 0, -0.895526, 0, 0.445011, 3.20827, 0, -13.9328)
+physics_material_override = SubResource("PhysicsMaterial_bjaah")
+
+[node name="Zombie32" parent="Zombies" instance=ExtResource("27_fs3fk")]
+transform = Transform3D(0.445011, 0, 0.895526, 0, 1, 0, -0.895526, 0, 0.445011, 2.19133, 0, -10.0283)
+physics_material_override = SubResource("PhysicsMaterial_bjaah")
+
+[node name="Zombie33" parent="Zombies" instance=ExtResource("27_fs3fk")]
+transform = Transform3D(0.445011, 0, 0.895526, 0, 1, 0, -0.895526, 0, 0.445011, -2.81924, 0, -10.3111)
+physics_material_override = SubResource("PhysicsMaterial_bjaah")
+
+[node name="Zombie34" parent="Zombies" instance=ExtResource("27_fs3fk")]
+transform = Transform3D(0.445011, 0, 0.895526, 0, 1, 0, -0.895526, 0, 0.445011, 10.5417, 0, -8.25692)
+physics_material_override = SubResource("PhysicsMaterial_bjaah")
+
+[node name="Zombie35" parent="Zombies" instance=ExtResource("27_fs3fk")]
+transform = Transform3D(0.989337, 0, 0.145651, 0, 1, 0, -0.145651, 0, 0.989337, 12.1917, 0, -13.3569)
+physics_material_override = SubResource("PhysicsMaterial_bjaah")
+
+[node name="Zombie36" parent="Zombies" instance=ExtResource("27_fs3fk")]
+transform = Transform3D(0.989337, 0, 0.145651, 0, 1, 0, -0.145651, 0, 0.989337, 2.99172, 0, -2.10692)
+physics_material_override = SubResource("PhysicsMaterial_bjaah")
+
+[node name="Zombie37" parent="Zombies" instance=ExtResource("27_fs3fk")]
+transform = Transform3D(0.989337, 0, 0.145651, 0, 1, 0, -0.145651, 0, 0.989337, -1.40828, 0, -5.15692)
+physics_material_override = SubResource("PhysicsMaterial_bjaah")
+
+[node name="Zombie38" parent="Zombies" instance=ExtResource("27_fs3fk")]
+transform = Transform3D(0.989337, 0, 0.145651, 0, 1, 0, -0.145651, 0, 0.989337, 7.6078, 0, -4.22894)
+physics_material_override = SubResource("PhysicsMaterial_bjaah")
+
+[node name="Zombie39" parent="Zombies" instance=ExtResource("27_fs3fk")]
+transform = Transform3D(0.989337, 0, 0.145651, 0, 1, 0, -0.145651, 0, 0.989337, 7.13933, 0, -9.00336)
+physics_material_override = SubResource("PhysicsMaterial_bjaah")
+
+[node name="Zombie40" parent="Zombies" instance=ExtResource("27_fs3fk")]
+transform = Transform3D(0.989337, 0, 0.145651, 0, 1, 0, -0.145651, 0, 0.989337, -5.91936, 0, 3.10357)
+physics_material_override = SubResource("PhysicsMaterial_bjaah")
+
+[node name="Zombie41" parent="Zombies" instance=ExtResource("27_fs3fk")]
+transform = Transform3D(0.989337, 0, 0.145651, 0, 1, 0, -0.145651, 0, 0.989337, -6.19725, 0, -8.28655)
+physics_material_override = SubResource("PhysicsMaterial_bjaah")

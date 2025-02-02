@@ -23,7 +23,7 @@
 [sub_resource type="Gradient" id="Gradient_xph0m"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_sgerw"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_bdbkr"]
 gradient = SubResource("Gradient_xph0m")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nwapl"]
@@ -31,11 +31,11 @@ albedo_color = Color(0.621094, 0.621094, 0.621094, 1)
 emission_enabled = true
 emission = Color(1, 1, 1, 1)
 emission_operator = 1
-emission_texture = SubResource("GradientTexture1D_sgerw")
+emission_texture = SubResource("GradientTexture1D_bdbkr")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_joqe1"]
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_xg084"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_u3g27"]
 _surfaces = [{
 "aabb": AABB(-20, -0.5, -20, 40, 1, 40),
 "format": 34896613377,
@@ -64,7 +64,7 @@ _surfaces = [{
 "vertex_data": PackedByteArray("AACgwQAAAL8AAKBBAACgwQAAAD8AAKDBAACgwQAAAD8AAKBBAACgwQAAAL8AAKDBAACgwQAAAL8AAKDBAACgQQAAAD8AAKDBAACgwQAAAD8AAKDBAACgQQAAAL8AAKDBAACgQQAAAL8AAKDBAACgQQAAAD8AAKBBAACgQQAAAD8AAKDBAACgQQAAAL8AAKBBAACgQQAAAL8AAKBBAACgwQAAAD8AAKBBAACgQQAAAD8AAKBBAACgwQAAAL8AAKBBAACgwQAAAL8AAKDBAACgQQAAAL8AAKBBAACgQQAAAL8AAKDBAACgwQAAAL8AAKBBAACgQQAAAD8AAKDBAACgwQAAAD8AAKBBAACgwQAAAD8AAKDBAACgQQAAAD8AAKBBAgAEgAGA/P8CAASAAYD8/wIABIABgPz/AgAEgAGA/P/+//7//3/+//7//v//f/7//v/+//9//v/+//7//3/+//r/AID+f/7/+v8AgP5//v/6/wCA/n/+//r/AID+f/7//3//fwCA/v//f/9/AID+//9//38AgP7//3//fwCA/v8AgAEA/v//vwCAAQD+//+/AIABAP7//78AgAEA/v//v/5//v8AAP6//n/+/wAA/r/+f/7/AAD+v/5//v8AAP6/")
 }]
 blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_xg084")
+shadow_mesh = SubResource("ArrayMesh_u3g27")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bdbkr"]
 render_priority = 0

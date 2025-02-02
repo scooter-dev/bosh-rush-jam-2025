@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://chqwq6decod5a"]
+[gd_scene load_steps=36 format=4 uid="uid://chqwq6decod5a"]
 
 [ext_resource type="Shader" uid="uid://cm8puby5gs7hp" path="res://SRC/Shaders/rgbTextureTriplanar.gdshader" id="1_3hiah"]
 [ext_resource type="Script" uid="uid://dnev02fq78g5" path="res://Scenes/Maps/Level.gd" id="1_3n1o1"]
@@ -16,6 +16,97 @@
 [ext_resource type="PackedScene" uid="uid://dbuynwribjihl" path="res://SRC/Props/cardboard_box.tscn" id="13_160k3"]
 [ext_resource type="PackedScene" uid="uid://dsm3khy1hvjry" path="res://SRC/Props/nice_desk.tscn" id="15_ly4su"]
 [ext_resource type="PackedScene" uid="uid://pkxidb743b72" path="res://SRC/Props/nice_chair.tscn" id="16_2q4ae"]
+[ext_resource type="PackedScene" uid="uid://bdehricvsx6gs" path="res://SRC/Props/door.tscn" id="17_jqn54"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_2q4ae"]
+vertices = PackedVector3Array(-0.5, 0.5, 9.5, -0.25, 0.5, 14.5, 0.5, 0.5, 14.5, 0.75, 0.5, 9.5, -7.25, 0.5, -1.25, 7.5, 0.5, -1.25, -7.25, 0.5, 9.5, 7.5, 0.5, 9.5)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(0, 4, 3), PackedInt32Array(3, 4, 5), PackedInt32Array(0, 6, 4), PackedInt32Array(5, 7, 3)]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xph0m"]
+render_priority = 0
+shader = ExtResource("1_7ptyp")
+shader_parameter/offset = 0.01
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h2w46"]
+next_pass = SubResource("ShaderMaterial_xph0m")
+albedo_color = Color(1, 0.91864, 0.832031, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2i8kv"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_qamus"]
+_surfaces = [{
+"aabb": AABB(-8, 0, -2, 16, 3, 17),
+"format": 34359742465,
+"index_count": 42,
+"index_data": PackedByteArray("AAABAAIAAgABAAMAAAAEAAEAAgADAAUABgAEAAAABQADAAcABgAIAAQABgAJAAgABgAKAAkABQAHAAsACwAHAAwACwAMAA0ADAAOAA0ADAAPAA4A"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("AAAAwQAAAAAAACBBAAAAwQAAQEAAAADAAAAAwQAAAAAAAADAAAAAQQAAQEAAAADAAAAAwQAAQEAAACBBAAAAQQAAAAAAAADAAACAvwAAAAAAACBBAAAAQQAAQEAAACBBAACAvwAAQEAAACBBAACAvwAAQEAAAHBBAACAvwAAAAAAAHBBAAAAQQAAAAAAACBBAACAPwAAQEAAACBBAACAPwAAAAAAACBBAACAPwAAAAAAAHBBAACAPwAAQEAAAHBB")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_hbrx8"]
+resource_name = "OfficeLayouts_Cube_001"
+lightmap_size_hint = Vector2i(322, 310)
+_surfaces = [{
+"aabb": AABB(-8, 0, -2, 16, 3, 17),
+"attribute_data": PackedByteArray("AADAPgAAgD8dLkM/hn0cPwAAID8AAEA/DfhkPHU71D4AAMA+AABAPw34ZDyGfRw/AAAgPwAAgD8dLkM/dTvUPgAAwD4AAEA/PJp/Pw1o0zoAACA/AAAAPyiHyzr9JUs+AADAPgAAAD8oh8s6DWjTOgAAID8AAEA/PJp/P/0lSz4AAMA+AAAAPw34ZDzdDlU+AAAgPwAAgD4dLkM/BUfPPgAAwD4AAIA+HS5DP90OVT4AACA/AAAAPw34ZDwFR88+AADAPgAAAD4IG08/3Q5VPgAAID8AAAAAPJp/Pwe0KT8AAMA+AAAAAAgbTz8HtCk/AAAgPwAAAD48mn8/3Q5VPgAAID8AAEA+CBtPPz8uLD8AAMA+AABAPjyafz9Mln8/AADAPgAAQD48mn8/Py4sPwAAID8AAEA+CBtPP0yWfz8AAMA+AACAPtu27T6+9x4/AAAgPwAAQD6aP9g8iVdRPwAAwD4AAEA+mj/YPL73Hj8AACA/AACAPtu27T6JV1E/AADAPgAAAD5A2Pg+vvcePwAAID8AAAA+crhMP4lXUT8AACA/AAAAPkDY+D6JV1E/AADAPgAAAD5yuEw/vvcePw=="),
+"format": 34359742519,
+"index_count": 42,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAbABkA"),
+"material": SubResource("StandardMaterial3D_2i8kv"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 28,
+"vertex_data": PackedByteArray("AAAAwQAAAAAAACBBAAAAwQAAQEAAAADAAAAAwQAAAAAAAADAAAAAwQAAQEAAACBBAAAAwQAAAAAAAADAAAAAQQAAQEAAAADAAAAAQQAAAAAAAADAAAAAwQAAQEAAAADAAAAAQQAAAAAAAADAAAAAQQAAQEAAACBBAAAAQQAAAAAAACBBAAAAQQAAQEAAAADAAACAvwAAAAAAACBBAAAAwQAAQEAAACBBAAAAwQAAAAAAACBBAACAvwAAQEAAACBBAACAPwAAQEAAACBBAACAPwAAAAAAAHBBAACAPwAAAAAAACBBAACAPwAAQEAAAHBBAAAAQQAAAAAAACBBAACAPwAAQEAAACBBAACAPwAAAAAAACBBAAAAQQAAQEAAACBBAACAvwAAAAAAACBBAACAvwAAQEAAAHBBAACAvwAAQEAAACBBAACAvwAAAAAAAHBB//8AgACAAAD//wCAAIAAAP//AIAAgAAA//8AgACAAAD/f/9/AIAAAP9//38AgAAA/3//fwCAAAD/f/9/AIAAAAAAAIAAgAAAAAAAgACAAAAAAACAAIAAAAAAAIAAgAAA/////wCAAAD/////AIAAAP////8AgAAA/////wCAAAAAAACA////vwAAAID///+/AAAAgP///78AAACA////v/////8AgAAA/////wCAAAD/////AIAAAP////8AgAAA//8AgP///7///wCA////v///AID///+///8AgP///78=")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_qamus")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1pckg"]
+render_priority = 0
+shader = ExtResource("1_3hiah")
+shader_parameter/tex = ExtResource("2_7ptyp")
+shader_parameter/red_color = Color(0.910156, 0.794165, 0.398193, 1)
+shader_parameter/green_color = Color(0, 0.217712, 0.679688, 1)
+shader_parameter/blue_color = Color(1, 1, 1, 1)
+shader_parameter/uvScale = Vector3(0.25, 0.25, 0.25)
+shader_parameter/uvOffset = Vector3(0, 0, 0)
+shader_parameter/uv1_blend_sharpness = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u77k5"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_quxli"]
+_surfaces = [{
+"aabb": AABB(-8, 0, -2, 16, 1e-05, 17),
+"format": 34896613377,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAAAAAAD//wAAtLQAAAAAAAC0tAAA//8AAAAAAAD/bwAAtLQAAP+PAAD//wAA/28AAP//AAD/jwAAtLQAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_e26un"]
+resource_name = "OfficeLayouts_Cube_002"
+lightmap_size_hint = Vector2i(322, 286)
+_surfaces = [{
+"aabb": AABB(-8, 0, -2, 16, 1e-05, 17),
+"attribute_data": PackedByteArray("APn/PQD//z4oh8s6mCXlOsD+vz4A/X8+PJp/P/cqWD8A+f89AP1/PiiHyzr3Klg/wP6/PgD//z48mn8/mCXlOgD5/z0A//8+mj/YPGjaWj/A/r8+AP1/Pp8crj5tjX8/APn/PQD9fz6fHK4+aNpaP8D+vz4A//8+mj/YPG2Nfz8="),
+"format": 34359742519,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUA"),
+"material": SubResource("StandardMaterial3D_u77k5"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAwQAAAAAAAADAAAAAQQAAAAAAACBBAAAAwQAAAAAAACBBAAAAQQAAAAAAAADAgASAvwAAAAAAACBBAPl/PwAAAAAAAHBBgASAvwAAAAAAAHBBAPl/PwAAAAAAACBB/H/+//7//z/8f/7//v//P/x//v/+//8//H/+//7//z/8f/7//v//P/x//v/+//8//H/+//7//z/8f/7//v//Pw==")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_quxli")
 
 [sub_resource type="Gradient" id="Gradient_xph0m"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
@@ -63,100 +154,27 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_xg084")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_xph0m"]
-render_priority = 0
-shader = ExtResource("1_7ptyp")
-shader_parameter/offset = 0.01
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h2w46"]
-next_pass = SubResource("ShaderMaterial_xph0m")
-albedo_color = Color(1, 0.91864, 0.832031, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2i8kv"]
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_qamus"]
-_surfaces = [{
-"aabb": AABB(-8, 0, -2, 16, 3, 17),
-"format": 34359742465,
-"index_count": 42,
-"index_data": PackedByteArray("AAABAAIAAgABAAMAAAAEAAEAAgADAAUABgAEAAAABQADAAcABgAIAAQABgAJAAgABgAKAAkABQAHAAsACwAHAAwACwAMAA0ADAAOAA0ADAAPAA4A"),
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 16,
-"vertex_data": PackedByteArray("AAAAwQAAAAAAACBBAAAAwQAAQEAAAADAAAAAwQAAAAAAAADAAAAAQQAAQEAAAADAAAAAwQAAQEAAACBBAAAAQQAAAAAAAADAAACAvwAAAAAAACBBAAAAQQAAQEAAACBBAACAvwAAQEAAACBBAACAvwAAQEAAAHBBAACAvwAAAAAAAHBBAAAAQQAAAAAAACBBAACAPwAAQEAAACBBAACAPwAAAAAAACBBAACAPwAAAAAAAHBBAACAPwAAQEAAAHBB")
-}]
-blend_shape_mode = 0
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_hbrx8"]
-resource_name = "OfficeLayouts_Cube_001"
-lightmap_size_hint = Vector2i(322, 310)
-_surfaces = [{
-"aabb": AABB(-8, 0, -2, 16, 3, 17),
-"attribute_data": PackedByteArray("AADAPgAAgD8dLkM/hn0cPwAAID8AAEA/DfhkPHU71D4AAMA+AABAPw34ZDyGfRw/AAAgPwAAgD8dLkM/dTvUPgAAwD4AAEA/PJp/Pw1o0zoAACA/AAAAPyiHyzr9JUs+AADAPgAAAD8oh8s6DWjTOgAAID8AAEA/PJp/P/0lSz4AAMA+AAAAPw34ZDzdDlU+AAAgPwAAgD4dLkM/BUfPPgAAwD4AAIA+HS5DP90OVT4AACA/AAAAPw34ZDwFR88+AADAPgAAAD4IG08/3Q5VPgAAID8AAAAAPJp/Pwe0KT8AAMA+AAAAAAgbTz8HtCk/AAAgPwAAAD48mn8/3Q5VPgAAID8AAEA+CBtPPz8uLD8AAMA+AABAPjyafz9Mln8/AADAPgAAQD48mn8/Py4sPwAAID8AAEA+CBtPP0yWfz8AAMA+AACAPtu27T6+9x4/AAAgPwAAQD6aP9g8iVdRPwAAwD4AAEA+mj/YPL73Hj8AACA/AACAPtu27T6JV1E/AADAPgAAAD5A2Pg+vvcePwAAID8AAAA+crhMP4lXUT8AACA/AAAAPkDY+D6JV1E/AADAPgAAAD5yuEw/vvcePw=="),
-"format": 34359742519,
-"index_count": 42,
-"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAbABkA"),
-"material": SubResource("StandardMaterial3D_2i8kv"),
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 28,
-"vertex_data": PackedByteArray("AAAAwQAAAAAAACBBAAAAwQAAQEAAAADAAAAAwQAAAAAAAADAAAAAwQAAQEAAACBBAAAAwQAAAAAAAADAAAAAQQAAQEAAAADAAAAAQQAAAAAAAADAAAAAwQAAQEAAAADAAAAAQQAAAAAAAADAAAAAQQAAQEAAACBBAAAAQQAAAAAAACBBAAAAQQAAQEAAAADAAACAvwAAAAAAACBBAAAAwQAAQEAAACBBAAAAwQAAAAAAACBBAACAvwAAQEAAACBBAACAPwAAQEAAACBBAACAPwAAAAAAAHBBAACAPwAAAAAAACBBAACAPwAAQEAAAHBBAAAAQQAAAAAAACBBAACAPwAAQEAAACBBAACAPwAAAAAAACBBAAAAQQAAQEAAACBBAACAvwAAAAAAACBBAACAvwAAQEAAAHBBAACAvwAAQEAAACBBAACAvwAAAAAAAHBB//8AgACAAAD//wCAAIAAAP//AIAAgAAA//8AgACAAAD/f/9/AIAAAP9//38AgAAA/3//fwCAAAD/f/9/AIAAAAAAAIAAgAAAAAAAgACAAAAAAACAAIAAAAAAAIAAgAAA/////wCAAAD/////AIAAAP////8AgAAA/////wCAAAAAAACA////vwAAAID///+/AAAAgP///78AAACA////v/////8AgAAA/////wCAAAD/////AIAAAP////8AgAAA//8AgP///7///wCA////v///AID///+///8AgP///78=")
-}]
-blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_qamus")
-
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_nwapl"]
 data = PackedVector3Array(-8, 0, 10, -8, 3, -2, -8, 0, -2, -8, 0, 10, -8, 3, 10, -8, 3, -2, -8, 0, -2, 8, 3, -2, 8, 0, -2, -8, 0, -2, -8, 3, -2, 8, 3, -2, 8, 0, -2, 8, 3, 10, 8, 0, 10, 8, 0, -2, 8, 3, -2, 8, 3, 10, -1, 0, 10, -8, 3, 10, -8, 0, 10, -1, 0, 10, -1, 3, 10, -8, 3, 10, 1, 3, 10, 1, 0, 15, 1, 0, 10, 1, 3, 10, 1, 3, 15, 1, 0, 15, 8, 0, 10, 1, 3, 10, 1, 0, 10, 8, 0, 10, 8, 3, 10, 1, 3, 10, -1, 0, 10, -1, 3, 15, -1, 3, 10, -1, 0, 10, -1, 0, 15, -1, 3, 15)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ybuhm"]
 data = PackedVector3Array(-8, 0, -2, 8, 0, 10, -8, 0, 10, -8, 0, -2, 8, 0, -2, 8, 0, 10, -1.0001, 0, 10, 0.9999, 0, 15, -1.0001, 0, 15, -1.0001, 0, 10, 0.9999, 0, 10, 0.9999, 0, 15)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_1pckg"]
-render_priority = 0
-shader = ExtResource("1_3hiah")
-shader_parameter/tex = ExtResource("2_7ptyp")
-shader_parameter/red_color = Color(0.910156, 0.794165, 0.398193, 1)
-shader_parameter/green_color = Color(0, 0.217712, 0.679688, 1)
-shader_parameter/blue_color = Color(1, 1, 1, 1)
-shader_parameter/uvScale = Vector3(0.25, 0.25, 0.25)
-shader_parameter/uvOffset = Vector3(0, 0, 0)
-shader_parameter/uv1_blend_sharpness = 1.0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u77k5"]
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_quxli"]
-_surfaces = [{
-"aabb": AABB(-8, 0, -2, 16, 1e-05, 17),
-"format": 34896613377,
-"index_count": 12,
-"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUA"),
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 8,
-"vertex_data": PackedByteArray("AAAAAAAAAAD//wAAtLQAAAAAAAC0tAAA//8AAAAAAAD/bwAAtLQAAP+PAAD//wAA/28AAP//AAD/jwAAtLQAAA==")
-}]
-blend_shape_mode = 0
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_e26un"]
-resource_name = "OfficeLayouts_Cube_002"
-lightmap_size_hint = Vector2i(322, 286)
-_surfaces = [{
-"aabb": AABB(-8, 0, -2, 16, 1e-05, 17),
-"attribute_data": PackedByteArray("APn/PQD//z4oh8s6mCXlOsD+vz4A/X8+PJp/P/cqWD8A+f89AP1/PiiHyzr3Klg/wP6/PgD//z48mn8/mCXlOgD5/z0A//8+mj/YPGjaWj/A/r8+AP1/Pp8crj5tjX8/APn/PQD9fz6fHK4+aNpaP8D+vz4A//8+mj/YPG2Nfz8="),
-"format": 34359742519,
-"index_count": 12,
-"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUA"),
-"material": SubResource("StandardMaterial3D_u77k5"),
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 8,
-"vertex_data": PackedByteArray("AAAAwQAAAAAAAADAAAAAQQAAAAAAACBBAAAAwQAAAAAAACBBAAAAQQAAAAAAAADAgASAvwAAAAAAACBBAPl/PwAAAAAAAHBBgASAvwAAAAAAAHBBAPl/PwAAAAAAACBB/H/+//7//z/8f/7//v//P/x//v/+//8//H/+//7//z/8f/7//v//P/x//v/+//8//H/+//7//z/8f/7//v//Pw==")
-}]
-blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_quxli")
-
 [node name="ManagerArena" type="Node3D"]
 script = ExtResource("1_3n1o1")
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_2q4ae")
+
+[node name="BossRoomWalls" type="MeshInstance3D" parent="NavigationRegion3D"]
+material_override = SubResource("StandardMaterial3D_h2w46")
+mesh = SubResource("ArrayMesh_hbrx8")
+skeleton = NodePath("")
+
+[node name="BossRoomFloor" type="MeshInstance3D" parent="NavigationRegion3D"]
+material_override = SubResource("ShaderMaterial_1pckg")
+mesh = SubResource("ArrayMesh_e26un")
+skeleton = NodePath("")
 
 [node name="OfficeLayouts" type="Node3D" parent="."]
 
@@ -167,11 +185,6 @@ cast_shadow = 3
 mesh = SubResource("ArrayMesh_ybuhm")
 skeleton = NodePath("")
 
-[node name="BossRoomWalls" type="MeshInstance3D" parent="OfficeLayouts"]
-material_override = SubResource("StandardMaterial3D_h2w46")
-mesh = SubResource("ArrayMesh_hbrx8")
-skeleton = NodePath("")
-
 [node name="StaticBody3D" type="StaticBody3D" parent="OfficeLayouts"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="OfficeLayouts/StaticBody3D"]
@@ -179,11 +192,6 @@ shape = SubResource("ConcavePolygonShape3D_nwapl")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="OfficeLayouts/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_ybuhm")
-
-[node name="BossRoomFloor" type="MeshInstance3D" parent="OfficeLayouts"]
-material_override = SubResource("ShaderMaterial_1pckg")
-mesh = SubResource("ArrayMesh_e26un")
-skeleton = NodePath("")
 
 [node name="LightmapGI" type="LightmapGI" parent="."]
 quality = 2
@@ -970,3 +978,8 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 
 
 [node name="NiceChair" parent="Props" instance=ExtResource("16_2q4ae")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -0.5)
+
+[node name="Door" parent="." instance=ExtResource("17_jqn54")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12.25)
+locked = true
+key = "manager"

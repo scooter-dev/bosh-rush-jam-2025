@@ -5,8 +5,14 @@ var otherPlayers : Array[Player]
 
 enum e_items {GLUE, STAPLES, TAPE, PHONE_BOOK, SODA, CANDY, TUBING, WIRES, CHIP, CIRCUIT_BOARD, PEN, LASER_POINTER, OIL}
 
-var money : int = 5000
+var keys : Array[String]
 
+func getKey(key : String) -> bool:
+	if keys.has(key):
+		return true
+	return false
+
+var money : int = 10
 
 var health : int = 10
 var boostStrength : float = 0.0 #How fast the boost is
