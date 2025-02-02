@@ -497,7 +497,7 @@ text = "50"
 layout_mode = 2
 theme_override_constants/separation = 400
 
-[node name="StatusMargin" type="MarginContainer" parent="MarginContainer/HBoxContainer" node_paths=PackedStringArray("boostIcon", "shieldIcon", "healthBar", "moneyCount")]
+[node name="StatusMargin" type="MarginContainer" parent="MarginContainer/HBoxContainer" node_paths=PackedStringArray("boostIcon", "shieldIcon", "healthBar", "healthCount", "moneyCount")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 8
@@ -506,6 +506,7 @@ script = ExtResource("2_s1u6l")
 boostIcon = NodePath("VBoxContainer/HBoxContainer/BoostPlaceHolder/TextureProgressBar")
 shieldIcon = NodePath("VBoxContainer/ArmorPlaceholder/Label")
 healthBar = NodePath("VBoxContainer/HBoxContainer/HealthPlaceholder/TextureProgressBar")
+healthCount = NodePath("VBoxContainer/HBoxContainer/HealthPlaceholder/TextureProgressBar/Label")
 moneyCount = NodePath("VBoxContainer/CashPlaceholder/Label")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/StatusMargin"]
@@ -554,7 +555,7 @@ offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.00716, 0.988244)
-text = "Armor: 0"
+text = "Cash: 0"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/StatusMargin/VBoxContainer"]
 layout_mode = 2
@@ -579,6 +580,15 @@ nine_patch_stretch = true
 texture_progress = SubResource("GradientTexture1D_s1u6l")
 tint_progress = Color(1, 0, 1, 1)
 
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/StatusMargin/VBoxContainer/HBoxContainer/BoostPlaceHolder/TextureProgressBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Boost"
+
 [node name="HealthPlaceholder" type="Panel" parent="MarginContainer/HBoxContainer/StatusMargin/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -597,3 +607,17 @@ allow_greater = true
 nine_patch_stretch = true
 texture_progress = SubResource("GradientTexture1D_s1u6l")
 tint_progress = Color(1, 0, 0, 1)
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/StatusMargin/VBoxContainer/HBoxContainer/HealthPlaceholder/TextureProgressBar"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -103.0
+offset_top = -11.5
+offset_bottom = 11.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "Health: 20/20"

@@ -56,9 +56,9 @@ func changeCount(newCount: int, itemName: PlayerManager.e_items) -> void:
 	currentLabel.set_text(String.num(newCount))
 	print_debug("yum, a"+ PlayerManager.getItemName(itemName)+ ". Now you have "+String.num(newCount))
 	if newCount > 0:
-		currentLabel.show()
+		currentLabel.get_parent().show()
 	else:
-		currentLabel.hide()
+		currentLabel.get_parent().hide()
 
 
 func showInventory() -> void:
