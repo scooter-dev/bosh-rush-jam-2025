@@ -47,8 +47,6 @@ func onBoost() -> void:
 
 var primaryPressed : bool = false
 
-var boostDelay : float = 0.0
-
 func _physics_process(delta: float) -> void:
 	if !playerEnabled:
 		return
@@ -59,7 +57,7 @@ func _physics_process(delta: float) -> void:
 	dir = dir.limit_length()
 	
 	label.text = "RDS: %0.2f" % rotDeltaSum
-	boostDelay -= delta
+	PlayerManager.boostDelay -= delta
 	match mode:
 		RUNNING:
 			#groundVelocity.x -= groundVelocity.x * delta * damping
@@ -77,12 +75,12 @@ func _physics_process(delta: float) -> void:
 				prevRotation = currentRotation
 			if primaryPressed:
 				grabArea.interact()
-			if shouldBoost and boostDelay < 0.001 and PlayerManager.boostFuel > 15.0:
+			if shouldBoost and PlayerManager.boostDelay < 0.001 and PlayerManager.boostFuel > 15.0:
 				PlayerManager.boostFuel -= 15.0
 				slideVelocity -= charRotator.global_basis.z * 8000.0 * PlayerManager.boostStrength * PlayerManager.boostStrength
 				print("boosted")
 				shouldBoost = false
-				boostDelay = PlayerManager.boostCooldown
+				PlayerManager.boostDelay = PlayerManager.boostCooldown
 			if rotDeltaSum > 0.0:
 				rotDeltaSum = max(0.0, rotDeltaSum - 7.0 * delta)
 			else:

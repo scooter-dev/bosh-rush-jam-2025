@@ -1,21 +1,26 @@
 extends MarginContainer
 
 
-@export var boostIcon: Control
+@export var boostIcon: TextureProgressBar
 @export var shieldIcon: Control
 @export var healthBar: TextureProgressBar
 
 var health: int
+var boostCooldown: float
+var boostDelay: float
 
-func _start():
-    PlayerInput.boost.connect(displayBoost)
 
 func _process(delta):
-    health = PlayerManager.health
-    healthBar.set_value_no_signal(health)
+	health = PlayerManager.health
+	healthBar.set_value_no_signal(health)
+	checkCooldown()
+	boostIcon.set_value_no_signal(boostCooldown-boostDelay)
 
-func displayBoost():
-    boostIcon.show()
 
+func checkCooldown():
+	boostCooldown = PlayerManager.boostCooldown
+	boostDelay = PlayerManager.boostDelay
+
+#shows shield status
 func displayShield():
-    shieldIcon.show()
+	shieldIcon.show()

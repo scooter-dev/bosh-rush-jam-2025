@@ -3,13 +3,13 @@
 [ext_resource type="Script" uid="uid://vwjdkl448eea" path="res://SRC/UI/ZombieMenus/inventory_margin.gd" id="1_dwtdd"]
 [ext_resource type="Script" uid="uid://xfaxkrtgp6rw" path="res://SRC/UI/ZombieMenus/status_margin.gd" id="2_s1u6l"]
 
-[sub_resource type="ImageTexture" id="ImageTexture_e318d"]
-
 [sub_resource type="Gradient" id="Gradient_e318d"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_s1u6l"]
 gradient = SubResource("Gradient_e318d")
+
+[sub_resource type="ImageTexture" id="ImageTexture_e318d"]
 
 [node name="Hud" type="Control"]
 layout_mode = 3
@@ -357,7 +357,7 @@ theme_override_constants/margin_left = 50
 theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 script = ExtResource("2_s1u6l")
-boostIcon = NodePath("VBoxContainer/HBoxContainer/BoostPlaceHolder/BoostRect")
+boostIcon = NodePath("VBoxContainer/HBoxContainer/BoostPlaceHolder/TextureProgressBar")
 shieldIcon = NodePath("VBoxContainer/HBoxContainer/ArmorPlaceholder/ArmorRect")
 healthBar = NodePath("VBoxContainer/HBoxContainer/HealthPlaceholder/TextureProgressBar")
 
@@ -370,7 +370,6 @@ theme_override_constants/separation = 75
 
 [node name="BoostPlaceHolder" type="Panel" parent="MarginContainer/HBoxContainer/StatusMargin/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 3
 
 [node name="BoostRect" type="NinePatchRect" parent="MarginContainer/HBoxContainer/StatusMargin/VBoxContainer/HBoxContainer/BoostPlaceHolder"]
 visible = false
@@ -382,6 +381,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ColorRect" type="ColorRect" parent="MarginContainer/HBoxContainer/StatusMargin/VBoxContainer/HBoxContainer/BoostPlaceHolder"]
+visible = false
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 1
 anchors_preset = 15
@@ -394,6 +394,22 @@ offset_bottom = 10.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.933333, 0.917647, 0.054902, 1)
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="MarginContainer/HBoxContainer/StatusMargin/VBoxContainer/HBoxContainer/BoostPlaceHolder"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+max_value = 1.0
+step = 0.1
+value = 1.0
+fill_mode = 4
+nine_patch_stretch = true
+texture_progress = SubResource("GradientTexture1D_s1u6l")
+tint_progress = Color(1, 0, 1, 1)
 
 [node name="ArmorPlaceholder" type="Panel" parent="MarginContainer/HBoxContainer/StatusMargin/VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -410,6 +426,7 @@ grow_vertical = 2
 texture = SubResource("ImageTexture_e318d")
 
 [node name="ColorRect2" type="ColorRect" parent="MarginContainer/HBoxContainer/StatusMargin/VBoxContainer/HBoxContainer/ArmorPlaceholder"]
+visible = false
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 1
 anchors_preset = 15

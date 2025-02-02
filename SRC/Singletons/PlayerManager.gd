@@ -17,6 +17,7 @@ var money : int = 10
 var health : int = 20
 var boostStrength : float = 0.0 #How fast the boost is
 var boostCooldown : float = 1.0
+var boostDelay: float = 0
 var launchPower : float = 0.25 #How fast launched items fly
 var grabStrength : int = 1 #How strong the player is to grab bigger/heavier items
 var rotSpeedLimit : float = 6.0 #How fast the max speed of the player is
