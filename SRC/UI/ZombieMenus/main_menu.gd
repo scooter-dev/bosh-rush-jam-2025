@@ -1,18 +1,25 @@
 extends Control
 
+@export var isPauseMenu : bool = false
 @export var resume_button: Button
 # @export var options_button: OptionsMenu
 @export var margin_container: MarginContainer
 
 func _ready() -> void:
 	PlayerInput.pause.connect(pausePressed)
+	if isPauseMenu:
+		resume_button.text = "Resume"
 
+var lastTimeScale : float = 1.0
 func pausePressed() -> void:
 	if get_tree().paused:
 		# if !margin_container.visible:
 		#     options.close()
 		unpause()
+		Engine.time_scale = lastTimeScale
 	else:
+		lastTimeScale = Engine.time_scale
+		Engine.time_scale = 1.0
 		pause()
 
 func pause() -> void:
@@ -22,7 +29,10 @@ func pause() -> void:
 	resume_button.grab_focus()
 
 func _on_resume_pressed() -> void:
-	unpause()
+	if isPauseMenu:
+		unpause()
+	else:
+		get_tree().change_scene_to_file()
 
 func unpause() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED

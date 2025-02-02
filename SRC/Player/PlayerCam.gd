@@ -9,4 +9,4 @@ class_name PlayerCamera
 
 func _physics_process(delta: float) -> void:
 	if player.playerEnabled:
-		pass
+		rotate_y(PlayerInput.l_udrl.x)

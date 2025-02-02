@@ -87,7 +87,7 @@ alignment = 1
 [node name="ResumeButton" type="Button" parent="MainMenuContainer/VBoxContainer/BaseMenuContainer/GradientBackground/MenuItemsContainer/GridContainer/Main Menu Buttons Container"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "Resume"
+text = "Start"
 
 [node name="SettingsMenuButton" type="Button" parent="MainMenuContainer/VBoxContainer/BaseMenuContainer/GradientBackground/MenuItemsContainer/GridContainer/Main Menu Buttons Container"]
 layout_mode = 2
@@ -99,7 +99,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Guide"
 
-[node name="Button4" type="Button" parent="MainMenuContainer/VBoxContainer/BaseMenuContainer/GradientBackground/MenuItemsContainer/GridContainer/Main Menu Buttons Container"]
+[node name="Quit" type="Button" parent="MainMenuContainer/VBoxContainer/BaseMenuContainer/GradientBackground/MenuItemsContainer/GridContainer/Main Menu Buttons Container"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Button4"

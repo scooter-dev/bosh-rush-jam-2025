@@ -266,4 +266,4 @@ func _physics_process(delta: float) -> void:
 func death() -> void:
 	money = 0.75 * money
 	for k : int in inventory.keys():
-		inventory[k] = inventory[k] * 0.75
+		inventory[k] = int(inventory[k] * 0.75)

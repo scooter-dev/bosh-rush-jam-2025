@@ -20,7 +20,7 @@ func _input(event: InputEvent) -> void:
 		ml_udrl = event.relative
 
 func _physics_process(delta: float) -> void:
-	l_udrl = Input.get_vector("L_L","L_R","L_D","L_U",0.2) * OptionsManager.controllerSensitivity + ml_udrl * OptionsManager.mouseSensitivity
+	l_udrl = Input.get_vector("L_L","L_R","L_D","L_U",0.2) * OptionsManager.controllerSensitivity + (ml_udrl * OptionsManager.mouseSensitivity if Input.is_action_pressed("CAM") else Vector2())
 	
 	
 	if Input.is_action_just_pressed("LOCK_MOUSE"):
