@@ -89,7 +89,8 @@ func spawnPaper() -> void:
 
 func shootPaper() -> void:
 	for p : PaperAttack in paperAttacks:
-		p.launch()
+		if p and !p.is_queued_for_deletion():
+			p.launch()
 	paperAttacks.clear()
 
 func purgePaper() -> void:
