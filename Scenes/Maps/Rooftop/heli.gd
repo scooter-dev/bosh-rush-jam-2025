@@ -26,5 +26,5 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 		body.global_rotation = Vector3()
 		animPlayer.play("Bye")
 
-func loadCredits() -> void:
-	pass
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	PlayerManager.player.levelTransition("res://SRC/UI/credits.tscn")

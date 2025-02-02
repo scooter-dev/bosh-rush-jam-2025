@@ -12,6 +12,7 @@ const speech : Array[AudioStream] = [preload("res://Assets/Audio/ZombieSounds/Sp
 func _ready() -> void:
 	finished.connect(onFinished)
 	attack_area.playerInArea.connect(attackSound)
+	zombie
 
 func onFinished() -> void:
 	if is_processing():
@@ -32,9 +33,13 @@ func _process(delta: float) -> void:
 			play()
 	else:
 		set_process(false)
-		stop()
+		pitch_scale = 0.6
+		volume_linear = 1.7
+		stream = preload("res://Assets/Audio/SFX/slap.ogg")
+		play()
 
 func attackSound() -> void:
-	pitch_scale = randf_range(0.9,1.1)
-	stream = atkSound.pick_random()
-	play()
+	if !zombie.isDead:
+		pitch_scale = randf_range(0.9,1.1)
+		stream = atkSound.pick_random()
+		play()

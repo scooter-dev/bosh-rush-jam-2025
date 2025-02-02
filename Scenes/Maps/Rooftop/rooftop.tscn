@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://b0df6veco6psd"]
+[gd_scene load_steps=17 format=3 uid="uid://b0df6veco6psd"]
 
 [ext_resource type="PackedScene" uid="uid://cfsdoeqvy7x1o" path="res://Assets/Meshes/Rooftop.blend" id="1_niejn"]
 [ext_resource type="Script" uid="uid://dtuhebfhyur5p" path="res://Scenes/Maps/Rooftop/heli.gd" id="2_i2mcj"]
+[ext_resource type="AudioStream" uid="uid://crxjl7ohxpt41" path="res://Assets/Audio/SFX/heli.ogg" id="3_6t5f2"]
 [ext_resource type="PackedScene" uid="uid://bj76op4qds1fb" path="res://SRC/Actors/Elevator/elevator.tscn" id="3_oaiue"]
 [ext_resource type="PackedScene" uid="uid://c1g40osluc5on" path="res://SRC/Player/player.tscn" id="4_s3awg"]
 [ext_resource type="PackedScene" uid="uid://bdehricvsx6gs" path="res://SRC/Props/door.tscn" id="5_oxska"]
@@ -296,6 +297,15 @@ shape = SubResource("BoxShape3D_s3awg")
 [node name="CharPosition" type="Node3D" parent="Rooftop2/Heli" index="5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.44332, -0.69202, 0.0967093)
 
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Rooftop2/Heli" index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.77368, -1.15431)
+stream = ExtResource("3_6t5f2")
+volume_db = 10.0
+autoplay = true
+panning_strength = 0.6
+bus = &"SFX"
+attenuation_filter_cutoff_hz = 20500.0
+
 [node name="Elevator" parent="." instance=ExtResource("3_oaiue")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.9852, 1, 1.02075e-07)
 currentFloor = 101
@@ -316,7 +326,7 @@ libraries = {
 transform = Transform3D(0.436723, 0.609065, -0.662052, 1.77636e-15, 0.735943, 0.677043, 0.899596, -0.29568, 0.321404, -1.27917, 12.05, 5.07792)
 
 [node name="PlayerChair" parent="." instance=ExtResource("4_s3awg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.88604, 1.00296, 0.0101985)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.93115, 1.00296, 0.0101985)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 2
@@ -336,5 +346,6 @@ locked = true
 key = "rooftop"
 
 [connection signal="body_entered" from="Rooftop2/Heli/Area3D" to="Rooftop2/Heli" method="_on_area_3d_body_entered"]
+[connection signal="animation_finished" from="AnimationPlayer" to="Rooftop2/Heli" method="_on_animation_player_animation_finished"]
 
 [editable path="Rooftop2"]

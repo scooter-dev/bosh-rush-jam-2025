@@ -187,7 +187,7 @@ sdfgi_min_cell_size = 0.273438
 sdfgi_cascade0_distance = 17.5
 sdfgi_max_distance = 140.0
 
-[node name="ManagerArena" type="Node3D"]
+[node name="DirectorArena" type="Node3D"]
 script = ExtResource("1_cb3nb")
 
 [node name="Ceiling" type="MeshInstance3D" parent="."]
@@ -1027,3 +1027,6 @@ shape = SubResource("BoxShape3D_34ehc")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_cx3ww")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+autoplay = true

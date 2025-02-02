@@ -6,6 +6,7 @@ extends Control
 @export var margin_container: MarginContainer
 @export var self_destruct: Button
 @export var selfDestructBlock : bool
+@export var audio_stream_player: AudioStreamPlayer
 
 func _ready() -> void:
 	PlayerInput.pause.connect(pausePressed)
@@ -13,6 +14,8 @@ func _ready() -> void:
 	if isPauseMenu:
 		self_destruct.visible = true
 		resume_button.text = "Resume"
+	else:
+		audio_stream_player.play()
 
 var lastTimeScale : float = 1.0
 func pausePressed() -> void:

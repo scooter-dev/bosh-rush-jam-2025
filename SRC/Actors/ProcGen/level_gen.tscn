@@ -40,3 +40,7 @@ environment = SubResource("Environment_lr4ii")
 
 [node name="PlayerChair" parent="." instance=ExtResource("4_716ac")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.15)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+autoplay = true
+bus = &"Music"

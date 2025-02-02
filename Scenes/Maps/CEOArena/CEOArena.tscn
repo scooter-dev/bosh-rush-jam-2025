@@ -1027,3 +1027,7 @@ environment = SubResource("Environment_cx3ww")
 [node name="CeoBoss" parent="." node_paths=PackedStringArray("unlockDoor") instance=ExtResource("17_0db1k")]
 transform = Transform3D(-0.984476, 0, -0.175521, 0, 1, 0, 0.175521, 0, -0.984476, -1.47488, 2.38419e-07, -0.274543)
 unlockDoor = NodePath("../Door")
+
+[node name="CEOBossSong" type="AudioStreamPlayer" parent="."]
+autoplay = true
+bus = &"Music"

@@ -9,6 +9,8 @@ class_name BossZombie
 @export var nav_agent: NavigationAgent3D
 @export var rotatorNode: Node3D
 @export var unlockDoor : Door
+@export var lootTable : Array[LootEntry]
+@export var baseRolls : int = 4
 
 signal dead
 signal damaged(amount : int, instigator : Node3D, grabbable: GrabbableProp)
@@ -69,4 +71,8 @@ func die() -> void:
 	collision_layer = 0
 	collision_mask = 0
 	freeze = true
+	dropLoot()
 	foot_decal.fade()
+
+func dropLoot() -> void:
+	pass

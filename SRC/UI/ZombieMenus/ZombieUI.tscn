@@ -43,7 +43,7 @@ colors = PackedColorArray(0, 0.117647, 0, 0.921569, 0.368627, 0.368627, 0.368627
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_qs8yo"]
 gradient = SubResource("Gradient_31q7d")
 
-[node name="ZombieUi" type="Control" node_paths=PackedStringArray("resume_button", "self_destruct")]
+[node name="ZombieUi" type="Control" node_paths=PackedStringArray("resume_button", "self_destruct", "audio_stream_player")]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -55,6 +55,7 @@ theme = SubResource("Theme_x3u0s")
 script = ExtResource("1_a76il")
 resume_button = NodePath("MainMenuContainer/VBoxContainer/BaseMenuContainer/GradientBackground/MenuItemsContainer/GridContainer/Main Menu Buttons Container/ResumeButton")
 self_destruct = NodePath("MainMenuContainer/VBoxContainer/BaseMenuContainer/GradientBackground/MenuItemsContainer/GridContainer/Main Menu Buttons Container/SelfDestruct")
+audio_stream_player = NodePath("MainMenuMusic")
 
 [node name="MainMenuContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -439,6 +440,9 @@ text = "X"
 [node name="OptionsMenu" parent="." instance=ExtResource("32_w5b7n")]
 visible = false
 layout_mode = 1
+
+[node name="MainMenuMusic" type="AudioStreamPlayer" parent="."]
+bus = &"Music"
 
 [connection signal="pressed" from="MainMenuContainer/VBoxContainer/BaseMenuContainer/GradientBackground/MenuItemsContainer/GridContainer/Main Menu Buttons Container/ResumeButton" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="MainMenuContainer/VBoxContainer/BaseMenuContainer/GradientBackground/MenuItemsContainer/GridContainer/Main Menu Buttons Container/SettingsMenuButton" to="." method="_on_settings_menu_button_pressed"]
