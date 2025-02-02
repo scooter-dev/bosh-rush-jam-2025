@@ -60,7 +60,7 @@ theme_override_constants/v_separation = 75
 columns = 2
 
 [node name="Glue" type="Panel" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer"]
-custom_minimum_size = Vector2(75, 0)
+custom_minimum_size = Vector2(75, 45)
 layout_mode = 2
 
 [node name="ColorRect" type="ColorRect" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/Glue"]
@@ -83,8 +83,7 @@ grow_vertical = 2
 text = "50"
 
 [node name="Staples" type="Panel" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer"]
-visible = false
-custom_minimum_size = Vector2(75, 0)
+custom_minimum_size = Vector2(75, 45)
 layout_mode = 2
 
 [node name="ColorRect" type="ColorRect" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/Staples"]
@@ -108,11 +107,10 @@ text = "50"
 
 [node name="Tape" type="Panel" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer"]
 visible = false
-custom_minimum_size = Vector2(75, 0)
+custom_minimum_size = Vector2(75, 45)
 layout_mode = 2
 
 [node name="ColorRect" type="ColorRect" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/Tape"]
-layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
@@ -135,11 +133,6 @@ visible = false
 custom_minimum_size = Vector2(75, 0)
 layout_mode = 2
 
-[node name="ColorRect" type="ColorRect" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/PhoneBook"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
 [node name="PhoneBookCountLable" type="Label" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/PhoneBook"]
 layout_mode = 1
 anchors_preset = 6
@@ -153,6 +146,10 @@ offset_bottom = 11.5
 grow_horizontal = 0
 grow_vertical = 2
 text = "50"
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/PhoneBook"]
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="SodaCan" type="Panel" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer"]
 visible = false
@@ -444,7 +441,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-value = 100.0
+max_value = 20.0
+value = 20.0
+allow_greater = true
 nine_patch_stretch = true
 texture_progress = SubResource("GradientTexture1D_s1u6l")
 tint_progress = Color(1, 0, 0, 1)

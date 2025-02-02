@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://c1g40osluc5on"]
+[gd_scene load_steps=23 format=3 uid="uid://c1g40osluc5on"]
 
 [ext_resource type="Script" uid="uid://cyj8mpkhoulxo" path="res://SRC/Player/player.gd" id="1_s38mn"]
 [ext_resource type="Script" uid="uid://fcbiot2w55f6" path="res://SRC/Player/PlayerCam.gd" id="2_ond4c"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://d6bsg66ea0km" path="res://SRC/Effects/foot_decal.tscn" id="8_c5aa8"]
 [ext_resource type="Shader" uid="uid://08ntj0c525et" path="res://SRC/Shaders/Decal.gdshader" id="9_vrj2a"]
 [ext_resource type="PackedScene" uid="uid://bo2lyf4ubkwd" path="res://SRC/Enemies/damage_number_spawner.tscn" id="10_vrj2a"]
+[ext_resource type="PackedScene" uid="uid://bkw03pro1k11i" path="res://SRC/UI/ZombieMenus/Hud.tscn" id="11_stxsp"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_s38mn"]
 friction = 0.0
@@ -137,3 +138,5 @@ material_override = SubResource("ShaderMaterial_p82fg")
 
 [node name="DamageNumberSpawner" parent="." instance=ExtResource("10_vrj2a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.69452, 0)
+
+[node name="Hud" parent="." instance=ExtResource("11_stxsp")]
