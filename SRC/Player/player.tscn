@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://c1g40osluc5on"]
+[gd_scene load_steps=24 format=3 uid="uid://c1g40osluc5on"]
 
 [ext_resource type="Script" uid="uid://cyj8mpkhoulxo" path="res://SRC/Player/player.gd" id="1_s38mn"]
 [ext_resource type="Script" uid="uid://fcbiot2w55f6" path="res://SRC/Player/PlayerCam.gd" id="2_ond4c"]
@@ -64,7 +64,10 @@ shader_parameter/vFade = SubResource("GradientTexture1D_iy44w")
 shader_parameter/scale_mod = 1.0
 shader_parameter/cube_half_size = 0.5
 
-[node name="PlayerChair" type="RigidBody3D" node_paths=PackedStringArray("cam", "charRotator", "grabArea", "damageNumberSpawner")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_stxsp"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="PlayerChair" type="RigidBody3D" node_paths=PackedStringArray("cam", "charRotator", "grabArea", "damageNumberSpawner", "fade_out")]
 collision_layer = 2
 collision_mask = 15
 mass = 1.5
@@ -78,6 +81,7 @@ cam = NodePath("CamY")
 charRotator = NodePath("CharRotator")
 grabArea = NodePath("CharRotator/GrabArea")
 damageNumberSpawner = NodePath("DamageNumberSpawner")
+fade_out = NodePath("FadeOut")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.916136, 0)
@@ -140,3 +144,11 @@ material_override = SubResource("ShaderMaterial_p82fg")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.69452, 0)
 
 [node name="Hud" parent="." instance=ExtResource("11_stxsp")]
+
+[node name="FadeOut" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_stxsp")

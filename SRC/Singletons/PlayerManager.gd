@@ -260,3 +260,8 @@ func removeMoney(qtty : int) -> bool:
 
 func _physics_process(delta: float) -> void:
 	boostFuel = min(maxBoostFuel, boostFuel + delta * boostRecovery)
+
+func death() -> void:
+	money = 0.75 * money
+	for k : int in inventory.keys():
+		inventory[k] = inventory[k] * 0.75

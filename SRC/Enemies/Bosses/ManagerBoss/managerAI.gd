@@ -94,7 +94,8 @@ func shootPaper() -> void:
 
 func purgePaper() -> void:
 	for p : PaperAttack in paperAttacks:
-		p.queue_free()
+		if p and !p.is_queued_for_deletion():
+			p.queue_free()
 
 func aiReaction(amount : int, instigator : Node3D, grabbable: GrabbableProp) -> void:
 	boss.stunTime = clamp(0.2 * amount, 0.25, 1.0)

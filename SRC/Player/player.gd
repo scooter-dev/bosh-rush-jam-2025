@@ -35,6 +35,7 @@ func _enter_tree() -> void:
 func _ready() -> void:
 	PlayerInput.primary.connect(onPrimary)
 	PlayerInput.boost.connect(onBoost)
+	create_tween().tween_property(fade_out, "modulate:a",0.0,0.5)
 
 func onPrimary() -> void:
 	if !playerEnabled:
@@ -189,10 +190,17 @@ var dead : bool = false
 func die() -> void:
 	mode = RUNNING
 	Engine.time_scale = 1.0
+	PlayerManager.death()
 	$CharRotator/PlayerCharacter/Character/Armature/Skeleton3D/PhysicalBoneSimulator3D.physical_bones_start_simulation()
 	died.emit()
 	dead = true
 	togglePlayer(false)
+	await get_tree().create_timer(1.0).timeout
+	levelTransition("res://Scenes/Maps/SafeRoom/SafeRoom.tscn")
+
+@export var fade_out: Panel
 
 func levelTransition(level : String) -> void:
+	create_tween().tween_property(fade_out, "modulate:a",1.0,1.0)
+	await get_tree().create_timer(1.02).timeout
 	get_tree().change_scene_to_file(level)

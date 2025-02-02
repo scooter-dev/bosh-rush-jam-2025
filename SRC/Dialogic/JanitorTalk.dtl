@@ -1,0 +1,32 @@
+if {FirstJanitor} == true:
+	janitor: Hello there.
+	janitor: I see you've escaped the zombies.
+	janitor: No one comes to this floor except me, so it's safe.
+	janitor: You can come to this floor whenever you need to take a breather.
+	set {FirstJanitor} = false
+else:
+	janitor: Hello again.
+label Questions
+janitor: Do you have any questions?
+- Safe room.
+	janitor: You're safe in here. You can use the vending machine or the crafting table if you want.\
+
+	jump Questions
+- Crafting.
+	janitor: You can use the crafting table to upgrade your equipment.
+	janitor: You can also see what you need to upgrade each piece of equipment.
+	jump Questions
+- Vending machine.
+	janitor: You can use the money you collect to buy crafting components and consumables.
+	jump Questions
+- Elevator
+	janitor: You can use the elevator to go visit one of your bosses.
+	janitor: Or you can go to a random floor to collect components to upgrade yourself.
+	jump Questions
+- Escape.
+	janitor: If you want to escape, you must defeat all of the bosses of this corporation. The lower ranked employees have the keys to the higher ranked employees' offices.
+	janitor: The head honcho has the keys to the roof. There you can probably contact a rescue helicopter to get out of here.
+	jump Questions
+- Nothing else for now.
+	janitor: See you. Take care.
+	[end_timeline]

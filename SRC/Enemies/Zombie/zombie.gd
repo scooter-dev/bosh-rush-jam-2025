@@ -164,6 +164,7 @@ func die() -> void:
 	dead.emit()
 	set_physics_process(false)
 	living_shape.disabled = true
+	PlayerManager.addMoney(randi_range(1,4) * PlayerManager.luck)
 	#dead_shape.disabled = false
 	#dead_shape_2.disabled = false
 	lock_rotation = false
