@@ -2,7 +2,7 @@ extends MarginContainer
 
 
 @export var boostIcon: TextureProgressBar
-@export var shieldIcon: Control
+@export var shieldIcon: Label
 @export var healthBar: TextureProgressBar
 
 var health: int
@@ -15,6 +15,7 @@ func _process(delta):
 	healthBar.set_value_no_signal(health)
 	checkCooldown()
 	boostIcon.set_value_no_signal(boostCooldown-boostDelay)
+	updateArmorCounter(PlayerManager.armor)
 
 
 func checkCooldown():
@@ -24,3 +25,6 @@ func checkCooldown():
 #shows shield status
 func displayShield():
 	shieldIcon.show()
+
+func updateArmorCounter(armorCount: int):
+	shieldIcon.set_text("Armor: "+String.num(armorCount))
