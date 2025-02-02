@@ -58,6 +58,7 @@ theme_override_constants/v_separation = 75
 columns = 2
 
 [node name="Glue" type="Panel" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer"]
+visible = false
 custom_minimum_size = Vector2(75, 45)
 layout_mode = 2
 
@@ -81,6 +82,7 @@ grow_vertical = 2
 text = "50"
 
 [node name="Staples" type="Panel" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer"]
+visible = false
 custom_minimum_size = Vector2(75, 45)
 layout_mode = 2
 
@@ -347,7 +349,7 @@ text = "50"
 layout_mode = 2
 theme_override_constants/separation = 400
 
-[node name="StatusMargin" type="MarginContainer" parent="MarginContainer/HBoxContainer" node_paths=PackedStringArray("boostIcon", "shieldIcon", "healthBar")]
+[node name="StatusMargin" type="MarginContainer" parent="MarginContainer/HBoxContainer" node_paths=PackedStringArray("boostIcon", "shieldIcon", "healthBar", "moneyCount")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 8
@@ -356,6 +358,7 @@ script = ExtResource("2_s1u6l")
 boostIcon = NodePath("VBoxContainer/HBoxContainer/BoostPlaceHolder/TextureProgressBar")
 shieldIcon = NodePath("VBoxContainer/ArmorPlaceholder/Label")
 healthBar = NodePath("VBoxContainer/HBoxContainer/HealthPlaceholder/TextureProgressBar")
+moneyCount = NodePath("VBoxContainer/CashPlaceholder/Label")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/StatusMargin"]
 layout_mode = 2
@@ -368,6 +371,28 @@ size_flags_horizontal = 8
 size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer/StatusMargin/VBoxContainer/ArmorPlaceholder"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -34.0
+offset_top = -11.5
+offset_right = 34.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.00716, 0.988244)
+text = "Armor: 0"
+
+[node name="CashPlaceholder" type="Panel" parent="MarginContainer/HBoxContainer/StatusMargin/VBoxContainer"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/StatusMargin/VBoxContainer/CashPlaceholder"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
