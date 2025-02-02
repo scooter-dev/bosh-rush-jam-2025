@@ -1,7 +1,8 @@
-[gd_scene load_steps=35 format=3 uid="uid://cmkswypvk04ct"]
+[gd_scene load_steps=37 format=3 uid="uid://cmkswypvk04ct"]
 
 [ext_resource type="Script" uid="uid://b7adi2ag43ou5" path="res://SRC/UI/ZombieMenus/main_menu.gd" id="1_a76il"]
 [ext_resource type="Texture2D" uid="uid://ukvvaflgwc33" path="res://Assets/Textures/zombie_transparent_eyes.png" id="1_qs8yo"]
+[ext_resource type="FontFile" uid="uid://b47qinkngnss7" path="res://addons/dialogic/Example Assets/Fonts/Graduate-Regular.ttf" id="1_tnfgg"]
 [ext_resource type="Texture2D" uid="uid://bfxo2jdawkbxl" path="res://addons/controller_icons/assets/xboxone/l_stick.png" id="3_grop8"]
 [ext_resource type="Texture2D" uid="uid://cy7e67qj2flir" path="res://addons/controller_icons/assets/mouse/right.png" id="4_17sfg"]
 [ext_resource type="Texture2D" uid="uid://cna0glvxuuco" path="res://addons/controller_icons/assets/xboxone/x.png" id="4_f8bkm"]
@@ -33,6 +34,9 @@
 [ext_resource type="Texture2D" uid="uid://cquw4xas0kw4b" path="res://addons/controller_icons/assets/mouse/wheel_down.png" id="29_1qbjs"]
 [ext_resource type="PackedScene" uid="uid://dk8nuoswfwvuc" path="res://SRC/UI/Options/options_menu.tscn" id="32_w5b7n"]
 
+[sub_resource type="Theme" id="Theme_x3u0s"]
+default_font = ExtResource("1_tnfgg")
+
 [sub_resource type="Gradient" id="Gradient_31q7d"]
 colors = PackedColorArray(0, 0.117647, 0, 0.921569, 0.368627, 0.368627, 0.368627, 0.431373)
 
@@ -47,6 +51,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_x3u0s")
 script = ExtResource("1_a76il")
 resume_button = NodePath("MainMenuContainer/VBoxContainer/BaseMenuContainer/GradientBackground/MenuItemsContainer/GridContainer/Main Menu Buttons Container/ResumeButton")
 
