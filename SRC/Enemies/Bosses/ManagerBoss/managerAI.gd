@@ -88,4 +88,4 @@ func aiReaction(amount : int, instigator : Node3D, grabbable: GrabbableProp) -> 
 	boss.attackOnBoss(amount, instigator)
 
 func aiDefeat() -> void:
-	pass
+	PlayerManager.keys.append("director")

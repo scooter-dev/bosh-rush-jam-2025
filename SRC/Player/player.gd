@@ -135,7 +135,7 @@ func _physics_process(delta: float) -> void:
 				if grabArea.grabbed:
 					grabArea.throw(-charRotator.global_basis.z, abs(speenPower) * 5 * PlayerManager.launchPower)
 				else:
-					slideVelocity -= charRotator.global_basis.z * abs(speenPower) * 10000.0 * PlayerManager.boostStrength
+					slideVelocity -= charRotator.global_basis.z * abs(speenPower) * 10000.0 * max(0.25,PlayerManager.boostStrength)
 				mode = RUNNING
 	
 	if mode != RUNNING:
