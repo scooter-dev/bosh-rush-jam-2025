@@ -124,6 +124,9 @@ func _physics_process(delta: float) -> void:
 				if chaseTime < 0.005:
 					nTargTimer = 6.0
 					chaseTarget = null
+	
+	if target and target.dead:
+		target = null
 	#$Label3D.text = str(target.name if target else "null") + "\n" + $Label3D.text
 
 func _on_detection_area_player_detected(player: Player) -> void:

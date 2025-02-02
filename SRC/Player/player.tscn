@@ -66,6 +66,7 @@ shader_parameter/cube_half_size = 0.5
 [node name="PlayerChair" type="RigidBody3D" node_paths=PackedStringArray("cam", "charRotator", "grabArea", "damageNumberSpawner")]
 collision_layer = 2
 collision_mask = 15
+mass = 1.5
 physics_material_override = SubResource("PhysicsMaterial_s38mn")
 can_sleep = false
 lock_rotation = true

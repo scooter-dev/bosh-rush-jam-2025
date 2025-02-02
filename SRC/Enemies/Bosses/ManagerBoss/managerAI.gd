@@ -88,4 +88,5 @@ func aiReaction(amount : int, instigator : Node3D, grabbable: GrabbableProp) -> 
 	boss.attackOnBoss(amount, instigator)
 
 func aiDefeat() -> void:
+	$"../CharacterRotator/Character/Armature/Skeleton3D/PhysicalBoneSimulator3D".physical_bones_start_simulation()
 	PlayerManager.keys.append("director")

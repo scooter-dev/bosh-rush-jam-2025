@@ -110,5 +110,8 @@ func aiReaction(amount : int, instigator : Node3D, grabbable: GrabbableProp) -> 
 	boss.recoveryTime = 0.15
 	boss.attackOnBoss(amount, instigator)
 
+@onready var physical_bone_simulator_3d: PhysicalBoneSimulator3D = $"../RotatorNode/Character/Armature/Skeleton3D/PhysicalBoneSimulator3D"
+
 func aiDefeat() -> void:
-	pass
+	physical_bone_simulator_3d.physical_bones_start_simulation()
+	PlayerManager.keys

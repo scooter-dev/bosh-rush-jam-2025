@@ -181,6 +181,9 @@ func onDamaged(damage : int, instigator : Node3D) -> void:
 
 
 signal died
+var dead : bool = false
 func die() -> void:
+	$CharRotator/PlayerCharacter/Character/Armature/Skeleton3D/PhysicalBoneSimulator3D.physical_bones_start_simulation()
 	died.emit()
+	dead = true
 	togglePlayer(false)
