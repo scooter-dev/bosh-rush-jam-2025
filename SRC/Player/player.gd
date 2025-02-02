@@ -32,10 +32,18 @@ var slideVelocity : Vector3 = Vector3()
 func _enter_tree() -> void:
 	PlayerManager.player = self
 
+
 func _ready() -> void:
 	PlayerInput.primary.connect(onPrimary)
 	PlayerInput.boost.connect(onBoost)
+	PlayerInput.heal.connect(heal)
 	create_tween().tween_property(fade_out, "modulate:a",0.0,0.5)
+
+func heal() -> void:
+	if PlayerManager.getItemCount(PlayerManager.e_items.CANDY) > 0:
+		PlayerManager.removeItem(PlayerManager.e_items.CANDY)
+		PlayerManager.health = min(PlayerManager.maxHealth, PlayerManager.health + 5)
+		damageNumberSpawner.spawnDNumber(5, Color.GREEN)
 
 func onPrimary() -> void:
 	if !playerEnabled:

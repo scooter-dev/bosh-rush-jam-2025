@@ -471,9 +471,10 @@ collision_mask = 2
 monitorable = false
 script = ExtResource("13_uef6n")
 text = "The door is stuck.
-Pick something up using the interact button.
+Pick something up using the interact key.
 Then spin around using the directional controls.
-Once an arrow appears, you can use inteact again to throw."
+Once an arrow appears, you can use the inteact key again to throw.
+To switch which item you're selecting, use the switch item key."
 tutorialLabel = NodePath("../../TutorialText/MarginContainer/Label")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TutorialAreas/TutorialA1"]
@@ -489,7 +490,7 @@ script = ExtResource("13_uef6n")
 text = "The zombie in the next room has the key to the exit door.
 Grab anything you can to defend yourself.
 Throw objects at the zombie to defeat it.
-If you're cornered, spinning without holding anything and then pressing interact will boost you.
+If you're cornered, spinning without holding anything and pressing interact will boost you.
 Later you can upgrade your boost at a crafting table, allowing you to boost by pressing boost."
 tutorialLabel = NodePath("../../TutorialText/MarginContainer/Label")
 

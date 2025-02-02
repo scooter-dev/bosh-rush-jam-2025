@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=4 uid="uid://bf33ug8wgn2hw"]
+[gd_scene load_steps=79 format=4 uid="uid://bf33ug8wgn2hw"]
 
 [ext_resource type="Script" uid="uid://dnev02fq78g5" path="res://Scenes/Maps/Level.gd" id="1_givcp"]
 [ext_resource type="Shader" uid="uid://drr0gce6cncf3" path="res://SRC/Shaders/darkness.gdshader" id="2_d08xr"]
@@ -22,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://lun21mrx5mi6" path="res://Assets/Character/JanitorTorso.png" id="19_bdbkr"]
 [ext_resource type="PackedScene" uid="uid://bd680ijokcdop" path="res://SRC/Actors/Interaction/InteractionArea.tscn" id="19_obgsc"]
 [ext_resource type="Shader" uid="uid://d20ryyciv7x8g" path="res://SRC/Shaders/Sky.gdshader" id="20_u3g27"]
+[ext_resource type="Script" uid="uid://lxlofs8sqn8c" path="res://Scenes/Maps/Tutorial/TutorialArea.gd" id="23_onk8f"]
 
 [sub_resource type="Gradient" id="Gradient_xph0m"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
@@ -170,6 +171,17 @@ shadow_mesh = SubResource("ArrayMesh_quxli")
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ggfm5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_obgsc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_onk8f"]
+resource_local_to_scene = true
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 1
+shading_mode = 0
+albedo_color = Color(1, 1, 1, 0)
+grow = true
+grow_amount = 0.04
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_icvu0"]
 
@@ -950,6 +962,18 @@ sdfgi_cascades = 3
 sdfgi_min_cell_size = 0.273438
 sdfgi_cascade0_distance = 17.5
 sdfgi_max_distance = 140.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_onk8f"]
+size = Vector3(5.95, 2.9, 7.2)
+
+[sub_resource type="GDScript" id="GDScript_onk8f"]
+script/source = "extends CollisionShape3D
+
+
+func _ready() -> void:
+	if !Dialogic.VAR.get_variable(\"FirstJanitor\"):
+		queue_free()
+"
 
 [node name="SafeRoom" type="Node3D"]
 script = ExtResource("1_givcp")
@@ -1929,6 +1953,7 @@ bones/11/rotation = Quaternion(-0.468089, -0.141026, -0.0759604, 0.869042)
 bones/11/scale = Vector3(1, 1, 1)
 
 [node name="CharacterMesh" type="MeshInstance3D" parent="Janitor/Character/Armature/Skeleton3D"]
+material_overlay = SubResource("StandardMaterial3D_onk8f")
 mesh = SubResource("ArrayMesh_8oe07")
 skin = SubResource("Skin_1p62q")
 surface_material_override/0 = SubResource("StandardMaterial3D_bdbkr")
@@ -1960,4 +1985,39 @@ autoplay = "Idle"
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_rsojy")
 
+[node name="TaktArea" type="Area3D" parent="." node_paths=PackedStringArray("tutorialLabel")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 11.55)
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("23_onk8f")
+text = "Talk to the janitor by pressing the interact key on him."
+tutorialLabel = NodePath("../MarginContainer/Label")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TaktArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.375, 1.2, -2.1)
+shape = SubResource("BoxShape3D_onk8f")
+script = SubResource("GDScript_onk8f")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 64
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_constants/outline_size = 7
+theme_override_font_sizes/font_size = 24
+horizontal_alignment = 1
+vertical_alignment = 2
+
 [connection signal="interacted" from="Janitor/JanitorBody/InteractionArea" to="Janitor/JanitorBody" method="_on_interaction_area_interacted"]
+[connection signal="sel" from="Janitor/JanitorBody/InteractionArea" to="Janitor/JanitorBody" method="_on_interaction_area_sel"]
+[connection signal="unsel" from="Janitor/JanitorBody/InteractionArea" to="Janitor/JanitorBody" method="_on_interaction_area_unsel"]

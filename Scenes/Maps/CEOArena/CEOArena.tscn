@@ -1001,13 +1001,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12.5)
 locked = true
 key = "ceo"
 
-[node name="BossCutscene" parent="." node_paths=PackedStringArray("player", "camera", "cameraDestination", "boss", "lockDoor") instance=ExtResource("15_7pjft")]
+[node name="BossCutscene" parent="." node_paths=PackedStringArray("player", "camera", "cameraDestination", "lockDoor") instance=ExtResource("15_7pjft")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.75)
 text = "CEO"
 player = NodePath("../PlayerChair")
 camera = NodePath("Cam")
 cameraDestination = NodePath("Target")
-boss = NodePath("")
 lockDoor = NodePath("../Door")
 
 [node name="Cam" type="Camera3D" parent="BossCutscene"]

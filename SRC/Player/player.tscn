@@ -91,9 +91,10 @@ shape = SubResource("CylinderShape3D_s38mn")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.496392, 0)
 shape = SubResource("SphereShape3D_c5aa8")
 
-[node name="CamY" type="Node3D" parent="." node_paths=PackedStringArray("camera", "camX")]
+[node name="CamY" type="Node3D" parent="." node_paths=PackedStringArray("player", "camera", "camX")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 1.53265, 0)
 script = ExtResource("2_ond4c")
+player = NodePath("..")
 camera = NodePath("CamX/Camera3D")
 camX = NodePath("CamX")
 

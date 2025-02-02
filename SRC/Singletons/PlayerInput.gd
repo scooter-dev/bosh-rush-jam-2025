@@ -13,6 +13,7 @@ signal SWL
 signal SWR
 signal boost
 signal pause
+signal heal
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
@@ -38,6 +39,15 @@ func _physics_process(delta: float) -> void:
 		fbrl = (get_tree().root.get_mouse_position() - get_tree().root.size * 0.5).normalized()
 	else:
 		fbrl = Vector2()
+	
+	if Input.is_action_just_pressed("SWITCH_L"):
+		SWL.emit()
+	if Input.is_action_just_pressed("SWITCH_R"):
+		SWR.emit()
+	
+	if Input.is_action_just_pressed("HEAL"):
+		heal.emit()
+	
 	fbrl += Input.get_vector("L","R","FW","BW",0.1)
 	fbrl.limit_length()
 	set_deferred("ml_udrl", Vector2())

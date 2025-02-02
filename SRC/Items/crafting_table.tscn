@@ -1,10 +1,21 @@
-[gd_scene load_steps=47 format=4 uid="uid://cd7qidxwnibd4"]
+[gd_scene load_steps=48 format=4 uid="uid://cd7qidxwnibd4"]
 
 [ext_resource type="Script" uid="uid://b8mjmih8ync4q" path="res://SRC/Items/crafting_table.gd" id="1_av24m"]
 [ext_resource type="Texture2D" uid="uid://dhma06nv4bcls" path="res://Assets/Textures/crayola-13-grad.png" id="1_spbu8"]
 [ext_resource type="PackedScene" uid="uid://bd680ijokcdop" path="res://SRC/Actors/Interaction/InteractionArea.tscn" id="2_c2pat"]
 [ext_resource type="Script" uid="uid://0em5d6b3j31i" path="res://SRC/Items/craftButton.gd" id="4_c5b8x"]
 [ext_resource type="Script" uid="uid://3m6hjwbnd4hi" path="res://SRC/Items/itemCounter.gd" id="5_281i2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i01ws"]
+resource_local_to_scene = true
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 1
+shading_mode = 0
+albedo_color = Color(1, 1, 1, 0)
+grow = true
+grow_amount = 0.04
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ghy0"]
 resource_name = "GradColor"
@@ -620,6 +631,7 @@ lampHeadCraft = NodePath("LHCraft")
 lampHeadLook = NodePath("LHLook")
 
 [node name="CraftingTable" type="MeshInstance3D" parent="."]
+material_overlay = SubResource("StandardMaterial3D_i01ws")
 gi_mode = 2
 mesh = SubResource("ArrayMesh_7t1va")
 skeleton = NodePath("")
@@ -923,3 +935,5 @@ font_size = 64
 vertical_alignment = 2
 
 [connection signal="interacted" from="InteractionArea" to="." method="_on_interaction_area_interacted"]
+[connection signal="sel" from="InteractionArea" to="." method="_on_interaction_area_sel"]
+[connection signal="unsel" from="InteractionArea" to="." method="_on_interaction_area_unsel"]

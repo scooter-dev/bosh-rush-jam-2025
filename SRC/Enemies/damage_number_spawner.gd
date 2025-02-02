@@ -4,9 +4,8 @@ class_name DamageNSpawner
 
 const DAMAGE_NUMBER = preload("res://SRC/Enemies/damage_number.tscn")
 
-func spawnDNumber(damage : int) -> void:
+func spawnDNumber(damage : int, color : Color = Color.RED) -> void:
 	var dn : DamageNumber = DAMAGE_NUMBER.instantiate()
-	
-	dn.setLabel(str(damage))
+	dn.setLabel(str(damage), color)
 	WorldManager.currentLevel.add_child(dn)
 	dn.global_position = global_position

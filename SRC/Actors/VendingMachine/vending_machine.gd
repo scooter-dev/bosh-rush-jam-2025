@@ -166,3 +166,12 @@ func _on_interaction_area_interacted(instigator: Node3D) -> void:
 	if instigator is Player:
 		player = instigator
 		startShopping()
+
+@onready var vending_machine: MeshInstance3D = $VendingMachine
+
+func _on_interaction_area_sel(col: Color) -> void:
+	vending_machine.material_overlay.albedo_color = col
+
+
+func _on_interaction_area_unsel() -> void:
+	vending_machine.material_overlay.albedo_color = Color(1,1,1,0)

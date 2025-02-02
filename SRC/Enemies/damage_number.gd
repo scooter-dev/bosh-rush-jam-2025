@@ -8,8 +8,9 @@ class_name DamageNumber
 
 @export var label: Label3D
 
-func setLabel(text : String) -> void:
+func setLabel(text : String, col : Color = Color.RED) -> void:
 	label.text = text
+	label.modulate = col
 
 func _ready() -> void:
 	tmr = 0.0

@@ -19,21 +19,23 @@ func open() -> void:
 
 func _ready() -> void:
 	PlayerInput.primary.connect(onPrimary)
-	PlayerInput.secondary.connect(onSecondary)
+	PlayerInput.back.connect(onBack)
 	open()
 	set_physics_process(false)
 
 func activate() -> void:
-	player.died.connect(deactivate)
-	player.damaged.connect(deactivate)
-	player.togglePlayer(false)
-	player.cam.camera.current = false
-	camera.current = true
-	player.visible = false
-	selectButton(button_1)
-	set_physics_process(true)
-	active = true
+	if playerInElevator and !noAc:
+		player.died.connect(deactivate)
+		player.damaged.connect(deactivate)
+		player.togglePlayer(false)
+		player.cam.camera.current = false
+		camera.current = true
+		player.visible = false
+		selectButton(button_1)
+		set_physics_process(true)
+		active = true
 
+var noAc : bool = false
 func deactivate() -> void:
 	if active:
 		player.togglePlayer(true)
@@ -43,6 +45,9 @@ func deactivate() -> void:
 		selectButton(null)
 		set_physics_process(false)
 		active = false
+		noAc = true
+		await get_tree().create_timer(0.5).timeout
+		noAc = false
 
 var selectedButton : VendingMachineButton = null
 
@@ -101,7 +106,7 @@ func onPrimary() -> void:
 				_:
 					num_panel.addNum(selectedButton.number)
 
-func onSecondary() -> void:
+func onBack() -> void:
 	if active:
 		deactivate()
 

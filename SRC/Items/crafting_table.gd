@@ -125,3 +125,12 @@ func _physics_process(delta: float) -> void:
 			if PlayerInput.fbrl.dot(Vector2(-1,0)) > btnThreshold:
 				state = CRAFTING
 				highlightButton(upgradeBoosterButton)
+
+@onready var crafting_table: MeshInstance3D = $CraftingTable
+
+func _on_interaction_area_sel(col: Color) -> void:
+	crafting_table.material_overlay.albedo_color = col
+
+
+func _on_interaction_area_unsel() -> void:
+	crafting_table.material_overlay.albedo_color = Color(1,1,1,0)

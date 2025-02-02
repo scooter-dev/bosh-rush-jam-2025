@@ -15,6 +15,7 @@ func getKey(key : String) -> bool:
 var money : int = 10
 
 var health : int = 20
+var maxHealth : int = 20
 var boostStrength : float = 0.0 #How fast the boost is
 var boostCooldown : float = 1.0
 var boostDelay: float = 0
@@ -201,7 +202,7 @@ func upgradePlayer(upg : int) -> bool:
 
 
 var inventory : Dictionary[int, int] = {e_items.GLUE : 0, e_items.STAPLES : 0, e_items.TAPE : 0, e_items.PHONE_BOOK : 0,
- e_items.SODA : 0, e_items.CANDY : 0, e_items.TUBING : 0, e_items.WIRES : 0, e_items.CHIP : 0, e_items.CIRCUIT_BOARD : 0,
+ e_items.SODA : 0, e_items.CANDY : 2, e_items.TUBING : 0, e_items.WIRES : 0, e_items.CHIP : 0, e_items.CIRCUIT_BOARD : 0,
  e_items.PEN : 0, e_items.LASER_POINTER : 0, e_items.OIL : 0}
 
 var hasLaserPointer : bool = false

@@ -14,6 +14,8 @@ class_name GrabbableProp
 ##Loot that it can drop
 @export var lootTable : Array[LootEntry]
 
+@export var highlightMesh : Node3D
+
 
 @onready var mask : int = collision_mask
 @onready var layer : int = collision_layer
@@ -21,6 +23,21 @@ class_name GrabbableProp
 var thrower : Node3D = null
 
 enum DamageType {ELECTRIC, WATER, FIRE, CAT}
+
+func selected(col : Color = Color.GREEN) -> void:
+	#print("SELLELELE")
+	if highlightMesh:
+		highlightMesh.visible = true
+		if highlightMesh is MeshInstance3D:
+			highlightMesh.material_override.albedo_color = col
+		else:
+			for c : MeshInstance3D in highlightMesh.get_children():
+				c.material_override.albedo_color = col
+
+func unselected() -> void:
+	if highlightMesh:
+		#print("unselelele")
+		highlightMesh.visible = false
 
 func _ready() -> void:
 	set_physics_process(false)
