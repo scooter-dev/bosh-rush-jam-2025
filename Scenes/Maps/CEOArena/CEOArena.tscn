@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=4 uid="uid://cuolxi58vd3gm"]
+[gd_scene load_steps=42 format=4 uid="uid://cuolxi58vd3gm"]
 
 [ext_resource type="Script" uid="uid://dnev02fq78g5" path="res://Scenes/Maps/Level.gd" id="1_vyj83"]
 [ext_resource type="Shader" uid="uid://drr0gce6cncf3" path="res://SRC/Shaders/darkness.gdshader" id="2_0db1k"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://bdehricvsx6gs" path="res://SRC/Props/door.tscn" id="14_qcfi1"]
 [ext_resource type="PackedScene" uid="uid://bb4f5h5c4tiu7" path="res://Scenes/boss_cutscene.tscn" id="15_7pjft"]
 [ext_resource type="Shader" uid="uid://d20ryyciv7x8g" path="res://SRC/Shaders/Sky.gdshader" id="16_ytwkt"]
+[ext_resource type="PackedScene" uid="uid://dd5kl7gsjrhdu" path="res://SRC/Enemies/Bosses/CEOBoss/ceoBoss.tscn" id="17_0db1k"]
 
 [sub_resource type="Gradient" id="Gradient_xph0m"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
@@ -1001,12 +1002,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12.5)
 locked = true
 key = "ceo"
 
-[node name="BossCutscene" parent="." node_paths=PackedStringArray("player", "camera", "cameraDestination", "lockDoor") instance=ExtResource("15_7pjft")]
+[node name="BossCutscene" parent="." node_paths=PackedStringArray("player", "camera", "cameraDestination", "boss", "lockDoor") instance=ExtResource("15_7pjft")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.75)
 text = "CEO"
 player = NodePath("../PlayerChair")
 camera = NodePath("Cam")
 cameraDestination = NodePath("Target")
+boss = NodePath("../CeoBoss")
 lockDoor = NodePath("../Door")
 
 [node name="Cam" type="Camera3D" parent="BossCutscene"]
@@ -1021,3 +1023,7 @@ shape = SubResource("BoxShape3D_34ehc")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_cx3ww")
+
+[node name="CeoBoss" parent="." node_paths=PackedStringArray("unlockDoor") instance=ExtResource("17_0db1k")]
+transform = Transform3D(-0.984476, 0, -0.175521, 0, 1, 0, 0.175521, 0, -0.984476, -1.47488, 2.38419e-07, -0.274543)
+unlockDoor = NodePath("../Door")
