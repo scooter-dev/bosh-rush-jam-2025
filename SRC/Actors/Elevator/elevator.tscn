@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://bj76op4qds1fb"]
+[gd_scene load_steps=34 format=4 uid="uid://bj76op4qds1fb"]
 
 [ext_resource type="Script" uid="uid://dx1dtymemdp8l" path="res://SRC/Actors/Elevator/elevator.gd" id="1_btedl"]
 [ext_resource type="Texture2D" uid="uid://dhma06nv4bcls" path="res://Assets/Textures/crayola-13-grad.png" id="1_ftd08"]
@@ -212,6 +212,9 @@ size = Vector2(0.12, 0.06)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5dcxu"]
 size = Vector3(3.18, 1, 2.31)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_galud"]
+size = Vector3(3.24792, 3.44513, 0.512207)
 
 [node name="Elevator" type="Node3D" node_paths=PackedStringArray("camera", "door_big", "door_small", "button_1", "num_panel")]
 script = ExtResource("1_btedl")
@@ -607,6 +610,15 @@ size = Vector3(4.11853, 3.9444, 4.07639)
 interior = true
 ambient_mode = 2
 ambient_color = Color(0.234375, 0.234375, 0.234375, 1)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.58055)
+collision_layer = 96
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0560913, 1.22256, 0.243896)
+shape = SubResource("BoxShape3D_galud")
 
 [connection signal="interacted" from="InteractionArea" to="." method="_on_interaction_area_interacted"]
 [connection signal="body_entered" from="PlayerInElevator" to="." method="_on_player_in_elevator_body_entered"]

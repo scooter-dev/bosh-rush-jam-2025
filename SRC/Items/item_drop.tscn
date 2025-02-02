@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dhma06nv4bcls" path="res://Assets/Textures/crayola-13-grad.png" id="1_iboqm"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_h6h36"]
-radius = 1.0
+radius = 1.3
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p7btb"]
 resource_name = "GradColor"

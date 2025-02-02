@@ -11,6 +11,7 @@ var selected : Node3D = null
 func _ready() -> void:
 	PlayerInput.SWL.connect(switchL)
 	PlayerInput.SWR.connect(switchR)
+	body_entered.connect(onBodyEntered)
 
 func switchL() ->void:
 	switchSelected(-1)
@@ -18,13 +19,24 @@ func switchL() ->void:
 func switchR() ->void:
 	switchSelected(1)
 
+func onBodyEntered(body : Node3D) -> void:
+	await get_tree().physics_frame
+	if body is GrabbableProp:
+		if body.weightClass <= PlayerManager.grabStrength and selected is GrabbableProp and selected.weightClass > PlayerManager.grabStrength:
+			changeSelected(body)
+
 func _physics_process(delta: float) -> void:
 	if player.mode == Player.RUNNING and !grabbed:
 		if selected == null:
 			var ovlrBDS : Array = get_overlapping_bodies()
 			var ovlrARS : Array = get_overlapping_areas()
 			if ovlrBDS.size() > 0:
-				changeSelected(ovlrBDS[0])
+				for bd : Node3D in ovlrBDS:
+					if bd is GrabbableProp:
+						if bd.weightClass <= PlayerManager.grabStrength:
+							selected = bd
+				if selected == null:
+					changeSelected(ovlrBDS[0])
 			elif ovlrARS.size() > 0:
 				changeSelected(ovlrARS[0])
 		else:

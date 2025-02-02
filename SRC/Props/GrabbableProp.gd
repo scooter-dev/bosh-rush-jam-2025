@@ -102,6 +102,7 @@ func die() -> void:
 	puff.global_position = global_position
 	sound.stream = PUFF
 	sound.play()
+	sound.reparent(puff)
 	queue_free()
 
 const ITEM_DROP = preload("res://SRC/Items/item_drop.tscn")
