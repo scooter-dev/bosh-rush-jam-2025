@@ -4,6 +4,7 @@ extends MarginContainer
 @export var boostIcon: TextureProgressBar
 @export var shieldIcon: Label
 @export var healthBar: TextureProgressBar
+@export var moneyCount: Label
 
 var health: int
 var boostCooldown: float
@@ -16,6 +17,7 @@ func _process(delta):
 	checkCooldown()
 	boostIcon.set_value_no_signal(boostCooldown-boostDelay)
 	updateArmorCounter(PlayerManager.armor)
+	moneyCount.set_text("Money: "+String.num(PlayerManager.money))
 
 
 func checkCooldown():
