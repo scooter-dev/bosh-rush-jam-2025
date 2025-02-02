@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cmkswypvk04ct"]
+[gd_scene load_steps=34 format=3 uid="uid://cmkswypvk04ct"]
 
 [ext_resource type="Script" uid="uid://b7adi2ag43ou5" path="res://SRC/UI/ZombieMenus/main_menu.gd" id="1_a76il"]
 [ext_resource type="Texture2D" uid="uid://ukvvaflgwc33" path="res://Assets/Textures/zombie_transparent_eyes.png" id="1_qs8yo"]
@@ -12,9 +12,25 @@
 [ext_resource type="Texture2D" uid="uid://cxx27mcrkop34" path="res://addons/controller_icons/assets/xboxone/dpad_up.png" id="6_v6tpg"]
 [ext_resource type="Texture2D" uid="uid://db6nbed6w2fis" path="res://addons/controller_icons/assets/key/s.png" id="7_xixif"]
 [ext_resource type="Texture2D" uid="uid://21k6orfpjxk5" path="res://addons/controller_icons/assets/xboxone/b.png" id="8_v6tpg"]
+[ext_resource type="Texture2D" uid="uid://e146nr3hsy0p" path="res://addons/controller_icons/assets/mouse/middle.png" id="9_8fn7f"]
 [ext_resource type="Texture2D" uid="uid://ddoiw1qbo1nqo" path="res://addons/controller_icons/assets/xboxone/menu.png" id="9_vmcfr"]
 [ext_resource type="Texture2D" uid="uid://dp2y22fkfbsyu" path="res://addons/controller_icons/assets/xboxone/lb.png" id="10_3aql3"]
 [ext_resource type="Texture2D" uid="uid://cbor273q2fdp3" path="res://addons/controller_icons/assets/xboxone/rb.png" id="11_66fet"]
+[ext_resource type="Texture2D" uid="uid://77f8q5t0w3gy" path="res://addons/controller_icons/assets/ps4/square.png" id="11_uwpiy"]
+[ext_resource type="Texture2D" uid="uid://b8vuy7l8npt6w" path="res://addons/controller_icons/assets/mouse/left.png" id="12_wx37w"]
+[ext_resource type="Texture2D" uid="uid://coqj2fcsaxvcn" path="res://addons/controller_icons/assets/key/space.png" id="13_5n0ip"]
+[ext_resource type="Texture2D" uid="uid://broeuieppu0ni" path="res://addons/controller_icons/assets/key/f.png" id="15_o4sj0"]
+[ext_resource type="Texture2D" uid="uid://xklewd7k0tim" path="res://addons/controller_icons/assets/ps4/triangle.png" id="16_uyak2"]
+[ext_resource type="Texture2D" uid="uid://bvan6ddb77ca3" path="res://addons/controller_icons/assets/key/shift.png" id="17_1qbjs"]
+[ext_resource type="Texture2D" uid="uid://bdnj53115obj6" path="res://addons/controller_icons/assets/ps4/circle.png" id="18_kcrbv"]
+[ext_resource type="Texture2D" uid="uid://cnghdqiitl0fu" path="res://addons/controller_icons/assets/key/esc.png" id="19_kcrbv"]
+[ext_resource type="Texture2D" uid="uid://cfbt1pwpnjvva" path="res://addons/controller_icons/assets/ps4/options.png" id="20_gj5bp"]
+[ext_resource type="Texture2D" uid="uid://dim5mk7g4q043" path="res://addons/controller_icons/assets/key/q.png" id="20_muxrg"]
+[ext_resource type="Texture2D" uid="uid://bx646jls6fotu" path="res://addons/controller_icons/assets/ps4/l1.png" id="22_5n0ip"]
+[ext_resource type="Texture2D" uid="uid://c8t6nj5nejist" path="res://addons/controller_icons/assets/key/p.png" id="22_gj5bp"]
+[ext_resource type="Texture2D" uid="uid://bs7lcrl1jinbj" path="res://addons/controller_icons/assets/ps4/r1.png" id="24_uyak2"]
+[ext_resource type="Texture2D" uid="uid://dwqk1mmy6tyay" path="res://addons/controller_icons/assets/mouse/wheel_up.png" id="26_atpm4"]
+[ext_resource type="Texture2D" uid="uid://cquw4xas0kw4b" path="res://addons/controller_icons/assets/mouse/wheel_down.png" id="29_1qbjs"]
 
 [sub_resource type="Gradient" id="Gradient_31q7d"]
 colors = PackedColorArray(0, 0.117647, 0, 0.921569, 0.368627, 0.368627, 0.368627, 0.431373)
@@ -99,21 +115,27 @@ alignment = 1
 
 [node name="ResumeButton" type="Button" parent="MainMenuContainer/VBoxContainer/BaseMenuContainer/GradientBackground/MenuItemsContainer/GridContainer/Main Menu Buttons Container"]
 layout_mode = 2
+focus_neighbor_bottom = NodePath("../SettingsMenuButton")
 theme_override_font_sizes/font_size = 30
 text = "Start"
 
 [node name="SettingsMenuButton" type="Button" parent="MainMenuContainer/VBoxContainer/BaseMenuContainer/GradientBackground/MenuItemsContainer/GridContainer/Main Menu Buttons Container"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../ResumeButton")
+focus_neighbor_bottom = NodePath("../HelpMenuButton")
 theme_override_font_sizes/font_size = 30
 text = "Settings"
 
 [node name="HelpMenuButton" type="Button" parent="MainMenuContainer/VBoxContainer/BaseMenuContainer/GradientBackground/MenuItemsContainer/GridContainer/Main Menu Buttons Container"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../SettingsMenuButton")
+focus_neighbor_bottom = NodePath("../Quit")
 theme_override_font_sizes/font_size = 30
 text = "Guide"
 
 [node name="Quit" type="Button" parent="MainMenuContainer/VBoxContainer/BaseMenuContainer/GradientBackground/MenuItemsContainer/GridContainer/Main Menu Buttons Container"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../HelpMenuButton")
 theme_override_font_sizes/font_size = 30
 text = "Button4"
 
@@ -148,6 +170,7 @@ text = "Zombies Bopped:"
 autowrap_mode = 2
 
 [node name="Help" type="Panel" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -183,24 +206,39 @@ layout_mode = 2
 texture = ExtResource("3_grop8")
 
 [node name="TextureRect2" type="TextureRect" parent="Help/HBoxContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = ExtResource("4_17sfg")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="TextureRect3" type="TextureRect" parent="Help/HBoxContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = ExtResource("5_8fn7f")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="TextureRect4" type="TextureRect" parent="Help/HBoxContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = ExtResource("6_ox21t")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="TextureRect5" type="TextureRect" parent="Help/HBoxContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = ExtResource("7_xixif")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="TextureRect6" type="TextureRect" parent="Help/HBoxContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = ExtResource("7_xixif")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="HBoxContainer5" type="HBoxContainer" parent="Help/HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -215,6 +253,10 @@ text = "Camera"
 layout_mode = 2
 texture = ExtResource("4_nb1h0")
 
+[node name="TextureRect2" type="TextureRect" parent="Help/HBoxContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+texture = ExtResource("9_8fn7f")
+
 [node name="HBoxContainer" type="HBoxContainer" parent="Help/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 alignment = 1
@@ -228,6 +270,18 @@ text = "Interaction"
 layout_mode = 2
 texture = ExtResource("4_f8bkm")
 
+[node name="TextureRect4" type="TextureRect" parent="Help/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("11_uwpiy")
+
+[node name="TextureRect2" type="TextureRect" parent="Help/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("12_wx37w")
+
+[node name="TextureRect3" type="TextureRect" parent="Help/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("13_5n0ip")
+
 [node name="HBoxContainer3" type="HBoxContainer" parent="Help/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 alignment = 1
@@ -240,6 +294,10 @@ text = "Heal"
 [node name="TextureRect" type="TextureRect" parent="Help/HBoxContainer/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 texture = ExtResource("6_v6tpg")
+
+[node name="TextureRect2" type="TextureRect" parent="Help/HBoxContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+texture = ExtResource("15_o4sj0")
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Help/HBoxContainer"]
 layout_mode = 2
@@ -259,6 +317,14 @@ text = "Boost"
 layout_mode = 2
 texture = ExtResource("5_f8bkm")
 
+[node name="TextureRect2" type="TextureRect" parent="Help/HBoxContainer/VBoxContainer2/HBoxContainer4"]
+layout_mode = 2
+texture = ExtResource("16_uyak2")
+
+[node name="TextureRect3" type="TextureRect" parent="Help/HBoxContainer/VBoxContainer2/HBoxContainer4"]
+layout_mode = 2
+texture = ExtResource("17_1qbjs")
+
 [node name="HBoxContainer6" type="HBoxContainer" parent="Help/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 alignment = 1
@@ -271,6 +337,14 @@ text = "Back"
 [node name="TextureRect" type="TextureRect" parent="Help/HBoxContainer/VBoxContainer2/HBoxContainer6"]
 layout_mode = 2
 texture = ExtResource("8_v6tpg")
+
+[node name="TextureRect2" type="TextureRect" parent="Help/HBoxContainer/VBoxContainer2/HBoxContainer6"]
+layout_mode = 2
+texture = ExtResource("18_kcrbv")
+
+[node name="TextureRect4" type="TextureRect" parent="Help/HBoxContainer/VBoxContainer2/HBoxContainer6"]
+layout_mode = 2
+texture = ExtResource("20_muxrg")
 
 [node name="HBoxContainer7" type="HBoxContainer" parent="Help/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
@@ -285,6 +359,18 @@ text = "Pause"
 layout_mode = 2
 texture = ExtResource("9_vmcfr")
 
+[node name="TextureRect2" type="TextureRect" parent="Help/HBoxContainer/VBoxContainer2/HBoxContainer7"]
+layout_mode = 2
+texture = ExtResource("20_gj5bp")
+
+[node name="TextureRect3" type="TextureRect" parent="Help/HBoxContainer/VBoxContainer2/HBoxContainer7"]
+layout_mode = 2
+texture = ExtResource("22_gj5bp")
+
+[node name="TextureRect4" type="TextureRect" parent="Help/HBoxContainer/VBoxContainer2/HBoxContainer7"]
+layout_mode = 2
+texture = ExtResource("19_kcrbv")
+
 [node name="HBoxContainer8" type="HBoxContainer" parent="Help/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 alignment = 1
@@ -297,6 +383,14 @@ text = "Switch Target L"
 [node name="TextureRect" type="TextureRect" parent="Help/HBoxContainer/VBoxContainer2/HBoxContainer8"]
 layout_mode = 2
 texture = ExtResource("10_3aql3")
+
+[node name="TextureRect2" type="TextureRect" parent="Help/HBoxContainer/VBoxContainer2/HBoxContainer8"]
+layout_mode = 2
+texture = ExtResource("22_5n0ip")
+
+[node name="TextureRect3" type="TextureRect" parent="Help/HBoxContainer/VBoxContainer2/HBoxContainer8"]
+layout_mode = 2
+texture = ExtResource("26_atpm4")
 
 [node name="HBoxContainer9" type="HBoxContainer" parent="Help/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
@@ -311,4 +405,28 @@ text = "Switch Target R"
 layout_mode = 2
 texture = ExtResource("11_66fet")
 
+[node name="TextureRect2" type="TextureRect" parent="Help/HBoxContainer/VBoxContainer2/HBoxContainer9"]
+layout_mode = 2
+texture = ExtResource("24_uyak2")
+
+[node name="TextureRect3" type="TextureRect" parent="Help/HBoxContainer/VBoxContainer2/HBoxContainer9"]
+layout_mode = 2
+texture = ExtResource("29_1qbjs")
+
+[node name="CloseHelp" type="Button" parent="Help"]
+modulate = Color(1, 0, 0, 1)
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -47.0
+offset_top = 25.0
+offset_right = -29.0
+offset_bottom = 56.0
+grow_horizontal = 0
+text = "X"
+
 [connection signal="pressed" from="MainMenuContainer/VBoxContainer/BaseMenuContainer/GradientBackground/MenuItemsContainer/GridContainer/Main Menu Buttons Container/ResumeButton" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="MainMenuContainer/VBoxContainer/BaseMenuContainer/GradientBackground/MenuItemsContainer/GridContainer/Main Menu Buttons Container/HelpMenuButton" to="." method="_on_help_menu_button_pressed"]
+[connection signal="pressed" from="Help/CloseHelp" to="." method="_on_close_help_pressed"]

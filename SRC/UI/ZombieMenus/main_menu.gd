@@ -7,6 +7,7 @@ extends Control
 
 func _ready() -> void:
 	PlayerInput.pause.connect(pausePressed)
+	resume_button.grab_focus()
 	if isPauseMenu:
 		resume_button.text = "Resume"
 
@@ -54,4 +55,15 @@ func _on_options_pressed() -> void:
 
 func _on_options_closed() -> void:
 	# margin_container.visible = true
+	resume_button.grab_focus()
+
+@onready var help: Panel = $Help
+@onready var close_help: Button = $Help/CloseHelp
+
+func _on_help_menu_button_pressed() -> void:
+	help.visible = true
+	close_help.grab_focus()
+
+func _on_close_help_pressed() -> void:
+	help.visible = false
 	resume_button.grab_focus()
