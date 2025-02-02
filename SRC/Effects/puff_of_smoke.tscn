@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://b5cl7lpjsi2si"]
+
+[ext_resource type="Script" uid="uid://dbth2e487osp2" path="res://SRC/Effects/papersplosion.gd" id="1_6taod"]
+[ext_resource type="Texture2D" uid="uid://bsq1e2oo7pf7k" path="res://Assets/Textures/Smoke/Smoke.png" id="1_pdy7p"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p5va4"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_pdy7p")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 4
+particles_anim_loop = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_6taod"]
+material = SubResource("StandardMaterial3D_p5va4")
+
+[sub_resource type="Curve" id="Curve_pdy7p"]
+_data = [Vector2(0, 0.28125), 0.0, 0.876589, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_pdy7p"]
+offsets = PackedFloat32Array(0.744262, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="PuffOfSmoke" type="CPUParticles3D"]
+emitting = false
+amount = 16
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+mesh = SubResource("QuadMesh_6taod")
+direction = Vector3(0, 1, 0)
+spread = 180.0
+gravity = Vector3(0, 1, 0)
+initial_velocity_min = 0.25
+initial_velocity_max = 2.0
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_min = 2.0
+scale_amount_max = 4.0
+scale_amount_curve = SubResource("Curve_pdy7p")
+color = Color(0.539063, 0.539063, 0.539063, 0.498039)
+color_ramp = SubResource("Gradient_pdy7p")
+anim_speed_min = 1.0
+anim_speed_max = 1.0
+script = ExtResource("1_6taod")
