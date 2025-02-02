@@ -1,7 +1,56 @@
-[gd_scene load_steps=5 format=3 uid="uid://bkw03pro1k11i"]
+[gd_scene load_steps=18 format=3 uid="uid://bkw03pro1k11i"]
 
 [ext_resource type="Script" uid="uid://vwjdkl448eea" path="res://SRC/UI/ZombieMenus/inventory_margin.gd" id="1_dwtdd"]
 [ext_resource type="Script" uid="uid://xfaxkrtgp6rw" path="res://SRC/UI/ZombieMenus/status_margin.gd" id="2_s1u6l"]
+[ext_resource type="Texture2D" uid="uid://dixxy5gmx087c" path="res://Assets/Textures/icons.png" id="2_ty1iu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_crj3o"]
+atlas = ExtResource("2_ty1iu")
+region = Rect2(794.15, 64.4984, 92.1212, 148.811)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s1u6l"]
+atlas = ExtResource("2_ty1iu")
+region = Rect2(797, 307, 159, 122)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ty1iu"]
+atlas = ExtResource("2_ty1iu")
+region = Rect2(352, 319, 125, 129)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mnny3"]
+atlas = ExtResource("2_ty1iu")
+region = Rect2(130, 63, 271, 252)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3sr4f"]
+atlas = ExtResource("2_ty1iu")
+region = Rect2(560, 144, 80, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8watu"]
+atlas = ExtResource("2_ty1iu")
+region = Rect2(336, 840, 80, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5bub5"]
+atlas = ExtResource("2_ty1iu")
+region = Rect2(536, 672, 128, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t6mbx"]
+atlas = ExtResource("2_ty1iu")
+region = Rect2(224, 552, 136, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_algnp"]
+atlas = ExtResource("2_ty1iu")
+region = Rect2(816, 520, 128, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xxuny"]
+atlas = ExtResource("2_ty1iu")
+region = Rect2(168, 360, 48, 136)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_askan"]
+atlas = ExtResource("2_ty1iu")
+region = Rect2(736, 824, 184, 136)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6cdgu"]
+atlas = ExtResource("2_ty1iu")
+region = Rect2(600, 376, 80, 160)
 
 [sub_resource type="Gradient" id="Gradient_e318d"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
@@ -51,6 +100,7 @@ penCount = NodePath("GridContainer/Pen/PenCountLabel")
 oilCount = NodePath("GridContainer/Oil/OilCountLabel")
 
 [node name="GridContainer" type="GridContainer" parent="MarginContainer/HBoxContainer/InventoryMargin"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_constants/h_separation = 20
@@ -59,13 +109,22 @@ columns = 2
 
 [node name="Glue" type="Panel" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer"]
 visible = false
-custom_minimum_size = Vector2(75, 45)
+custom_minimum_size = Vector2(65, 45)
 layout_mode = 2
+size_flags_horizontal = 3
 
-[node name="ColorRect" type="ColorRect" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/Glue"]
-layout_mode = 0
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/Glue"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -20.0
 offset_right = 40.0
-offset_bottom = 40.0
+offset_bottom = 20.0
+grow_vertical = 2
+texture = SubResource("AtlasTexture_crj3o")
+expand_mode = 2
+stretch_mode = 5
 
 [node name="GlueCountLabel" type="Label" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/Glue"]
 layout_mode = 1
@@ -83,13 +142,22 @@ text = "50"
 
 [node name="Staples" type="Panel" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer"]
 visible = false
-custom_minimum_size = Vector2(75, 45)
+custom_minimum_size = Vector2(65, 45)
 layout_mode = 2
+size_flags_horizontal = 3
 
-[node name="ColorRect" type="ColorRect" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/Staples"]
-layout_mode = 0
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/Staples"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -20.0
 offset_right = 40.0
-offset_bottom = 40.0
+offset_bottom = 20.0
+grow_vertical = 2
+texture = SubResource("AtlasTexture_s1u6l")
+expand_mode = 2
+stretch_mode = 5
 
 [node name="StaplesCountLabel" type="Label" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/Staples"]
 layout_mode = 1
@@ -107,13 +175,21 @@ text = "50"
 
 [node name="Tape" type="Panel" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer"]
 visible = false
-custom_minimum_size = Vector2(75, 45)
+custom_minimum_size = Vector2(65, 45)
 layout_mode = 2
 
-[node name="ColorRect" type="ColorRect" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/Tape"]
-layout_mode = 0
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/Tape"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -20.0
 offset_right = 40.0
-offset_bottom = 40.0
+offset_bottom = 20.0
+grow_vertical = 2
+texture = SubResource("AtlasTexture_ty1iu")
+expand_mode = 2
+stretch_mode = 5
 
 [node name="TapeCountLable" type="Label" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/Tape"]
 layout_mode = 1
@@ -131,8 +207,21 @@ text = "50"
 
 [node name="PhoneBook" type="Panel" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer"]
 visible = false
-custom_minimum_size = Vector2(75, 0)
+custom_minimum_size = Vector2(65, 45)
 layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/PhoneBook"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -20.0
+offset_right = 40.0
+offset_bottom = 20.0
+grow_vertical = 2
+texture = SubResource("AtlasTexture_mnny3")
+expand_mode = 2
+stretch_mode = 5
 
 [node name="PhoneBookCountLable" type="Label" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/PhoneBook"]
 layout_mode = 1
@@ -148,20 +237,23 @@ grow_horizontal = 0
 grow_vertical = 2
 text = "50"
 
-[node name="ColorRect" type="ColorRect" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/PhoneBook"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
 [node name="SodaCan" type="Panel" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer"]
 visible = false
-custom_minimum_size = Vector2(75, 0)
+custom_minimum_size = Vector2(65, 45)
 layout_mode = 2
 
-[node name="ColorRect" type="ColorRect" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/SodaCan"]
-layout_mode = 0
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/SodaCan"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -20.0
 offset_right = 40.0
-offset_bottom = 40.0
+offset_bottom = 20.0
+grow_vertical = 2
+texture = SubResource("AtlasTexture_3sr4f")
+expand_mode = 2
+stretch_mode = 5
 
 [node name="SodaCountLabel" type="Label" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/SodaCan"]
 layout_mode = 1
@@ -179,13 +271,21 @@ text = "50"
 
 [node name="Candy" type="Panel" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer"]
 visible = false
-custom_minimum_size = Vector2(75, 0)
+custom_minimum_size = Vector2(65, 45)
 layout_mode = 2
 
-[node name="ColorRect" type="ColorRect" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/Candy"]
-layout_mode = 0
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/Candy"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -20.0
 offset_right = 40.0
-offset_bottom = 40.0
+offset_bottom = 20.0
+grow_vertical = 2
+texture = SubResource("AtlasTexture_8watu")
+expand_mode = 2
+stretch_mode = 5
 
 [node name="CandyCountLabel" type="Label" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/Candy"]
 layout_mode = 1
@@ -203,13 +303,21 @@ text = "50"
 
 [node name="Tubing" type="Panel" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer"]
 visible = false
-custom_minimum_size = Vector2(75, 0)
+custom_minimum_size = Vector2(65, 45)
 layout_mode = 2
 
-[node name="ColorRect" type="ColorRect" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/Tubing"]
-layout_mode = 0
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/Tubing"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -20.0
 offset_right = 40.0
-offset_bottom = 40.0
+offset_bottom = 20.0
+grow_vertical = 2
+texture = SubResource("AtlasTexture_5bub5")
+expand_mode = 2
+stretch_mode = 5
 
 [node name="TubingCountLable" type="Label" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/Tubing"]
 layout_mode = 1
@@ -227,13 +335,21 @@ text = "50"
 
 [node name="Wires" type="Panel" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer"]
 visible = false
-custom_minimum_size = Vector2(75, 0)
+custom_minimum_size = Vector2(65, 45)
 layout_mode = 2
 
-[node name="ColorRect" type="ColorRect" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/Wires"]
-layout_mode = 0
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/Wires"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -20.0
 offset_right = 40.0
-offset_bottom = 40.0
+offset_bottom = 20.0
+grow_vertical = 2
+texture = SubResource("AtlasTexture_t6mbx")
+expand_mode = 2
+stretch_mode = 5
 
 [node name="WiresCountLabel" type="Label" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/Wires"]
 layout_mode = 1
@@ -251,13 +367,21 @@ text = "50"
 
 [node name="Chip" type="Panel" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer"]
 visible = false
-custom_minimum_size = Vector2(75, 0)
+custom_minimum_size = Vector2(65, 45)
 layout_mode = 2
 
-[node name="ColorRect" type="ColorRect" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/Chip"]
-layout_mode = 0
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/Chip"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -20.0
 offset_right = 40.0
-offset_bottom = 40.0
+offset_bottom = 20.0
+grow_vertical = 2
+texture = SubResource("AtlasTexture_algnp")
+expand_mode = 2
+stretch_mode = 5
 
 [node name="ChipCountLabel" type="Label" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/Chip"]
 layout_mode = 1
@@ -275,13 +399,21 @@ text = "50"
 
 [node name="Pen" type="Panel" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer"]
 visible = false
-custom_minimum_size = Vector2(75, 0)
+custom_minimum_size = Vector2(65, 45)
 layout_mode = 2
 
-[node name="ColorRect" type="ColorRect" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/Pen"]
-layout_mode = 0
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/Pen"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -20.0
 offset_right = 40.0
-offset_bottom = 40.0
+offset_bottom = 20.0
+grow_vertical = 2
+texture = SubResource("AtlasTexture_xxuny")
+expand_mode = 2
+stretch_mode = 5
 
 [node name="PenCountLabel" type="Label" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/Pen"]
 layout_mode = 1
@@ -299,13 +431,21 @@ text = "50"
 
 [node name="CircuitBoard" type="Panel" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer"]
 visible = false
-custom_minimum_size = Vector2(75, 0)
+custom_minimum_size = Vector2(65, 45)
 layout_mode = 2
 
-[node name="ColorRect" type="ColorRect" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/CircuitBoard"]
-layout_mode = 0
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/CircuitBoard"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -20.0
 offset_right = 40.0
-offset_bottom = 40.0
+offset_bottom = 20.0
+grow_vertical = 2
+texture = SubResource("AtlasTexture_askan")
+expand_mode = 2
+stretch_mode = 5
 
 [node name="CircuitCountLabel" type="Label" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/CircuitBoard"]
 layout_mode = 1
@@ -323,13 +463,21 @@ text = "50"
 
 [node name="Oil" type="Panel" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer"]
 visible = false
-custom_minimum_size = Vector2(75, 0)
+custom_minimum_size = Vector2(65, 45)
 layout_mode = 2
 
-[node name="ColorRect" type="ColorRect" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/Oil"]
-layout_mode = 0
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/Oil"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -20.0
 offset_right = 40.0
-offset_bottom = 40.0
+offset_bottom = 20.0
+grow_vertical = 2
+texture = SubResource("AtlasTexture_6cdgu")
+expand_mode = 2
+stretch_mode = 5
 
 [node name="OilCountLabel" type="Label" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/Oil"]
 layout_mode = 1
