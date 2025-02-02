@@ -4,11 +4,14 @@ extends Control
 @export var resume_button: Button
 # @export var options_button: OptionsMenu
 @export var margin_container: MarginContainer
+@export var self_destruct: Button
+@export var selfDestructBlock : bool
 
 func _ready() -> void:
 	PlayerInput.pause.connect(pausePressed)
 	resume_button.grab_focus()
 	if isPauseMenu:
+		self_destruct.visible = true
 		resume_button.text = "Resume"
 
 var lastTimeScale : float = 1.0
@@ -79,3 +82,15 @@ func _on_settings_menu_button_pressed() -> void:
 func _on_options_menu_closed() -> void:
 	main_menu_container.show()
 	resume_button.grab_focus()
+
+
+func _on_self_destruct_pressed() -> void:
+	if PlayerManager.player:
+		Dialogic.end_timeline()
+		if selfDestructBlock:
+			PlayerManager.resetInventory()
+			WorldManager.toLoad = "res://Scenes/Maps/Tutorial/tutorial.tscn"
+			PlayerManager.player.levelTransition("res://SRC/UI/loading.tscn")
+		else:
+			PlayerManager.player.die()
+		unpause()

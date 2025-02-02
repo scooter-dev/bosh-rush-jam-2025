@@ -43,7 +43,7 @@ colors = PackedColorArray(0, 0.117647, 0, 0.921569, 0.368627, 0.368627, 0.368627
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_qs8yo"]
 gradient = SubResource("Gradient_31q7d")
 
-[node name="ZombieUi" type="Control" node_paths=PackedStringArray("resume_button")]
+[node name="ZombieUi" type="Control" node_paths=PackedStringArray("resume_button", "self_destruct")]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -54,6 +54,7 @@ grow_vertical = 2
 theme = SubResource("Theme_x3u0s")
 script = ExtResource("1_a76il")
 resume_button = NodePath("MainMenuContainer/VBoxContainer/BaseMenuContainer/GradientBackground/MenuItemsContainer/GridContainer/Main Menu Buttons Container/ResumeButton")
+self_destruct = NodePath("MainMenuContainer/VBoxContainer/BaseMenuContainer/GradientBackground/MenuItemsContainer/GridContainer/Main Menu Buttons Container/SelfDestruct")
 
 [node name="MainMenuContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -136,16 +137,16 @@ text = "Settings"
 [node name="HelpMenuButton" type="Button" parent="MainMenuContainer/VBoxContainer/BaseMenuContainer/GradientBackground/MenuItemsContainer/GridContainer/Main Menu Buttons Container"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../SettingsMenuButton")
-focus_neighbor_bottom = NodePath("../Quit")
+focus_neighbor_bottom = NodePath("../SelfDestruct")
 theme_override_font_sizes/font_size = 30
 text = "Guide"
 
-[node name="Quit" type="Button" parent="MainMenuContainer/VBoxContainer/BaseMenuContainer/GradientBackground/MenuItemsContainer/GridContainer/Main Menu Buttons Container"]
+[node name="SelfDestruct" type="Button" parent="MainMenuContainer/VBoxContainer/BaseMenuContainer/GradientBackground/MenuItemsContainer/GridContainer/Main Menu Buttons Container"]
 visible = false
 layout_mode = 2
 focus_neighbor_top = NodePath("../HelpMenuButton")
 theme_override_font_sizes/font_size = 30
-text = "Quit"
+text = "Self Destruct (if stuck)"
 
 [node name="Stats Container" type="HBoxContainer" parent="MainMenuContainer/VBoxContainer/BaseMenuContainer/GradientBackground/MenuItemsContainer/GridContainer"]
 visible = false
@@ -442,5 +443,6 @@ layout_mode = 1
 [connection signal="pressed" from="MainMenuContainer/VBoxContainer/BaseMenuContainer/GradientBackground/MenuItemsContainer/GridContainer/Main Menu Buttons Container/ResumeButton" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="MainMenuContainer/VBoxContainer/BaseMenuContainer/GradientBackground/MenuItemsContainer/GridContainer/Main Menu Buttons Container/SettingsMenuButton" to="." method="_on_settings_menu_button_pressed"]
 [connection signal="pressed" from="MainMenuContainer/VBoxContainer/BaseMenuContainer/GradientBackground/MenuItemsContainer/GridContainer/Main Menu Buttons Container/HelpMenuButton" to="." method="_on_help_menu_button_pressed"]
+[connection signal="pressed" from="MainMenuContainer/VBoxContainer/BaseMenuContainer/GradientBackground/MenuItemsContainer/GridContainer/Main Menu Buttons Container/SelfDestruct" to="." method="_on_self_destruct_pressed"]
 [connection signal="pressed" from="Help/CloseHelp" to="." method="_on_close_help_pressed"]
 [connection signal="closed" from="OptionsMenu" to="." method="_on_options_menu_closed"]

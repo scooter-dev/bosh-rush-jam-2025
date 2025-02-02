@@ -202,10 +202,11 @@ func upgradePlayer(upg : int) -> bool:
 			luck += 3
 	return true
 
-
-var inventory : Dictionary[int, int] = {e_items.GLUE : 0, e_items.STAPLES : 0, e_items.TAPE : 0, e_items.PHONE_BOOK : 0,
+const defaultInventory : Dictionary[int, int] = {e_items.GLUE : 0, e_items.STAPLES : 0, e_items.TAPE : 0, e_items.PHONE_BOOK : 0,
  e_items.SODA : 0, e_items.CANDY : 2, e_items.TUBING : 0, e_items.WIRES : 0, e_items.CHIP : 0, e_items.CIRCUIT_BOARD : 0,
  e_items.PEN : 0, e_items.LASER_POINTER : 0, e_items.OIL : 0}
+
+@onready var inventory : Dictionary[int, int] = defaultInventory.duplicate()
 
 var hasLaserPointer : bool = false
 
@@ -269,6 +270,10 @@ func removeMoney(qtty : int) -> bool:
 
 func _physics_process(delta: float) -> void:
 	boostFuel = min(maxBoostFuel, boostFuel + delta * boostRecovery)
+
+func resetInventory() -> void:
+	inventory = defaultInventory.duplicate()
+	money = 10
 
 func death() -> void:
 	health = maxHealth

@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=4 uid="uid://d2a1pvu2l8nt4"]
+[gd_scene load_steps=49 format=4 uid="uid://d2a1pvu2l8nt4"]
 
 [ext_resource type="PackedScene" uid="uid://bj76op4qds1fb" path="res://SRC/Actors/Elevator/elevator.tscn" id="1_0klb4"]
 [ext_resource type="Script" uid="uid://dnev02fq78g5" path="res://Scenes/Maps/Level.gd" id="1_5snpj"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cjjnt5aka3dhk" path="res://SRC/Props/trash.tscn" id="10_f1a3i"]
 [ext_resource type="PackedScene" uid="uid://ry72u7xd6h2o" path="res://SRC/Props/FileCabinet.tscn" id="11_4liku"]
 [ext_resource type="PackedScene" uid="uid://c1g40osluc5on" path="res://SRC/Player/player.tscn" id="12_dm1oh"]
+[ext_resource type="Shader" uid="uid://08ntj0c525et" path="res://SRC/Shaders/Decal.gdshader" id="13_ch2c7"]
 [ext_resource type="Script" uid="uid://lxlofs8sqn8c" path="res://Scenes/Maps/Tutorial/TutorialArea.gd" id="13_uef6n"]
 [ext_resource type="PackedScene" uid="uid://bdehricvsx6gs" path="res://SRC/Props/door.tscn" id="14_o5w3y"]
 [ext_resource type="PackedScene" uid="uid://bv2roejoa0822" path="res://SRC/Enemies/Zombie/zombie.tscn" id="15_5snpj"]
@@ -163,6 +164,33 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ui74t")
+
+[sub_resource type="Gradient" id="Gradient_stxsp"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.125523, 0.669456)
+colors = PackedColorArray(0, 0, 0, 0.568627, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_btmj8"]
+gradient = SubResource("Gradient_stxsp")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_cygn4"]
+offsets = PackedFloat32Array(0, 0.543933, 0.573222, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.752941, 1, 1, 1, 0.752941, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_iy44w"]
+gradient = SubResource("Gradient_cygn4")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p82fg"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("13_ch2c7")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = SubResource("GradientTexture2D_btmj8")
+shader_parameter/vFade = SubResource("GradientTexture1D_iy44w")
+shader_parameter/scale_mod = 1.0
+shader_parameter/cube_half_size = 0.5
 
 [sub_resource type="GDScript" id="GDScript_2v1cc"]
 script/source = "extends Node3D
@@ -434,6 +462,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -19.3)
 [node name="PlayerChair" parent="." instance=ExtResource("12_dm1oh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -17.6)
 
+[node name="FootDecal" parent="PlayerChair" index="5"]
+material_override = SubResource("ShaderMaterial_p82fg")
+
+[node name="ZombieUi" parent="PlayerChair/CanvasLayer" index="0"]
+selfDestructBlock = true
+
 [node name="TutorialText" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
@@ -556,3 +590,5 @@ shape = SubResource("BoxShape3D_5snpj")
 
 [connection signal="damaged" from="PlayerChair" to="TutorialAreas/ZombieDie" method="_on_player_chair_damaged"]
 [connection signal="body_entered" from="TPArea" to="TPArea" method="_on_body_entered"]
+
+[editable path="PlayerChair"]
