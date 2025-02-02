@@ -167,6 +167,7 @@ mesh = SubResource("ArrayMesh_82fp3")
 skeleton = NodePath("")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="BathroomSink/BathroomSink"]
+visible = false
 material_override = SubResource("StandardMaterial3D_akust")
 mesh = SubResource("ArrayMesh_akust")
 

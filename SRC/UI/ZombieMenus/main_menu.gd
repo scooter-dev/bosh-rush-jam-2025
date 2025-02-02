@@ -38,7 +38,7 @@ func _on_resume_pressed() -> void:
 		get_tree().change_scene_to_file("res://SRC/UI/loading.tscn")
 
 func unpause() -> void:
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	#Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	get_tree().paused = false
 	hide()
 
@@ -66,4 +66,16 @@ func _on_help_menu_button_pressed() -> void:
 
 func _on_close_help_pressed() -> void:
 	help.visible = false
+	resume_button.grab_focus()
+
+@onready var options_menu: Control = $OptionsMenu
+@onready var main_menu_container: MarginContainer = $MainMenuContainer
+
+func _on_settings_menu_button_pressed() -> void:
+	main_menu_container.hide()
+	options_menu.open()
+
+
+func _on_options_menu_closed() -> void:
+	main_menu_container.show()
 	resume_button.grab_focus()

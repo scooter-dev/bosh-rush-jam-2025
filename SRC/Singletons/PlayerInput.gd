@@ -52,5 +52,5 @@ func _physics_process(delta: float) -> void:
 	fbrl.limit_length()
 	set_deferred("ml_udrl", Vector2())
 
-	if Input.is_action_pressed("ui_menu"):
+	if Input.is_action_pressed("PAUSE"):
 		pause.emit()

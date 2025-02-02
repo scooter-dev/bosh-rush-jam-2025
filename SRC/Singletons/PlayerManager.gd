@@ -12,6 +12,8 @@ func getKey(key : String) -> bool:
 		return true
 	return false
 
+var invulnerable : bool = false
+
 var money : int = 10
 
 var health : int = 20
@@ -143,7 +145,7 @@ func upgradePlayer(upg : int) -> bool:
 			str_lv += 1
 			luck += 3
 		e_upg.CHAIR:
-			if chair_lv == chair_lv:
+			if chair_lv == chairMax:
 				return false
 			match chair_lv:
 				1:
@@ -207,9 +209,14 @@ var inventory : Dictionary[int, int] = {e_items.GLUE : 0, e_items.STAPLES : 0, e
 
 var hasLaserPointer : bool = false
 
-func addItem(item : e_items) -> void:
+func addItem(item : e_items, amount : int = 1) -> void:
+	if item == e_items.LASER_POINTER:
+		hasLaserPointer = true
+		player.laser.visible = true
+		updateHudCount.emit(getItemCount(item), item)
+		return
 	if inventory.has(item):
-		inventory[item] += 1
+		inventory[item] += amount
 	updateHudCount.emit(getItemCount(item), item)
 
 func removeItem(item : e_items, quantity : int = 1) -> void:

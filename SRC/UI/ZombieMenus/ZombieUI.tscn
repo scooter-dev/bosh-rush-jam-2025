@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://cmkswypvk04ct"]
+[gd_scene load_steps=35 format=3 uid="uid://cmkswypvk04ct"]
 
 [ext_resource type="Script" uid="uid://b7adi2ag43ou5" path="res://SRC/UI/ZombieMenus/main_menu.gd" id="1_a76il"]
 [ext_resource type="Texture2D" uid="uid://ukvvaflgwc33" path="res://Assets/Textures/zombie_transparent_eyes.png" id="1_qs8yo"]
@@ -31,6 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://bs7lcrl1jinbj" path="res://addons/controller_icons/assets/ps4/r1.png" id="24_uyak2"]
 [ext_resource type="Texture2D" uid="uid://dwqk1mmy6tyay" path="res://addons/controller_icons/assets/mouse/wheel_up.png" id="26_atpm4"]
 [ext_resource type="Texture2D" uid="uid://cquw4xas0kw4b" path="res://addons/controller_icons/assets/mouse/wheel_down.png" id="29_1qbjs"]
+[ext_resource type="PackedScene" uid="uid://dk8nuoswfwvuc" path="res://SRC/UI/Options/options_menu.tscn" id="32_w5b7n"]
 
 [sub_resource type="Gradient" id="Gradient_31q7d"]
 colors = PackedColorArray(0, 0.117647, 0, 0.921569, 0.368627, 0.368627, 0.368627, 0.431373)
@@ -39,6 +40,7 @@ colors = PackedColorArray(0, 0.117647, 0, 0.921569, 0.368627, 0.368627, 0.368627
 gradient = SubResource("Gradient_31q7d")
 
 [node name="ZombieUi" type="Control" node_paths=PackedStringArray("resume_button")]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -134,10 +136,11 @@ theme_override_font_sizes/font_size = 30
 text = "Guide"
 
 [node name="Quit" type="Button" parent="MainMenuContainer/VBoxContainer/BaseMenuContainer/GradientBackground/MenuItemsContainer/GridContainer/Main Menu Buttons Container"]
+visible = false
 layout_mode = 2
 focus_neighbor_top = NodePath("../HelpMenuButton")
 theme_override_font_sizes/font_size = 30
-text = "Button4"
+text = "Quit"
 
 [node name="Stats Container" type="HBoxContainer" parent="MainMenuContainer/VBoxContainer/BaseMenuContainer/GradientBackground/MenuItemsContainer/GridContainer"]
 visible = false
@@ -427,6 +430,12 @@ offset_bottom = 56.0
 grow_horizontal = 0
 text = "X"
 
+[node name="OptionsMenu" parent="." instance=ExtResource("32_w5b7n")]
+visible = false
+layout_mode = 1
+
 [connection signal="pressed" from="MainMenuContainer/VBoxContainer/BaseMenuContainer/GradientBackground/MenuItemsContainer/GridContainer/Main Menu Buttons Container/ResumeButton" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="MainMenuContainer/VBoxContainer/BaseMenuContainer/GradientBackground/MenuItemsContainer/GridContainer/Main Menu Buttons Container/SettingsMenuButton" to="." method="_on_settings_menu_button_pressed"]
 [connection signal="pressed" from="MainMenuContainer/VBoxContainer/BaseMenuContainer/GradientBackground/MenuItemsContainer/GridContainer/Main Menu Buttons Container/HelpMenuButton" to="." method="_on_help_menu_button_pressed"]
 [connection signal="pressed" from="Help/CloseHelp" to="." method="_on_close_help_pressed"]
+[connection signal="closed" from="OptionsMenu" to="." method="_on_options_menu_closed"]

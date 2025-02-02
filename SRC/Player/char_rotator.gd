@@ -8,6 +8,7 @@ class_name CharRotator
 var rotMomentum : float = 0.0
 var baseSpRot : float = 0.0
 var lastRot : float = 0.0
+const hPI : float = PI/2
 func _physics_process(delta: float) -> void:
 	if !player.playerEnabled:
 		return
@@ -15,7 +16,8 @@ func _physics_process(delta: float) -> void:
 		Player.RUNNING:
 			arrow.visible = false
 			if abs(rotMomentum) > 0.01:
-				lastRot = Vector2(-PlayerInput.fbrl.y,-PlayerInput.fbrl.x).angle() + PI if PlayerInput.fbrl.length_squared() > 0.01 else lastRot
+				var dir : Vector3 = player.cam.global_basis.x * PlayerInput.fbrl.x + player.cam.global_basis.z * PlayerInput.fbrl.y
+				lastRot = Vector2(-dir.x,dir.z).angle() + hPI if PlayerInput.fbrl.length_squared() > 0.01 else lastRot
 				rotMomentum = lerpf(rotMomentum, 0.0, 2.0 * delta)
 				baseSpRot -= rotMomentum * delta
 				
@@ -23,7 +25,8 @@ func _physics_process(delta: float) -> void:
 				global_rotation.y = lerp_angle(global_rotation.y, aRt, delta * 6.0)
 				#print(rotMomentum)
 			elif PlayerInput.fbrl.length_squared() > 0.01:
-				lastRot = Vector2(-PlayerInput.fbrl.y,-PlayerInput.fbrl.x).angle() + PI if PlayerInput.fbrl.length_squared() > 0.01 else lastRot
+				var dir : Vector3 = player.cam.global_basis.x * PlayerInput.fbrl.x + player.cam.global_basis.z * PlayerInput.fbrl.y
+				lastRot = Vector2(-dir.x,dir.z).angle() + hPI if PlayerInput.fbrl.length_squared() > 0.01 else lastRot
 				global_rotation.y = lerp_angle(global_rotation.y, lastRot, 4.0 * delta)
 		Player.SPEEN, Player.AIM:
 			arrow.visible = true

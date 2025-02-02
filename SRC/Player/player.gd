@@ -8,6 +8,8 @@ var playerEnabled : bool = true
 @export var charRotator : CharRotator
 @export var grabArea : GrabArea
 @export var damageNumberSpawner : DamageNSpawner
+@export var laser: RayCast3D
+
 var acceleration : float = 18.0
 var damping : float = 30.0
 
@@ -34,6 +36,8 @@ func _enter_tree() -> void:
 
 
 func _ready() -> void:
+	if PlayerManager.hasLaserPointer:
+		laser.visible = true
 	PlayerInput.primary.connect(onPrimary)
 	PlayerInput.boost.connect(onBoost)
 	PlayerInput.heal.connect(heal)
@@ -178,7 +182,7 @@ func togglePlayer(state : bool) -> void:
 var iTime : float = 0.0
 signal damaged
 func onDamaged(damage : int, instigator : Node3D) -> void:
-	if iTime < 0.001:
+	if iTime < 0.001 and !PlayerManager.invulnerable:
 		iTime = 0.2
 		damaged.emit()
 		if PlayerManager.armor > 0:

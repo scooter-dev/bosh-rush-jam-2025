@@ -84,9 +84,9 @@ func onPrimary() -> void:
 							PlayerManager.player.levelTransition("res://Scenes/Maps/Rooftop/rooftop.tscn")
 						100:
 							deactivate()
-							#close()
-							#await get_tree().create_timer(2.0).timeout
-							#get_tree().change_scene_to_file("res://Scenes/Maps/Rooftop/rooftop.tscn")
+							close()
+							await get_tree().create_timer(2.0).timeout
+							PlayerManager.player.levelTransition("res://Scenes/Maps/CEOArena/CEOArena.tscn")
 						80:
 							close()
 							await get_tree().create_timer(2.0).timeout
