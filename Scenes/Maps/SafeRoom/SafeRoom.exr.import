@@ -4,15 +4,16 @@ importer="2d_array_texture"
 type="CompressedTexture2DArray"
 uid="uid://c6f88xx013obs"
 path.bptc="res://.godot/imported/SafeRoom.exr-12d89f34b8783976305dc849705a8b70.bptc.ctexarray"
+path.astc="res://.godot/imported/SafeRoom.exr-12d89f34b8783976305dc849705a8b70.astc.ctexarray"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Scenes/Maps/SafeRoom/SafeRoom.exr"
-dest_files=["res://.godot/imported/SafeRoom.exr-12d89f34b8783976305dc849705a8b70.bptc.ctexarray"]
+dest_files=["res://.godot/imported/SafeRoom.exr-12d89f34b8783976305dc849705a8b70.bptc.ctexarray", "res://.godot/imported/SafeRoom.exr-12d89f34b8783976305dc849705a8b70.astc.ctexarray"]
 
 [params]
 

@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c2snf157kc2g0"
 path.s3tc="res://.godot/imported/Elevator_crayola-13-grad.png-c9f6838bd48e65091d258a83f4777490.s3tc.ctex"
+path.etc2="res://.godot/imported/Elevator_crayola-13-grad.png-c9f6838bd48e65091d258a83f4777490.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://Assets/Meshes/Elevator_crayola-13-grad.png"
-dest_files=["res://.godot/imported/Elevator_crayola-13-grad.png-c9f6838bd48e65091d258a83f4777490.s3tc.ctex"]
+dest_files=["res://.godot/imported/Elevator_crayola-13-grad.png-c9f6838bd48e65091d258a83f4777490.s3tc.ctex", "res://.godot/imported/Elevator_crayola-13-grad.png-c9f6838bd48e65091d258a83f4777490.etc2.ctex"]
 
 [params]
 

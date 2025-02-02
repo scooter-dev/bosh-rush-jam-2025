@@ -4,15 +4,16 @@ importer="2d_array_texture"
 type="CompressedTexture2DArray"
 uid="uid://b8n6k4jjfsx3c"
 path.bptc="res://.godot/imported/proc_central_01.exr-498d50ce61ca96899b31d5647d758ef1.bptc.ctexarray"
+path.astc="res://.godot/imported/proc_central_01.exr-498d50ce61ca96899b31d5647d758ef1.astc.ctexarray"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://SRC/Actors/ProcGen/Pieces/proc_central_01.exr"
-dest_files=["res://.godot/imported/proc_central_01.exr-498d50ce61ca96899b31d5647d758ef1.bptc.ctexarray"]
+dest_files=["res://.godot/imported/proc_central_01.exr-498d50ce61ca96899b31d5647d758ef1.bptc.ctexarray", "res://.godot/imported/proc_central_01.exr-498d50ce61ca96899b31d5647d758ef1.astc.ctexarray"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="2d_array_texture"
 type="CompressedTexture2DArray"
 uid="uid://cfpy5u4em16um"
 path.bptc="res://.godot/imported/director_arena.exr-eff04e36447f9a693e503990a75e0c87.bptc.ctexarray"
+path.astc="res://.godot/imported/director_arena.exr-eff04e36447f9a693e503990a75e0c87.astc.ctexarray"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Scenes/Maps/DirectorArena/director_arena.exr"
-dest_files=["res://.godot/imported/director_arena.exr-eff04e36447f9a693e503990a75e0c87.bptc.ctexarray"]
+dest_files=["res://.godot/imported/director_arena.exr-eff04e36447f9a693e503990a75e0c87.bptc.ctexarray", "res://.godot/imported/director_arena.exr-eff04e36447f9a693e503990a75e0c87.astc.ctexarray"]
 
 [params]
 

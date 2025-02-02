@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bvnarbf7vf2ov"
 path.bptc="res://.godot/imported/Chris_Head.png-767ced8fd38333c5a9658a32bbf6912e.bptc.ctex"
+path.astc="res://.godot/imported/Chris_Head.png-767ced8fd38333c5a9658a32bbf6912e.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Character/Chris_Head.png"
-dest_files=["res://.godot/imported/Chris_Head.png-767ced8fd38333c5a9658a32bbf6912e.bptc.ctex"]
+dest_files=["res://.godot/imported/Chris_Head.png-767ced8fd38333c5a9658a32bbf6912e.bptc.ctex", "res://.godot/imported/Chris_Head.png-767ced8fd38333c5a9658a32bbf6912e.astc.ctex"]
 
 [params]
 

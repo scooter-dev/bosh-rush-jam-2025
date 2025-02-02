@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b41w0ypctm33k"
 path.s3tc="res://.godot/imported/sweater_torso.png-d6b0bf4302e57a32f29028b9e131487e.s3tc.ctex"
+path.etc2="res://.godot/imported/sweater_torso.png-d6b0bf4302e57a32f29028b9e131487e.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Textures/sweater_torso.png"
-dest_files=["res://.godot/imported/sweater_torso.png-d6b0bf4302e57a32f29028b9e131487e.s3tc.ctex"]
+dest_files=["res://.godot/imported/sweater_torso.png-d6b0bf4302e57a32f29028b9e131487e.s3tc.ctex", "res://.godot/imported/sweater_torso.png-d6b0bf4302e57a32f29028b9e131487e.etc2.ctex"]
 
 [params]
 

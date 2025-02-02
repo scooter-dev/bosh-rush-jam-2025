@@ -4,15 +4,16 @@ importer="2d_array_texture"
 type="CompressedTexture2DArray"
 uid="uid://cnqbarvaxvvxn"
 path.bptc="res://.godot/imported/CEOArena.exr-37f2d76c5f2f1cd62465901367364bbf.bptc.ctexarray"
+path.astc="res://.godot/imported/CEOArena.exr-37f2d76c5f2f1cd62465901367364bbf.astc.ctexarray"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Scenes/Maps/CEOArena/CEOArena.exr"
-dest_files=["res://.godot/imported/CEOArena.exr-37f2d76c5f2f1cd62465901367364bbf.bptc.ctexarray"]
+dest_files=["res://.godot/imported/CEOArena.exr-37f2d76c5f2f1cd62465901367364bbf.bptc.ctexarray", "res://.godot/imported/CEOArena.exr-37f2d76c5f2f1cd62465901367364bbf.astc.ctexarray"]
 
 [params]
 

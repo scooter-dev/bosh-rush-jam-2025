@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dvtkjp2je5dwy"
 path.bptc="res://.godot/imported/Zombie_Head.png-114aa8b61a2ade7de2b3133cfc5c28a8.bptc.ctex"
+path.astc="res://.godot/imported/Zombie_Head.png-114aa8b61a2ade7de2b3133cfc5c28a8.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Textures/Zombie_Head.png"
-dest_files=["res://.godot/imported/Zombie_Head.png-114aa8b61a2ade7de2b3133cfc5c28a8.bptc.ctex"]
+dest_files=["res://.godot/imported/Zombie_Head.png-114aa8b61a2ade7de2b3133cfc5c28a8.bptc.ctex", "res://.godot/imported/Zombie_Head.png-114aa8b61a2ade7de2b3133cfc5c28a8.astc.ctex"]
 
 [params]
 

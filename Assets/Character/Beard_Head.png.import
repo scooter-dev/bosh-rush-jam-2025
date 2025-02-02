@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b7fiqumxwqpeh"
 path.bptc="res://.godot/imported/Beard_Head.png-2607ab4734dbb7e45fb992ce6d0c55e7.bptc.ctex"
+path.astc="res://.godot/imported/Beard_Head.png-2607ab4734dbb7e45fb992ce6d0c55e7.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Character/Beard_Head.png"
-dest_files=["res://.godot/imported/Beard_Head.png-2607ab4734dbb7e45fb992ce6d0c55e7.bptc.ctex"]
+dest_files=["res://.godot/imported/Beard_Head.png-2607ab4734dbb7e45fb992ce6d0c55e7.bptc.ctex", "res://.godot/imported/Beard_Head.png-2607ab4734dbb7e45fb992ce6d0c55e7.astc.ctex"]
 
 [params]
 

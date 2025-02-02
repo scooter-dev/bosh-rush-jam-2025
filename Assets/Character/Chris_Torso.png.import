@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cjx3melfdsr37"
 path.s3tc="res://.godot/imported/Chris_Torso.png-cc204063fc4e9663eccff32519d9696c.s3tc.ctex"
+path.etc2="res://.godot/imported/Chris_Torso.png-cc204063fc4e9663eccff32519d9696c.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Character/Chris_Torso.png"
-dest_files=["res://.godot/imported/Chris_Torso.png-cc204063fc4e9663eccff32519d9696c.s3tc.ctex"]
+dest_files=["res://.godot/imported/Chris_Torso.png-cc204063fc4e9663eccff32519d9696c.s3tc.ctex", "res://.godot/imported/Chris_Torso.png-cc204063fc4e9663eccff32519d9696c.etc2.ctex"]
 
 [params]
 

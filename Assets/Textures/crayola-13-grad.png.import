@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dhma06nv4bcls"
 path.s3tc="res://.godot/imported/crayola-13-grad.png-de3b60944d70c413e4f651002393c7bf.s3tc.ctex"
+path.etc2="res://.godot/imported/crayola-13-grad.png-de3b60944d70c413e4f651002393c7bf.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Textures/crayola-13-grad.png"
-dest_files=["res://.godot/imported/crayola-13-grad.png-de3b60944d70c413e4f651002393c7bf.s3tc.ctex"]
+dest_files=["res://.godot/imported/crayola-13-grad.png-de3b60944d70c413e4f651002393c7bf.s3tc.ctex", "res://.godot/imported/crayola-13-grad.png-de3b60944d70c413e4f651002393c7bf.etc2.ctex"]
 
 [params]
 
