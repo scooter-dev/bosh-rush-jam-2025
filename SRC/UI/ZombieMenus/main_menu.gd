@@ -32,7 +32,9 @@ func _on_resume_pressed() -> void:
 	if isPauseMenu:
 		unpause()
 	else:
-		get_tree().change_scene_to_file()
+		print("load")
+		WorldManager.toLoad = "res://Scenes/Maps/Tutorial/tutorial.tscn"
+		get_tree().change_scene_to_file("res://SRC/UI/loading.tscn")
 
 func unpause() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED

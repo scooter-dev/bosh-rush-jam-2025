@@ -1,4 +1,10 @@
-[gd_scene format=3 uid="uid://bo32vc4he0814"]
+[gd_scene load_steps=4 format=3 uid="uid://bo32vc4he0814"]
+
+[ext_resource type="Script" uid="uid://c4uw4f6f7rjws" path="res://SRC/UI/loading.gd" id="1_37k0p"]
+[ext_resource type="FontFile" uid="uid://cve3o6bo2lvww" path="res://Assets/Fonts/edosz.ttf" id="1_erukh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_37k0p"]
+bg_color = Color(0, 0, 0, 1)
 
 [node name="Loading" type="Control"]
 layout_mode = 3
@@ -7,3 +13,26 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_37k0p")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_37k0p")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_erukh")
+theme_override_font_sizes/font_size = 64
+text = "LOADING"
+horizontal_alignment = 1
+vertical_alignment = 1

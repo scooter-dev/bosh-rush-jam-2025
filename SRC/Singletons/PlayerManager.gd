@@ -264,6 +264,7 @@ func _physics_process(delta: float) -> void:
 	boostFuel = min(maxBoostFuel, boostFuel + delta * boostRecovery)
 
 func death() -> void:
+	health = maxHealth
 	money = 0.75 * money
 	for k : int in inventory.keys():
 		inventory[k] = int(inventory[k] * 0.75)
