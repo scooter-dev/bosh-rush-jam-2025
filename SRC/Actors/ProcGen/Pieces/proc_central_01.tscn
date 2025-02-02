@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=4 uid="uid://lkyrgi5lf1an"]
+[gd_scene load_steps=59 format=4 uid="uid://lkyrgi5lf1an"]
 
 [ext_resource type="Script" uid="uid://cqj86bbuq5axm" path="res://SRC/Actors/ProcGen/Pieces/ProceduralPiece.gd" id="1_8x80v"]
 [ext_resource type="Shader" uid="uid://cm8puby5gs7hp" path="res://SRC/Shaders/rgbTextureTriplanar.gdshader" id="1_ccroy"]
@@ -33,6 +33,8 @@
 [ext_resource type="PackedScene" uid="uid://dbuynwribjihl" path="res://SRC/Props/cardboard_box.tscn" id="29_hi6yi"]
 [ext_resource type="PackedScene" uid="uid://biouhomflvqko" path="res://SRC/Props/pallet.tscn" id="30_8x80v"]
 [ext_resource type="PackedScene" uid="uid://cd7qidxwnibd4" path="res://SRC/Items/crafting_table.tscn" id="32_8eeu1"]
+[ext_resource type="PackedScene" uid="uid://dmkgyudote4ss" path="res://SRC/Actors/VendingMachine/vending_machine.tscn" id="34_u526h"]
+[ext_resource type="PackedScene" uid="uid://bv2roejoa0822" path="res://SRC/Enemies/Zombie/zombie.tscn" id="35_dpjlt"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_ccroy"]
 vertices = PackedVector3Array(0.700001, 0.5, -12.65, 1.15, 0.5, -12.65, 1.15, 0.5, -13.4, 0.700001, 0.5, -13.4, 0.25, 0.5, -12.2, 0.25, 0.5, -13.85, -0.349998, 0.5, -11, -1.85, 0.5, -10.7, -1.85, 0.5, -9.8, -0.799999, 0.5, -9.95, -0.799999, 0.5, -10.55, 0.25, 0.5, -8.75, -0.349998, 0.5, -9.5, 0.700001, 0.5, -7.7, 1.75, 0.5, -7.55, 1.75, 0.5, -8.45, 0.700001, 0.5, -8.3, 0.25, 0.5, -7.25, 0.25, 0.5, -19.4, -0.349998, 0.5, -19.4, -0.5, 0.5, -0.65, 0.400002, 0.5, -0.65, -9.5, 0.5, -1.25, -8.75, 0.5, -1.25, -8.75, 0.5, -1.7, -9.5, 0.5, -1.7, -8.3, 0.5, -2.15, -2.15, 0.5, -2.15, -2.15, 0.5, -9.5, -9.95, 0.5, -2.15, -2.15, 0.5, -11, -2.15, 0.5, -18.35, -18.35, 0.5, -18.35, -18.35, 0.5, -2.15, 1.6, 0.5, -12.65, 1.6, 0.5, -13.4, 2.05, 0.5, -12.2, 2.05, 0.5, -11.45, 18.25, 0.5, -11.45, 2.05, 0.5, -13.85, 18.25, 0.5, -18.35, 2.05, 0.5, -18.35, 6.55, 0.5, -1.7, 6.55, 0.5, -1.25, 7.3, 0.5, -1.25, 7.3, 0.5, -1.7, 8.95, 0.5, -9.65, 2.05, 0.5, -9.65, 2.05, 0.5, -8.75, 2.05, 0.5, -7.25, 6.1, 0.5, -2.15, 7.75, 0.5, -2.15, 8.95, 0.5, -2.15, 2.05, 0.5, -2.15, 18.25, 0.5, -2.15, 18.25, 0.5, -9.65, -6.5, 0.5, 0.700001, -6.5, 0.5, 1.15, -5.75, 0.5, 1.15, -5.75, 0.5, 0.700001, 4.3, 0.5, 0.25, 6.1, 0.5, -0.349998, 0.700001, 0.5, -0.349998, 0.700001, 0.5, 0.25, 7.3, 0.5, -0.799999, 6.55, 0.5, -0.799999, -6.95, 0.5, 0.25, -5.3, 0.5, 0.25, -8.3, 0.5, -0.349998, -8.75, 0.5, -0.799999, -9.65, 0.5, -0.65, -0.799999, 0.5, 0.25, -0.5, 0.5, 0.550001, 0.400002, 0.5, 0.550001, 7.75, 0.5, -0.349998, 4.75, 0.5, 0.700001, 4.6, 0.5, 1.75, 5.5, 0.5, 1.75, 5.35, 0.5, 0.700001, 5.8, 0.5, 0.25, 9.25, 0.5, 0.25, 9.4, 0.5, -0.349998, -9.65, 0.5, 0.25, -0.799999, 0.5, -0.349998, -9.95, 0.5, -0.349998, -10.25, 0.5, 0.25, -3.8, 0.5, 6.4, -3.65, 0.5, 5.65, -10.25, 0.5, 5.65, -10.25, 0.5, 6.25, -11.75, 0.5, 9.7, -12.2, 0.5, 9.7, -12.2, 0.5, 10.3, -11.75, 0.5, 10.3, -19.4, 0.5, -0.349998, -19.4, 0.5, 0.25, -16.85, 0.5, 0.25, -10.25, 0.5, 10.3, -9.8, 0.5, 10.3, -9.8, 0.5, 9.7, -10.25, 0.5, 9.7, -11.3, 0.5, 9.25, -10.7, 0.5, 9.25, -10.7, 0.5, 6.7, -16.4, 0.5, 1.15, -15.65, 0.5, 1.15, -15.65, 0.5, 0.700001, -16.4, 0.5, 0.700001, -15.2, 0.5, 0.25, -10.7, 0.5, 10.75, -10.7, 0.5, 0.700001, -11.75, 0.5, 0.25, -11.3, 0.5, 0.700001, -11.3, 0.5, 10.75, -10.7, 0.5, 5.2, -11.3, 0.5, 12.25, -10.7, 0.5, 12.25, 11.8, 0.5, 6.25, 12.25, 0.5, 6.25, 12.25, 0.5, 5.65, 11.8, 0.5, 5.65, 10.6, 0.5, 8.2, 10.15, 0.5, 8.65, 11.35, 0.5, 9.25, 5.35, 0.5, 8.2, 5.35, 0.5, 7.75, 4.6, 0.5, 7.75, 7.6, 0.5, 9.7, 7.6, 0.5, 10.15, 8.35, 0.5, 10.15, 8.35, 0.5, 9.7, 10.15, 0.5, 0.25, 11.35, 0.5, 0.700001, 11.8, 0.5, 0.25, 14.65, 0.5, 0.700001, 14.65, 0.5, 1.15, 15.4, 0.5, 1.15, 15.4, 0.5, 0.700001, 11.35, 0.5, 6.7, 4.45, 0.5, 8.35, 5.8, 0.5, 8.65, 7.15, 0.5, 9.25, 8.8, 0.5, 9.25, 14.2, 0.5, 0.25, 15.85, 0.5, 0.25, 19.45, 0.5, 0.25, 19.45, 0.5, -0.349998, 4.45, 0.5, 9.25, 10.6, 0.5, 0.700001, 11.35, 0.5, 5.2, 4.15, 0.5, 8.65, -3.5, 0.5, 7.15, -2.75, 0.5, 7.15, -2.75, 0.5, 6.7, -2.3, 0.5, 6.25, 0.700001, 0.5, 9.25, 0.700001, 0.5, 8.65, 0.25, 0.5, 8.2, 0.25, 0.5, 9.7, -0.799999, 0.5, 5.65, -0.799999, 0.5, 6.25, -0.349998, 0.5, 5.2, -0.349998, 0.5, 6.7, -0.5, 0.5, 11.35, 0.400002, 0.5, 11.35, -16.4, 0.5, 6.85, -15.65, 0.5, 6.85, -15.65, 0.5, 6.4, -16.4, 0.5, 6.4, -16.85, 0.5, 2.05, -18.35, 0.5, 2.05, -18.35, 0.5, 5.95, -16.85, 0.5, 5.95, -15.65, 0.5, 1.6, -16.4, 0.5, 1.6, -15.2, 0.5, 5.95, -13.1, 0.5, 5.95, -13.1, 0.5, 2.05, -15.2, 0.5, 2.05, -6.5, 0.5, 1.6, -5.75, 0.5, 1.6, -2.15, 0.5, 3.85, -2.15, 0.5, 2.05, -5.3, 0.5, 2.05, -6.95, 0.5, 2.05, -8.9, 0.5, 3.85, -8.9, 0.5, 2.05, 15.4, 0.5, 1.6, 14.65, 0.5, 1.6, 13, 0.5, 5.2, 13, 0.5, 6.85, 18.25, 0.5, 6.85, 18.25, 0.5, 2.05, 15.85, 0.5, 2.05, 14.2, 0.5, 2.05, 13, 0.5, 2.05, 5.35, 0.5, 7.3, 4.6, 0.5, 7.3, 2.05, 0.5, 2.05, 2.05, 0.5, 6.85, 4.15, 0.5, 6.85, 4.3, 0.5, 2.05, 5.8, 0.5, 2.05, 5.8, 0.5, 6.85, 8.95, 0.5, 6.85, 8.95, 0.5, 2.05, -12.65, 0.5, 9.7, -12.65, 0.5, 10.3, -13.1, 0.5, 9.25, -13.1, 0.5, 7.6, -15.2, 0.5, 7.6, -13.1, 0.5, 10.75, -16.85, 0.5, 7.6, -18.35, 0.5, 7.6, -18.35, 0.5, 12.25, -13.1, 0.5, 12.25, -9.35, 0.5, 10.3, -9.35, 0.5, 9.7, -3.95, 0.5, 8.05, -8.9, 0.5, 8.05, -8.9, 0.5, 9.25, -1.7, 0.5, 12.25, -1.25, 0.5, 12.25, -1.25, 0.5, 11.65, -1.7, 0.5, 11.65, -2.75, 0.5, 7.6, -3.5, 0.5, 7.6, -2.15, 0.5, 11.2, -2.15, 0.5, 8.05, -2.15, 0.5, 12.85, -8.9, 0.5, 10.75, -8.9, 0.5, 12.85, 7.6, 0.5, 10.6, 8.35, 0.5, 10.6, 16.3, 0.5, 18.25, 16.3, 0.5, 11.05, 8.8, 0.5, 11.05, 7, 0.5, 18.25, 7, 0.5, 11.05, -0.799999, 0.5, 12.25, -0.799999, 0.5, 15.7, -1.25, 0.5, 15.7, -1.25, 0.5, 16.3, -0.799999, 0.5, 16.3, -0.349998, 0.5, 16.75, -0.349998, 0.5, 19.45, 0.25, 0.5, 19.45, 0.25, 0.5, 16.75, 0.700001, 0.5, 16.3, 1.15, 0.5, 16.3, 1.15, 0.5, 15.7, 0.700001, 0.5, 15.7, 1.6, 0.5, 11.65, 0.700001, 0.5, 11.65, -0.349998, 0.5, 12.7, 0.700001, 0.5, 12.25, -0.349998, 0.5, 15.25, 1.6, 0.5, 12.25, 2.05, 0.5, 12.85, 5.35, 0.5, 12.85, 5.35, 0.5, 11.05, 2.05, 0.5, 11.05, 0.25, 0.5, 12.7, 0.25, 0.5, 15.25, -1.7, 0.5, 15.7, -1.7, 0.5, 16.3, -2.15, 0.5, 15.25, -2.15, 0.5, 14.65, -5.3, 0.5, 14.65, -2.15, 0.5, 16.75, -5.3, 0.5, 18.25, -2.15, 0.5, 18.25, 1.6, 0.5, 16.3, 1.6, 0.5, 15.7, 5.35, 0.5, 14.65, 2.05, 0.5, 14.65, 2.05, 0.5, 15.25, 2.05, 0.5, 16.75, 5.35, 0.5, 18.25, 2.05, 0.5, 18.25)
@@ -86,6 +88,7 @@ shadow_mesh = SubResource("ArrayMesh_gl70d")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xph0m"]
 render_priority = 0
 shader = ExtResource("3_7wd8i")
+shader_parameter/offset = 0.01
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xph0m"]
 next_pass = SubResource("ShaderMaterial_xph0m")
@@ -188,6 +191,11 @@ size = Vector2(2, 3)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hi6yi"]
 size = Vector3(0.3, 3, 2)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qph74"]
+resource_local_to_scene = true
+friction = 0.0
+bounce = 0.4
 
 [node name="Proc_Central_01" type="Node3D" node_paths=PackedStringArray("b_xplus", "b_xminus", "b_zplus", "b_zminus")]
 script = ExtResource("1_8x80v")
@@ -6362,3 +6370,124 @@ mesh = SubResource("QuadMesh_hi6yi")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Barriers/Z-"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, 1.5, 0)
 shape = SubResource("BoxShape3D_hi6yi")
+
+[node name="VendingMachine" parent="." instance=ExtResource("34_u526h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.1, 0, 7.4)
+
+[node name="Zombies" type="Node3D" parent="."]
+
+[node name="Zombie" parent="Zombies" instance=ExtResource("35_dpjlt")]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 6.9, 0, 5.15)
+physics_material_override = SubResource("PhysicsMaterial_qph74")
+
+[node name="Zombie2" parent="Zombies" instance=ExtResource("35_dpjlt")]
+transform = Transform3D(0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, 0.258819, 4.35, 0, 3.45)
+physics_material_override = SubResource("PhysicsMaterial_qph74")
+
+[node name="Zombie3" parent="Zombies" instance=ExtResource("35_dpjlt")]
+transform = Transform3D(1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, 1, 8.25, 0, 11.9)
+physics_material_override = SubResource("PhysicsMaterial_qph74")
+
+[node name="Zombie4" parent="Zombies" instance=ExtResource("35_dpjlt")]
+transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, 9.2, 0, 15.9)
+physics_material_override = SubResource("PhysicsMaterial_qph74")
+
+[node name="Zombie5" parent="Zombies" instance=ExtResource("35_dpjlt")]
+transform = Transform3D(-0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, -0.258819, 13.8, 0, 13.3)
+physics_material_override = SubResource("PhysicsMaterial_qph74")
+
+[node name="Zombie6" parent="Zombies" instance=ExtResource("35_dpjlt")]
+transform = Transform3D(-0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, -0.258819, 2.6, 0, 16.2)
+physics_material_override = SubResource("PhysicsMaterial_qph74")
+
+[node name="Zombie7" parent="Zombies" instance=ExtResource("35_dpjlt")]
+transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, -3.7, 0, 16.35)
+physics_material_override = SubResource("PhysicsMaterial_qph74")
+
+[node name="Zombie8" parent="Zombies" instance=ExtResource("35_dpjlt")]
+transform = Transform3D(-0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, -3.85, 0, 10.05)
+physics_material_override = SubResource("PhysicsMaterial_qph74")
+
+[node name="Zombie9" parent="Zombies" instance=ExtResource("35_dpjlt")]
+transform = Transform3D(-0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.965926, -8.4, 0, 11.2)
+physics_material_override = SubResource("PhysicsMaterial_qph74")
+
+[node name="Zombie10" parent="Zombies" instance=ExtResource("35_dpjlt")]
+transform = Transform3D(-0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.965926, -16.05, 0, 10.2)
+physics_material_override = SubResource("PhysicsMaterial_qph74")
+
+[node name="Zombie11" parent="Zombies" instance=ExtResource("35_dpjlt")]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -14.15, 0, 8.6)
+physics_material_override = SubResource("PhysicsMaterial_qph74")
+
+[node name="Zombie12" parent="Zombies" instance=ExtResource("35_dpjlt")]
+transform = Transform3D(-0.5, 0, 0.866026, 0, 1, 0, -0.866026, 0, -0.5, -16.3, 0, 4.1)
+physics_material_override = SubResource("PhysicsMaterial_qph74")
+
+[node name="Zombie13" parent="Zombies" instance=ExtResource("35_dpjlt")]
+transform = Transform3D(-0.5, 0, 0.866026, 0, 1, 0, -0.866026, 0, -0.5, -11.2, 0, 5.45)
+physics_material_override = SubResource("PhysicsMaterial_qph74")
+
+[node name="Zombie14" parent="Zombies" instance=ExtResource("35_dpjlt")]
+transform = Transform3D(-1, 0, 1.78814e-07, 0, 1, 0, -1.78814e-07, 0, -1, -10.9, 0, 10.05)
+physics_material_override = SubResource("PhysicsMaterial_qph74")
+
+[node name="Zombie15" parent="Zombies" instance=ExtResource("35_dpjlt")]
+transform = Transform3D(-0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, -5.3, 0, 6.35)
+physics_material_override = SubResource("PhysicsMaterial_qph74")
+
+[node name="Zombie16" parent="Zombies" instance=ExtResource("35_dpjlt")]
+transform = Transform3D(-0.866026, 0, -0.5, 0, 1, 0, 0.5, 0, -0.866026, 0.15, 0, 3.4)
+physics_material_override = SubResource("PhysicsMaterial_qph74")
+
+[node name="Zombie17" parent="Zombies" instance=ExtResource("35_dpjlt")]
+transform = Transform3D(-0.866026, 0, -0.5, 0, 1, 0, 0.5, 0, -0.866026, 15.8, 0, 4.35)
+physics_material_override = SubResource("PhysicsMaterial_qph74")
+
+[node name="Zombie18" parent="Zombies" instance=ExtResource("35_dpjlt")]
+transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, 13.3, 0, 5.45)
+physics_material_override = SubResource("PhysicsMaterial_qph74")
+
+[node name="Zombie19" parent="Zombies" instance=ExtResource("35_dpjlt")]
+transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, 10.05, 0, 9.2)
+physics_material_override = SubResource("PhysicsMaterial_qph74")
+
+[node name="Zombie20" parent="Zombies" instance=ExtResource("35_dpjlt")]
+transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, 2.75, 0, 12.15)
+physics_material_override = SubResource("PhysicsMaterial_qph74")
+
+[node name="Zombie21" parent="Zombies" instance=ExtResource("35_dpjlt")]
+transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, -5.05, 0, -6.35)
+physics_material_override = SubResource("PhysicsMaterial_qph74")
+
+[node name="Zombie22" parent="Zombies" instance=ExtResource("35_dpjlt")]
+transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, -14, 0, -5.75)
+physics_material_override = SubResource("PhysicsMaterial_qph74")
+
+[node name="Zombie23" parent="Zombies" instance=ExtResource("35_dpjlt")]
+transform = Transform3D(-0.866026, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866026, -15.55, 0, -15.4)
+physics_material_override = SubResource("PhysicsMaterial_qph74")
+
+[node name="Zombie24" parent="Zombies" instance=ExtResource("35_dpjlt")]
+transform = Transform3D(-2.98023e-08, 0, 1, 0, 1, 0, -1, 0, -2.98023e-08, -5.55, 0, -14.45)
+physics_material_override = SubResource("PhysicsMaterial_qph74")
+
+[node name="Zombie25" parent="Zombies" instance=ExtResource("35_dpjlt")]
+transform = Transform3D(-2.98023e-08, 0, 1, 0, 1, 0, -1, 0, -2.98023e-08, 5.25, 0, -14.5)
+physics_material_override = SubResource("PhysicsMaterial_qph74")
+
+[node name="Zombie26" parent="Zombies" instance=ExtResource("35_dpjlt")]
+transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 12.2, 0, -15.8)
+physics_material_override = SubResource("PhysicsMaterial_qph74")
+
+[node name="Zombie27" parent="Zombies" instance=ExtResource("35_dpjlt")]
+transform = Transform3D(0.866026, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866026, 6.45, 0, -12.5)
+physics_material_override = SubResource("PhysicsMaterial_qph74")
+
+[node name="Zombie28" parent="Zombies" instance=ExtResource("35_dpjlt")]
+transform = Transform3D(0.866026, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866026, 9.5, 0, -17.1)
+physics_material_override = SubResource("PhysicsMaterial_qph74")
+
+[node name="Zombie29" parent="Zombies" instance=ExtResource("35_dpjlt")]
+transform = Transform3D(0.866026, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866026, 16.05, 0, -15)
+physics_material_override = SubResource("PhysicsMaterial_qph74")

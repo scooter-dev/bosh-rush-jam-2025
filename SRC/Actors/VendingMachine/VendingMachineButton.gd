@@ -11,6 +11,8 @@ enum e_num {ZERO = 0, ONE = 1, TWO = 2, THREE = 3, FOUR = 4, FIVE = 5, SIX = 6, 
 
 func setNumber(n) -> void:
 		number = n
+		if !is_inside_tree():
+			return
 		match number:
 			e_num.ZERO:
 				label.text = "0"

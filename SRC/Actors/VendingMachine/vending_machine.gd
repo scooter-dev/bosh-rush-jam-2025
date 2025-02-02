@@ -29,6 +29,8 @@ var currentButton : VendingMachineButton
 const btnThreshold : float = cos(deg_to_rad(45))
 
 func startShopping() -> void:
+	player.died.connect(stopShopping)
+	player.damaged.connect(stopShopping)
 	player.togglePlayer(false)
 	player.cam.camera.current = false
 	player.visible = false

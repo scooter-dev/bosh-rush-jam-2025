@@ -7,6 +7,8 @@ enum e_items {GLUE, STAPLES, TAPE, PHONE_BOOK, SODA, CANDY, TUBING, WIRES, CHIP,
 
 var money : int = 5000
 
+
+var health : int = 10
 var boostStrength : float = 0.0 #How fast the boost is
 var boostCooldown : float = 1.0
 var launchPower : float = 0.25 #How fast launched items fly

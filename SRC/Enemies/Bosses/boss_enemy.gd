@@ -28,6 +28,7 @@ func _ready():
 	targetPosition = global_position
 
 func _physics_process(_delta):
+	recoveryTime -= _delta
 	if getPlanarDistanceToTargetSq() > 1:
 		nav_agent.target_position = targetPosition
 		var next_position: Vector3 = nav_agent.get_next_path_position()

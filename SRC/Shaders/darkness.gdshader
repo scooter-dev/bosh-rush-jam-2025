@@ -1,8 +1,10 @@
 shader_type spatial;
 render_mode unshaded, cull_front;
 
+uniform float offset = 0.01;
+
 void vertex() {
-	// Called for every vertex the material is visible on.
+	VERTEX -= NORMAL * offset;
 }
 
 void fragment() {

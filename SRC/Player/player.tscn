@@ -97,6 +97,7 @@ transform = Transform3D(1, 0, 0, 0, 0.5, 0.866026, 0, -0.866026, 0.5, 0, 0, 0)
 [node name="Camera3D" type="Camera3D" parent="CamY/CamX"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15)
 cull_mask = 1
+current = true
 fov = 65.0
 far = 400.0
 

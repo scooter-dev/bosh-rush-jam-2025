@@ -5,6 +5,7 @@ class_name Zombie
 @export var startHealth : int = 10
 @export var speed : float = 8
 @export var damage : int = 3
+@export var spawnChance : float = 0.5
 
 ##How long the zombie chases the player when losing sight
 @export var memory : float = 4.0
@@ -14,6 +15,8 @@ class_name Zombie
 @export var health_bar: HealthBar
 @export var nav_agent: NavigationAgent3D
 @export var boneSimulator : PhysicalBoneSimulator3D
+@export var character_mesh: MeshInstance3D
+
 signal dead
 signal damaged(amount : int, instigator : Node3D, grabbable: GrabbableProp)
 
@@ -24,7 +27,22 @@ var health : int = 10
 var target : Node3D = null
 var spawnPosition : Vector3
 
+const BLUE_TIE_TORSO = preload("res://Assets/Character/BlueTieTorso.png")
+const PURPLE_TIE_TORSO = preload("res://Assets/Character/PurpleTieTorso.png")
+const ZOMBIE_HEAD = preload("res://Assets/Textures/Zombie_Head.png")
+const ZOMBIE_HEAD_BLUE = preload("res://Assets/Textures/Zombie_Head_blue.png")
+
 func _ready() -> void:
+	if randf_range(0,1) > spawnChance:
+		queue_free()
+		return
+	if randi() % 2 == 0:
+		character_mesh.get_surface_override_material(0).albedo_texture = ZOMBIE_HEAD
+		character_mesh.get_surface_override_material(1).albedo_texture = BLUE_TIE_TORSO
+	else:
+		character_mesh.get_surface_override_material(0).albedo_texture = ZOMBIE_HEAD_BLUE
+		character_mesh.get_surface_override_material(1).albedo_texture = PURPLE_TIE_TORSO
+	
 	spawnPosition = global_position
 	wanderPos = spawnPosition
 	health = startHealth

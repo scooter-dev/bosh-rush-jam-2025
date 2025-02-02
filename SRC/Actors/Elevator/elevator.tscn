@@ -1,0 +1,613 @@
+[gd_scene load_steps=33 format=4 uid="uid://bj76op4qds1fb"]
+
+[ext_resource type="Script" uid="uid://dx1dtymemdp8l" path="res://SRC/Actors/Elevator/elevator.gd" id="1_btedl"]
+[ext_resource type="Texture2D" uid="uid://dhma06nv4bcls" path="res://Assets/Textures/crayola-13-grad.png" id="1_ftd08"]
+[ext_resource type="Script" uid="uid://snjjmcw2r2tg" path="res://SRC/Actors/VendingMachine/VendingMachineButton.gd" id="3_1y8ry"]
+[ext_resource type="Shader" uid="uid://cra4e3ql2h74g" path="res://SRC/Shaders/GradientMappedLit.gdshader" id="3_6dwni"]
+[ext_resource type="PackedScene" uid="uid://bd680ijokcdop" path="res://SRC/Actors/Interaction/InteractionArea.tscn" id="5_5dcxu"]
+[ext_resource type="Script" uid="uid://cl24pmyy5od1c" path="res://SRC/Actors/VendingMachine/num_panel.gd" id="6_galud"]
+[ext_resource type="FontFile" uid="uid://desuswgpydw03" path="res://Assets/Fonts/DIGITALDREAM.ttf" id="7_vb7gf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0hube"]
+resource_name = "GradColor"
+cull_mode = 2
+albedo_texture = ExtResource("1_ftd08")
+texture_repeat = false
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_aifue"]
+_surfaces = [{
+"aabb": AABB(-1.5, 0, -1.5, 3, 3, 3.5),
+"format": 34359742465,
+"index_count": 210,
+"index_data": PackedByteArray("JAAJAA4AJAAlAAkAJQAGAAkADgAmACQADgARACYADQAlACQAEQASACYAEQATABIAJgASABAAJAAmAA8AJgAQAA8AJAAPAA0ADwAQAAwADQAEACUABAANAA8AJQAnAAYABAAnACUAJwAFAAYADwAMAAcABAAPACgABAAoACcAKAAPAAcABwAMAAsAJwApAAUAKAApACcAKQACAAUAKAAHACoAKAAqACkAKQArAAIAKgArACkAKwABAAIAKgAAACsAKwAsAAEAAAAsACsACAABACwAKgADAAAAAAADACwAKgAHAAMACAAsAC0ALQAsAAMALQADAAcABwALAC0ALQAKAAgALQALAAoAFAAVABYAFwAWABUAFwAYABYAFAAZABUAGQAUABoAGwAaABgAGQAaABsAGwAYABcAHAAVABkAHQAZABsAHAAZAB0AHgAbABcAHQAbAB4AHwAXABUAHwAVABwAHgAXAB8AHQAgABwAHwAhAB4AHgAiAB0AHQAiACAAHgAhACIAHAAgACMAHAAjAB8AIgAjACAAHwAjACEAIgAhACMA"),
+"lods": [0.000789682, PackedByteArray("AAABAAIAAAADAAEABAAAAAIABAADAAAABAACAAUABAAFAAYABwABAAMABAAHAAMACAABAAcACQAEAAYABwAKAAgABwALAAoABwAMAAsADQAEAAkADQAJAA4ABAAPAAcABAANAA8ADwAMAAcADgAPAA0ADwAQAAwADgARAA8ADwASABAAEQASAA8AEQATABIAFAAVABYAFwAWABUAFwAYABYAFAAZABUAGQAUABoAGwAaABgAGQAaABsAGwAYABcAHAAVABkAHQAZABsAHAAZAB0AHgAbABcAHQAbAB4AHwAXABUAHwAVABwAHgAXAB8AHQAgABwAHwAhAB4AHgAiAB0AHQAiACAAHgAhACIAHAAgACMAHAAjAB8AIgAjACAAHwAjACEAIgAhACMA")],
+"name": "GradColor",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 46,
+"vertex_data": PackedByteArray("AADAPwAAAAAAAMC/AADAPwAAQEAAAMA/AADAPwAAQEAAAMC/AADAPwAAAAAAAMA/AADAvwAAAAAAAMC/AACAPwAAQEAAAMC/AACAvwAAQEAAAMC/AACAPwAAAAAAAMA/AACAPwAAQEAAAMA/AADAvwAAQEAAAMC/AACAPwAAQEAAAABAAACAPwAAwD8AAABAAACAPwAAAAAAAABAAADAvwAAAAAAAMA/AADAvwAAQEAAAMA/AACAvwAAAAAAAMA/AACAvwAAAAAAAABAAACAvwAAQEAAAMA/AACAvwAAwD8AAABAAACAvwAAQEAAAABA7lG4vzMzsz8AAMA/7lG4v83MDEDsUbg/7lG4v83MDEAAAMA/aGaGv83MDEDsUbg/aGaGv83MDEAAAMA/7lG4vzMzsz/sUbg/aGaGvzMzsz8AAMA/aGaGvzMzsz/sUbg/iOuxv5qZCUDsUbg/iOuxv////z/sUbg/zsyMv////z/sUbg/zsyMv5qZCUDsUbg/iOuxv5qZCUD2KLw/zsyMv////z/2KLw/iOuxv////z/2KLw/zsyMv5qZCUD2KLw/AADAvwAAwD8AAMA/AADAvwAAwD8AAMC/AACAvwAAwD8AAMA/AACAvwAAwD8AAMC/AACAvwAAAAAAAMC/AACAPwAAwD8AAMC/AACAPwAAAAAAAMC/AADAPwAAwD8AAMC/AADAPwAAwD8AAMA/AACAPwAAwD8AAMA/")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_eulhr"]
+resource_name = "Elevator_Cube_001"
+_surfaces = [{
+"aabb": AABB(-1.5, 0, -1.5, 3, 3, 3.5),
+"attribute_data": PackedByteArray("uw4nP8A1Oz27Dic/wDU7PbsOJz/ANTs9uw4nP+A1Oz27Dic/wDU7PbsOJz/gNTs9uw4nP+A1Oz27Dic/4DU7PbsOJz/gNTs9uw4nP+A1Oz27Dic/4DU7PbsOJz/ANTs9uw4nP8A1Oz27Dic/wDU7PbsOJz/ANTs9uw4nP8A1Oz27Dic/wDU7PbsOJz/ANTs9uw4nP8A1Oz27Dic/4DU7PbsOJz/gNTs9uw4nP8A1Oz27Dic/4DU7PbsOJz/ANTs9uw4nP+A1Oz27Dic/wDU7PbsOJz/gNTs9uw4nP8A1Oz27Dic/wDU7PbsOJz+c8JY+uw4nP+A1Oz27Dic/4DU7PbsOJz+c8JY+uw4nP+A1Oz27Dic/wDU7PbsOJz/ANTs9uw4nP+A1Oz27Dic/wDU7PbsOJz/ANTs9uw4nP8A1Oz06nyk/fMoMPjqfKT/sAq4+Op8pP+wCrj46nyk/fMoMPjqfKT+UpYM+Op8pPwRwYD46nyk/BHBgPjqfKT+UpYM+Op8pP4DVaT06nyk/XtiEPjqfKT9e2IQ+Op8pP4DVaT06nyk/fMoMPjqfKT+A1Wk9Op8pP4DVaT06nyk/fMoMPjqfKT9e2IQ+Op8pP+wCrj46nyk/7AKuPjqfKT9e2IQ+Op8pP/xBoj46nyk/fMoMPjqfKT9g1I4+Op8pP4DVaT06nyk/7AKuPjqfKT8EcGA+Op8pP5Slgz46nyk/XtiEPjqfKT9g1I4+Op8pP5Slgz46nyk//EGiPjqfKT8EcGA+Op8pPwRwYD46nyk/YNSOPjqfKT9g1I4+Op8pPwRwYD46nyk//EGiPjqfKT+UpYM+Op8pP5Slgz46nyk//EGiPjqfKT9g1I4+Op8pP/xBoj46nyk//EGiPjqfKT9g1I4+uw4nP5zwlj67Dic/oPCWPrsOJz+g8JY+uw4nP6Dwlj67Dic/oPCWPrsOJz+g8JY+uw4nP6Dwlj67Dic/nPCWPrsOJz/ANTs9uw4nP8A1Oz27Dic/oPCWPrsOJz+g8JY+uw4nP6Dwlj67Dic/oPCWPrsOJz+c8JY+uw4nP6Dwlj67Dic/oPCWPrsOJz+c8JY+uw4nP6Dwlj67Dic/oPCWPrsOJz+c8JY+uw4nP5zwlj67Dic/nPCWPrsOJz+c8JY+uw4nP8A1Oz27Dic/nPCWPrsOJz+c8JY+uw4nP5zwlj67Dic/wDU7PbsOJz+c8JY+uw4nP6Dwlj67Dic/nPCWPrsOJz+c8JY+uw4nP6Dwlj4="),
+"format": 34359742487,
+"index_count": 210,
+"index_data": PackedByteArray("VAAlACYAVABVACUAVgAQAA8AVgBXABAAWABWAA8AWAAPAA4AWQBYAA4AWQAOAAwAWgABAAIAWgBbAAEAXAAGAF0AXQAGAAoAXQAKAAsAXAAFAAYABQAIAAYABQAJAAgABAAFAFwABAAHAAUAXgATABQAXgBfABMAYAAYABYAYABhABgAYgAbABwAYgAdABsAYwAhAB8AYwBkACEAIgAgAGUAIgAjACAAGgBmAGcAGgAeAGYAGQBoAGkAGQAXAGgAEgBqAGsAEgAVAGoAbABtAG4ADQBsAG4ADQBuAG8AbABwAG0AcABxAG0AcAARAHEAAAByAHMAAAADAHIAJAB0AHUAJAAnAHQAKAApACoAKAArACkALAAtAC4ALAAvAC0AMAAxADIAMAAzADEANAA1ADYANAA3ADUAOAA5ADoAOAA7ADkAPAA9AD4APgA9AD8APABAAD0APgA/AEEAQgBAADwAQQA/AEMAQgBDAEAAQQBDAEIARABFAEYARABHAEUASABJAEoASABLAEkATABNAE4ATABPAE0AUABRAFIAUABTAFEA"),
+"lods": [0.000789682, PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUABQAIAAYABQAJAAgABAAGAAoABAAKAAsADAANAA4ADQAPAA4ADQAQAA8ADQARABAAEgATABQAEgAVABMAFgAXABgAGQAXABYAGgAbABwAGgAdABsAGgAeAB0AHwAgACEAIgAgAB8AIgAjACAAJAAlACYAJAAnACUAKAApACoAKAArACkALAAtAC4ALAAvAC0AMAAxADIAMAAzADEANAA1ADYANAA3ADUAOAA5ADoAOAA7ADkAPAA9AD4APgA9AD8APABAAD0APgA/AEEAQgBAADwAQQA/AEMAQgBDAEAAQQBDAEIARABFAEYARABHAEUASABJAEoASABLAEkATABNAE4ATABPAE0AUABRAFIAUABTAFEA")],
+"material": SubResource("StandardMaterial3D_0hube"),
+"name": "GradColor",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 118,
+"vertex_data": PackedByteArray("AADAPwAAAAAAAMC/AADAPwAAQEAAAMA/AADAPwAAQEAAAMC/AADAPwAAAAAAAMA/AADAvwAAAAAAAMC/AACAvwAAAAAAAMA/AACAPwAAAAAAAMA/AADAvwAAAAAAAMA/AACAPwAAAAAAAABAAACAvwAAAAAAAABAAADAPwAAAAAAAMA/AADAPwAAAAAAAMC/AADAvwAAQEAAAMC/AADAvwAAAAAAAMC/AACAvwAAQEAAAMC/AACAPwAAQEAAAMC/AADAPwAAQEAAAMC/AADAPwAAAAAAAMC/AADAvwAAQEAAAMA/AACAvwAAAAAAAMA/AADAvwAAAAAAAMA/AACAvwAAQEAAAMA/AACAPwAAAAAAAMA/AADAPwAAQEAAAMA/AADAPwAAAAAAAMA/AACAPwAAQEAAAMA/AACAPwAAAAAAAMA/AACAPwAAQEAAAABAAACAPwAAQEAAAMA/AACAPwAAwD8AAABAAACAPwAAAAAAAABAAACAvwAAAAAAAMA/AACAvwAAwD8AAABAAACAvwAAAAAAAABAAACAvwAAQEAAAMA/AACAvwAAQEAAAABAAADAvwAAAAAAAMA/AADAvwAAQEAAAMC/AADAvwAAQEAAAMA/AADAvwAAAAAAAMC/7lG4vzMzsz8AAMA/7lG4v83MDEDsUbg/7lG4v83MDEAAAMA/7lG4vzMzsz/sUbg/zsyMv5qZCUDsUbg/zsyMv////z/2KLw/zsyMv////z/sUbg/zsyMv5qZCUD2KLw/aGaGvzMzsz/sUbg/aGaGv83MDEAAAMA/aGaGv83MDEDsUbg/aGaGvzMzsz8AAMA/7lG4vzMzsz/sUbg/aGaGvzMzsz8AAMA/aGaGvzMzsz/sUbg/7lG4vzMzsz8AAMA/aGaGv83MDEDsUbg/7lG4v83MDEAAAMA/7lG4v83MDEDsUbg/aGaGv83MDEAAAMA/iOuxv5qZCUDsUbg/7lG4vzMzsz/sUbg/iOuxv////z/sUbg/aGaGvzMzsz/sUbg/7lG4v83MDEDsUbg/zsyMv////z/sUbg/zsyMv5qZCUDsUbg/aGaGv83MDEDsUbg/iOuxv////z/2KLw/zsyMv5qZCUD2KLw/iOuxv5qZCUD2KLw/zsyMv////z/2KLw/zsyMv////z/sUbg/iOuxv////z/2KLw/iOuxv////z/sUbg/zsyMv////z/2KLw/iOuxv5qZCUDsUbg/zsyMv5qZCUD2KLw/zsyMv5qZCUDsUbg/iOuxv5qZCUD2KLw/iOuxv////z/sUbg/iOuxv5qZCUD2KLw/iOuxv5qZCUDsUbg/iOuxv////z/2KLw/AADAvwAAwD8AAMA/AADAvwAAwD8AAMC/AACAPwAAwD8AAMC/AADAPwAAwD8AAMC/AACAvwAAwD8AAMC/AADAvwAAwD8AAMC/AADAPwAAwD8AAMC/AADAPwAAwD8AAMA/AACAvwAAAAAAAMC/AACAPwAAAAAAAMC/AADAvwAAwD8AAMA/AACAvwAAwD8AAMA/AACAPwAAwD8AAMA/AADAPwAAwD8AAMA/AACAPwAAwD8AAMA/AACAvwAAwD8AAMA/AACAvwAAwD8AAABAAACAvwAAwD8AAMA/AACAPwAAwD8AAABAAACAPwAAwD8AAMA/AADAPwAAwD8AAMA/AACAPwAAwD8AAMA/AACAvwAAwD8AAMA/AADAvwAAwD8AAMA/AACAvwAAAAAAAMC/AACAPwAAwD8AAMC/AACAvwAAwD8AAMC/AADAvwAAwD8AAMC/AACAPwAAAAAAAMC/AADAPwAAwD8AAMC/AADAPwAAwD8AAMA/AADAPwAAwD8AAMC/AADAvwAAwD8AAMC/AADAvwAAwD8AAMA/////f////7////9/////v////3////+/////f////7//fwAA////P/9/AAD///8//38AAP///z//fwAA////P/9/AAD///8//38AAP///z//fwAA////P/9/AAD///8//////////z//////////P/////////8//////////z//////////P/////////8//3//f////z//f/9/////P/9//3////8//3//f////z//f/9/////P/9//3////8//3//f////z//f/9/////P////3////+/////f////7////9/////v////3////+/////f////78AAP9/////vwAA/3////+/AAD/f////78AAP9/////vwAA/3////+/AAD/f////78AAP9/////vwAA/3////+/AAD/f////78AAP9/////vwAA/3////+/AAD/f////78AAP9/////vwAA/3////+/AAD/f////78AAP9/////vwAA/3////+/////f////7////9/////v////3////+/////f////7//fwAA////P/9/AAD///8//38AAP///z//fwAA////P/9///////8//3///////z//f///////P/9///////8//////////z//////////P/////////8//////////z//////////P/////////8//////////z//////////P/////////8//////////z//////////P/////////8//3///////z//f///////P/9///////8//3///////z//fwAA////P/9/AAD///8//38AAP///z//fwAA////P////3////+/////f////7////9/////v////3////+/AAD/f////78AAP9/////v/////////8//////////z//////////P/////////8/////f////7////9/////v/9/AAD///8//38AAP///z//f/9/////P/9//3////8//3//f////z//f/9/////P////3////+/AAD/f////78AAP9/////vwAA/3////+/////f////7////9/////v/9//3////8//3//f////z//f/9/////P/9//3////8//////////z//////////P/////////8//////////z//////////P/////////8/////f////7////9/////vwAA/3////+/AAD/f////78=")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_aifue")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ftd08"]
+data = PackedVector3Array(-1.5, 1.5, 1.5, -1.5, 3, -1.5, -1.5, 3, 1.5, -1.5, 1.5, 1.5, -1.5, 1.5, -1.5, -1.5, 3, -1.5, 1, 1.5, -1.5, 1.5, 3, -1.5, 1, 3, -1.5, 1, 1.5, -1.5, 1.5, 1.5, -1.5, 1.5, 3, -1.5, -1, 1.5, -1.5, 1, 1.5, -1.5, 1, 3, -1.5, -1, 1.5, -1.5, 1, 3, -1.5, -1, 3, -1.5, -1.5, 1.5, -1.5, -1, 1.5, -1.5, -1, 3, -1.5, -1.5, 1.5, -1.5, -1, 3, -1.5, -1.5, 3, -1.5, 1.5, 1.5, -1.5, 1.5, 3, 1.5, 1.5, 3, -1.5, 1.5, 1.5, -1.5, 1.5, 1.5, 1.5, 1.5, 3, 1.5, -1, 0, -1.5, 1, 0, 1.5, 1, 0, -1.5, 1, 0, -1.5, 1, 0, 1.5, 1.5, 0, 1.5, 1, 0, -1.5, 1.5, 0, 1.5, 1.5, 0, -1.5, -1, 0, -1.5, -1, 0, 1.5, 1, 0, 1.5, -1, 0, 1.5, 1, 0, 2, 1, 0, 1.5, -1, 0, 1.5, -1, 0, 2, 1, 0, 2, -1.5, 0, -1.5, -1, 0, 1.5, -1, 0, -1.5, -1.5, 0, -1.5, -1.5, 0, 1.5, -1, 0, 1.5, -1.5, 1.5, 1.5, -1, 0, 1.5, -1.5, 0, 1.5, -1.5, 1.5, 1.5, -1, 1.5, 1.5, -1, 0, 1.5, 1, 1.5, 1.5, 1.5, 0, 1.5, 1, 0, 1.5, 1, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 0, 1.5, 1, 1.5, 1.5, 1, 3, 2, 1, 3, 1.5, 1, 1.5, 1.5, 1, 1.5, 2, 1, 3, 2, -1, 1.5, 1.5, -1, 0, 2, -1, 0, 1.5, -1, 1.5, 1.5, -1, 1.5, 2, -1, 0, 2, -1, 3, 1.5, -1, 1.5, 2, -1, 1.5, 1.5, -1, 3, 1.5, -1, 3, 2, -1, 1.5, 2, 1, 0, 1.5, 1, 1.5, 2, 1, 1.5, 1.5, 1, 0, 1.5, 1, 0, 2, 1, 1.5, 2, 1, 3, 1.5, 1.5, 1.5, 1.5, 1, 1.5, 1.5, 1, 3, 1.5, 1.5, 3, 1.5, 1.5, 1.5, 1.5, -1.5, 3, 1.5, -1, 1.5, 1.5, -1.5, 1.5, 1.5, -1.5, 3, 1.5, -1, 3, 1.5, -1, 1.5, 1.5, -1, 0, -1.5, 1, 1.5, -1.5, -1, 1.5, -1.5, -1.5, 0, -1.5, -1, 0, -1.5, -1, 1.5, -1.5, -1.5, 0, -1.5, -1, 1.5, -1.5, -1.5, 1.5, -1.5, -1, 0, -1.5, 1, 0, -1.5, 1, 1.5, -1.5, 1, 0, -1.5, 1.5, 1.5, -1.5, 1, 1.5, -1.5, 1, 0, -1.5, 1.5, 0, -1.5, 1.5, 1.5, -1.5, 1.5, 0, -1.5, 1.5, 1.5, 1.5, 1.5, 1.5, -1.5, 1.5, 0, -1.5, 1.5, 0, 1.5, 1.5, 1.5, 1.5, -1.5, 0, 1.5, -1.5, 1.5, -1.5, -1.5, 1.5, 1.5, -1.5, 0, 1.5, -1.5, 0, -1.5, -1.5, 1.5, -1.5, -1.44, 1.4, 1.5, -1.44, 2.2, 1.44, -1.44, 2.2, 1.5, -1.44, 1.4, 1.5, -1.44, 1.4, 1.44, -1.44, 2.2, 1.44, -1.1, 2.15, 1.44, -1.1, 2, 1.47, -1.1, 2, 1.44, -1.1, 2.15, 1.44, -1.1, 2.15, 1.47, -1.1, 2, 1.47, -1.05, 1.4, 1.44, -1.05, 2.2, 1.5, -1.05, 2.2, 1.44, -1.05, 1.4, 1.44, -1.05, 1.4, 1.5, -1.05, 2.2, 1.5, -1.44, 1.4, 1.44, -1.05, 1.4, 1.5, -1.05, 1.4, 1.44, -1.44, 1.4, 1.44, -1.44, 1.4, 1.5, -1.05, 1.4, 1.5, -1.05, 2.2, 1.44, -1.44, 2.2, 1.5, -1.44, 2.2, 1.44, -1.05, 2.2, 1.44, -1.05, 2.2, 1.5, -1.44, 2.2, 1.5, -1.39, 2.15, 1.44, -1.44, 1.4, 1.44, -1.39, 2, 1.44, -1.39, 2, 1.44, -1.44, 1.4, 1.44, -1.05, 1.4, 1.44, -1.39, 2.15, 1.44, -1.44, 2.2, 1.44, -1.44, 1.4, 1.44, -1.39, 2, 1.44, -1.05, 1.4, 1.44, -1.1, 2, 1.44, -1.1, 2.15, 1.44, -1.44, 2.2, 1.44, -1.39, 2.15, 1.44, -1.1, 2, 1.44, -1.05, 1.4, 1.44, -1.05, 2.2, 1.44, -1.1, 2.15, 1.44, -1.05, 2.2, 1.44, -1.44, 2.2, 1.44, -1.1, 2, 1.44, -1.05, 2.2, 1.44, -1.1, 2.15, 1.44, -1.39, 2, 1.47, -1.1, 2.15, 1.47, -1.39, 2.15, 1.47, -1.39, 2, 1.47, -1.1, 2, 1.47, -1.1, 2.15, 1.47, -1.1, 2, 1.44, -1.39, 2, 1.47, -1.39, 2, 1.44, -1.1, 2, 1.44, -1.1, 2, 1.47, -1.39, 2, 1.47, -1.39, 2.15, 1.44, -1.1, 2.15, 1.47, -1.1, 2.15, 1.44, -1.39, 2.15, 1.44, -1.39, 2.15, 1.47, -1.1, 2.15, 1.47, -1.39, 2, 1.44, -1.39, 2.15, 1.47, -1.39, 2.15, 1.44, -1.39, 2, 1.44, -1.39, 2, 1.47, -1.39, 2.15, 1.47)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5dcxu"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("3_6dwni")
+shader_parameter/topColor = Color(0.827451, 0.827451, 0.827451, 1)
+shader_parameter/bottomColor = Color(1, 1, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_idsbf"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_foi2u"]
+_surfaces = [{
+"aabb": AABB(-0.1, -0.1, -0.2, 0.2, 0.2, 0.2),
+"format": 34896613377,
+"index_count": 30,
+"index_data": PackedByteArray("AAABAAIAAwACAAEAAwAEAAIAAAAFAAEABQADAAEABQAAAAYABwAEAAMABQAHAAMABwAGAAQABQAGAAcA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAP//AAAAAP//AAAAAAAA/////wAA/////wAAAAD///////8AAAAAAAAAAAAA//8AAP//AAD//wAAAAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_lbrh7"]
+resource_name = "Elevator_Cube_005"
+_surfaces = [{
+"aabb": AABB(-0.1, -0.1, -0.2, 0.2, 0.2, 0.2),
+"attribute_data": PackedByteArray("/1////+f/7//n////1//v/9f/7//n/9//5//v/9f/3//X/9//5//P/+f/3//X/8//x//f/9f/z//X/9//x//P/+f/3//3/8//9//f/+f/z8="),
+"format": 34896613399,
+"index_count": 30,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEA"),
+"material": SubResource("StandardMaterial3D_idsbf"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 20,
+"vertex_data": PackedByteArray("AAAAAP//VNUAAP//AABU1QAA/////1TVAAAAAAAAVNUAAAAAAAD///////8AAP//AAD//wAA/////wAAAAD/////AAAAAFTV////////VNX/////AABU1f//AAD//1TVAAAAAAAA/7///wAA////v///AAAAAP+/AAAAAP///7//////AAD//wAA////////AAD//wAA/////////////1TVVNVU1VTVVNVU1VTVVNX/v/+//7//v/+//7//v/+/qiqqKqoqqiqqKqoqqiqqKgAA/38AAP9/AAD/fwAA/3//f/+//3//v/9//7//f/+/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_foi2u")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1y8ry"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+albedo_color = Color(1, 1, 1, 0.407843)
+grow = true
+grow_amount = 0.01
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6dwni"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("3_6dwni")
+shader_parameter/topColor = Color(1, 0, 0, 1)
+shader_parameter/bottomColor = Color(1, 1, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gm67k"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("3_6dwni")
+shader_parameter/topColor = Color(0, 1, 0, 1)
+shader_parameter/bottomColor = Color(1, 1, 1, 1)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_6jadj"]
+_surfaces = [{
+"aabb": AABB(-3.25841e-08, -1, -0.2, 1.2, 3, 0.3),
+"format": 34359742465,
+"index_count": 60,
+"index_data": PackedByteArray("AAABAAIAAwACAAEAAwAEAAIABQADAAEAAAAFAAEABgAEAAMABQAGAAMABwACAAQABwAAAAIABgAHAAQACAAFAAAACQAHAAYACgAGAAUACgAJAAYACAAKAAUACQALAAcACwAAAAcACgALAAkACwAIAAAACgAIAAsA"),
+"name": "GradColor",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("AAAAAAAAAD/IzMw9o/ILswAAAEDMzEy+AAAAAAAAAEDIzMw9mZmZPwAAAEC6zEy+mZmZPwAAAEDrzMw9o/ILswAAAD/MzEy+mZmZPwAAAD+6zEy+mZmZPwAAAD/rzMw9AAAAAAAAgL/IzMw9mZmZPwAAgL+6zEy+o/ILswAAgL/MzEy+mZmZPwAAgL/rzMw9")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_y8pkh"]
+resource_name = "Elevator_Cube_002"
+_surfaces = [{
+"aabb": AABB(-3.25841e-08, -1, -0.2, 1.2, 3, 0.3),
+"attribute_data": PackedByteArray("z5MpP/wI2D7Pkyk/AG85Pc+TKT8Abzk9z5MpP/YI2D7Pkyk/9gjYPs+TKT8Abzk9z5MpPwBvOT3Pkyk/9gjYPs+TKT/2CNg+z5MpPwBvOT3Pkyk/AG85Pc+TKT/8CNg+z5MpP/wI2D7Pkyk/AG85Pc+TKT8Abzk9z5MpP/wI2D7Pkyk/AG85Pc+TKT8Abzk9z5MpPwBvOT3Pkyk/AG85Pc+TKT8Abzk9z5MpPwBvOT3Pkyk/AG85Pc+TKT8Abzk9z5MpPwBvOT3Pkyk/gK3YPs+TKT+Ardg+z5MpPwBvOT3Pkyk/AG85Pc+TKT+Ardg+z5MpP4yt2D7Pkyk/AG85Pc+TKT8Abzk9z5MpP4yt2D7Pkyk/jK3YPs+TKT8Abzk9z5MpPwBvOT3Pkyk/jK3YPs+TKT+Ardg+z5MpPwBvOT0="),
+"format": 34359742487,
+"index_count": 60,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEAJAAlACYAJAAnACUA"),
+"material": SubResource("StandardMaterial3D_0hube"),
+"name": "GradColor",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 40,
+"vertex_data": PackedByteArray("AAAAAAAAAD/IzMw9o/ILswAAAEDMzEy+AAAAAAAAAEDIzMw9o/ILswAAAD/MzEy+o/ILswAAAD/MzEy+mZmZPwAAAEC6zEy+o/ILswAAAEDMzEy+mZmZPwAAAD+6zEy+mZmZPwAAAD+6zEy+mZmZPwAAAEDrzMw9mZmZPwAAAEC6zEy+mZmZPwAAAD/rzMw9mZmZPwAAAD/rzMw9AAAAAAAAAEDIzMw9mZmZPwAAAEDrzMw9AAAAAAAAAD/IzMw9o/ILswAAgL/MzEy+mZmZPwAAgL/rzMw9mZmZPwAAgL+6zEy+AAAAAAAAgL/IzMw9mZmZPwAAAEC6zEy+AAAAAAAAAEDIzMw9o/ILswAAAEDMzEy+mZmZPwAAAEDrzMw9mZmZPwAAgL/rzMw9AAAAAAAAAD/IzMw9mZmZPwAAAD/rzMw9AAAAAAAAgL/IzMw9mZmZPwAAgL+6zEy+mZmZPwAAAD/rzMw9mZmZPwAAAD+6zEy+mZmZPwAAgL/rzMw9o/ILswAAgL/MzEy+mZmZPwAAAD+6zEy+o/ILswAAAD/MzEy+mZmZPwAAgL+6zEy+AAAAAAAAgL/IzMw9o/ILswAAAD/MzEy+AAAAAAAAAD/IzMw9o/ILswAAgL/MzEy+AAD/f////78AAP9/////vwAA/3////+/AAD/f////7//////////P/////////8//////////z//////////P////3////+/////f////7////9/////v////3////+//3//f////z//f/9/////P/9//3////8//3//f////z//fwAA////P/9/AAD///8//38AAP///z//fwAA////P/9///////8//3///////z//f///////P/9///////8//3//f////z//f/9/////P/9//3////8//3//f////z////9/////v////3////+/////f////7////9/////v/////////8//////////z//////////P/////////8/AAD/f////78AAP9/////vwAA/3////+/AAD/f////78=")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_6jadj")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_btedl"]
+points = PackedVector3Array(1.17891, 1.93645, 0.1, -0.0238096, -1.02351, -0.22381, 0.0115646, -0.936453, 0.1, -0.0238096, 2.02351, -0.22381, 1.21429, -1.02351, -0.22381, 1.21429, 2.02351, -0.22381, 0.0115646, 1.93645, 0.1, 1.17891, -0.936453, 0.1)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_uxr4f"]
+_surfaces = [{
+"aabb": AABB(0, -1, -0.1, 1.1, 2.99, 0.2),
+"format": 34359742465,
+"index_count": 60,
+"index_data": PackedByteArray("AAABAAIAAwACAAEAAwAEAAIABQADAAEAAAAFAAEABgAEAAMABQAGAAMABwACAAQABwAAAAIABgAHAAQACAAFAAAACQAHAAYACgAGAAUACgAJAAYACAAKAAUACQALAAcACwAAAAcACgALAAkACwAIAAAACgAIAAsA"),
+"name": "GradColor",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("AAAAAKRw/T7IzMw9AAAAAFK4/j/LzMy9AAAAAFK4/j/IzMw9zcyMP1K4/j+jzMy9zcyMP1K4/j/wzMw9AAAAAKRw/T7LzMy9zcyMP6Rw/T6jzMy9zcyMP6Rw/T7wzMw9AAAAAAAAgL/IzMw9zcyMPwAAgL+jzMy9AAAAAAAAgL/LzMy9zcyMPwAAgL/wzMw9")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_vbd6t"]
+resource_name = "Elevator_Cube_003"
+_surfaces = [{
+"aabb": AABB(0, -1, -0.1, 1.1, 2.99, 0.2),
+"attribute_data": PackedByteArray("z5MpP4yt2D7Pkyk/ELhDPc+TKT8QuEM9z5MpP4yt2D7Pkyk/jK3YPs+TKT8QuEM9z5MpPxC4Qz3Pkyk/jK3YPs+TKT+Mrdg+z5MpPxC4Qz3Pkyk/ELhDPc+TKT+Mrdg+z5MpP4yt2D7Pkyk/ELhDPc+TKT8QuEM9z5MpP4yt2D7Pkyk/AG85Pc+TKT8Abzk9z5MpPwBvOT3Pkyk/AG85Pc+TKT8QuEM9z5MpPxC4Qz3Pkyk/ELhDPc+TKT8QuEM9z5MpPwBvOT3Pkyk/aAjYPs+TKT9oCNg+z5MpPwBvOT3Pkyk/AG85Pc+TKT9oCNg+z5MpP2gI2D7Pkyk/AG85Pc+TKT8Abzk9z5MpP2gI2D7Pkyk/aAjYPs+TKT8Abzk9z5MpPwBvOT3Pkyk/aAjYPs+TKT9oCNg+z5MpPwBvOT0="),
+"format": 34359742487,
+"index_count": 60,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEAJAAlACYAJAAnACUA"),
+"material": SubResource("StandardMaterial3D_0hube"),
+"name": "GradColor",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 40,
+"vertex_data": PackedByteArray("AAAAAKRw/T7IzMw9AAAAAFK4/j/LzMy9AAAAAFK4/j/IzMw9AAAAAKRw/T7LzMy9AAAAAKRw/T7LzMy9zcyMP1K4/j+jzMy9AAAAAFK4/j/LzMy9zcyMP6Rw/T6jzMy9zcyMP6Rw/T6jzMy9zcyMP1K4/j/wzMw9zcyMP1K4/j+jzMy9zcyMP6Rw/T7wzMw9zcyMP6Rw/T7wzMw9AAAAAFK4/j/IzMw9zcyMP1K4/j/wzMw9AAAAAKRw/T7IzMw9AAAAAAAAgL/LzMy9zcyMPwAAgL/wzMw9zcyMPwAAgL+jzMy9AAAAAAAAgL/IzMw9zcyMP1K4/j+jzMy9AAAAAFK4/j/IzMw9AAAAAFK4/j/LzMy9zcyMP1K4/j/wzMw9zcyMPwAAgL/wzMw9AAAAAKRw/T7IzMw9zcyMP6Rw/T7wzMw9AAAAAAAAgL/IzMw9zcyMPwAAgL+jzMy9zcyMP6Rw/T7wzMw9zcyMP6Rw/T6jzMy9zcyMPwAAgL/wzMw9AAAAAAAAgL/LzMy9zcyMP6Rw/T6jzMy9AAAAAKRw/T7LzMy9zcyMPwAAgL+jzMy9AAAAAAAAgL/IzMw9AAAAAKRw/T7LzMy9AAAAAKRw/T7IzMw9AAAAAAAAgL/LzMy9AAD/f////78AAP9/////vwAA/3////+/AAD/f////7//////////P/////////8//////////z//////////P////3////+/////f////7////9/////v////3////+//3//f////z//f/9/////P/9//3////8//3//f////z//fwAA////P/9/AAD///8//38AAP///z//fwAA////P/9///////8//3///////z//f///////P/9///////8//3//f////z//f/9/////P/9//3////8//3//f////z////9/////v////3////+/////f////7////9/////v/////////8//////////z//////////P/////////8/AAD/f////78AAP9/////vwAA/3////+/AAD/f////78=")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_uxr4f")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_1y8ry"]
+points = PackedVector3Array(1.11532, 2.01373, 0.113548, -0.0237302, -1.02373, -0.123707, -0.0237302, -1.02373, 0.113548, -0.0237302, 2.01373, -0.123707, 1.11532, -1.02373, -0.123707, 1.11532, -1.02373, 0.113548, -0.0237302, 2.01373, 0.113548, 1.11532, 2.01373, -0.123707)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6dwni"]
+albedo_color = Color(1, 0.870758, 0.785156, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_btedl"]
+size = Vector2(0.5, 1)
+
+[sub_resource type="Gradient" id="Gradient_l5ne4"]
+offsets = PackedFloat32Array(0.221757, 0.849372)
+colors = PackedColorArray(0.414063, 0.414063, 0.414063, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_e1iq0"]
+gradient = SubResource("Gradient_l5ne4")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mfvsq"]
+albedo_color = Color(0.0492156, 0.195313, 0.0480652, 1)
+emission_enabled = true
+emission = Color(0.0185733, 0.07, 0.0168, 1)
+emission_energy_multiplier = 3.0
+emission_operator = 1
+emission_texture = SubResource("GradientTexture2D_e1iq0")
+
+[sub_resource type="QuadMesh" id="QuadMesh_btwco"]
+size = Vector2(0.12, 0.06)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gm67k"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5dcxu"]
+size = Vector3(3.18, 1, 2.31)
+
+[node name="Elevator" type="Node3D" node_paths=PackedStringArray("camera", "door_big", "door_small", "button_1", "num_panel")]
+script = ExtResource("1_btedl")
+camera = NodePath("Camera3D")
+door_big = NodePath("DoorBig")
+door_small = NodePath("DoorBig/DoorSmall")
+button_1 = NodePath("Elevator/Buttons/Button1")
+num_panel = NodePath("NumPanel")
+
+[node name="Elevator" type="Node3D" parent="."]
+
+[node name="Cabin" type="MeshInstance3D" parent="Elevator"]
+gi_mode = 2
+mesh = SubResource("ArrayMesh_eulhr")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Elevator/Cabin"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Elevator/Cabin/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_ftd08")
+
+[node name="Buttons" type="Node3D" parent="Elevator"]
+
+[node name="Button1" type="MeshInstance3D" parent="Elevator/Buttons" node_paths=PackedStringArray("right", "down", "label", "highlightMesh")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -1.136, 1.892, 1.472)
+material_override = SubResource("ShaderMaterial_5dcxu")
+mesh = SubResource("ArrayMesh_lbrh7")
+skeleton = NodePath("")
+script = ExtResource("3_1y8ry")
+right = NodePath("../Button2")
+down = NodePath("../Button4")
+label = NodePath("Label3D")
+highlightMesh = NodePath("ButtonHighlight")
+
+[node name="ButtonHighlight" type="MeshInstance3D" parent="Elevator/Buttons/Button1"]
+visible = false
+material_override = SubResource("StandardMaterial3D_1y8ry")
+mesh = SubResource("ArrayMesh_lbrh7")
+skeleton = NodePath("")
+
+[node name="Label3D" type="Label3D" parent="Elevator/Buttons/Button1"]
+transform = Transform3D(-0.5, 0, 4.37114e-08, 0, 0.5, 0, -4.37114e-08, 0, -0.5, 0, 0, -0.21)
+text = "1"
+font_size = 64
+
+[node name="Button2" type="MeshInstance3D" parent="Elevator/Buttons" node_paths=PackedStringArray("left", "right", "down", "label", "highlightMesh")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -1.248, 1.892, 1.472)
+material_override = SubResource("ShaderMaterial_5dcxu")
+mesh = SubResource("ArrayMesh_lbrh7")
+skeleton = NodePath("")
+script = ExtResource("3_1y8ry")
+number = 2
+left = NodePath("../Button1")
+right = NodePath("../Button3")
+down = NodePath("../Button5")
+label = NodePath("Label3D")
+highlightMesh = NodePath("ButtonHighlight")
+
+[node name="ButtonHighlight" type="MeshInstance3D" parent="Elevator/Buttons/Button2"]
+visible = false
+material_override = SubResource("StandardMaterial3D_1y8ry")
+mesh = SubResource("ArrayMesh_lbrh7")
+skeleton = NodePath("")
+
+[node name="Label3D" type="Label3D" parent="Elevator/Buttons/Button2"]
+transform = Transform3D(-0.5, 0, 4.37114e-08, 0, 0.5, 0, -4.37114e-08, 0, -0.5, 0, 0, -0.21)
+text = "2"
+font_size = 64
+
+[node name="Button3" type="MeshInstance3D" parent="Elevator/Buttons" node_paths=PackedStringArray("left", "down", "label", "highlightMesh")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -1.36, 1.892, 1.472)
+material_override = SubResource("ShaderMaterial_5dcxu")
+mesh = SubResource("ArrayMesh_lbrh7")
+skeleton = NodePath("")
+script = ExtResource("3_1y8ry")
+number = 3
+left = NodePath("../Button2")
+down = NodePath("../Button6")
+label = NodePath("Label3D")
+highlightMesh = NodePath("ButtonHighlight")
+
+[node name="ButtonHighlight" type="MeshInstance3D" parent="Elevator/Buttons/Button3"]
+visible = false
+material_override = SubResource("StandardMaterial3D_1y8ry")
+mesh = SubResource("ArrayMesh_lbrh7")
+skeleton = NodePath("")
+
+[node name="Label3D" type="Label3D" parent="Elevator/Buttons/Button3"]
+transform = Transform3D(-0.5, 0, 4.37114e-08, 0, 0.5, 0, -4.37114e-08, 0, -0.5, 0, 0, -0.21)
+text = "3"
+font_size = 64
+
+[node name="Button4" type="MeshInstance3D" parent="Elevator/Buttons" node_paths=PackedStringArray("right", "up", "down", "label", "highlightMesh")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -1.136, 1.784, 1.472)
+material_override = SubResource("ShaderMaterial_5dcxu")
+mesh = SubResource("ArrayMesh_lbrh7")
+skeleton = NodePath("")
+script = ExtResource("3_1y8ry")
+number = 4
+right = NodePath("../Button5")
+up = NodePath("../Button1")
+down = NodePath("../Button7")
+label = NodePath("Label3D")
+highlightMesh = NodePath("ButtonHighlight")
+
+[node name="ButtonHighlight" type="MeshInstance3D" parent="Elevator/Buttons/Button4"]
+visible = false
+material_override = SubResource("StandardMaterial3D_1y8ry")
+mesh = SubResource("ArrayMesh_lbrh7")
+skeleton = NodePath("")
+
+[node name="Label3D" type="Label3D" parent="Elevator/Buttons/Button4"]
+transform = Transform3D(-0.5, 0, 4.37114e-08, 0, 0.5, 0, -4.37114e-08, 0, -0.5, 0, 0, -0.21)
+text = "4"
+font_size = 64
+
+[node name="Button5" type="MeshInstance3D" parent="Elevator/Buttons" node_paths=PackedStringArray("left", "right", "up", "down", "label", "highlightMesh")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -1.248, 1.784, 1.472)
+material_override = SubResource("ShaderMaterial_5dcxu")
+mesh = SubResource("ArrayMesh_lbrh7")
+skeleton = NodePath("")
+script = ExtResource("3_1y8ry")
+number = 5
+left = NodePath("../Button4")
+right = NodePath("../Button6")
+up = NodePath("../Button2")
+down = NodePath("../Button8")
+label = NodePath("Label3D")
+highlightMesh = NodePath("ButtonHighlight")
+
+[node name="ButtonHighlight" type="MeshInstance3D" parent="Elevator/Buttons/Button5"]
+visible = false
+material_override = SubResource("StandardMaterial3D_1y8ry")
+mesh = SubResource("ArrayMesh_lbrh7")
+skeleton = NodePath("")
+
+[node name="Label3D" type="Label3D" parent="Elevator/Buttons/Button5"]
+transform = Transform3D(-0.5, 0, 4.37114e-08, 0, 0.5, 0, -4.37114e-08, 0, -0.5, 0, 0, -0.21)
+text = "5"
+font_size = 64
+
+[node name="Button6" type="MeshInstance3D" parent="Elevator/Buttons" node_paths=PackedStringArray("left", "up", "down", "label", "highlightMesh")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -1.36, 1.784, 1.472)
+material_override = SubResource("ShaderMaterial_5dcxu")
+mesh = SubResource("ArrayMesh_lbrh7")
+skeleton = NodePath("")
+script = ExtResource("3_1y8ry")
+number = 6
+left = NodePath("../Button5")
+up = NodePath("../Button3")
+down = NodePath("../Button9")
+label = NodePath("Label3D")
+highlightMesh = NodePath("ButtonHighlight")
+
+[node name="ButtonHighlight" type="MeshInstance3D" parent="Elevator/Buttons/Button6"]
+visible = false
+material_override = SubResource("StandardMaterial3D_1y8ry")
+mesh = SubResource("ArrayMesh_lbrh7")
+skeleton = NodePath("")
+
+[node name="Label3D" type="Label3D" parent="Elevator/Buttons/Button6"]
+transform = Transform3D(-0.5, 0, 4.37114e-08, 0, 0.5, 0, -4.37114e-08, 0, -0.5, 0, 0, -0.21)
+text = "6"
+font_size = 64
+
+[node name="Button7" type="MeshInstance3D" parent="Elevator/Buttons" node_paths=PackedStringArray("right", "up", "down", "label", "highlightMesh")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -1.136, 1.676, 1.472)
+material_override = SubResource("ShaderMaterial_5dcxu")
+mesh = SubResource("ArrayMesh_lbrh7")
+skeleton = NodePath("")
+script = ExtResource("3_1y8ry")
+number = 7
+right = NodePath("../Button8")
+up = NodePath("../Button4")
+down = NodePath("../Button10")
+label = NodePath("Label3D")
+highlightMesh = NodePath("ButtonHighlight")
+
+[node name="ButtonHighlight" type="MeshInstance3D" parent="Elevator/Buttons/Button7"]
+visible = false
+material_override = SubResource("StandardMaterial3D_1y8ry")
+mesh = SubResource("ArrayMesh_lbrh7")
+skeleton = NodePath("")
+
+[node name="Label3D" type="Label3D" parent="Elevator/Buttons/Button7"]
+transform = Transform3D(-0.5, 0, 4.37114e-08, 0, 0.5, 0, -4.37114e-08, 0, -0.5, 0, 0, -0.21)
+text = "7"
+font_size = 64
+
+[node name="Button8" type="MeshInstance3D" parent="Elevator/Buttons" node_paths=PackedStringArray("left", "right", "up", "down", "label", "highlightMesh")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -1.248, 1.676, 1.472)
+material_override = SubResource("ShaderMaterial_5dcxu")
+mesh = SubResource("ArrayMesh_lbrh7")
+skeleton = NodePath("")
+script = ExtResource("3_1y8ry")
+number = 8
+left = NodePath("../Button7")
+right = NodePath("../Button9")
+up = NodePath("../Button5")
+down = NodePath("../Button11")
+label = NodePath("Label3D")
+highlightMesh = NodePath("ButtonHighlight")
+
+[node name="ButtonHighlight" type="MeshInstance3D" parent="Elevator/Buttons/Button8"]
+visible = false
+material_override = SubResource("StandardMaterial3D_1y8ry")
+mesh = SubResource("ArrayMesh_lbrh7")
+skeleton = NodePath("")
+
+[node name="Label3D" type="Label3D" parent="Elevator/Buttons/Button8"]
+transform = Transform3D(-0.5, 0, 4.37114e-08, 0, 0.5, 0, -4.37114e-08, 0, -0.5, 0, 0, -0.21)
+text = "8"
+font_size = 64
+
+[node name="Button9" type="MeshInstance3D" parent="Elevator/Buttons" node_paths=PackedStringArray("left", "up", "down", "label", "highlightMesh")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -1.36, 1.676, 1.472)
+material_override = SubResource("ShaderMaterial_5dcxu")
+mesh = SubResource("ArrayMesh_lbrh7")
+skeleton = NodePath("")
+script = ExtResource("3_1y8ry")
+number = 9
+left = NodePath("../Button8")
+up = NodePath("../Button6")
+down = NodePath("../Button12")
+label = NodePath("Label3D")
+highlightMesh = NodePath("ButtonHighlight")
+
+[node name="ButtonHighlight" type="MeshInstance3D" parent="Elevator/Buttons/Button9"]
+visible = false
+material_override = SubResource("StandardMaterial3D_1y8ry")
+mesh = SubResource("ArrayMesh_lbrh7")
+skeleton = NodePath("")
+
+[node name="Label3D" type="Label3D" parent="Elevator/Buttons/Button9"]
+transform = Transform3D(-0.5, 0, 4.37114e-08, 0, 0.5, 0, -4.37114e-08, 0, -0.5, 0, 0, -0.21)
+text = "9"
+font_size = 64
+
+[node name="Button10" type="MeshInstance3D" parent="Elevator/Buttons" node_paths=PackedStringArray("right", "up", "label", "highlightMesh")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -1.136, 1.568, 1.472)
+material_override = SubResource("ShaderMaterial_6dwni")
+mesh = SubResource("ArrayMesh_lbrh7")
+skeleton = NodePath("")
+script = ExtResource("3_1y8ry")
+number = -1
+right = NodePath("../Button11")
+up = NodePath("../Button7")
+label = NodePath("Label3D")
+highlightMesh = NodePath("ButtonHighlight")
+
+[node name="ButtonHighlight" type="MeshInstance3D" parent="Elevator/Buttons/Button10"]
+visible = false
+material_override = SubResource("StandardMaterial3D_1y8ry")
+mesh = SubResource("ArrayMesh_lbrh7")
+skeleton = NodePath("")
+
+[node name="Label3D" type="Label3D" parent="Elevator/Buttons/Button10"]
+transform = Transform3D(-0.5, 0, 4.37114e-08, 0, 0.5, 0, -4.37114e-08, 0, -0.5, 0, 0, -0.21)
+text = "C"
+font_size = 64
+
+[node name="Button11" type="MeshInstance3D" parent="Elevator/Buttons" node_paths=PackedStringArray("left", "right", "up", "label", "highlightMesh")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -1.248, 1.568, 1.472)
+material_override = SubResource("ShaderMaterial_5dcxu")
+mesh = SubResource("ArrayMesh_lbrh7")
+skeleton = NodePath("")
+script = ExtResource("3_1y8ry")
+number = 0
+left = NodePath("../Button10")
+right = NodePath("../Button12")
+up = NodePath("../Button8")
+label = NodePath("Label3D")
+highlightMesh = NodePath("ButtonHighlight")
+
+[node name="ButtonHighlight" type="MeshInstance3D" parent="Elevator/Buttons/Button11"]
+visible = false
+material_override = SubResource("StandardMaterial3D_1y8ry")
+mesh = SubResource("ArrayMesh_lbrh7")
+skeleton = NodePath("")
+
+[node name="Label3D" type="Label3D" parent="Elevator/Buttons/Button11"]
+transform = Transform3D(-0.5, 0, 4.37114e-08, 0, 0.5, 0, -4.37114e-08, 0, -0.5, 0, 0, -0.21)
+text = "0"
+font_size = 64
+
+[node name="Button12" type="MeshInstance3D" parent="Elevator/Buttons" node_paths=PackedStringArray("left", "up", "label", "highlightMesh")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -1.36, 1.568, 1.472)
+material_override = SubResource("ShaderMaterial_gm67k")
+mesh = SubResource("ArrayMesh_lbrh7")
+skeleton = NodePath("")
+script = ExtResource("3_1y8ry")
+number = 10
+left = NodePath("../Button11")
+up = NodePath("../Button9")
+label = NodePath("Label3D")
+highlightMesh = NodePath("ButtonHighlight")
+
+[node name="ButtonHighlight" type="MeshInstance3D" parent="Elevator/Buttons/Button12"]
+visible = false
+material_override = SubResource("StandardMaterial3D_1y8ry")
+mesh = SubResource("ArrayMesh_lbrh7")
+skeleton = NodePath("")
+
+[node name="Label3D" type="Label3D" parent="Elevator/Buttons/Button12"]
+transform = Transform3D(-0.5, 0, 4.37114e-08, 0, 0.5, 0, -4.37114e-08, 0, -0.5, 0, 0, -0.21)
+text = "A"
+font_size = 64
+
+[node name="DoorBig" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0581, 0, 1.75)
+
+[node name="DoorBig" type="MeshInstance3D" parent="DoorBig"]
+transform = Transform3D(-1, 0, 3.25841e-07, 0, 1, 0, -3.25841e-07, 0, -1, 0.1, 1, -0.0999999)
+gi_mode = 2
+mesh = SubResource("ArrayMesh_y8pkh")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DoorBig"]
+transform = Transform3D(-1, 0, 3.25841e-07, 0, 1, 0, -3.25841e-07, 0, -1, 0.1, 1, -0.0999999)
+shape = SubResource("ConvexPolygonShape3D_btedl")
+
+[node name="DoorSmall" type="CharacterBody3D" parent="DoorBig"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.05, 0, 0)
+
+[node name="DoorSmall" type="MeshInstance3D" parent="DoorBig/DoorSmall"]
+transform = Transform3D(-1, 0, 3.25841e-07, 0, 1, 0, -3.25841e-07, 0, -1, 0.0500001, 1, -0.0499998)
+gi_mode = 2
+mesh = SubResource("ArrayMesh_vbd6t")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DoorBig/DoorSmall"]
+transform = Transform3D(-1, 0, 3.25841e-07, 0, 1, 0, -3.25841e-07, 0, -1, 0.0500001, 1, -0.0499998)
+shape = SubResource("ConvexPolygonShape3D_1y8ry")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, -0.75, 1.95, 0.5)
+far = 200.0
+
+[node name="Info" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.49417, 1.85, 1.01866)
+material_override = SubResource("StandardMaterial3D_6dwni")
+gi_mode = 2
+mesh = SubResource("QuadMesh_btedl")
+
+[node name="Label3D" type="Label3D" parent="Info"]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0.469162, 0.00185978)
+text = "Warning: Elevator broken. These are the floors currently accessible:
+101: Rooftop
+100: CEO's office
+80: Director's sector
+40: Management
+12: Maintenance Sector
+Others: Will take you to a random floor."
+vertical_alignment = 0
+autowrap_mode = 3
+width = 350.0
+
+[node name="NumPanel" type="MeshInstance3D" parent="." node_paths=PackedStringArray("label")]
+transform = Transform3D(-2.5, 0, 3.77489e-07, 0, 2.5, 0, -3.77489e-07, 0, -2.5, -1.24585, 2.07812, 1.45711)
+material_override = SubResource("StandardMaterial3D_mfvsq")
+mesh = SubResource("QuadMesh_btwco")
+script = ExtResource("6_galud")
+label = NodePath("Label3D")
+
+[node name="Label3D" type="Label3D" parent="NumPanel"]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -0.047745, 0.0203203, 0.00067544)
+modulate = Color(0.0546875, 0.0546875, 0.0546875, 1)
+font = ExtResource("7_vb7gf")
+font_size = 54
+outline_size = 0
+horizontal_alignment = 0
+vertical_alignment = 0
+
+[node name="InteractionArea" parent="." instance=ExtResource("5_5dcxu")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.02, 1.5, 0.92)
+shape = SubResource("BoxShape3D_gm67k")
+
+[node name="PlayerInElevator" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerInElevator"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0599999, 0.67, -0.465)
+shape = SubResource("BoxShape3D_5dcxu")
+
+[node name="ReflectionProbe" type="ReflectionProbe" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.253723, 1.43733, 0.257949)
+blend_distance = 0.1
+size = Vector3(4.11853, 3.9444, 4.07639)
+interior = true
+ambient_mode = 2
+ambient_color = Color(0.234375, 0.234375, 0.234375, 1)
+
+[connection signal="interacted" from="InteractionArea" to="." method="_on_interaction_area_interacted"]
+[connection signal="body_entered" from="PlayerInElevator" to="." method="_on_player_in_elevator_body_entered"]
+[connection signal="body_exited" from="PlayerInElevator" to="." method="_on_player_in_elevator_body_exited"]

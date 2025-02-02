@@ -15,7 +15,7 @@ enum {RUNNING, GRABBING, SPEEN, AIM}
 
 var mode : int = RUNNING
 var hSpeed : float = 0.0
-var health : int = 10
+
 
 @onready var prevRotation : float = charRotator.global_rotation.y
 
@@ -168,16 +168,19 @@ func togglePlayer(state : bool) -> void:
 	playerEnabled = state
 
 var iTime : float = 0.0
+signal damaged
 func onDamaged(damage : int, instigator : Node3D) -> void:
 	if iTime < 0.001:
 		iTime = 0.2
-		health -= damage
+		damaged.emit()
+		PlayerManager.health -= damage
 		damageNumberSpawner.spawnDNumber(damage)
 		print("player damage")
-		if health <= 0:
+		if PlayerManager.health <= 0:
 			die()
-		
 
+
+signal died
 func die() -> void:
-	return
+	died.emit()
 	togglePlayer(false)

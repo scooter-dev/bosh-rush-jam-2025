@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://c1g40osluc5on" path="res://SRC/Player/player.tscn" id="1_orjte"]
 [ext_resource type="Script" uid="uid://dnev02fq78g5" path="res://Scenes/Maps/Level.gd" id="1_ra64b"]
 [ext_resource type="Shader" uid="uid://d20ryyciv7x8g" path="res://SRC/Shaders/Sky.gdshader" id="2_61yvp"]
-[ext_resource type="PackedScene" uid="uid://doqtlbhictw32" path="res://SRC/Enemies/Bosses/Director/director.tscn" id="6_ra64b"]
+[ext_resource type="PackedScene" uid="uid://bj76op4qds1fb" path="res://SRC/Actors/Elevator/elevator.tscn" id="6_ra64b"]
 [ext_resource type="PackedScene" uid="uid://lkyrgi5lf1an" path="res://SRC/Actors/ProcGen/Pieces/proc_central_01.tscn" id="6_x8ovn"]
 [ext_resource type="PackedScene" uid="uid://dmkgyudote4ss" path="res://SRC/Actors/VendingMachine/vending_machine.tscn" id="10_lsk3j"]
 
@@ -35,7 +35,7 @@ sdfgi_max_distance = 140.0
 script = ExtResource("1_ra64b")
 
 [node name="PlayerMech" parent="." instance=ExtResource("1_orjte")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0.499999, -5.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.499999, 18.5)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_jwv5c")
@@ -58,8 +58,14 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 20, 0.
 
 [node name="Proc_Central_01" parent="." instance=ExtResource("6_x8ovn")]
 
+[node name="Z+" parent="Proc_Central_01/Barriers" index="2"]
+visible = false
+collision_layer = 0
+
 [node name="Proc_Central_02" parent="." instance=ExtResource("6_x8ovn")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -40, 0, 0)
 
-[node name="Director" parent="." instance=ExtResource("6_ra64b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, -5.5)
+[node name="Elevator" parent="." instance=ExtResource("6_ra64b")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 22)
+
+[editable path="Proc_Central_01"]
