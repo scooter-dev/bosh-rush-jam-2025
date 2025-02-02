@@ -22,13 +22,26 @@ grow_vertical = 2
 layout_mode = 2
 alignment = 1
 
-[node name="InventoryMargin" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
+[node name="InventoryMargin" type="MarginContainer" parent="MarginContainer/HBoxContainer" node_paths=PackedStringArray("inventoryGrid", "glueCount", "stapleCount", "tapeCount", "phoneBookCount", "sodaCount", "candyCount", "tubingCount", "wiresCount", "chipCount", "circuitboardCount", "penCount", "oilCount")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
 theme_override_constants/margin_left = 25
 theme_override_constants/margin_top = 25
 script = ExtResource("1_dwtdd")
+inventoryGrid = NodePath("GridContainer")
+glueCount = NodePath("GridContainer/Glue/GlueCountLabel")
+stapleCount = NodePath("GridContainer/Staples/StaplesCountLabel")
+tapeCount = NodePath("GridContainer/Tape/TapeCountLable")
+phoneBookCount = NodePath("GridContainer/PhoneBook/PhoneBookCountLable")
+sodaCount = NodePath("GridContainer/SodaCan/SodaCountLabel")
+candyCount = NodePath("GridContainer/Candy/CandyCountLabel")
+tubingCount = NodePath("GridContainer/Tubing/TubingCountLable")
+wiresCount = NodePath("GridContainer/Wires/WiresCountLabel")
+chipCount = NodePath("GridContainer/Chip/ChipCountLabel")
+circuitboardCount = NodePath("GridContainer/CircuitBoard/CircuitCountLabel")
+penCount = NodePath("GridContainer/Pen/PenCountLabel")
+oilCount = NodePath("GridContainer/Oil/OilCountLabel")
 
 [node name="GridContainer" type="GridContainer" parent="MarginContainer/HBoxContainer/InventoryMargin"]
 layout_mode = 2
@@ -46,7 +59,7 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/Glue"]
+[node name="GlueCountLabel" type="Label" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/Glue"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -60,16 +73,17 @@ grow_horizontal = 0
 grow_vertical = 2
 text = "50"
 
-[node name="Glue2" type="Panel" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer"]
+[node name="Staples" type="Panel" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer"]
+visible = false
 custom_minimum_size = Vector2(75, 0)
 layout_mode = 2
 
-[node name="ColorRect" type="ColorRect" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/Glue2"]
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/Staples"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/Glue2"]
+[node name="StaplesCountLabel" type="Label" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/Staples"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -83,16 +97,17 @@ grow_horizontal = 0
 grow_vertical = 2
 text = "50"
 
-[node name="Glue3" type="Panel" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer"]
+[node name="Tape" type="Panel" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer"]
+visible = false
 custom_minimum_size = Vector2(75, 0)
 layout_mode = 2
 
-[node name="ColorRect" type="ColorRect" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/Glue3"]
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/Tape"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/Glue3"]
+[node name="TapeCountLable" type="Label" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/Tape"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -106,16 +121,17 @@ grow_horizontal = 0
 grow_vertical = 2
 text = "50"
 
-[node name="Glue4" type="Panel" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer"]
+[node name="PhoneBook" type="Panel" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer"]
+visible = false
 custom_minimum_size = Vector2(75, 0)
 layout_mode = 2
 
-[node name="ColorRect" type="ColorRect" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/Glue4"]
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/PhoneBook"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/Glue4"]
+[node name="PhoneBookCountLable" type="Label" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/PhoneBook"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -129,16 +145,17 @@ grow_horizontal = 0
 grow_vertical = 2
 text = "50"
 
-[node name="Glue5" type="Panel" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer"]
+[node name="SodaCan" type="Panel" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer"]
+visible = false
 custom_minimum_size = Vector2(75, 0)
 layout_mode = 2
 
-[node name="ColorRect" type="ColorRect" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/Glue5"]
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/SodaCan"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/Glue5"]
+[node name="SodaCountLabel" type="Label" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/SodaCan"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -152,16 +169,17 @@ grow_horizontal = 0
 grow_vertical = 2
 text = "50"
 
-[node name="Glue6" type="Panel" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer"]
+[node name="Candy" type="Panel" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer"]
+visible = false
 custom_minimum_size = Vector2(75, 0)
 layout_mode = 2
 
-[node name="ColorRect" type="ColorRect" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/Glue6"]
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/Candy"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/Glue6"]
+[node name="CandyCountLabel" type="Label" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/Candy"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -175,16 +193,17 @@ grow_horizontal = 0
 grow_vertical = 2
 text = "50"
 
-[node name="Glue7" type="Panel" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer"]
+[node name="Tubing" type="Panel" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer"]
+visible = false
 custom_minimum_size = Vector2(75, 0)
 layout_mode = 2
 
-[node name="ColorRect" type="ColorRect" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/Glue7"]
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/Tubing"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/Glue7"]
+[node name="TubingCountLable" type="Label" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/Tubing"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -198,16 +217,17 @@ grow_horizontal = 0
 grow_vertical = 2
 text = "50"
 
-[node name="Glue8" type="Panel" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer"]
+[node name="Wires" type="Panel" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer"]
+visible = false
 custom_minimum_size = Vector2(75, 0)
 layout_mode = 2
 
-[node name="ColorRect" type="ColorRect" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/Glue8"]
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/Wires"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/Glue8"]
+[node name="WiresCountLabel" type="Label" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/Wires"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -221,16 +241,17 @@ grow_horizontal = 0
 grow_vertical = 2
 text = "50"
 
-[node name="Glue9" type="Panel" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer"]
+[node name="Chip" type="Panel" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer"]
+visible = false
 custom_minimum_size = Vector2(75, 0)
 layout_mode = 2
 
-[node name="ColorRect" type="ColorRect" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/Glue9"]
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/Chip"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/Glue9"]
+[node name="ChipCountLabel" type="Label" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/Chip"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -244,16 +265,17 @@ grow_horizontal = 0
 grow_vertical = 2
 text = "50"
 
-[node name="Glue10" type="Panel" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer"]
+[node name="Pen" type="Panel" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer"]
+visible = false
 custom_minimum_size = Vector2(75, 0)
 layout_mode = 2
 
-[node name="ColorRect" type="ColorRect" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/Glue10"]
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/Pen"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/Glue10"]
+[node name="PenCountLabel" type="Label" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/Pen"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -267,16 +289,17 @@ grow_horizontal = 0
 grow_vertical = 2
 text = "50"
 
-[node name="Glue11" type="Panel" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer"]
+[node name="CircuitBoard" type="Panel" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer"]
+visible = false
 custom_minimum_size = Vector2(75, 0)
 layout_mode = 2
 
-[node name="ColorRect" type="ColorRect" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/Glue11"]
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/CircuitBoard"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/Glue11"]
+[node name="CircuitCountLabel" type="Label" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/CircuitBoard"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -290,39 +313,17 @@ grow_horizontal = 0
 grow_vertical = 2
 text = "50"
 
-[node name="Glue12" type="Panel" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer"]
+[node name="Oil" type="Panel" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer"]
+visible = false
 custom_minimum_size = Vector2(75, 0)
 layout_mode = 2
 
-[node name="ColorRect" type="ColorRect" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/Glue12"]
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/Oil"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/Glue12"]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -28.0
-offset_top = -11.5
-offset_bottom = 11.5
-grow_horizontal = 0
-grow_vertical = 2
-text = "50"
-
-[node name="Glue13" type="Panel" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer"]
-custom_minimum_size = Vector2(75, 0)
-layout_mode = 2
-
-[node name="ColorRect" type="ColorRect" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/Glue13"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/Glue13"]
+[node name="OilCountLabel" type="Label" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/Oil"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -354,7 +355,7 @@ theme_override_constants/separation = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/StatusMargin/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 100
+theme_override_constants/separation = 75
 
 [node name="BoostPlaceHolder" type="Panel" parent="MarginContainer/HBoxContainer/StatusMargin/VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -378,6 +379,7 @@ color = Color(1, 0, 0, 1)
 layout_mode = 2
 
 [node name="ColorRect" type="ColorRect" parent="MarginContainer/HBoxContainer/StatusMargin/VBoxContainer/HBoxContainer/HealthPlaceholder"]
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0

@@ -1,11 +1,11 @@
 extends MarginContainer
 
-class_name InventoryMagin
+class_name InventoryMargin
 
-var inventoryVisible: bool = false
-var fadeCounter: float = 0.00;
+enum e_items {GLUE, STAPLES, TAPE, PHONE_BOOK, SODA, CANDY, TUBING, WIRES, CHIP, CIRCUIT_BOARD, PEN, LASER_POINTER, OIL}
 
-# get items
+@export var inventoryGrid: GridContainer
+#HUD Items List
 @export var glueCount: Label
 @export var stapleCount: Label
 @export var tapeCount: Label
@@ -17,16 +17,49 @@ var fadeCounter: float = 0.00;
 @export var chipCount: Label
 @export var circuitboardCount: Label
 @export var penCount: Label
-@export var laserPointerCount: Label
+# @export var laserPointerCount: Label
 @export var oilCount: Label
 
+var inventoryVisible: bool = false
+var fadeCounter: float = 0.00;
+
+func _ready():
+    # signal from player when inv update to change count on hud
+    PlayerManager.updateHudCount.connect(changeCount)
 
 
-func changeCount(deltaCount: int, itemName: PlayerManager.e_items)-> void:
-    pass
+func changeCount(newCount: int, itemName: PlayerManager.e_items)-> void:
+    var currentLabel: Label
+    match itemName:
+        e_items.GLUE:
+            currentLabel = glueCount
+        e_items.STAPLES:
+            currentLabel = stapleCount
+        e_items.PHONE_BOOK:
+            currentLabel = phoneBookCount
+        e_items.SODA:
+            currentLabel = sodaCount
+        e_items.CANDY:
+            currentLabel = candyCount
+        e_items.TUBING:
+            currentLabel = tubingCount
+        e_items.CHIP:
+            currentLabel = chipCount
+        e_items.CIRCUIT_BOARD:
+            currentLabel = circuitboardCount
+        e_items.OIL:
+             currentLabel = oilCount
+
+    currentLabel.set_text(String.num(newCount))
+    if newCount > 0:
+        currentLabel.show()
+    else:
+        currentLabel.hide()
+
 
 func showInventory()-> void:
     inventoryVisible = true
+    inventoryGrid.show()
     fadeCounter = 1.00
 
 func _process(delta):
@@ -34,4 +67,5 @@ func _process(delta):
         fadeCounter-=delta
 
     if fadeCounter<= 0:
+        inventoryGrid.hide()
         inventoryVisible = false

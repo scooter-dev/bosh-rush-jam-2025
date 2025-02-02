@@ -33,6 +33,8 @@ const boostMax : int = 6
 
 enum e_upg {STRENGTH, CHAIR, ARMOR, BOOST}
 
+signal updateHudCount(newCount: int, itemName: PlayerManager.e_items)
+
 func getUpgradeRequirements(upg : int) -> Dictionary:
 	match upg:
 		e_upg.STRENGTH:
@@ -186,10 +188,12 @@ var hasLaserPointer : bool = false
 func addItem(item : e_items) -> void:
 	if inventory.has(item):
 		inventory[item] += 1
+	updateHudCount.emit(getItemCount(item), item)
 
 func removeItem(item : e_items, quantity : int = 1) -> void:
 	if inventory.has(item):
 		inventory[item] -= quantity
+	updateHudCount.emit(getItemCount(item), item)
 
 func getItemCount(item : e_items) -> int:
 	if inventory.has(item):
