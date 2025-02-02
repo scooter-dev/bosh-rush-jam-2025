@@ -4,7 +4,7 @@ class_name DirectorAI
 
 @export var attackArea : BossAttackArea
 
-enum {CHASE, BASIC_ATTACK, PREPARE_SPECIAL, SPECIAL_ATTACK, STANDBY}
+enum {CHASE, BASIC_ATTACK, PREPARE_SPECIAL, SPECIAL_ATTACK, STANDBY, STUNNED}
 
 var state : int = STANDBY
 
@@ -12,13 +12,16 @@ const AREA_ATTACK = preload("res://SRC/Enemies/Bosses/Director/area_attack.tscn"
 
 var target : Player
 
+func fightStart() -> void:
+	state = CHASE
+
 func _ready() -> void:
 	super()
 	target = PlayerManager.player
 	await get_tree().physics_frame
 	attackHolder = Node3D.new()
 	WorldManager.currentLevel.add_child(attackHolder)
-	state = CHASE
+	#state = CHASE
 
 func activate() -> void:
 	pass
@@ -59,6 +62,12 @@ func aiTick(delta : float) -> void:
 			if stateTimer < 0.001:
 				state = CHASE
 				stateTimer = 8.0
+		STUNNED:
+			if boss.stunTime < 0.001:
+				if prevState != PREPARE_SPECIAL:
+					state = CHASE
+				else:
+					state = prevState
 
 @export var animTree : AnimationTree
 func onAtkAreaDetected() -> void:
@@ -106,7 +115,12 @@ func fireAreaDamage() -> void:
 			atk.attack()
 		attacks2.clear()
 
+var prevState : int
 func aiReaction(amount : int, instigator : Node3D, grabbable: GrabbableProp) -> void:
+	if state != PREPARE_SPECIAL or state != SPECIAL_ATTACK:
+		boss.stunTime = clamp(0.2 * amount, 0.25, 1.0)
+		prevState = state
+		state = STUNNED
 	boss.recoveryTime = 0.15
 	boss.attackOnBoss(amount, instigator)
 
@@ -114,4 +128,5 @@ func aiReaction(amount : int, instigator : Node3D, grabbable: GrabbableProp) -> 
 
 func aiDefeat() -> void:
 	physical_bone_simulator_3d.physical_bones_start_simulation()
-	PlayerManager.keys
+	if !PlayerManager.getKey("rooftop"):
+		PlayerManager.keys.append("rooftop")

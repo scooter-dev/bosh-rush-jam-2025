@@ -1,10 +1,10 @@
-[gd_scene load_steps=66 format=4 uid="uid://bf33ug8wgn2hw"]
+[gd_scene load_steps=72 format=4 uid="uid://bf33ug8wgn2hw"]
 
 [ext_resource type="Script" uid="uid://dnev02fq78g5" path="res://Scenes/Maps/Level.gd" id="1_givcp"]
 [ext_resource type="Shader" uid="uid://drr0gce6cncf3" path="res://SRC/Shaders/darkness.gdshader" id="2_d08xr"]
 [ext_resource type="Shader" uid="uid://cm8puby5gs7hp" path="res://SRC/Shaders/rgbTextureTriplanar.gdshader" id="3_isvte"]
 [ext_resource type="Texture2D" uid="uid://bkclfd3itw7r7" path="res://Assets/Textures/Carpet.png" id="4_hkoxn"]
-[ext_resource type="LightmapGIData" uid="uid://drfkvcaxjrc2w" path="res://Scenes/Maps/DirectorArena/director_arena.lmbake" id="5_n3d40"]
+[ext_resource type="LightmapGIData" uid="uid://clad46ksebayv" path="res://Scenes/Maps/SafeRoom/SafeRoom.lmbake" id="5_bdbkr"]
 [ext_resource type="Script" uid="uid://dme2a1a6hugg0" path="res://addons/lightmap_probe_grid/lightmap_probe_grid.gd" id="6_xc2mp"]
 [ext_resource type="PackedScene" uid="uid://bj76op4qds1fb" path="res://SRC/Actors/Elevator/elevator.tscn" id="7_nq2qm"]
 [ext_resource type="PackedScene" uid="uid://c1g40osluc5on" path="res://SRC/Player/player.tscn" id="8_7qp7q"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://cbfnamxbsrff1" path="res://SRC/Props/CubicleDesk.tscn" id="17_ggfm5"]
 [ext_resource type="Texture2D" uid="uid://b7fiqumxwqpeh" path="res://Assets/Character/Beard_Head.png" id="18_qyhdu"]
 [ext_resource type="Texture2D" uid="uid://lun21mrx5mi6" path="res://Assets/Character/JanitorTorso.png" id="19_bdbkr"]
+[ext_resource type="Shader" uid="uid://d20ryyciv7x8g" path="res://SRC/Shaders/Sky.gdshader" id="20_u3g27"]
 
 [sub_resource type="Gradient" id="Gradient_xph0m"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
@@ -922,6 +923,30 @@ _data = {
 &"WaklFW": SubResource("Animation_efl12")
 }
 
+[sub_resource type="Gradient" id="Gradient_k2hl1"]
+colors = PackedColorArray(0, 0, 0, 1, 0.441406, 0.441406, 0.441406, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_obgsc"]
+gradient = SubResource("Gradient_k2hl1")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_onk8f"]
+shader = ExtResource("20_u3g27")
+shader_parameter/vGradient = SubResource("GradientTexture1D_obgsc")
+shader_parameter/direction = Vector3(0, 1, 0)
+
+[sub_resource type="Sky" id="Sky_celpx"]
+sky_material = SubResource("ShaderMaterial_onk8f")
+radiance_size = 2
+
+[sub_resource type="Environment" id="Environment_rsojy"]
+background_mode = 1
+sky = SubResource("Sky_celpx")
+ssil_radius = 10.0
+sdfgi_cascades = 3
+sdfgi_min_cell_size = 0.273438
+sdfgi_cascade0_distance = 17.5
+sdfgi_max_distance = 140.0
+
 [node name="SafeRoom" type="Node3D"]
 script = ExtResource("1_givcp")
 
@@ -955,7 +980,7 @@ skeleton = NodePath("")
 [node name="LightmapGI" type="LightmapGI" parent="."]
 quality = 2
 generate_probes_subdiv = 0
-light_data = ExtResource("5_n3d40")
+light_data = ExtResource("5_bdbkr")
 
 [node name="LightmapProbeGrid" type="Node3D" parent="LightmapGI"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.111273, 1.10328, 3.99049)
@@ -1919,3 +1944,6 @@ libraries = {
 &"": SubResource("AnimationLibrary_ggfm5")
 }
 autoplay = "Idle"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_rsojy")

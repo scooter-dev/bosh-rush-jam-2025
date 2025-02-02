@@ -7,6 +7,7 @@ class_name BossAi
 func _ready() -> void:
 	boss.damaged.connect(aiReaction)
 	boss.dead.connect(aiDefeat)
+	boss.startFightReceived.connect(fightStart)
 	pass
 
 func _physics_process(_delta):
@@ -19,4 +20,7 @@ func aiReaction(amount : int, instigator : Node3D, grabbable: GrabbableProp) -> 
 	pass
 
 func aiDefeat() -> void:
+	pass
+
+func fightStart() -> void:
 	pass

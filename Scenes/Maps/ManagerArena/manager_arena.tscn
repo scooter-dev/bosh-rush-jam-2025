@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=4 uid="uid://chqwq6decod5a"]
+[gd_scene load_steps=44 format=4 uid="uid://chqwq6decod5a"]
 
 [ext_resource type="Shader" uid="uid://cm8puby5gs7hp" path="res://SRC/Shaders/rgbTextureTriplanar.gdshader" id="1_3hiah"]
 [ext_resource type="Script" uid="uid://dnev02fq78g5" path="res://Scenes/Maps/Level.gd" id="1_3n1o1"]
@@ -17,6 +17,8 @@
 [ext_resource type="PackedScene" uid="uid://dsm3khy1hvjry" path="res://SRC/Props/nice_desk.tscn" id="15_ly4su"]
 [ext_resource type="PackedScene" uid="uid://pkxidb743b72" path="res://SRC/Props/nice_chair.tscn" id="16_2q4ae"]
 [ext_resource type="PackedScene" uid="uid://bdehricvsx6gs" path="res://SRC/Props/door.tscn" id="17_jqn54"]
+[ext_resource type="PackedScene" uid="uid://bb4f5h5c4tiu7" path="res://Scenes/boss_cutscene.tscn" id="18_opehn"]
+[ext_resource type="Shader" uid="uid://d20ryyciv7x8g" path="res://SRC/Shaders/Sky.gdshader" id="19_n8iev"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_2q4ae"]
 vertices = PackedVector3Array(-0.5, 0.5, 9.5, -0.25, 0.5, 14.5, 0.5, 0.5, 14.5, 0.75, 0.5, 9.5, -7.25, 0.5, -1.25, 7.5, 0.5, -1.25, -7.25, 0.5, 9.5, 7.5, 0.5, 9.5)
@@ -159,6 +161,33 @@ data = PackedVector3Array(-8, 0, 10, -8, 3, -2, -8, 0, -2, -8, 0, 10, -8, 3, 10,
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ybuhm"]
 data = PackedVector3Array(-8, 0, -2, 8, 0, 10, -8, 0, 10, -8, 0, -2, 8, 0, -2, 8, 0, 10, -1.0001, 0, 10, 0.9999, 0, 15, -1.0001, 0, 15, -1.0001, 0, 10, 0.9999, 0, 10, 0.9999, 0, 15)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n8iev"]
+size = Vector3(2.5, 3.5, 1)
+
+[sub_resource type="Gradient" id="Gradient_b3h13"]
+colors = PackedColorArray(0, 0, 0, 1, 0.441406, 0.441406, 0.441406, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_uqb8s"]
+gradient = SubResource("Gradient_b3h13")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_odeh2"]
+shader = ExtResource("19_n8iev")
+shader_parameter/vGradient = SubResource("GradientTexture1D_uqb8s")
+shader_parameter/direction = Vector3(0, 1, 0)
+
+[sub_resource type="Sky" id="Sky_f6x6q"]
+sky_material = SubResource("ShaderMaterial_odeh2")
+radiance_size = 2
+
+[sub_resource type="Environment" id="Environment_1stub"]
+background_mode = 1
+sky = SubResource("Sky_f6x6q")
+ssil_radius = 10.0
+sdfgi_cascades = 3
+sdfgi_min_cell_size = 0.273438
+sdfgi_cascade0_distance = 17.5
+sdfgi_max_distance = 140.0
 
 [node name="ManagerArena" type="Node3D"]
 script = ExtResource("1_3n1o1")
@@ -884,8 +913,9 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 
 [node name="PlayerChair" parent="." instance=ExtResource("7_1pckg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 17.37)
 
-[node name="Manager" parent="." instance=ExtResource("8_143yl")]
+[node name="Manager" parent="." node_paths=PackedStringArray("unlockDoor") instance=ExtResource("8_143yl")]
 transform = Transform3D(-0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, 2, 0, -1)
+unlockDoor = NodePath("../Door")
 
 [node name="Props" type="Node3D" parent="."]
 
@@ -981,3 +1011,25 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 
 
 [node name="Door" parent="." instance=ExtResource("17_jqn54")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12.25)
+
+[node name="BossCutscene" parent="." node_paths=PackedStringArray("player", "camera", "cameraDestination", "boss", "lockDoor") instance=ExtResource("18_opehn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+text = "MANAGER"
+player = NodePath("../PlayerChair")
+camera = NodePath("Cam")
+cameraDestination = NodePath("Dest")
+boss = NodePath("../Manager")
+lockDoor = NodePath("../Door")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BossCutscene"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
+shape = SubResource("BoxShape3D_n8iev")
+
+[node name="Cam" type="Camera3D" parent="BossCutscene"]
+transform = Transform3D(1, 0, 0, 0, 0.775352, 0.631529, 0, -0.631529, 0.775352, 0, 2.43222, 0)
+
+[node name="Dest" type="Camera3D" parent="BossCutscene"]
+transform = Transform3D(0.945439, 0.113186, -0.305506, 0, 0.937713, 0.34741, 0.325799, -0.328455, 0.88655, 1.35227, 1.81204, -9.36695)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1stub")

@@ -1,5 +1,7 @@
 extends Node3D
 
+class_name Door
+
 @export var locked : bool = false
 @export var key : String
 @export_category("Components")
@@ -11,17 +13,20 @@ func _ready() -> void:
 		lock()
 
 func _on_unlock_area_body_entered(body: Node3D) -> void:
-	if PlayerManager.getKey(key):
+	if PlayerManager.getKey(key) and !lockOverride:
 		unlock()
 
 func unlock() -> void:
+	lockOverride = false
 	locked = false
 	door_l.freeze = false
 	door_r.freeze = false
 	door_l.collision_layer = 32
 	door_r.collision_layer = 32
 
-func lock() -> void:
+var lockOverride : bool = false
+func lock(override : bool = false) -> void:
+	lockOverride = override
 	locked = true
 	door_l.collision_layer = 33
 	door_r.collision_layer = 33

@@ -139,6 +139,7 @@ weightClass = 2
 
 [node name="NiceOfficeChair" type="MeshInstance3D" parent="."]
 material_override = SubResource("ShaderMaterial_2ntmr")
+gi_mode = 2
 mesh = SubResource("ArrayMesh_0s5sh")
 skeleton = NodePath("")
 metadata/extras = {
@@ -150,6 +151,7 @@ shape = SubResource("ConvexPolygonShape3D_1nyma")
 
 [node name="NiceOfficeChairArmRests" type="MeshInstance3D" parent="."]
 material_override = SubResource("ShaderMaterial_urokm")
+gi_mode = 2
 mesh = SubResource("ArrayMesh_wc721")
 skeleton = NodePath("")
 metadata/extras = {
@@ -161,6 +163,7 @@ shape = SubResource("ConvexPolygonShape3D_j86cx")
 
 [node name="NiceOfficeChairFeet" type="MeshInstance3D" parent="."]
 material_override = SubResource("ShaderMaterial_urokm")
+gi_mode = 2
 mesh = SubResource("ArrayMesh_0nkbm")
 skeleton = NodePath("")
 metadata/extras = {

@@ -1,5 +1,6 @@
 extends Node3D
 
+@export var currentFloor : int = -1
 @export var camera: Camera3D
 @export var door_big: CharacterBody3D
 @export var door_small: CharacterBody3D
@@ -68,7 +69,35 @@ func onPrimary() -> void:
 					else:
 						num_panel.cancelPressed()
 				VendingMachineButton.e_num.ACCEPT:
-					pass
+					var num : int = num_panel.getNumber()
+					if num == currentFloor:
+						deactivate()
+					match num:
+						101:
+							close()
+							await get_tree().create_timer(2.0).timeout
+							get_tree().change_scene_to_file("res://Scenes/Maps/Rooftop/rooftop.tscn")
+						100:
+							deactivate()
+							#close()
+							#await get_tree().create_timer(2.0).timeout
+							#get_tree().change_scene_to_file("res://Scenes/Maps/Rooftop/rooftop.tscn")
+						80:
+							close()
+							await get_tree().create_timer(2.0).timeout
+							get_tree().change_scene_to_file("res://Scenes/Maps/DirectorArena/director_arena.tscn")
+						40:
+							close()
+							await get_tree().create_timer(2.0).timeout
+							get_tree().change_scene_to_file("res://Scenes/Maps/ManagerArena/manager_arena.tscn")
+						12:
+							close()
+							await get_tree().create_timer(2.0).timeout
+							get_tree().change_scene_to_file("res://Scenes/Maps/SafeRoom/SafeRoom.tscn")
+						_:
+							close()
+							await get_tree().create_timer(2.0).timeout
+							get_tree().change_scene_to_file("res://SRC/Actors/ProcGen/level_gen.tscn")
 				_:
 					num_panel.addNum(selectedButton.number)
 

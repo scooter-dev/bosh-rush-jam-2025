@@ -5,7 +5,7 @@ var otherPlayers : Array[Player]
 
 enum e_items {GLUE, STAPLES, TAPE, PHONE_BOOK, SODA, CANDY, TUBING, WIRES, CHIP, CIRCUIT_BOARD, PEN, LASER_POINTER, OIL}
 
-var keys : Array[String]
+var keys : Array[String] = []
 
 func getKey(key : String) -> bool:
 	if keys.has(key):
@@ -14,7 +14,7 @@ func getKey(key : String) -> bool:
 
 var money : int = 10
 
-var health : int = 10
+var health : int = 20
 var boostStrength : float = 0.0 #How fast the boost is
 var boostCooldown : float = 1.0
 var launchPower : float = 0.25 #How fast launched items fly

@@ -42,7 +42,7 @@ func _ready() -> void:
 	else:
 		character_mesh.get_surface_override_material(0).albedo_texture = ZOMBIE_HEAD_BLUE
 		character_mesh.get_surface_override_material(1).albedo_texture = PURPLE_TIE_TORSO
-	
+	await get_tree().physics_frame
 	spawnPosition = global_position
 	wanderPos = spawnPosition
 	health = startHealth

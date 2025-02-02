@@ -8,13 +8,14 @@ class_name BossZombie
 @export var foot_decal: FootDecal
 @export var nav_agent: NavigationAgent3D
 @export var rotatorNode: Node3D
+@export var unlockDoor : Door
 
 signal dead
 signal damaged(amount : int, instigator : Node3D, grabbable: GrabbableProp)
 
 # var nav_enable: bool = false
 var isDead : bool = false
-var health : int = boss_health
+@onready var health : int = boss_health
 var recoveryTime : float = 0.00
 var invulnerable: bool = true
 
@@ -25,11 +26,17 @@ var targetPosition : Vector3 = Vector3()
 var spawnPosition : Vector3
 
 func _ready():
+	desired_rotation = global_rotation.y
 	targetPosition = global_position
 
+signal startFightReceived
+func startFight() -> void:
+	startFightReceived.emit()
+var stunTime : float = 0.0
 func _physics_process(_delta):
+	stunTime -= _delta
 	recoveryTime -= _delta
-	if getPlanarDistanceToTargetSq() > 1:
+	if getPlanarDistanceToTargetSq() > 1 and stunTime < 0.001:
 		nav_agent.target_position = targetPosition
 		var next_position: Vector3 = nav_agent.get_next_path_position()
 		apply_central_force(((next_position-global_position) * Vector3(1,0,1)).normalized() * speed)
@@ -52,6 +59,8 @@ func attackOnBoss(damage : int ,instigator : Node3D = null) -> void:
 
 func die() -> void:
 	isDead = true
+	if unlockDoor:
+		unlockDoor.unlock()
 	dead.emit()
 	set_physics_process(false)
 	lock_rotation = false

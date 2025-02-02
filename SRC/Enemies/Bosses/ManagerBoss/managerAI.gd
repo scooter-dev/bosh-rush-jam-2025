@@ -4,7 +4,7 @@ class_name ManagerAI
 
 @export var attackArea : BossAttackArea
 
-enum {CHASE, BASIC_ATTACK, PREPARE_SPECIAL, SPECIAL_ATTACK, STANDBY}
+enum {CHASE, BASIC_ATTACK, PREPARE_SPECIAL, SPECIAL_ATTACK, STANDBY, STUNNED}
 
 var state : int = STANDBY
 
@@ -19,8 +19,8 @@ func _ready() -> void:
 	attackHolder = Node3D.new()
 	WorldManager.currentLevel.add_child(attackHolder)
 
-func activate() -> void:
-	pass
+func fightStart() -> void:
+	state = CHASE
 
 var stateTimer : float = 8.0
 
@@ -58,6 +58,14 @@ func aiTick(delta : float) -> void:
 			if stateTimer < 0.001:
 				state = CHASE
 				stateTimer = 8.0
+		STUNNED:
+			if boss.stunTime < 0.001:
+				if prevState != PREPARE_SPECIAL:
+					state = CHASE
+				else:
+					state = prevState
+
+var prevState : int
 
 @export var animTree : AnimationTree
 func onAtkAreaDetected() -> void:
@@ -67,15 +75,16 @@ func onAtkAreaDetected() -> void:
 const HPI : float = PI/2
 var paperAttacks : Array[PaperAttack]
 var attackHolder : Node3D
+const attacks : float = 3
 func spawnPaper() -> void:
-	for i : int in range(9):
+	for i : int in range(attacks):
 		var patk : PaperAttack = PAPER_ATTACK.instantiate()
 		paperAttacks.append(patk)
 		patk.instigator = boss
 		patk.speed = 20.0
 		attackHolder.add_child(patk)
 		patk.position = Vector3()
-		patk.rotation.y = ((i - 4.5)/9.0) * (PI/3)
+		patk.rotation.y = ((i - (attacks / 2.0))/attacks) * (PI/4)
 		patk.position.y += randf_range(-0.01,0.01)
 
 func shootPaper() -> void:
@@ -83,10 +92,19 @@ func shootPaper() -> void:
 		p.launch()
 	paperAttacks.clear()
 
+func purgePaper() -> void:
+	for p : PaperAttack in paperAttacks:
+		p.queue_free()
+
 func aiReaction(amount : int, instigator : Node3D, grabbable: GrabbableProp) -> void:
+	boss.stunTime = clamp(0.2 * amount, 0.25, 1.0)
+	prevState = state
+	state = STUNNED
+	purgePaper()
 	boss.recoveryTime = 0.15
 	boss.attackOnBoss(amount, instigator)
 
 func aiDefeat() -> void:
 	$"../CharacterRotator/Character/Armature/Skeleton3D/PhysicalBoneSimulator3D".physical_bones_start_simulation()
-	PlayerManager.keys.append("director")
+	if !PlayerManager.getKey("director"):
+		PlayerManager.keys.append("director")

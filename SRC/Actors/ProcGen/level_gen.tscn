@@ -1,6 +1,42 @@
-[gd_scene load_steps=2 format=3 uid="uid://cojsefvig53m4"]
+[gd_scene load_steps=10 format=3 uid="uid://cojsefvig53m4"]
 
 [ext_resource type="Script" uid="uid://ckjpergtgginl" path="res://SRC/Actors/ProcGen/level_gen.gd" id="1_ch8g2"]
+[ext_resource type="PackedScene" uid="uid://bj76op4qds1fb" path="res://SRC/Actors/Elevator/elevator.tscn" id="2_68epw"]
+[ext_resource type="Shader" uid="uid://d20ryyciv7x8g" path="res://SRC/Shaders/Sky.gdshader" id="3_pnont"]
+[ext_resource type="PackedScene" uid="uid://c1g40osluc5on" path="res://SRC/Player/player.tscn" id="4_716ac"]
+
+[sub_resource type="Gradient" id="Gradient_716ac"]
+colors = PackedColorArray(0, 0, 0, 1, 0.898438, 0.898438, 0.898438, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_lr4ii"]
+gradient = SubResource("Gradient_716ac")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_716ac"]
+shader = ExtResource("3_pnont")
+shader_parameter/vGradient = SubResource("GradientTexture1D_lr4ii")
+shader_parameter/direction = Vector3(0, 1, 0)
+
+[sub_resource type="Sky" id="Sky_vq0ne"]
+sky_material = SubResource("ShaderMaterial_716ac")
+radiance_size = 2
+
+[sub_resource type="Environment" id="Environment_lr4ii"]
+background_mode = 2
+sky = SubResource("Sky_vq0ne")
+ssil_radius = 10.0
+sdfgi_cascades = 3
+sdfgi_min_cell_size = 0.273438
+sdfgi_cascade0_distance = 17.5
+sdfgi_max_distance = 140.0
 
 [node name="LevelGen" type="Node3D"]
 script = ExtResource("1_ch8g2")
+
+[node name="Elevator" parent="." instance=ExtResource("2_68epw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_lr4ii")
+
+[node name="PlayerChair" parent="." instance=ExtResource("4_716ac")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.15)

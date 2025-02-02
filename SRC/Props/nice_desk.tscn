@@ -60,6 +60,7 @@ weightClass = 4
 
 [node name="LargeDesk" type="MeshInstance3D" parent="."]
 material_override = SubResource("ShaderMaterial_x80qv")
+gi_mode = 2
 mesh = SubResource("ArrayMesh_nahux")
 skeleton = NodePath("")
 metadata/extras = {

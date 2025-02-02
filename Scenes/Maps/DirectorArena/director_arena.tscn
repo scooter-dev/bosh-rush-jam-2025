@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://cepkn6c8imc7a"]
+[gd_scene load_steps=42 format=4 uid="uid://cepkn6c8imc7a"]
 
 [ext_resource type="Script" uid="uid://dnev02fq78g5" path="res://Scenes/Maps/Level.gd" id="1_cb3nb"]
 [ext_resource type="Shader" uid="uid://drr0gce6cncf3" path="res://SRC/Shaders/darkness.gdshader" id="1_h2j7t"]
@@ -15,6 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://dsm3khy1hvjry" path="res://SRC/Props/nice_desk.tscn" id="12_xu1t3"]
 [ext_resource type="PackedScene" uid="uid://pkxidb743b72" path="res://SRC/Props/nice_chair.tscn" id="13_cb3nb"]
 [ext_resource type="PackedScene" uid="uid://bdehricvsx6gs" path="res://SRC/Props/door.tscn" id="15_u7qvb"]
+[ext_resource type="PackedScene" uid="uid://bb4f5h5c4tiu7" path="res://Scenes/boss_cutscene.tscn" id="16_idbnn"]
+[ext_resource type="Shader" uid="uid://d20ryyciv7x8g" path="res://SRC/Shaders/Sky.gdshader" id="17_34ehc"]
 
 [sub_resource type="Gradient" id="Gradient_xph0m"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
@@ -157,6 +159,33 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_quxli")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_34ehc"]
+size = Vector3(2.5, 5.25, 1)
+
+[sub_resource type="Gradient" id="Gradient_qhr5i"]
+colors = PackedColorArray(0, 0, 0, 1, 0.441406, 0.441406, 0.441406, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_yxp5o"]
+gradient = SubResource("Gradient_qhr5i")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iy3o1"]
+shader = ExtResource("17_34ehc")
+shader_parameter/vGradient = SubResource("GradientTexture1D_yxp5o")
+shader_parameter/direction = Vector3(0, 1, 0)
+
+[sub_resource type="Sky" id="Sky_61yvp"]
+sky_material = SubResource("ShaderMaterial_iy3o1")
+radiance_size = 2
+
+[sub_resource type="Environment" id="Environment_cx3ww"]
+background_mode = 1
+sky = SubResource("Sky_61yvp")
+ssil_radius = 10.0
+sdfgi_cascades = 3
+sdfgi_min_cell_size = 0.273438
+sdfgi_cascade0_distance = 17.5
+sdfgi_max_distance = 140.0
 
 [node name="ManagerArena" type="Node3D"]
 script = ExtResource("1_cb3nb")
@@ -882,8 +911,9 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 
 [node name="PlayerChair" parent="." instance=ExtResource("7_np2dr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 17.37)
 
-[node name="Director" parent="." instance=ExtResource("8_kja0y")]
-transform = Transform3D(-1, 0, 8.9407e-08, 0, 1, 0, -8.9407e-08, 0, -1, -1.75, 0, 0)
+[node name="Director" parent="." node_paths=PackedStringArray("unlockDoor") instance=ExtResource("8_kja0y")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.75, 0, 0)
+unlockDoor = NodePath("../Door")
 
 [node name="Props" type="Node3D" parent="."]
 
@@ -974,3 +1004,25 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.75,
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12.5)
 locked = true
 key = "director"
+
+[node name="BossCutscene" parent="." node_paths=PackedStringArray("player", "camera", "cameraDestination", "boss", "lockDoor") instance=ExtResource("16_idbnn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.75)
+text = "DIRECTOR"
+player = NodePath("../PlayerChair")
+camera = NodePath("Cam")
+cameraDestination = NodePath("Target")
+boss = NodePath("../Director")
+lockDoor = NodePath("../Door")
+
+[node name="Cam" type="Camera3D" parent="BossCutscene"]
+transform = Transform3D(0.896425, -0.304706, 0.321834, -3.72529e-09, 0.726167, 0.687519, -0.443196, -0.616309, 0.650954, -0.00779151, 3.31785, 0.168351)
+
+[node name="Target" type="Camera3D" parent="BossCutscene"]
+transform = Transform3D(1, 0, 0, 0, 0.920013, 0.391888, 0, -0.391888, 0.920013, -1.64178, 1.70682, -7.98255)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BossCutscene"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.125, 0)
+shape = SubResource("BoxShape3D_34ehc")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_cx3ww")

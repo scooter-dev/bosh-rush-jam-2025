@@ -8,7 +8,7 @@ var playerEnabled : bool = true
 @export var charRotator : CharRotator
 @export var grabArea : GrabArea
 @export var damageNumberSpawner : DamageNSpawner
-var acceleration : float = 12.0
+var acceleration : float = 18.0
 var damping : float = 30.0
 
 enum {RUNNING, GRABBING, SPEEN, AIM}
@@ -183,6 +183,8 @@ func onDamaged(damage : int, instigator : Node3D) -> void:
 signal died
 var dead : bool = false
 func die() -> void:
+	mode = RUNNING
+	Engine.time_scale = 1.0
 	$CharRotator/PlayerCharacter/Character/Armature/Skeleton3D/PhysicalBoneSimulator3D.physical_bones_start_simulation()
 	died.emit()
 	dead = true
