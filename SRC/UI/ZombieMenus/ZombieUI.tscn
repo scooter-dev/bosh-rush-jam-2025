@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cmkswypvk04ct"]
 
 [ext_resource type="Script" uid="uid://b7adi2ag43ou5" path="res://SRC/UI/ZombieMenus/main_menu.gd" id="1_a76il"]
-[ext_resource type="Texture2D" uid="uid://ukvvaflgwc33" path="res://SRC/zombie_transparent_eyes.png" id="1_qs8yo"]
+[ext_resource type="Texture2D" uid="uid://ukvvaflgwc33" path="res://Assets/Textures/zombie_transparent_eyes.png" id="1_qs8yo"]
 
 [sub_resource type="Gradient" id="Gradient_31q7d"]
 colors = PackedColorArray(0, 0.117647, 0, 0.921569, 0.368627, 0.368627, 0.368627, 0.431373)

@@ -747,9 +747,9 @@ shape = SubResource("CapsuleShape3D_pu2tl")
 bones/6/rotation = Quaternion(3.09086e-08, 0.707107, 0.707107, 3.09086e-08)
 bones/7/rotation = Quaternion(0, 4.37114e-08, 0, 1)
 bones/8/rotation = Quaternion(0.658114, 0.474342, 0.474342, -0.341886)
-bones/9/rotation = Quaternion(-0.49318, 0.138756, 0.0800322, 0.855053)
+bones/9/rotation = Quaternion(-0.486589, 0.139368, 0.0789627, 0.85882)
 bones/10/rotation = Quaternion(0.658114, -0.474342, -0.474342, -0.341886)
-bones/11/rotation = Quaternion(-0.469319, -0.140918, -0.0761601, 0.868379)
+bones/11/rotation = Quaternion(-0.464784, -0.141313, -0.0754241, 0.870814)
 
 [node name="CharacterMesh" parent="RotatorNode/Character/Armature/Skeleton3D" index="0"]
 gi_mode = 2
