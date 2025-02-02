@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://vwjdkl448eea" path="res://SRC/UI/ZombieMenus/inventory_margin.gd" id="1_dwtdd"]
 [ext_resource type="Script" uid="uid://xfaxkrtgp6rw" path="res://SRC/UI/ZombieMenus/status_margin.gd" id="2_s1u6l"]
 [ext_resource type="Texture2D" uid="uid://dixxy5gmx087c" path="res://Assets/Textures/icons.png" id="2_ty1iu"]
+[ext_resource type="Texture2D" uid="uid://rpcfrillc1hc" path="res://Assets/Textures/boost_icon.png" id="4_ty1iu"]
+[ext_resource type="Texture2D" uid="uid://c67gptj3c3pnr" path="res://Assets/Textures/healthbar_bg.png" id="5_crj3o"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_crj3o"]
 atlas = ExtResource("2_ty1iu")
@@ -52,12 +54,6 @@ region = Rect2(736, 824, 184, 136)
 atlas = ExtResource("2_ty1iu")
 region = Rect2(600, 376, 80, 160)
 
-[sub_resource type="Gradient" id="Gradient_e318d"]
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_s1u6l"]
-gradient = SubResource("Gradient_e318d")
-
 [node name="Hud" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -104,7 +100,7 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_constants/h_separation = 20
-theme_override_constants/v_separation = 75
+theme_override_constants/v_separation = 25
 columns = 2
 
 [node name="Glue" type="Panel" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer"]
@@ -501,25 +497,58 @@ theme_override_constants/separation = 400
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 8
-theme_override_constants/margin_bottom = 50
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 25
 script = ExtResource("2_s1u6l")
 boostIcon = NodePath("VBoxContainer/HBoxContainer/BoostPlaceHolder/TextureProgressBar")
-shieldIcon = NodePath("VBoxContainer/ArmorPlaceholder/Label")
-healthBar = NodePath("VBoxContainer/HBoxContainer/HealthPlaceholder/TextureProgressBar")
-healthCount = NodePath("VBoxContainer/HBoxContainer/HealthPlaceholder/TextureProgressBar/Label")
-moneyCount = NodePath("VBoxContainer/CashPlaceholder/Label")
+shieldIcon = NodePath("VBoxContainer/HBoxContainer/ArmorPlaceholder/Label")
+healthBar = NodePath("VBoxContainer/HealthPlaceholder/TextureProgressBar")
+healthCount = NodePath("VBoxContainer/HealthPlaceholder/TextureProgressBar/Label")
+moneyCount = NodePath("VBoxContainer/HBoxContainer/CashPlaceholder/Label")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/StatusMargin"]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="ArmorPlaceholder" type="Panel" parent="MarginContainer/HBoxContainer/StatusMargin/VBoxContainer"]
-custom_minimum_size = Vector2(200, 50)
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/StatusMargin/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
-size_flags_vertical = 3
+size_flags_vertical = 0
+theme_override_constants/separation = 25
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/StatusMargin/VBoxContainer/ArmorPlaceholder"]
+[node name="BoostPlaceHolder" type="Panel" parent="MarginContainer/HBoxContainer/StatusMargin/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 2
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="MarginContainer/HBoxContainer/StatusMargin/VBoxContainer/HBoxContainer/BoostPlaceHolder"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 0
+offset_right = 50.0
+offset_bottom = 50.0
+max_value = 1.0
+step = 0.1
+value = 1.0
+fill_mode = 4
+nine_patch_stretch = true
+texture_progress = ExtResource("4_ty1iu")
+tint_progress = Color(1, 0, 1, 1)
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/StatusMargin/VBoxContainer/HBoxContainer/BoostPlaceHolder/TextureProgressBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 20
+text = "Boost"
+
+[node name="ArmorPlaceholder" type="Panel" parent="MarginContainer/HBoxContainer/StatusMargin/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/StatusMargin/VBoxContainer/HBoxContainer/ArmorPlaceholder"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -535,13 +564,11 @@ grow_vertical = 2
 scale = Vector2(1.00716, 0.988244)
 text = "Armor: 0"
 
-[node name="CashPlaceholder" type="Panel" parent="MarginContainer/HBoxContainer/StatusMargin/VBoxContainer"]
+[node name="CashPlaceholder" type="Panel" parent="MarginContainer/HBoxContainer/StatusMargin/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/StatusMargin/VBoxContainer/CashPlaceholder"]
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/StatusMargin/VBoxContainer/HBoxContainer/CashPlaceholder"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -555,45 +582,13 @@ offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.00716, 0.988244)
-text = "Cash: 0"
+text = "Money: 0"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/StatusMargin/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 75
-
-[node name="BoostPlaceHolder" type="Panel" parent="MarginContainer/HBoxContainer/StatusMargin/VBoxContainer/HBoxContainer"]
+[node name="HealthPlaceholder" type="Panel" parent="MarginContainer/HBoxContainer/StatusMargin/VBoxContainer"]
+custom_minimum_size = Vector2(500, 30)
 layout_mode = 2
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="MarginContainer/HBoxContainer/StatusMargin/VBoxContainer/HBoxContainer/BoostPlaceHolder"]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-max_value = 1.0
-step = 0.1
-value = 1.0
-fill_mode = 4
-nine_patch_stretch = true
-texture_progress = SubResource("GradientTexture1D_s1u6l")
-tint_progress = Color(1, 0, 1, 1)
-
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/StatusMargin/VBoxContainer/HBoxContainer/BoostPlaceHolder/TextureProgressBar"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Boost"
-
-[node name="HealthPlaceholder" type="Panel" parent="MarginContainer/HBoxContainer/StatusMargin/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="TextureProgressBar" type="TextureProgressBar" parent="MarginContainer/HBoxContainer/StatusMargin/VBoxContainer/HBoxContainer/HealthPlaceholder"]
+[node name="TextureProgressBar" type="TextureProgressBar" parent="MarginContainer/HBoxContainer/StatusMargin/VBoxContainer/HealthPlaceholder"]
 custom_minimum_size = Vector2(100, 25)
 layout_mode = 1
 anchors_preset = 15
@@ -605,19 +600,24 @@ max_value = 20.0
 value = 20.0
 allow_greater = true
 nine_patch_stretch = true
-texture_progress = SubResource("GradientTexture1D_s1u6l")
+stretch_margin_left = 3
+stretch_margin_top = 3
+stretch_margin_right = 3
+stretch_margin_bottom = 3
+texture_progress = ExtResource("5_crj3o")
 tint_progress = Color(1, 0, 0, 1)
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/StatusMargin/VBoxContainer/HBoxContainer/HealthPlaceholder/TextureProgressBar"]
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/StatusMargin/VBoxContainer/HealthPlaceholder/TextureProgressBar"]
 layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
+anchors_preset = 8
+anchor_left = 0.5
 anchor_top = 0.5
-anchor_right = 1.0
+anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -103.0
+offset_left = -51.5
 offset_top = -11.5
+offset_right = 51.5
 offset_bottom = 11.5
-grow_horizontal = 0
+grow_horizontal = 2
 grow_vertical = 2
 text = "Health: 20/20"
