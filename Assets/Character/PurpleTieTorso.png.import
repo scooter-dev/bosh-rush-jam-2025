@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqd8jklne18ux"
-path.s3tc="res://.godot/imported/Zombie_Head_blue.png-a74e412a8252e3a01224e3a267a14ac4.s3tc.ctex"
+uid="uid://dl282urbkt5t7"
+path.s3tc="res://.godot/imported/PurpleTieTorso.png-5d631b5ca0da069ac3b6a2f6f9a3ec1a.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Textures/Zombie_Head_blue.png"
-dest_files=["res://.godot/imported/Zombie_Head_blue.png-a74e412a8252e3a01224e3a267a14ac4.s3tc.ctex"]
+source_file="res://Assets/Character/PurpleTieTorso.png"
+dest_files=["res://.godot/imported/PurpleTieTorso.png-5d631b5ca0da069ac3b6a2f6f9a3ec1a.s3tc.ctex"]
 
 [params]
 

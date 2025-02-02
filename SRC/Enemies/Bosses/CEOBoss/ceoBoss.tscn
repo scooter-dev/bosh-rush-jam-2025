@@ -1,52 +1,57 @@
-[gd_scene load_steps=45 format=3 uid="uid://dpp5kwx2brt4j"]
+[gd_scene load_steps=48 format=3 uid="uid://dd5kl7gsjrhdu"]
 
-[ext_resource type="Script" uid="uid://b1ub7malgxo06" path="res://SRC/Enemies/Bosses/boss_enemy.gd" id="1_280ne"]
-[ext_resource type="PackedScene" uid="uid://d6bsg66ea0km" path="res://SRC/Effects/foot_decal.tscn" id="2_icph8"]
-[ext_resource type="Shader" uid="uid://08ntj0c525et" path="res://SRC/Shaders/Decal.gdshader" id="3_5uh6l"]
-[ext_resource type="Script" uid="uid://bmcmi0po4hwtf" path="res://SRC/Enemies/Bosses/ManagerBoss/managerAI.gd" id="4_5uh6l"]
-[ext_resource type="PackedScene" uid="uid://cyn7tjf3k30" path="res://Assets/Character/Character.glb" id="5_3qnrk"]
-[ext_resource type="Texture2D" uid="uid://dvtkjp2je5dwy" path="res://Assets/Textures/Zombie_Head.png" id="6_br25j"]
-[ext_resource type="Script" path="res://SRC/Enemies/Bosses/BossAttackArea.gd" id="7_6xd4m"]
-[ext_resource type="PackedScene" uid="uid://bo2lyf4ubkwd" path="res://SRC/Enemies/damage_number_spawner.tscn" id="8_560r1"]
-[ext_resource type="Script" path="res://SRC/Enemies/Bosses/ManagerBoss/ManagerAnimTree.gd" id="9_a3lne"]
+[ext_resource type="Script" uid="uid://bwdxajoro6dov" path="res://SRC/Enemies/Bosses/CEOBoss/ceoBossAi.gd" id="1_7relr"]
+[ext_resource type="Script" uid="uid://b1ub7malgxo06" path="res://SRC/Enemies/Bosses/boss_enemy.gd" id="1_kqsj0"]
+[ext_resource type="PackedScene" uid="uid://d6bsg66ea0km" path="res://SRC/Effects/foot_decal.tscn" id="2_r02kn"]
+[ext_resource type="Shader" uid="uid://08ntj0c525et" path="res://SRC/Shaders/Decal.gdshader" id="3_7relr"]
+[ext_resource type="Script" uid="uid://bmcmi0po4hwtf" path="res://SRC/Enemies/Bosses/ManagerBoss/managerAI.gd" id="4_ysek1"]
+[ext_resource type="PackedScene" uid="uid://cyn7tjf3k30" path="res://Assets/Character/Character.glb" id="5_26fv1"]
+[ext_resource type="Texture2D" uid="uid://bqd8jklne18ux" path="res://Assets/Textures/Zombie_Head_blue.png" id="7_7relr"]
+[ext_resource type="Script" path="res://SRC/Enemies/Bosses/BossAttackArea.gd" id="7_54rba"]
+[ext_resource type="PackedScene" uid="uid://bo2lyf4ubkwd" path="res://SRC/Enemies/damage_number_spawner.tscn" id="8_rt1xc"]
+[ext_resource type="Texture2D" uid="uid://dl282urbkt5t7" path="res://Assets/Character/PurpleTieTorso.png" id="8_ysek1"]
+[ext_resource type="Script" path="res://SRC/Enemies/Bosses/ManagerBoss/ManagerAnimTree.gd" id="9_0ml65"]
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6xd4m"]
-friction = 0.0
-bounce = 0.2
-
-[sub_resource type="Gradient" id="Gradient_px5nj"]
+[sub_resource type="Gradient" id="Gradient_fclqj"]
 interpolation_mode = 2
 offsets = PackedFloat32Array(0.125523, 0.669456)
 colors = PackedColorArray(0, 0, 0, 0.568627, 0, 0, 0, 0)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_a3lne"]
-gradient = SubResource("Gradient_px5nj")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_btmj8"]
+gradient = SubResource("Gradient_fclqj")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
-[sub_resource type="Gradient" id="Gradient_btmj8"]
+[sub_resource type="Gradient" id="Gradient_tutee"]
 offsets = PackedFloat32Array(0, 0.543933, 0.573222, 1)
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.752941, 1, 1, 1, 0.752941, 1, 1, 1, 0)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_v6h0s"]
-gradient = SubResource("Gradient_btmj8")
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_iy44w"]
+gradient = SubResource("Gradient_tutee")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_3qnrk"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pp0w0"]
 resource_local_to_scene = true
 render_priority = 0
-shader = ExtResource("3_5uh6l")
+shader = ExtResource("3_7relr")
 shader_parameter/albedo = Color(1, 1, 1, 1)
-shader_parameter/texture_albedo = SubResource("GradientTexture2D_a3lne")
-shader_parameter/vFade = SubResource("GradientTexture1D_v6h0s")
+shader_parameter/texture_albedo = SubResource("GradientTexture2D_btmj8")
+shader_parameter/vFade = SubResource("GradientTexture1D_iy44w")
 shader_parameter/scale_mod = 1.0
 shader_parameter/cube_half_size = 0.5
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5uh6l"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mcm8i"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6xd4m"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kdqhe"]
 albedo_color = Color(1, 0.65625, 0.65625, 1)
-albedo_texture = ExtResource("6_br25j")
+albedo_texture = ExtResource("7_7relr")
 texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_26fv1"]
+albedo_texture = ExtResource("8_ysek1")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ysek1"]
+albedo_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_560r1"]
 resource_name = "AttackL"
@@ -639,7 +644,7 @@ _data = {
 &"WaklFW": SubResource("Animation_syqjo")
 }
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_br25j"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_crpi1"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_83d2e"]
 animation = &"AttackL"
@@ -690,7 +695,7 @@ break_loop_at_end = true
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_mr2mh"]
 animation = &"WaklFW"
 
-[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_a3lne"]
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_mo6en"]
 graph_offset = Vector2(103.836, 531.117)
 nodes/AtkL/node = SubResource("AnimationNodeAnimation_83d2e")
 nodes/AtkL/position = Vector2(180, 700)
@@ -719,50 +724,41 @@ nodes/Walk/position = Vector2(-720, 260)
 nodes/output/position = Vector2(860, 380)
 node_connections = [&"B2_AtkLR", 0, &"AtkL", &"B2_AtkLR", 1, &"AtkR", &"B2_Chase", 0, &"TS_IR", &"B2_Chase", 1, &"ChaseArms", &"B2_Hit", 0, &"B2_Chase", &"B2_Hit", 1, &"Hit", &"B2_IdleWalk", 0, &"Idle", &"B2_IdleWalk", 1, &"Walk", &"OST_Attack", 0, &"B2_Hit", &"OST_Attack", 1, &"B2_AtkLR", &"TS_IR", 0, &"B2_IdleWalk", &"output", 0, &"OST_Attack"]
 
-[node name="Manager" type="RigidBody3D" node_paths=PackedStringArray("damage_number_spawner", "foot_decal", "nav_agent", "rotatorNode")]
-collision_layer = 8
-collision_mask = 7
-mass = 3.0
-physics_material_override = SubResource("PhysicsMaterial_6xd4m")
-can_sleep = false
-lock_rotation = true
-linear_damp = 22.0
-script = ExtResource("1_280ne")
-damage_number_spawner = NodePath("DamageNumberSpawner")
-foot_decal = NodePath("FootDecal")
-nav_agent = NodePath("NavigationAgent3D")
-rotatorNode = NodePath("CharacterRotator")
-speed = 250.0
+[node name="CeoBoss" type="RigidBody3D"]
+script = ExtResource("1_7relr")
+metadata/_custom_type_script = ExtResource("1_kqsj0")
 
-[node name="FootDecal" parent="." instance=ExtResource("2_icph8")]
-material_override = SubResource("ShaderMaterial_3qnrk")
+[node name="FootDecal" parent="." instance=ExtResource("2_r02kn")]
+material_override = SubResource("ShaderMaterial_pp0w0")
 
 [node name="AI" type="Node" parent="." node_paths=PackedStringArray("attackArea", "boss")]
-script = ExtResource("4_5uh6l")
-attackArea = NodePath("../CharacterRotator/AttackArea")
-boss = NodePath("..")
+script = ExtResource("4_ysek1")
+attackArea = NodePath("")
+boss = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource("CapsuleShape3D_5uh6l")
+shape = SubResource("CapsuleShape3D_mcm8i")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 
 [node name="CharacterRotator" type="Node3D" parent="."]
 
-[node name="Character" parent="CharacterRotator" instance=ExtResource("5_3qnrk")]
+[node name="Character" parent="CharacterRotator" instance=ExtResource("5_26fv1")]
 
 [node name="Skeleton3D" parent="CharacterRotator/Character/Armature" index="0"]
 bones/6/rotation = Quaternion(3.09086e-08, 0.707107, 0.707107, 3.09086e-08)
 bones/7/rotation = Quaternion(0, 4.37114e-08, 0, 1)
 bones/8/rotation = Quaternion(0.658114, 0.474342, 0.474342, -0.341886)
-bones/9/rotation = Quaternion(-0.47222, 0.140663, 0.0766308, 0.866805)
+bones/9/rotation = Quaternion(-0.47024, 0.140838, 0.0763094, 0.86788)
 bones/10/rotation = Quaternion(0.658114, -0.474342, -0.474342, -0.341886)
-bones/11/rotation = Quaternion(-0.454922, -0.142157, -0.0738237, 0.876007)
+bones/11/rotation = Quaternion(-0.453329, -0.142291, -0.0735652, 0.876832)
 
 [node name="CharacterMesh" parent="CharacterRotator/Character/Armature/Skeleton3D" index="0"]
 gi_mode = 2
-surface_material_override/0 = SubResource("StandardMaterial3D_6xd4m")
+surface_material_override/0 = SubResource("StandardMaterial3D_kdqhe")
+surface_material_override/1 = SubResource("StandardMaterial3D_26fv1")
+surface_material_override/2 = SubResource("StandardMaterial3D_ysek1")
 
 [node name="ChairBase" parent="CharacterRotator/Character" index="1"]
 visible = false
@@ -783,19 +779,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15, -0.25)
 collision_layer = 0
 collision_mask = 2
 monitorable = false
-script = ExtResource("7_6xd4m")
-boss = NodePath("../..")
+script = ExtResource("7_54rba")
+boss = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterRotator/AttackArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.15)
-shape = SubResource("BoxShape3D_br25j")
+shape = SubResource("BoxShape3D_crpi1")
 
-[node name="DamageNumberSpawner" parent="." instance=ExtResource("8_560r1")]
+[node name="DamageNumberSpawner" parent="." instance=ExtResource("8_rt1xc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
 
 [node name="AnimationTree" type="AnimationTree" parent="." node_paths=PackedStringArray("boss", "bossAI")]
 root_node = NodePath("../CharacterRotator/Character")
-tree_root = SubResource("AnimationNodeBlendTree_a3lne")
+tree_root = SubResource("AnimationNodeBlendTree_mo6en")
 anim_player = NodePath("../CharacterRotator/Character/AnimationPlayer")
 parameters/B2_AtkLR/blend_amount = 0
 parameters/B2_Chase/blend_amount = 0
@@ -805,11 +801,8 @@ parameters/OST_Attack/active = false
 parameters/OST_Attack/internal_active = false
 parameters/OST_Attack/request = 0
 parameters/TS_IR/scale = 1.0
-script = ExtResource("9_a3lne")
-boss = NodePath("..")
-bossAI = NodePath("../AI")
-
-[connection signal="playerInRange" from="CharacterRotator/AttackArea" to="AI" method="onAtkAreaDetected"]
-[connection signal="playerInRange" from="CharacterRotator/AttackArea" to="AnimationTree" method="_on_attack_area_player_in_range"]
+script = ExtResource("9_0ml65")
+boss = NodePath("")
+bossAI = NodePath("")
 
 [editable path="CharacterRotator/Character"]
