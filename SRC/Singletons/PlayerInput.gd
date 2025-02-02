@@ -11,6 +11,7 @@ signal secondary
 signal back
 signal SWL
 signal SWR
+signal boost
 signal pause
 
 func _input(event: InputEvent) -> void:
@@ -29,6 +30,9 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("BACK"):
 		back.emit()
+	
+	if Input.is_action_just_pressed("BOOST"):
+		boost.emit()
 	
 	if Input.is_action_pressed("SECONDARY"):
 		fbrl = (get_tree().root.get_mouse_position() - get_tree().root.size * 0.5).normalized()

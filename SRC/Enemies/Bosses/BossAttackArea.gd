@@ -18,11 +18,11 @@ func detected(body : Node3D) -> void:
 func _process(delta: float) -> void:
 	if boss.isDead:
 		return
-	print(attackLaunched)
+	#print(attackLaunched)
 	if !attackLaunched:
 		attackLaunched = true
 		playerInRange.emit()
-		print(attackLaunched)
+		#print(attackLaunched)
 
 func undetected(body : Node3D) -> void:
 	if get_overlapping_bodies().size() == 0:

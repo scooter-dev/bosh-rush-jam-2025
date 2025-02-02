@@ -6,9 +6,9 @@
 [ext_resource type="Script" uid="uid://bmcmi0po4hwtf" path="res://SRC/Enemies/Bosses/ManagerBoss/managerAI.gd" id="4_5uh6l"]
 [ext_resource type="PackedScene" uid="uid://cyn7tjf3k30" path="res://Assets/Character/Character.glb" id="5_3qnrk"]
 [ext_resource type="Texture2D" uid="uid://dvtkjp2je5dwy" path="res://Assets/Textures/Zombie_Head.png" id="6_br25j"]
-[ext_resource type="Script" path="res://SRC/Enemies/Bosses/BossAttackArea.gd" id="7_6xd4m"]
+[ext_resource type="Script" uid="uid://hjbrru4m1cki" path="res://SRC/Enemies/Bosses/BossAttackArea.gd" id="7_6xd4m"]
 [ext_resource type="PackedScene" uid="uid://bo2lyf4ubkwd" path="res://SRC/Enemies/damage_number_spawner.tscn" id="8_560r1"]
-[ext_resource type="Script" path="res://SRC/Enemies/Bosses/ManagerBoss/ManagerAnimTree.gd" id="9_a3lne"]
+[ext_resource type="Script" uid="uid://7iaw4rndqjv3" path="res://SRC/Enemies/Bosses/ManagerBoss/ManagerAnimTree.gd" id="9_a3lne"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6xd4m"]
 friction = 0.0
@@ -756,9 +756,9 @@ shape = SubResource("CapsuleShape3D_5uh6l")
 bones/6/rotation = Quaternion(3.09086e-08, 0.707107, 0.707107, 3.09086e-08)
 bones/7/rotation = Quaternion(0, 4.37114e-08, 0, 1)
 bones/8/rotation = Quaternion(0.658114, 0.474342, 0.474342, -0.341886)
-bones/9/rotation = Quaternion(-0.47222, 0.140663, 0.0766308, 0.866805)
+bones/9/rotation = Quaternion(-0.485005, 0.139513, 0.0787055, 0.859716)
 bones/10/rotation = Quaternion(0.658114, -0.474342, -0.474342, -0.341886)
-bones/11/rotation = Quaternion(-0.454922, -0.142157, -0.0738237, 0.876007)
+bones/11/rotation = Quaternion(-0.463691, -0.141408, -0.0752467, 0.871397)
 
 [node name="CharacterMesh" parent="CharacterRotator/Character/Armature/Skeleton3D" index="0"]
 gi_mode = 2

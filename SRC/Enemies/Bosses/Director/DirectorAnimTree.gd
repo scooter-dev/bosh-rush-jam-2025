@@ -1,7 +1,7 @@
 extends AnimationTree
 
 @export var boss : BossZombie
-@export var bossAI : ManagerAI
+@export var bossAI : DirectorAI
 
 func onPlayerInRange() -> void:
 	if self["parameters/B2_AtkLR/blend_amount"] > 0.5:

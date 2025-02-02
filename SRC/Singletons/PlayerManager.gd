@@ -7,7 +7,7 @@ enum e_items {GLUE, STAPLES, TAPE, PHONE_BOOK, SODA, CANDY, TUBING, WIRES, CHIP,
 
 var money : int = 5000
 
-var boostStrength : float = 0.3 #How fast the boost is
+var boostStrength : float = 0.0 #How fast the boost is
 var boostCooldown : float = 1.0
 var launchPower : float = 0.25 #How fast launched items fly
 var grabStrength : int = 1 #How strong the player is to grab bigger/heavier items
@@ -148,8 +148,8 @@ func upgradePlayer(upg : int) -> bool:
 				return false
 			match boost:
 				0:
-					boostStrength = 0.32
-					boostCooldown = 0.9
+					boostStrength = 0.3
+					boostCooldown = 1.0
 				1:
 					boostStrength = 0.35
 					boostCooldown = 0.7
