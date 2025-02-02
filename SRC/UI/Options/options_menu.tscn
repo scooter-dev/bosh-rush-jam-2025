@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dk8nuoswfwvuc"]
+[gd_scene load_steps=4 format=3 uid="uid://dk8nuoswfwvuc"]
 
+[ext_resource type="FontFile" uid="uid://b47qinkngnss7" path="res://addons/dialogic/Example Assets/Fonts/Graduate-Regular.ttf" id="1_3gp80"]
 [ext_resource type="Script" uid="uid://b35rio208vd74" path="res://SRC/UI/Options/options_menu.gd" id="1_8qk4p"]
+
+[sub_resource type="Theme" id="Theme_grhwu"]
+default_font = ExtResource("1_3gp80")
 
 [node name="OptionsMenu" type="Control"]
 layout_mode = 3
@@ -9,6 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_grhwu")
 script = ExtResource("1_8qk4p")
 
 [node name="Panel" type="Panel" parent="."]

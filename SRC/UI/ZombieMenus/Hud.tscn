@@ -1,10 +1,15 @@
-[gd_scene load_steps=18 format=3 uid="uid://bkw03pro1k11i"]
+[gd_scene load_steps=20 format=3 uid="uid://bkw03pro1k11i"]
 
 [ext_resource type="Script" uid="uid://vwjdkl448eea" path="res://SRC/UI/ZombieMenus/inventory_margin.gd" id="1_dwtdd"]
+[ext_resource type="FontFile" uid="uid://b47qinkngnss7" path="res://addons/dialogic/Example Assets/Fonts/Graduate-Regular.ttf" id="1_mnny3"]
 [ext_resource type="Script" uid="uid://xfaxkrtgp6rw" path="res://SRC/UI/ZombieMenus/status_margin.gd" id="2_s1u6l"]
 [ext_resource type="Texture2D" uid="uid://dixxy5gmx087c" path="res://Assets/Textures/icons.png" id="2_ty1iu"]
 [ext_resource type="Texture2D" uid="uid://rpcfrillc1hc" path="res://Assets/Textures/boost_icon.png" id="4_ty1iu"]
 [ext_resource type="Texture2D" uid="uid://c67gptj3c3pnr" path="res://Assets/Textures/healthbar_bg.png" id="5_crj3o"]
+
+[sub_resource type="Theme" id="Theme_3sr4f"]
+default_font = ExtResource("1_mnny3")
+default_font_size = 20
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_crj3o"]
 atlas = ExtResource("2_ty1iu")
@@ -61,6 +66,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_3sr4f")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
