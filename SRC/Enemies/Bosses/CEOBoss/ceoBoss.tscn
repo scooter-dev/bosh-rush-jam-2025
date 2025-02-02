@@ -5,10 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://d6bsg66ea0km" path="res://SRC/Effects/foot_decal.tscn" id="2_r02kn"]
 [ext_resource type="Shader" uid="uid://08ntj0c525et" path="res://SRC/Shaders/Decal.gdshader" id="3_7relr"]
 [ext_resource type="PackedScene" uid="uid://cyn7tjf3k30" path="res://Assets/Character/Character.glb" id="5_26fv1"]
-[ext_resource type="Texture2D" uid="uid://bqd8jklne18ux" path="res://Assets/Textures/Zombie_Head_blue.png" id="7_7relr"]
+[ext_resource type="Texture2D" uid="uid://c7yu03jgclxds" path="res://Assets/Textures/money_head.png" id="6_7relr"]
 [ext_resource type="Script" uid="uid://hjbrru4m1cki" path="res://SRC/Enemies/Bosses/BossAttackArea.gd" id="7_54rba"]
+[ext_resource type="Texture2D" uid="uid://cqqvpa7vkbhj6" path="res://Assets/Textures/money_torso.png" id="7_ysek1"]
 [ext_resource type="PackedScene" uid="uid://bo2lyf4ubkwd" path="res://SRC/Enemies/damage_number_spawner.tscn" id="8_rt1xc"]
-[ext_resource type="Texture2D" uid="uid://dl282urbkt5t7" path="res://Assets/Character/PurpleTieTorso.png" id="8_ysek1"]
 [ext_resource type="Script" uid="uid://7iaw4rndqjv3" path="res://SRC/Enemies/Bosses/ManagerBoss/ManagerAnimTree.gd" id="9_0ml65"]
 
 [sub_resource type="Gradient" id="Gradient_fclqj"]
@@ -42,11 +42,11 @@ shader_parameter/cube_half_size = 0.5
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kdqhe"]
 albedo_color = Color(1, 0.65625, 0.65625, 1)
-albedo_texture = ExtResource("7_7relr")
+albedo_texture = ExtResource("6_7relr")
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_26fv1"]
-albedo_texture = ExtResource("8_ysek1")
+albedo_texture = ExtResource("7_ysek1")
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ysek1"]
@@ -748,11 +748,11 @@ shape = SubResource("CapsuleShape3D_mcm8i")
 
 [node name="Skeleton3D" parent="CharacterRotator/Character/Armature" index="0"]
 bones/6/rotation = Quaternion(3.09086e-08, 0.707107, 0.707107, 3.09086e-08)
-bones/7/rotation = Quaternion(-0.0553888, 4.36443e-08, 2.42112e-09, 0.998465)
+bones/7/rotation = Quaternion(0, 4.37114e-08, 0, 1)
 bones/8/rotation = Quaternion(0.658114, 0.474342, 0.474342, -0.341886)
-bones/9/rotation = Quaternion(-0.364911, 0.434004, 0.677044, 0.46914)
+bones/9/rotation = Quaternion(-0.487457, 0.139288, 0.0791034, 0.858329)
 bones/10/rotation = Quaternion(0.658114, -0.474342, -0.474342, -0.341886)
-bones/11/rotation = Quaternion(-0.357732, -0.444334, -0.6703, 0.47465)
+bones/11/rotation = Quaternion(-0.465383, -0.141262, -0.0755213, 0.870494)
 
 [node name="CharacterMesh" parent="CharacterRotator/Character/Armature/Skeleton3D" index="0"]
 gi_mode = 2
