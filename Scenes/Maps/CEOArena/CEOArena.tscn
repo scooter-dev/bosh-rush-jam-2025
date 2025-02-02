@@ -1,22 +1,21 @@
-[gd_scene load_steps=42 format=4 uid="uid://cepkn6c8imc7a"]
+[gd_scene load_steps=41 format=4 uid="uid://cuolxi58vd3gm"]
 
-[ext_resource type="Script" uid="uid://dnev02fq78g5" path="res://Scenes/Maps/Level.gd" id="1_cb3nb"]
-[ext_resource type="Shader" uid="uid://drr0gce6cncf3" path="res://SRC/Shaders/darkness.gdshader" id="1_h2j7t"]
-[ext_resource type="Shader" uid="uid://cm8puby5gs7hp" path="res://SRC/Shaders/rgbTextureTriplanar.gdshader" id="2_v8isi"]
-[ext_resource type="Texture2D" uid="uid://bkclfd3itw7r7" path="res://Assets/Textures/Carpet.png" id="3_qu735"]
-[ext_resource type="LightmapGIData" uid="uid://drfkvcaxjrc2w" path="res://Scenes/Maps/DirectorArena/director_arena.lmbake" id="4_8qmu6"]
-[ext_resource type="Script" uid="uid://dme2a1a6hugg0" path="res://addons/lightmap_probe_grid/lightmap_probe_grid.gd" id="5_p4bvq"]
-[ext_resource type="PackedScene" uid="uid://bj76op4qds1fb" path="res://SRC/Actors/Elevator/elevator.tscn" id="6_j8rty"]
-[ext_resource type="PackedScene" uid="uid://c1g40osluc5on" path="res://SRC/Player/player.tscn" id="7_np2dr"]
-[ext_resource type="PackedScene" uid="uid://doqtlbhictw32" path="res://SRC/Enemies/Bosses/Director/director.tscn" id="8_kja0y"]
-[ext_resource type="PackedScene" uid="uid://dld86ghvbxsn6" path="res://SRC/Props/cubicle.tscn" id="9_ynirx"]
-[ext_resource type="PackedScene" uid="uid://ry72u7xd6h2o" path="res://SRC/Props/FileCabinet.tscn" id="10_8t8bd"]
-[ext_resource type="PackedScene" uid="uid://dr8kkj7iimr4f" path="res://SRC/Props/vertical_cabinet.tscn" id="11_6d2rd"]
-[ext_resource type="PackedScene" uid="uid://dsm3khy1hvjry" path="res://SRC/Props/nice_desk.tscn" id="12_xu1t3"]
-[ext_resource type="PackedScene" uid="uid://pkxidb743b72" path="res://SRC/Props/nice_chair.tscn" id="13_cb3nb"]
-[ext_resource type="PackedScene" uid="uid://bdehricvsx6gs" path="res://SRC/Props/door.tscn" id="15_u7qvb"]
-[ext_resource type="PackedScene" uid="uid://bb4f5h5c4tiu7" path="res://Scenes/boss_cutscene.tscn" id="16_idbnn"]
-[ext_resource type="Shader" uid="uid://d20ryyciv7x8g" path="res://SRC/Shaders/Sky.gdshader" id="17_34ehc"]
+[ext_resource type="Script" uid="uid://dnev02fq78g5" path="res://Scenes/Maps/Level.gd" id="1_vyj83"]
+[ext_resource type="Shader" uid="uid://drr0gce6cncf3" path="res://SRC/Shaders/darkness.gdshader" id="2_0db1k"]
+[ext_resource type="Shader" uid="uid://cm8puby5gs7hp" path="res://SRC/Shaders/rgbTextureTriplanar.gdshader" id="3_dwobt"]
+[ext_resource type="Texture2D" uid="uid://bkclfd3itw7r7" path="res://Assets/Textures/Carpet.png" id="4_p5xfk"]
+[ext_resource type="LightmapGIData" uid="uid://c4u1y35cdr2ik" path="res://Scenes/Maps/CEOArena/CEOArena.lmbake" id="5_0db1k"]
+[ext_resource type="Script" uid="uid://dme2a1a6hugg0" path="res://addons/lightmap_probe_grid/lightmap_probe_grid.gd" id="5_l4q8k"]
+[ext_resource type="PackedScene" uid="uid://bj76op4qds1fb" path="res://SRC/Actors/Elevator/elevator.tscn" id="6_17rmt"]
+[ext_resource type="PackedScene" uid="uid://c1g40osluc5on" path="res://SRC/Player/player.tscn" id="7_8s03h"]
+[ext_resource type="PackedScene" uid="uid://dld86ghvbxsn6" path="res://SRC/Props/cubicle.tscn" id="9_ffw7c"]
+[ext_resource type="PackedScene" uid="uid://ry72u7xd6h2o" path="res://SRC/Props/FileCabinet.tscn" id="10_1eqcu"]
+[ext_resource type="PackedScene" uid="uid://dr8kkj7iimr4f" path="res://SRC/Props/vertical_cabinet.tscn" id="11_6dnvw"]
+[ext_resource type="PackedScene" uid="uid://dsm3khy1hvjry" path="res://SRC/Props/nice_desk.tscn" id="12_vfcy1"]
+[ext_resource type="PackedScene" uid="uid://pkxidb743b72" path="res://SRC/Props/nice_chair.tscn" id="13_5k2h1"]
+[ext_resource type="PackedScene" uid="uid://bdehricvsx6gs" path="res://SRC/Props/door.tscn" id="14_qcfi1"]
+[ext_resource type="PackedScene" uid="uid://bb4f5h5c4tiu7" path="res://Scenes/boss_cutscene.tscn" id="15_7pjft"]
+[ext_resource type="Shader" uid="uid://d20ryyciv7x8g" path="res://SRC/Shaders/Sky.gdshader" id="16_ytwkt"]
 
 [sub_resource type="Gradient" id="Gradient_xph0m"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
@@ -70,7 +69,7 @@ polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Arr
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xph0m"]
 render_priority = 0
-shader = ExtResource("1_h2j7t")
+shader = ExtResource("2_0db1k")
 shader_parameter/offset = 0.01
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h2w46"]
@@ -118,8 +117,8 @@ data = PackedVector3Array(-8, 0, -2, 8, 0, 10, -8, 0, 10, -8, 0, -2, 8, 0, -2, 8
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1pckg"]
 render_priority = 0
-shader = ExtResource("2_v8isi")
-shader_parameter/tex = ExtResource("3_qu735")
+shader = ExtResource("3_dwobt")
+shader_parameter/tex = ExtResource("4_p5xfk")
 shader_parameter/red_color = Color(0.910156, 0.794165, 0.398193, 1)
 shader_parameter/green_color = Color(0, 0.217712, 0.679688, 1)
 shader_parameter/blue_color = Color(1, 1, 1, 1)
@@ -170,7 +169,7 @@ colors = PackedColorArray(0, 0, 0, 1, 0.441406, 0.441406, 0.441406, 1)
 gradient = SubResource("Gradient_qhr5i")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_iy3o1"]
-shader = ExtResource("17_34ehc")
+shader = ExtResource("16_ytwkt")
 shader_parameter/vGradient = SubResource("GradientTexture1D_yxp5o")
 shader_parameter/direction = Vector3(0, 1, 0)
 
@@ -187,8 +186,8 @@ sdfgi_min_cell_size = 0.273438
 sdfgi_cascade0_distance = 17.5
 sdfgi_max_distance = 140.0
 
-[node name="ManagerArena" type="Node3D"]
-script = ExtResource("1_cb3nb")
+[node name="CEOArena" type="Node3D"]
+script = ExtResource("1_vyj83")
 
 [node name="Ceiling" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, 0)
@@ -223,17 +222,17 @@ skeleton = NodePath("")
 [node name="LightmapGI" type="LightmapGI" parent="."]
 quality = 2
 generate_probes_subdiv = 0
-light_data = ExtResource("4_8qmu6")
+light_data = ExtResource("5_0db1k")
 
 [node name="LightmapProbeGrid" type="Node3D" parent="LightmapGI"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.111273, 1.10328, 3.99049)
 visible = false
-script = ExtResource("5_p4bvq")
+script = ExtResource("5_l4q8k")
 size = Vector3(14.9128, 1.29541, 10.8192)
 probes_number = Vector3i(10, 2, 10)
 far_distance = 1.0
 object_size = 1.0
-metadata/_custom_type_script = ExtResource("5_p4bvq")
+metadata/_custom_type_script = ExtResource("5_l4q8k")
 
 [node name="LightmapProbe 0, 0, 0" type="LightmapProbe" parent="LightmapGI/LightmapProbeGrid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.45641, 0.647707, 5.40961)
@@ -838,12 +837,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.45641, -0.647707, -5.40961
 [node name="LightmapProbeGrid2" type="Node3D" parent="LightmapGI"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0360856, 1.10328, 12.5431)
 visible = false
-script = ExtResource("5_p4bvq")
+script = ExtResource("5_l4q8k")
 size = Vector3(1.05579, 1.29541, 4.25382)
 probes_number = Vector3i(2, 2, 5)
 far_distance = 1.0
 object_size = 1.0
-metadata/_custom_type_script = ExtResource("5_p4bvq")
+metadata/_custom_type_script = ExtResource("5_l4q8k")
 
 [node name="LightmapProbe 0, 0, 0" type="LightmapProbe" parent="LightmapGI/LightmapProbeGrid2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.527893, 0.647707, 2.12691)
@@ -905,114 +904,110 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.527893, -0.647707, -1.0634
 [node name="LightmapProbe 1, 1, 4" type="LightmapProbe" parent="LightmapGI/LightmapProbeGrid2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.527893, -0.647707, -2.12691)
 
-[node name="Elevator" parent="." instance=ExtResource("6_j8rty")]
+[node name="Elevator" parent="." instance=ExtResource("6_17rmt")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 17)
-currentFloor = 80
+currentFloor = 100
 
-[node name="PlayerChair" parent="." instance=ExtResource("7_np2dr")]
+[node name="PlayerChair" parent="." instance=ExtResource("7_8s03h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 17.37)
-
-[node name="Director" parent="." node_paths=PackedStringArray("unlockDoor") instance=ExtResource("8_kja0y")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.75, 0, 0)
-unlockDoor = NodePath("../Door")
 
 [node name="Props" type="Node3D" parent="."]
 
-[node name="Cubicle" parent="Props" instance=ExtResource("9_ynirx")]
+[node name="Cubicle" parent="Props" instance=ExtResource("9_ffw7c")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7, 0, 9)
 hasRight = false
 hasBack = false
 
-[node name="Cubicle2" parent="Props" instance=ExtResource("9_ynirx")]
+[node name="Cubicle2" parent="Props" instance=ExtResource("9_ffw7c")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7, 0, 7)
 hasLeft = false
 hasRight = false
 hasBack = false
 
-[node name="Cubicle3" parent="Props" instance=ExtResource("9_ynirx")]
+[node name="Cubicle3" parent="Props" instance=ExtResource("9_ffw7c")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7, 0, 5)
 hasLeft = false
 hasBack = false
 
-[node name="Cubicle4" parent="Props" instance=ExtResource("9_ynirx")]
+[node name="Cubicle4" parent="Props" instance=ExtResource("9_ffw7c")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7, 0, 3)
 hasLeft = false
 hasBack = false
 
-[node name="Cubicle5" parent="Props" instance=ExtResource("9_ynirx")]
+[node name="Cubicle5" parent="Props" instance=ExtResource("9_ffw7c")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7, 0, 1)
 hasBack = false
 
-[node name="Cubicle6" parent="Props" instance=ExtResource("9_ynirx")]
+[node name="Cubicle6" parent="Props" instance=ExtResource("9_ffw7c")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2, 0, 1)
 
-[node name="Cubicle7" parent="Props" instance=ExtResource("9_ynirx")]
+[node name="Cubicle7" parent="Props" instance=ExtResource("9_ffw7c")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2, 0, 3)
 hasLeft = false
 hasRight = false
 
-[node name="Cubicle8" parent="Props" instance=ExtResource("9_ynirx")]
+[node name="Cubicle8" parent="Props" instance=ExtResource("9_ffw7c")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2, 0, 5)
 hasLeft = false
 
-[node name="Cubicle9" parent="Props" instance=ExtResource("9_ynirx")]
+[node name="Cubicle9" parent="Props" instance=ExtResource("9_ffw7c")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2, 0, 7)
 hasLeft = false
 
-[node name="FilingCabinet" parent="Props" instance=ExtResource("10_8t8bd")]
+[node name="FilingCabinet" parent="Props" instance=ExtResource("10_1eqcu")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3.5, 0, 10)
 
-[node name="FilingCabinet2" parent="Props" instance=ExtResource("10_8t8bd")]
+[node name="FilingCabinet2" parent="Props" instance=ExtResource("10_1eqcu")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4, 0, 10)
 
-[node name="FilingCabinet3" parent="Props" instance=ExtResource("10_8t8bd")]
+[node name="FilingCabinet3" parent="Props" instance=ExtResource("10_1eqcu")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4.5, 0, 10)
 
-[node name="FilingCabinet5" parent="Props" instance=ExtResource("10_8t8bd")]
+[node name="FilingCabinet5" parent="Props" instance=ExtResource("10_1eqcu")]
 transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -4.5, 0, -2)
 
-[node name="FilingCabinet6" parent="Props" instance=ExtResource("10_8t8bd")]
+[node name="FilingCabinet6" parent="Props" instance=ExtResource("10_1eqcu")]
 transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -4, 0, -2)
 
-[node name="FilingCabinet7" parent="Props" instance=ExtResource("10_8t8bd")]
+[node name="FilingCabinet7" parent="Props" instance=ExtResource("10_1eqcu")]
 transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -3.5, 0, -2)
 
-[node name="FilingCabinet4" parent="Props" instance=ExtResource("10_8t8bd")]
+[node name="FilingCabinet4" parent="Props" instance=ExtResource("10_1eqcu")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -6.5, 0, 10)
 
-[node name="VerticalCabinet" parent="Props" instance=ExtResource("11_6d2rd")]
+[node name="VerticalCabinet" parent="Props" instance=ExtResource("11_6dnvw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0, 10)
 
-[node name="VerticalCabinet2" parent="Props" instance=ExtResource("11_6d2rd")]
+[node name="VerticalCabinet2" parent="Props" instance=ExtResource("11_6dnvw")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8, 0, 7.25)
 
-[node name="VerticalCabinet3" parent="Props" instance=ExtResource("11_6d2rd")]
+[node name="VerticalCabinet3" parent="Props" instance=ExtResource("11_6dnvw")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8, 0, 5.75)
 
-[node name="VerticalCabinet4" parent="Props" instance=ExtResource("11_6d2rd")]
+[node name="VerticalCabinet4" parent="Props" instance=ExtResource("11_6dnvw")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8, 0, 4.25)
 
-[node name="VerticalCabinet5" parent="Props" instance=ExtResource("11_6d2rd")]
+[node name="VerticalCabinet5" parent="Props" instance=ExtResource("11_6dnvw")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8, 0, 2.75)
 
-[node name="NiceDesk" parent="Props" instance=ExtResource("12_xu1t3")]
+[node name="NiceDesk" parent="Props" instance=ExtResource("12_vfcy1")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.25, 0, 0.5)
 
-[node name="NiceChair" parent="Props" instance=ExtResource("13_cb3nb")]
+[node name="NiceChair" parent="Props" instance=ExtResource("13_5k2h1")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.75, 0, 0.5)
 
-[node name="Door" parent="." instance=ExtResource("15_u7qvb")]
+[node name="Door" parent="." instance=ExtResource("14_qcfi1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12.5)
 locked = true
-key = "director"
+key = "ceo"
 
-[node name="BossCutscene" parent="." node_paths=PackedStringArray("player", "camera", "cameraDestination", "boss", "lockDoor") instance=ExtResource("16_idbnn")]
+[node name="BossCutscene" parent="." node_paths=PackedStringArray("player", "camera", "cameraDestination", "boss", "lockDoor") instance=ExtResource("15_7pjft")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.75)
-text = "DIRECTOR"
+text = "CEO"
 player = NodePath("../PlayerChair")
 camera = NodePath("Cam")
 cameraDestination = NodePath("Target")
-boss = NodePath("../Director")
+boss = NodePath("")
 lockDoor = NodePath("../Door")
 
 [node name="Cam" type="Camera3D" parent="BossCutscene"]

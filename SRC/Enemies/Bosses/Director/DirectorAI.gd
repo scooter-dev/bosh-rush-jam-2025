@@ -128,5 +128,5 @@ func aiReaction(amount : int, instigator : Node3D, grabbable: GrabbableProp) -> 
 
 func aiDefeat() -> void:
 	physical_bone_simulator_3d.physical_bones_start_simulation()
-	if !PlayerManager.getKey("rooftop"):
-		PlayerManager.keys.append("rooftop")
+	if !PlayerManager.getKey("ceo"):
+		PlayerManager.keys.append("ceo")
