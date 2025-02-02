@@ -1,16 +1,15 @@
-[gd_scene load_steps=48 format=3 uid="uid://dd5kl7gsjrhdu"]
+[gd_scene load_steps=47 format=3 uid="uid://dd5kl7gsjrhdu"]
 
 [ext_resource type="Script" uid="uid://bwdxajoro6dov" path="res://SRC/Enemies/Bosses/CEOBoss/ceoBossAi.gd" id="1_7relr"]
 [ext_resource type="Script" uid="uid://b1ub7malgxo06" path="res://SRC/Enemies/Bosses/boss_enemy.gd" id="1_kqsj0"]
 [ext_resource type="PackedScene" uid="uid://d6bsg66ea0km" path="res://SRC/Effects/foot_decal.tscn" id="2_r02kn"]
 [ext_resource type="Shader" uid="uid://08ntj0c525et" path="res://SRC/Shaders/Decal.gdshader" id="3_7relr"]
-[ext_resource type="Script" uid="uid://bmcmi0po4hwtf" path="res://SRC/Enemies/Bosses/ManagerBoss/managerAI.gd" id="4_ysek1"]
 [ext_resource type="PackedScene" uid="uid://cyn7tjf3k30" path="res://Assets/Character/Character.glb" id="5_26fv1"]
-[ext_resource type="Texture2D" uid="uid://bqd8jklne18ux" path="res://Assets/Textures/Zombie_Head_blue.png" id="7_7relr"]
-[ext_resource type="Script" path="res://SRC/Enemies/Bosses/BossAttackArea.gd" id="7_54rba"]
+[ext_resource type="Texture2D" uid="uid://c7yu03jgclxds" path="res://Assets/Textures/money_head.png" id="6_7relr"]
+[ext_resource type="Script" uid="uid://hjbrru4m1cki" path="res://SRC/Enemies/Bosses/BossAttackArea.gd" id="7_54rba"]
+[ext_resource type="Texture2D" uid="uid://cqqvpa7vkbhj6" path="res://Assets/Textures/money_torso.png" id="7_ysek1"]
 [ext_resource type="PackedScene" uid="uid://bo2lyf4ubkwd" path="res://SRC/Enemies/damage_number_spawner.tscn" id="8_rt1xc"]
-[ext_resource type="Texture2D" uid="uid://dl282urbkt5t7" path="res://Assets/Character/PurpleTieTorso.png" id="8_ysek1"]
-[ext_resource type="Script" path="res://SRC/Enemies/Bosses/ManagerBoss/ManagerAnimTree.gd" id="9_0ml65"]
+[ext_resource type="Script" uid="uid://7iaw4rndqjv3" path="res://SRC/Enemies/Bosses/ManagerBoss/ManagerAnimTree.gd" id="9_0ml65"]
 
 [sub_resource type="Gradient" id="Gradient_fclqj"]
 interpolation_mode = 2
@@ -43,11 +42,11 @@ shader_parameter/cube_half_size = 0.5
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kdqhe"]
 albedo_color = Color(1, 0.65625, 0.65625, 1)
-albedo_texture = ExtResource("7_7relr")
+albedo_texture = ExtResource("6_7relr")
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_26fv1"]
-albedo_texture = ExtResource("8_ysek1")
+albedo_texture = ExtResource("7_ysek1")
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ysek1"]
@@ -696,7 +695,6 @@ break_loop_at_end = true
 animation = &"WaklFW"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_mo6en"]
-graph_offset = Vector2(103.836, 531.117)
 nodes/AtkL/node = SubResource("AnimationNodeAnimation_83d2e")
 nodes/AtkL/position = Vector2(180, 700)
 nodes/AtkR/node = SubResource("AnimationNodeAnimation_84ahr")
@@ -724,17 +722,19 @@ nodes/Walk/position = Vector2(-720, 260)
 nodes/output/position = Vector2(860, 380)
 node_connections = [&"B2_AtkLR", 0, &"AtkL", &"B2_AtkLR", 1, &"AtkR", &"B2_Chase", 0, &"TS_IR", &"B2_Chase", 1, &"ChaseArms", &"B2_Hit", 0, &"B2_Chase", &"B2_Hit", 1, &"Hit", &"B2_IdleWalk", 0, &"Idle", &"B2_IdleWalk", 1, &"Walk", &"OST_Attack", 0, &"B2_Hit", &"OST_Attack", 1, &"B2_AtkLR", &"TS_IR", 0, &"B2_IdleWalk", &"output", 0, &"OST_Attack"]
 
-[node name="CeoBoss" type="RigidBody3D"]
-script = ExtResource("1_7relr")
+[node name="CeoBoss" type="RigidBody3D" node_paths=PackedStringArray("nav_agent", "rotatorNode")]
+script = ExtResource("1_kqsj0")
+nav_agent = NodePath("NavigationAgent3D")
+rotatorNode = NodePath("CharacterRotator")
 metadata/_custom_type_script = ExtResource("1_kqsj0")
 
 [node name="FootDecal" parent="." instance=ExtResource("2_r02kn")]
 material_override = SubResource("ShaderMaterial_pp0w0")
 
 [node name="AI" type="Node" parent="." node_paths=PackedStringArray("attackArea", "boss")]
-script = ExtResource("4_ysek1")
-attackArea = NodePath("")
-boss = NodePath("")
+script = ExtResource("1_7relr")
+attackArea = NodePath("../CharacterRotator/AttackArea")
+boss = NodePath("..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -750,9 +750,9 @@ shape = SubResource("CapsuleShape3D_mcm8i")
 bones/6/rotation = Quaternion(3.09086e-08, 0.707107, 0.707107, 3.09086e-08)
 bones/7/rotation = Quaternion(0, 4.37114e-08, 0, 1)
 bones/8/rotation = Quaternion(0.658114, 0.474342, 0.474342, -0.341886)
-bones/9/rotation = Quaternion(-0.47024, 0.140838, 0.0763094, 0.86788)
+bones/9/rotation = Quaternion(-0.487457, 0.139288, 0.0791034, 0.858329)
 bones/10/rotation = Quaternion(0.658114, -0.474342, -0.474342, -0.341886)
-bones/11/rotation = Quaternion(-0.453329, -0.142291, -0.0735652, 0.876832)
+bones/11/rotation = Quaternion(-0.465383, -0.141262, -0.0755213, 0.870494)
 
 [node name="CharacterMesh" parent="CharacterRotator/Character/Armature/Skeleton3D" index="0"]
 gi_mode = 2
@@ -774,13 +774,12 @@ libraries = {
 &"": SubResource("AnimationLibrary_i3ucn")
 }
 
-[node name="AttackArea" type="Area3D" parent="CharacterRotator" node_paths=PackedStringArray("boss")]
+[node name="AttackArea" type="Area3D" parent="CharacterRotator"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15, -0.25)
 collision_layer = 0
 collision_mask = 2
 monitorable = false
 script = ExtResource("7_54rba")
-boss = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterRotator/AttackArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.15)
@@ -789,7 +788,7 @@ shape = SubResource("BoxShape3D_crpi1")
 [node name="DamageNumberSpawner" parent="." instance=ExtResource("8_rt1xc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
 
-[node name="AnimationTree" type="AnimationTree" parent="." node_paths=PackedStringArray("boss", "bossAI")]
+[node name="AnimationTree" type="AnimationTree" parent="."]
 root_node = NodePath("../CharacterRotator/Character")
 tree_root = SubResource("AnimationNodeBlendTree_mo6en")
 anim_player = NodePath("../CharacterRotator/Character/AnimationPlayer")
@@ -802,7 +801,5 @@ parameters/OST_Attack/internal_active = false
 parameters/OST_Attack/request = 0
 parameters/TS_IR/scale = 1.0
 script = ExtResource("9_0ml65")
-boss = NodePath("")
-bossAI = NodePath("")
 
 [editable path="CharacterRotator/Character"]

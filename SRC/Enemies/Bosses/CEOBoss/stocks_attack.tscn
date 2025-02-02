@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://dbctorw4q7eb7"]
+
+[ext_resource type="Script" uid="uid://bcug63huuqydl" path="res://SRC/Enemies/Bosses/CEOBoss/stocks_attack.gd" id="1_48una"]
+[ext_resource type="Texture2D" uid="uid://00sh0wdi3gd7" path="res://Assets/Textures/AreaCircle.png" id="1_x8fa7"]
+[ext_resource type="ArrayMesh" uid="uid://be3ly4svmbwyq" path="res://Assets/Meshes/stocksGraphSpike.obj" id="2_48una"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cvc30"]
+resource_local_to_scene = true
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0.215686, 0.227451, 0.992157, 1)
+albedo_texture = ExtResource("1_x8fa7")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_22b10"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ovn8q"]
+radius = 0.55
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x8fa7"]
+albedo_color = Color(1, 0.14902, 0.027451, 1)
+
+[node name="StocksAttack" type="Node3D" node_paths=PackedStringArray("circle", "stockArrow", "damage_area")]
+script = ExtResource("1_48una")
+circle = NodePath("Circle")
+stockArrow = NodePath("StockArrow/StockArrow")
+damage_area = NodePath("DamageArea")
+
+[node name="Circle" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
+material_override = SubResource("StandardMaterial3D_cvc30")
+mesh = SubResource("PlaneMesh_22b10")
+
+[node name="DamageArea" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DamageArea"]
+shape = SubResource("CylinderShape3D_ovn8q")
+
+[node name="StockArrow" type="Node3D" parent="."]
+
+[node name="StockArrow" type="MeshInstance3D" parent="StockArrow"]
+transform = Transform3D(-2.64454e-08, -0.605, 0, 0.605, -2.64454e-08, 0, 0, 0, 0.605, 0.743552, 3.71341, 6.23701)
+gi_mode = 2
+mesh = ExtResource("2_48una")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_x8fa7")
