@@ -1,59 +1,20 @@
-[gd_scene load_steps=48 format=3 uid="uid://dpp5kwx2brt4j"]
+[gd_scene load_steps=21 format=3 uid="uid://cf2u1sno5110p"]
 
-[ext_resource type="Script" uid="uid://b1ub7malgxo06" path="res://SRC/Enemies/Bosses/boss_enemy.gd" id="1_280ne"]
-[ext_resource type="PackedScene" uid="uid://d6bsg66ea0km" path="res://SRC/Effects/foot_decal.tscn" id="2_icph8"]
-[ext_resource type="Shader" uid="uid://08ntj0c525et" path="res://SRC/Shaders/Decal.gdshader" id="3_5uh6l"]
-[ext_resource type="Script" uid="uid://bmcmi0po4hwtf" path="res://SRC/Enemies/Bosses/ManagerBoss/managerAI.gd" id="4_5uh6l"]
-[ext_resource type="PackedScene" uid="uid://cyn7tjf3k30" path="res://Assets/Character/Character.glb" id="5_3qnrk"]
-[ext_resource type="Texture2D" uid="uid://bqd8jklne18ux" path="res://Assets/Textures/Zombie_Head_blue.png" id="6_v6h0s"]
-[ext_resource type="Script" uid="uid://hjbrru4m1cki" uid="uid://hjbrru4m1cki" path="res://SRC/Enemies/Bosses/BossAttackArea.gd" id="7_6xd4m"]
-[ext_resource type="Texture2D" uid="uid://dl282urbkt5t7" path="res://Assets/Character/PurpleTieTorso.png" id="7_bo86c"]
-[ext_resource type="PackedScene" uid="uid://bo2lyf4ubkwd" path="res://SRC/Enemies/damage_number_spawner.tscn" id="8_560r1"]
-[ext_resource type="Script" uid="uid://7iaw4rndqjv3" path="res://SRC/Enemies/Bosses/ManagerBoss/ManagerAnimTree.gd" id="9_a3lne"]
+[ext_resource type="PackedScene" uid="uid://cyn7tjf3k30" path="res://Assets/Character/Character.glb" id="1_1shgi"]
+[ext_resource type="Texture2D" uid="uid://b7fiqumxwqpeh" path="res://Assets/Character/Beard_Head.png" id="2_1shgi"]
+[ext_resource type="Texture2D" uid="uid://lun21mrx5mi6" path="res://Assets/Character/JanitorTorso.png" id="3_eayjk"]
+[ext_resource type="Script" uid="uid://hjbrru4m1cki" path="res://SRC/Enemies/Bosses/BossAttackArea.gd" id="4_x7teu"]
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6xd4m"]
-friction = 0.0
-bounce = 0.2
-
-[sub_resource type="Gradient" id="Gradient_px5nj"]
-interpolation_mode = 2
-offsets = PackedFloat32Array(0.125523, 0.669456)
-colors = PackedColorArray(0, 0, 0, 0.568627, 0, 0, 0, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_a3lne"]
-gradient = SubResource("Gradient_px5nj")
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-
-[sub_resource type="Gradient" id="Gradient_btmj8"]
-offsets = PackedFloat32Array(0, 0.543933, 0.573222, 1)
-colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.752941, 1, 1, 1, 0.752941, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_v6h0s"]
-gradient = SubResource("Gradient_btmj8")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_3qnrk"]
-resource_local_to_scene = true
-render_priority = 0
-shader = ExtResource("3_5uh6l")
-shader_parameter/albedo = Color(1, 1, 1, 1)
-shader_parameter/texture_albedo = SubResource("GradientTexture2D_a3lne")
-shader_parameter/vFade = SubResource("GradientTexture1D_v6h0s")
-shader_parameter/scale_mod = 1.0
-shader_parameter/cube_half_size = 0.5
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5uh6l"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6xd4m"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ano5a"]
 albedo_color = Color(1, 0.65625, 0.65625, 1)
-albedo_texture = ExtResource("6_v6h0s")
+albedo_texture = ExtResource("2_1shgi")
 texture_filter = 0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bo86c"]
-albedo_texture = ExtResource("7_bo86c")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oegov"]
+albedo_texture = ExtResource("3_eayjk")
 texture_filter = 0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3hqhq"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tegfd"]
 albedo_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_560r1"]
@@ -647,132 +608,29 @@ _data = {
 &"WaklFW": SubResource("Animation_syqjo")
 }
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_br25j"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_u4vg3"]
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_83d2e"]
-animation = &"AttackL"
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_l6vst"]
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_84ahr"]
-animation = &"AttackR"
-
-[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_iy44w"]
-
-[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_83d2e"]
-filter_enabled = true
-filters = ["Armature/Skeleton3D:arm.l", "Armature/Skeleton3D:arm.r"]
-
-[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_mr2mh"]
-filter_enabled = true
-filters = ["Armature/Skeleton3D:head", "Armature/Skeleton3D:torso"]
-
-[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_84ahr"]
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5qcea"]
-animation = &"Grab"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dda52"]
-animation = &"Hit"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_b8cif"]
-animation = &"Idle"
-
-[sub_resource type="Curve" id="Curve_4c6bx"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="Curve" id="Curve_ayl06"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_jix6e"]
-filter_enabled = true
-filters = ["../AttackArea", "../AttackArea:attackLaunched", "Armature/Skeleton3D:arm.l", "Armature/Skeleton3D:arm.r", "Armature/Skeleton3D:head", "Armature/Skeleton3D:shoulder.l", "Armature/Skeleton3D:shoulder.r", "Armature/Skeleton3D:torso"]
-fadein_time = 0.3
-fadein_curve = SubResource("Curve_4c6bx")
-fadeout_time = 0.4
-fadeout_curve = SubResource("Curve_ayl06")
-break_loop_at_end = true
-
-[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_iy44w"]
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_mr2mh"]
-animation = &"WaklFW"
-
-[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_a3lne"]
-graph_offset = Vector2(103.836, 531.117)
-nodes/AtkL/node = SubResource("AnimationNodeAnimation_83d2e")
-nodes/AtkL/position = Vector2(180, 700)
-nodes/AtkR/node = SubResource("AnimationNodeAnimation_84ahr")
-nodes/AtkR/position = Vector2(180, 860)
-nodes/B2_AtkLR/node = SubResource("AnimationNodeBlend2_iy44w")
-nodes/B2_AtkLR/position = Vector2(460, 640)
-nodes/B2_Chase/node = SubResource("AnimationNodeBlend2_83d2e")
-nodes/B2_Chase/position = Vector2(120, 220)
-nodes/B2_Hit/node = SubResource("AnimationNodeBlend2_mr2mh")
-nodes/B2_Hit/position = Vector2(360, 300)
-nodes/B2_IdleWalk/node = SubResource("AnimationNodeBlend2_84ahr")
-nodes/B2_IdleWalk/position = Vector2(-440, 140)
-nodes/ChaseArms/node = SubResource("AnimationNodeAnimation_5qcea")
-nodes/ChaseArms/position = Vector2(-160, 460)
-nodes/Hit/node = SubResource("AnimationNodeAnimation_dda52")
-nodes/Hit/position = Vector2(100, 520)
-nodes/Idle/node = SubResource("AnimationNodeAnimation_b8cif")
-nodes/Idle/position = Vector2(-720, 100)
-nodes/OST_Attack/node = SubResource("AnimationNodeOneShot_jix6e")
-nodes/OST_Attack/position = Vector2(640, 340)
-nodes/TS_IR/node = SubResource("AnimationNodeTimeScale_iy44w")
-nodes/TS_IR/position = Vector2(-191.57, 211.14)
-nodes/Walk/node = SubResource("AnimationNodeAnimation_mr2mh")
-nodes/Walk/position = Vector2(-720, 260)
-nodes/output/position = Vector2(860, 380)
-node_connections = [&"B2_AtkLR", 0, &"AtkL", &"B2_AtkLR", 1, &"AtkR", &"B2_Chase", 0, &"TS_IR", &"B2_Chase", 1, &"ChaseArms", &"B2_Hit", 0, &"B2_Chase", &"B2_Hit", 1, &"Hit", &"B2_IdleWalk", 0, &"Idle", &"B2_IdleWalk", 1, &"Walk", &"OST_Attack", 0, &"B2_Hit", &"OST_Attack", 1, &"B2_AtkLR", &"TS_IR", 0, &"B2_IdleWalk", &"output", 0, &"OST_Attack"]
-
-[node name="Manager" type="RigidBody3D" node_paths=PackedStringArray("damage_number_spawner", "foot_decal", "nav_agent", "rotatorNode")]
-collision_layer = 8
-collision_mask = 7
-mass = 3.0
-physics_material_override = SubResource("PhysicsMaterial_6xd4m")
-can_sleep = false
-lock_rotation = true
-linear_damp = 22.0
-script = ExtResource("1_280ne")
-damage_number_spawner = NodePath("DamageNumberSpawner")
-foot_decal = NodePath("FootDecal")
-nav_agent = NodePath("NavigationAgent3D")
-rotatorNode = NodePath("CharacterRotator")
-speed = 250.0
-
-[node name="FootDecal" parent="." instance=ExtResource("2_icph8")]
-material_override = SubResource("ShaderMaterial_3qnrk")
-
-[node name="AI" type="Node" parent="." node_paths=PackedStringArray("attackArea", "boss")]
-script = ExtResource("4_5uh6l")
-attackArea = NodePath("../CharacterRotator/AttackArea")
-boss = NodePath("..")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource("CapsuleShape3D_5uh6l")
-
-[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+[node name="Janitor" type="RigidBody3D"]
 
 [node name="CharacterRotator" type="Node3D" parent="."]
 
-[node name="Character" parent="CharacterRotator" instance=ExtResource("5_3qnrk")]
+[node name="Character" parent="CharacterRotator" instance=ExtResource("1_1shgi")]
 
 [node name="Skeleton3D" parent="CharacterRotator/Character/Armature" index="0"]
 bones/6/rotation = Quaternion(3.09086e-08, 0.707107, 0.707107, 3.09086e-08)
-bones/7/rotation = Quaternion(0, 4.37114e-08, 0, 1)
+bones/7/rotation = Quaternion(-0.0553888, 4.36443e-08, 2.42112e-09, 0.998465)
 bones/8/rotation = Quaternion(0.658114, 0.474342, 0.474342, -0.341886)
-bones/9/rotation = Quaternion(-0.485005, 0.139513, 0.0787055, 0.859716)
+bones/9/rotation = Quaternion(-0.364911, 0.434004, 0.677044, 0.46914)
 bones/10/rotation = Quaternion(0.658114, -0.474342, -0.474342, -0.341886)
-bones/11/rotation = Quaternion(-0.463691, -0.141408, -0.0752467, 0.871397)
+bones/11/rotation = Quaternion(-0.357732, -0.444334, -0.6703, 0.47465)
 
 [node name="CharacterMesh" parent="CharacterRotator/Character/Armature/Skeleton3D" index="0"]
 gi_mode = 2
-surface_material_override/0 = SubResource("StandardMaterial3D_6xd4m")
-surface_material_override/1 = SubResource("StandardMaterial3D_bo86c")
-surface_material_override/2 = SubResource("StandardMaterial3D_3hqhq")
+surface_material_override/0 = SubResource("StandardMaterial3D_ano5a")
+surface_material_override/1 = SubResource("StandardMaterial3D_oegov")
+surface_material_override/2 = SubResource("StandardMaterial3D_tegfd")
 
 [node name="ChairBase" parent="CharacterRotator/Character" index="1"]
 visible = false
@@ -793,33 +651,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15, -0.25)
 collision_layer = 0
 collision_mask = 2
 monitorable = false
-script = ExtResource("7_6xd4m")
-boss = NodePath("../..")
+script = ExtResource("4_x7teu")
+boss = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterRotator/AttackArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.15)
-shape = SubResource("BoxShape3D_br25j")
+shape = SubResource("BoxShape3D_u4vg3")
 
-[node name="DamageNumberSpawner" parent="." instance=ExtResource("8_560r1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
-
-[node name="AnimationTree" type="AnimationTree" parent="." node_paths=PackedStringArray("boss", "bossAI")]
-root_node = NodePath("../CharacterRotator/Character")
-tree_root = SubResource("AnimationNodeBlendTree_a3lne")
-anim_player = NodePath("../CharacterRotator/Character/AnimationPlayer")
-parameters/B2_AtkLR/blend_amount = 0
-parameters/B2_Chase/blend_amount = 0
-parameters/B2_Hit/blend_amount = 0
-parameters/B2_IdleWalk/blend_amount = 0
-parameters/OST_Attack/active = false
-parameters/OST_Attack/internal_active = false
-parameters/OST_Attack/request = 0
-parameters/TS_IR/scale = 1.0
-script = ExtResource("9_a3lne")
-boss = NodePath("..")
-bossAI = NodePath("../AI")
-
-[connection signal="playerInRange" from="CharacterRotator/AttackArea" to="AI" method="onAtkAreaDetected"]
-[connection signal="playerInRange" from="CharacterRotator/AttackArea" to="AnimationTree" method="_on_attack_area_player_in_range"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_l6vst")
 
 [editable path="CharacterRotator/Character"]

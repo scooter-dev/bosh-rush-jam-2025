@@ -1,10 +1,12 @@
-[gd_scene load_steps=57 format=3 uid="uid://bv2roejoa0822"]
+[gd_scene load_steps=62 format=3 uid="uid://bv2roejoa0822"]
 
 [ext_resource type="Script" uid="uid://bfgukb7pitkw3" path="res://SRC/Enemies/Zombie/zombie.gd" id="1_a78ok"]
 [ext_resource type="PackedScene" uid="uid://cyn7tjf3k30" path="res://Assets/Character/Character.glb" id="2_83d2e"]
 [ext_resource type="Script" uid="uid://bxclughrapnkq" path="res://SRC/Enemies/Zombie/zombie_rotator.gd" id="2_iy44w"]
 [ext_resource type="Script" uid="uid://t7ao3qeustxk" path="res://SRC/Enemies/Zombie/ZombieAnimTree.gd" id="4_5qcea"]
+[ext_resource type="Texture2D" uid="uid://dvtkjp2je5dwy" path="res://Assets/Textures/Zombie_Head.png" id="4_jix6e"]
 [ext_resource type="Script" uid="uid://b3kyr7uqlmnrb" path="res://SRC/Enemies/Zombie/attack_area.gd" id="5_6wiwi"]
+[ext_resource type="Texture2D" uid="uid://dm755jyagm18i" path="res://Assets/Character/BlueTieTorso.png" id="5_alfak"]
 [ext_resource type="Script" uid="uid://ptjhn1unpc8h" path="res://SRC/Enemies/Zombie/detection_area.gd" id="5_b8cif"]
 [ext_resource type="PackedScene" uid="uid://bo2lyf4ubkwd" path="res://SRC/Enemies/damage_number_spawner.tscn" id="6_mr2mh"]
 [ext_resource type="Shader" uid="uid://cl251maua5v7a" path="res://SRC/Shaders/healthBar.tres" id="7_dda52"]
@@ -23,6 +25,17 @@ radius = 0.424316
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_iy44w"]
 radius = 0.421004
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xypls"]
+albedo_texture = ExtResource("4_jix6e")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lxa5h"]
+albedo_texture = ExtResource("5_alfak")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jix6e"]
+albedo_color = Color(0, 0, 0, 1)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_btmj8"]
 radius = 0.1
@@ -790,14 +803,17 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 
 bones/6/rotation = Quaternion(3.09086e-08, 0.707107, 0.707107, 3.09086e-08)
 bones/7/rotation = Quaternion(0, 4.37114e-08, 0, 1)
 bones/8/rotation = Quaternion(0.658114, 0.474342, 0.474342, -0.341886)
-bones/9/rotation = Quaternion(-0.474382, 0.140471, 0.0769815, 0.865623)
+bones/9/rotation = Quaternion(-0.47021, 0.14084, 0.0763045, 0.867897)
 bones/10/rotation = Quaternion(0.658114, -0.474342, -0.474342, -0.341886)
-bones/11/rotation = Quaternion(-0.45639, -0.142032, -0.0740619, 0.875243)
+bones/11/rotation = Quaternion(-0.453292, -0.142294, -0.0735593, 0.876851)
 
 [node name="CharacterMesh" parent="CharacterRotator/Character/Armature/Skeleton3D" index="0"]
 extra_cull_margin = 6.0
 lod_bias = 5.0
 gi_mode = 2
+surface_material_override/0 = SubResource("StandardMaterial3D_xypls")
+surface_material_override/1 = SubResource("StandardMaterial3D_lxa5h")
+surface_material_override/2 = SubResource("StandardMaterial3D_jix6e")
 
 [node name="PhysicalBoneSimulator3D" type="PhysicalBoneSimulator3D" parent="CharacterRotator/Character/Armature/Skeleton3D" index="1"]
 
@@ -1204,8 +1220,8 @@ transform = Transform3D(-1.07169e-05, 0.243851, 0.969813, 1.72711e-05, -0.969813
 collision_layer = 0
 collision_mask = 7
 joint_type = 2
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00094807, 0.000574835, -0.000420958)
-body_offset = Transform3D(1, 1.85733e-05, 5.68418e-06, -1.85606e-05, 1, 6.15865e-05, -5.79863e-06, -6.14226e-05, 1, 0.000948062, -0.000574827, 0.000420988)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000948017, 0.000573638, -0.000423945)
+body_offset = Transform3D(1, 1.85047e-05, 5.71672e-06, -1.85643e-05, 1, 4.91291e-05, -5.7998e-06, -4.90695e-05, 1, 0.00094801, -0.000573635, 0.000423968)
 bone_name = "arm.l"
 joint_constraints/swing_span = 30.0
 joint_constraints/twist_span = 2.0
@@ -1254,12 +1270,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.44089e-16, 0.298347, -2.328
 shape = SubResource("BoxShape3D_iy44w")
 
 [node name="Physical Bone leg_l" type="PhysicalBone3D" parent="CharacterRotator/Character/Armature/Skeleton3D/PhysicalBoneSimulator3D"]
-transform = Transform3D(1, -2.95763e-11, 6.39488e-14, -2.95763e-11, -1, 1.19209e-07, 6.39488e-14, -1.19209e-07, -1, 0.2, 0.6, -8.031e-07)
+transform = Transform3D(1, -2.95763e-11, 6.39488e-14, -2.95763e-11, -1, 1.19209e-07, 6.39488e-14, -1.19209e-07, -1, 0.2, 0.6, -8.02918e-07)
 collision_layer = 0
 collision_mask = 7
 joint_type = 2
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.27826e-07, -1.19209e-07, -7.73298e-07)
-body_offset = Transform3D(1, -2.95763e-11, 6.39488e-14, 2.95763e-11, 1, -1.19209e-07, -6.39488e-14, 1.19209e-07, 1, 3.27826e-07, 1.19209e-07, 7.73298e-07)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.27826e-07, -1.19209e-07, -7.73116e-07)
+body_offset = Transform3D(1, -2.95763e-11, 6.39488e-14, 2.95763e-11, 1, -1.19209e-07, -6.39488e-14, 1.19209e-07, 1, 3.27826e-07, 1.19209e-07, 7.73116e-07)
 bone_name = "leg.l"
 joint_constraints/swing_span = 30.0
 joint_constraints/twist_span = 2.0

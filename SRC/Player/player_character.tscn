@@ -1,6 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://c4yr8vievny8j"]
+[gd_scene load_steps=7 format=3 uid="uid://c4yr8vievny8j"]
 
 [ext_resource type="PackedScene" uid="uid://cyn7tjf3k30" path="res://Assets/Character/Character.glb" id="1_ajhqf"]
+[ext_resource type="Texture2D" uid="uid://bvnarbf7vf2ov" path="res://Assets/Character/Chris_Head.png" id="2_hol1q"]
+[ext_resource type="Texture2D" uid="uid://cjx3melfdsr37" path="res://Assets/Character/Chris_Torso.png" id="3_jjsuw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jjsuw"]
+albedo_texture = ExtResource("2_hol1q")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pdosp"]
+albedo_texture = ExtResource("3_jjsuw")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8ehis"]
+albedo_color = Color(0, 0, 0, 1)
 
 [node name="PlayerCharacter" type="Node3D"]
 
@@ -18,6 +31,9 @@ bones/11/rotation = Quaternion(-0.333954, -0.482098, -0.454731, 0.670281)
 
 [node name="CharacterMesh" parent="Character/Armature/Skeleton3D" index="0"]
 gi_mode = 2
+surface_material_override/0 = SubResource("StandardMaterial3D_jjsuw")
+surface_material_override/1 = SubResource("StandardMaterial3D_pdosp")
+surface_material_override/2 = SubResource("StandardMaterial3D_8ehis")
 
 [node name="ChairBase" parent="Character" index="1"]
 gi_mode = 2
