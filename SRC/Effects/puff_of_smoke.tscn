@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://b5cl7lpjsi2si"]
 
 [ext_resource type="Script" uid="uid://dbth2e487osp2" path="res://SRC/Effects/papersplosion.gd" id="1_6taod"]
-[ext_resource type="Texture2D" uid="uid://bsq1e2oo7pf7k" path="res://Assets/Textures/Smoke/Smoke.png" id="1_pdy7p"]
+[ext_resource type="Texture2D" uid="uid://c47o1wpkxsx2o" path="res://Assets/Textures/Smoke/smoke.png" id="1_pdy7p"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p5va4"]
 transparency = 1

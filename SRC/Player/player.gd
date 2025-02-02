@@ -77,7 +77,8 @@ func _physics_process(delta: float) -> void:
 				prevRotation = currentRotation
 			if primaryPressed:
 				grabArea.interact()
-			if shouldBoost and boostDelay < 0.001:
+			if shouldBoost and boostDelay < 0.001 and PlayerManager.boostFuel > 15.0:
+				PlayerManager.boostFuel -= 15.0
 				slideVelocity -= charRotator.global_basis.z * 8000.0 * PlayerManager.boostStrength * PlayerManager.boostStrength
 				print("boosted")
 				shouldBoost = false
@@ -173,9 +174,12 @@ func onDamaged(damage : int, instigator : Node3D) -> void:
 	if iTime < 0.001:
 		iTime = 0.2
 		damaged.emit()
-		PlayerManager.health -= damage
-		damageNumberSpawner.spawnDNumber(damage)
-		print("player damage")
+		if PlayerManager.armor > 0:
+			PlayerManager.armor -= 1
+		else:
+			PlayerManager.health -= damage
+			damageNumberSpawner.spawnDNumber(damage)
+		#print("player damage")
 		if PlayerManager.health <= 0:
 			die()
 
@@ -189,3 +193,6 @@ func die() -> void:
 	died.emit()
 	dead = true
 	togglePlayer(false)
+
+func levelTransition(level : String) -> void:
+	get_tree().change_scene_to_file(level)

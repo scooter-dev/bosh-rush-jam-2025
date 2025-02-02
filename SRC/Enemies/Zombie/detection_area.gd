@@ -8,14 +8,20 @@ var playersInRange : Array[Player]
 var playersSeen : Array[Player]
 var target : Node3D = null
 
+@export var rotator : Node3D
+
 var ray : PhysicsRayQueryParameters3D
 
 func _ready() -> void:
 	ray = PhysicsRayQueryParameters3D.new()
 	ray.collision_mask = 3 + 32
 
+const viewAngle : float = cos(deg_to_rad(120))
+
 func _physics_process(delta: float) -> void:
 	for P : Player in detectedPlayers:
+		if (P.global_position - global_position).normalized().dot(rotator.global_basis.z) < viewAngle:
+			continue
 		ray.from = global_position
 		ray.to = P.global_position + Vector3(0,1,0)
 		var res : Dictionary = get_world_3d().direct_space_state.intersect_ray(ray)

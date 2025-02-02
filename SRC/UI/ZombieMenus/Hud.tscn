@@ -111,6 +111,7 @@ custom_minimum_size = Vector2(75, 45)
 layout_mode = 2
 
 [node name="ColorRect" type="ColorRect" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/Tape"]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
@@ -148,6 +149,7 @@ grow_vertical = 2
 text = "50"
 
 [node name="ColorRect" type="ColorRect" parent="MarginContainer/HBoxContainer/InventoryMargin/GridContainer/PhoneBook"]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 

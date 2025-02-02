@@ -51,7 +51,8 @@ func _physics_process(delta: float) -> void:
 			if dmg > 0:
 				if body.onDamaged(dmg, thrower, self):
 					health -= 1
-					dropItem()
+					for i in range(int(PlayerManager.luck)):
+						dropItem()
 				if health == 0:
 					die()
 					return
@@ -63,8 +64,12 @@ func _physics_process(delta: float) -> void:
 			thrower = null
 	prevVel = linear_velocity
 
+const PUFF_OF_SMOKE = preload("res://SRC/Effects/puff_of_smoke.tscn")
 func die() -> void:
-	pass
+	var puff : CPUParticles3D = PUFF_OF_SMOKE.instantiate()
+	WorldManager.currentLevel.add_child(puff)
+	puff.global_position = global_position
+	queue_free()
 
 const ITEM_DROP = preload("res://SRC/Items/item_drop.tscn")
 func dropItem() -> void:

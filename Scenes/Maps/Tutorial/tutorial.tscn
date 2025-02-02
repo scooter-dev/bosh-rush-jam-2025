@@ -1,7 +1,7 @@
-[gd_scene load_steps=30 format=4 uid="uid://d2a1pvu2l8nt4"]
+[gd_scene load_steps=42 format=4 uid="uid://d2a1pvu2l8nt4"]
 
 [ext_resource type="PackedScene" uid="uid://bj76op4qds1fb" path="res://SRC/Actors/Elevator/elevator.tscn" id="1_0klb4"]
-[ext_resource type="Script" uid="uid://dme2a1a6hugg0" path="res://addons/lightmap_probe_grid/lightmap_probe_grid.gd" id="2_6rh3t"]
+[ext_resource type="Script" uid="uid://dnev02fq78g5" path="res://Scenes/Maps/Level.gd" id="1_5snpj"]
 [ext_resource type="Shader" uid="uid://drr0gce6cncf3" path="res://SRC/Shaders/darkness.gdshader" id="2_atqr4"]
 [ext_resource type="Shader" uid="uid://cm8puby5gs7hp" path="res://SRC/Shaders/rgbTextureTriplanar.gdshader" id="3_ayvyj"]
 [ext_resource type="Texture2D" uid="uid://bkclfd3itw7r7" path="res://Assets/Textures/Carpet.png" id="4_rxbiu"]
@@ -11,6 +11,14 @@
 [ext_resource type="PackedScene" uid="uid://befpbpoyyfsw1" path="res://SRC/Props/water_jug.tscn" id="9_brwpm"]
 [ext_resource type="PackedScene" uid="uid://cjjnt5aka3dhk" path="res://SRC/Props/trash.tscn" id="10_f1a3i"]
 [ext_resource type="PackedScene" uid="uid://ry72u7xd6h2o" path="res://SRC/Props/FileCabinet.tscn" id="11_4liku"]
+[ext_resource type="PackedScene" uid="uid://c1g40osluc5on" path="res://SRC/Player/player.tscn" id="12_dm1oh"]
+[ext_resource type="Script" uid="uid://lxlofs8sqn8c" path="res://Scenes/Maps/Tutorial/TutorialArea.gd" id="13_uef6n"]
+[ext_resource type="PackedScene" uid="uid://bdehricvsx6gs" path="res://SRC/Props/door.tscn" id="14_o5w3y"]
+[ext_resource type="PackedScene" uid="uid://bv2roejoa0822" path="res://SRC/Enemies/Zombie/zombie.tscn" id="15_5snpj"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_5snpj"]
+vertices = PackedVector3Array(-0.55, 0.5, -13.05, 0.7, 0.5, -13.05, 0.95, 0.5, -13.8, -0.8, 0.5, -13.8, 3.7, 0.5, -18.8, -3.55, 0.5, -18.8, 3.7, 0.5, -13.8, -3.55, 0.5, -13.8, -4.05, 0.5, -10.55, -4.05, 0.5, -9.3, -3.55, 0.5, -9.05, -3.55, 0.5, -10.8, 0.95, 0.5, -12.55, -0.8, 0.5, -12.55, -0.55, 0.5, -7.05, -0.55, 0.5, -0.549999, 0.7, 0.5, -0.549999, 0.7, 0.5, -7.05, 2.7, 0.5, -7.3, 2.7, 0.5, -12.55, -3.55, 0.5, -12.55, -3.55, 0.5, -7.3, -4.8, 0.5, -10.8, -11.8, 0.5, -12.55, -11.8, 0.5, -7.3, -4.8, 0.5, -9.05, -4.8, 0.5, -7.3, -4.8, 0.5, -12.55, 11.7, 0.5, -7.3, 11.7, 0.5, -12.55)
+polygons = [PackedInt32Array(0, 3, 1), PackedInt32Array(1, 3, 2), PackedInt32Array(3, 5, 2), PackedInt32Array(2, 5, 4), PackedInt32Array(4, 6, 2), PackedInt32Array(3, 7, 5), PackedInt32Array(8, 11, 9), PackedInt32Array(9, 11, 10), PackedInt32Array(1, 12, 0), PackedInt32Array(0, 12, 13), PackedInt32Array(17, 16, 14), PackedInt32Array(14, 16, 15), PackedInt32Array(19, 18, 12), PackedInt32Array(12, 18, 17), PackedInt32Array(11, 20, 13), PackedInt32Array(14, 21, 10), PackedInt32Array(11, 13, 10), PackedInt32Array(10, 13, 12), PackedInt32Array(10, 12, 14), PackedInt32Array(14, 12, 17), PackedInt32Array(9, 25, 8), PackedInt32Array(8, 25, 22), PackedInt32Array(22, 25, 24), PackedInt32Array(22, 24, 23), PackedInt32Array(25, 26, 24), PackedInt32Array(23, 27, 22), PackedInt32Array(19, 29, 18), PackedInt32Array(18, 29, 28)]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bdbkr"]
 render_priority = 0
@@ -59,50 +67,6 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_2e27r")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_2iq6n"]
-render_priority = 0
-shader = ExtResource("3_ayvyj")
-shader_parameter/tex = ExtResource("4_rxbiu")
-shader_parameter/red_color = Color(0.910156, 0.794165, 0.398193, 1)
-shader_parameter/green_color = Color(0, 0.217712, 0.679688, 1)
-shader_parameter/blue_color = Color(1, 1, 1, 1)
-shader_parameter/uvScale = Vector3(0.25, 0.25, 0.25)
-shader_parameter/uvOffset = Vector3(0, 0, 0)
-shader_parameter/uv1_blend_sharpness = 1.0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o6pom"]
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_ui74t"]
-_surfaces = [{
-"aabb": AABB(-12.3, 0, -19.3, 24.6, 1e-05, 19.3),
-"format": 34896613377,
-"index_count": 90,
-"index_data": PackedByteArray("AAABAAIAAQADAAQAAQAEAAUAAQAGAAMAAQAFAAcACAAHAAUACAAFAAkABwAIAAoACgAIAAsADAAGAAEADAABAAAAAAANAAwAAAAOAA0ADgAPAA0ADQAPABAADwAOABEADwARABIAEwAMABQABgAMABUAFQAMABMABgAVABYAFgAVABcAGAAGABYAGAAWABkAEwAaABUAEwAbABoAHAAaABsAHAAbAB0AGgAcAB4AHgAcAB8A"),
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 32,
-"vertex_data": PackedByteArray("l3UAAJBTAABfVgAAF24AAF9WAACQUwAAX1YAACWjAABfVgAAnogAAEBTAACeiAAAl3UAACWjAABAUwAAF24AAAAAAAAlowAAQFMAACWjAABAUwAAkFMAAAAAAACQUwAAZ4oAAJBTAABnigAAlU8AAJd1AACVTwAAn6kAAAAAAACfqQAAlU8AAF9WAACVTwAAX1YAAAAAAACfqQAAF24AAJ+pAACQUwAAn6kAAJ6IAABnigAAJaMAAJ+pAAAlowAAl3UAAP//AABnigAA//8AAL6sAACeiAAAvqwAABduAAD//wAAkFMAAL6sAACQUwAAvqwAACWjAAD//wAAJaMAAA==")
-}]
-blend_shape_mode = 0
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_brwpm"]
-resource_name = "OfficeLayouts_Cube_005"
-lightmap_size_hint = Vector2i(330, 390)
-_surfaces = [{
-"aabb": AABB(-12.3, 0, -19.3, 24.6, 1e-05, 19.3),
-"attribute_data": PackedByteArray("AAAAAAAAgD90cT0+/FqnPgAAAAAAAIA/DJjGOl9G3D4AAAAAAACAPwyYxjr8Wqc+AAAAAAAAgD8AAAAAAAAAAAAAAAAAAIA/AAAAAAAAAAAAAAAAAACAPwAAAAAAAAAAAAAAAAAAgD8lyNM+ghhIPwAAAAAAAIA/JcjTPiqSYj8AAAAAAACAP8JB3T4qkmI/AAAAAAAAgD90cT0+kA4jPwAAAAAAAIA/DJjGOpAOIz8AAAAAAACAP8JB3T6CGEg/AAAAAAAAgD9z/mw/0Qt9PwAAAAAAAIA/wkHdPtELfT8AAAAAAACAP8JB3T7ani0/AAAAAAAAgD9z/mw/2p4tPwAAAAAAAIA/JVqdPvxapz4AAAAAAACAPyVanT4vap8+AAAAAAAAgD90cT0+L2qfPgAAAAAAAIA/SUz7PoEKqDoAAAAAAACAP0lM+z4vap8+AAAAAAAAgD8MmMY6L2qfPgAAAAAAAIA/DJjGOoEKqDoAAAAAAACAP0lM+z5fRtw+AAAAAAAAgD9JTPs+/FqnPgAAAAAAAIA/SUz7PuCYCD8AAAAAAACAPyVanT6QDiM/AAAAAAAAgD9JTPs+kA4jPwAAAAAAAIA/dHE9Pvurfz8AAAAAAACAPyVanT77q38/AAAAAAAAgD9bWAI/4JgIPwAAAAAAAIA/W1gCP19G3D4AAAAAAACAP7Scfz/8Wqc+AAAAAAAAgD9bWAI//FqnPgAAAAAAAIA/W1gCP5AOIz8AAAAAAACAP7Scfz+QDiM/"),
-"format": 34359742519,
-"index_count": 90,
-"index_data": PackedByteArray("AAABAAIAAwAEAAUABgAHAAgAAQAJAAoABgAIAAsADAALAAgADAAIAA0ACwAMAA4ADgAMAA8AEAAJAAEAEAABAAAAAAARABAAAAASABEAEgATABEAEQATABQAEwASABUAEwAVABYAFwAQABgACQAQABkAGQAQABcACQAZABoAGgAZABsAHAAJABoAHAAaAB0AFwAeABkAFwAfAB4AIAAeAB8AIAAfACEAHgAgACIAIgAgACMA"),
-"material": SubResource("StandardMaterial3D_o6pom"),
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 36,
-"vertex_data": PackedByteArray("2AWAvwAAAABOAFDBPAGAwAAAAACJADDBPAGAwAAAAABOAFDBPAGAwAAAAACJADDBPAGAwAAAAAAAAuDAPAGAwAAAAADEABDBPAGAwAAAAACJADDBPAGAwAAAAADEABDBM5qJwAAAAADEABDB2AWAvwAAAAAAAuDAPAGAwAAAAAAAAuDAM5qJwAAAAACJADDBzcxEwQAAAAAAAuDAM5qJwAAAAAAAAuDAM5qJwAAAAABOAFDBzcxEwQAAAABOAFDBEPN/PwAAAABOAFDBEPN/PwAAAAB+zVTB2AWAvwAAAAB+zVTBVPx/QAAAAABmZprBVPx/QAAAAAB+zVTBPAGAwAAAAAB+zVTBPAGAwAAAAABmZprBVPx/QAAAAACJADDBVPx/QAAAAABOAFDBVPx/QAAAAADEABDBEPN/PwAAAAAAAuDAVPx/QAAAAAAAAuDA2AWAvwAAAAAAAAAAEPN/PwAAAAAAAAAAIpeJQAAAAADEABDBIpeJQAAAAACJADDBzcxEQQAAAABOAFDBIpeJQAAAAABOAFDBIpeJQAAAAAAAAuDAzcxEQQAAAAAAAuDA/3/9//7//7//f/3//v//v/9//f/+//+//3/9//7//7//f/3//v//v/9//f/+//+//3/9//7//7//f/3//v//v/9//f/+//+//3/9//7//7//f/3//v//v/9//f/+//+//3/9//7//7//f/3//v//v/9//f/+//+//3/9//7//7//f/3//v//v/9//f/+//+//3/9//7//7//f/3//v//v/9//f/+//+//3/9//7//7//f/3//v//v/9//f/+//+//3/9//7//7//f/3//v//v/9//f/+//+//3/9//7//7//f/3//v//v/9//f/+//+//3/9//7//7//f/3//v//v/9//f/+//+//3/9//7//7//f/3//v//v/9//f/+//+/")
-}]
-blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_ui74t")
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_atqr4"]
 data = PackedVector3Array(-4, 0, -7, -4, 3, -9, -4, 0, -9, -4, 0, -7, -4, 3, -7, -4, 3, -9, 4.3, 0, -11, 4, 3, -11, 4.3, 3, -11, 4.3, 0, -11, 4, 0, -11, 4, 3, -11, -1, 0, 0, -1, 3, -7, -1, 0, -7, -1, 0, 0, -1, 3, 0, -1, 3, -7, 4.3, 0, -7, 4.3, 3, -9, 4.3, 0, -9, 4.3, 0, -7, 4.3, 3, -7, 4.3, 3, -9, 4, 0, -9, 4.3, 3, -9, 4, 3, -9, 4, 0, -9, 4.3, 0, -9, 4.3, 3, -9, -4, 0, -19.3, -4, 3, -13.3, -4, 3, -19.3, -4, 0, -19.3, -4, 0, -13.3, -4, 3, -13.3, 4.3, 0, -11, 4.3, 3, -13, 4.3, 0, -13, 4.3, 0, -11, 4.3, 3, -11, 4.3, 3, -13, -4, 0, -11, -4, 3, -13, -4, 0, -13, -4, 0, -11, -4, 3, -11, -4, 3, -13, 4, 0, -13.3, 4, 3, -19.3, 4, 3, -13.3, 4, 0, -13.3, 4, 0, -19.3, 4, 3, -19.3, -4.3, 0, -13, -4.3, 3, -11, -4.3, 0, -11, -4.3, 0, -13, -4.3, 3, -13, -4.3, 3, -11, -1, 0, -13.3, -1, 3, -13, -1, 3, -13.3, -1, 0, -13.3, -1, 0, -13, -1, 3, -13, 4, 0, -19.3, -4, 3, -19.3, 4, 3, -19.3, 4, 0, -19.3, -4, 0, -19.3, -4, 3, -19.3, -4.3, 0, -9, -4.3, 3, -7, -4.3, 0, -7, -4.3, 0, -9, -4.3, 3, -9, -4.3, 3, -7, 1, 0, -13, 1, 3, -13.3, 1, 3, -13, 1, 0, -13, 1, 0, -13.3, 1, 3, -13.3, 1, 0, -7, 1, 3, 0, 1, 0, 0, 1, 0, -7, 1, 3, -7, 1, 3, 0, -4, 0, -9, -4.3, 3, -9, -4.3, 0, -9, -4, 0, -9, -4, 3, -9, -4.3, 3, -9, 4, 0, -13.3, 1, 3, -13.3, 1, 0, -13.3, 4, 0, -13.3, 4, 3, -13.3, 1, 3, -13.3, -1, 0, -13.3, -4, 3, -13.3, -4, 0, -13.3, -1, 0, -13.3, -1, 3, -13.3, -4, 3, -13.3, 12.3, 0, -7, 12.3, 3, -13, 12.3, 3, -7, 12.3, 0, -7, 12.3, 0, -13, 12.3, 3, -13, -1, 0, -7, -4, 3, -7, -4, 0, -7, -1, 0, -7, -1, 3, -7, -4, 3, -7, 12.3, 0, -13, 4.3, 3, -13, 12.3, 3, -13, 12.3, 0, -13, 4.3, 0, -13, 4.3, 3, -13, 4, 0, -7, 1, 3, -7, 1, 0, -7, 4, 0, -7, 4, 3, -7, 1, 3, -7, 4.3, 0, -7, 12.3, 3, -7, 4.3, 3, -7, 4.3, 0, -7, 12.3, 0, -7, 12.3, 3, -7, 4, 0, -9, 4, 3, -7, 4, 0, -7, 4, 0, -9, 4, 3, -9, 4, 3, -7, -12.3, 0, -13, -12.3, 3, -7, -12.3, 3, -13, -12.3, 0, -13, -12.3, 0, -7, -12.3, 3, -7, 4, 0, -13, 4, 3, -11, 4, 0, -11, 4, 0, -13, 4, 3, -13, 4, 3, -11, -4.3, 0, -11, -4, 3, -11, -4, 0, -11, -4.3, 0, -11, -4.3, 3, -11, -4, 3, -11, 1, 0, -13, 4, 3, -13, 4, 0, -13, 1, 0, -13, 1, 3, -13, 4, 3, -13, -4.3, 0, -13, -12.3, 3, -13, -4.3, 3, -13, -4.3, 0, -13, -12.3, 0, -13, -12.3, 3, -13, -4, 0, -13, -1, 3, -13, -1, 0, -13, -4, 0, -13, -4, 3, -13, -1, 3, -13, -12.3, 0, -7, -4.3, 3, -7, -12.3, 3, -7, -12.3, 0, -7, -4.3, 0, -7, -4.3, 3, -7)
@@ -156,21 +120,125 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_xg084")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2iq6n"]
+render_priority = 0
+shader = ExtResource("3_ayvyj")
+shader_parameter/tex = ExtResource("4_rxbiu")
+shader_parameter/red_color = Color(0.910156, 0.794165, 0.398193, 1)
+shader_parameter/green_color = Color(0, 0.217712, 0.679688, 1)
+shader_parameter/blue_color = Color(1, 1, 1, 1)
+shader_parameter/uvScale = Vector3(0.25, 0.25, 0.25)
+shader_parameter/uvOffset = Vector3(0, 0, 0)
+shader_parameter/uv1_blend_sharpness = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o6pom"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ui74t"]
+_surfaces = [{
+"aabb": AABB(-12.3, 0, -19.3, 24.6, 1e-05, 19.3),
+"format": 34896613377,
+"index_count": 90,
+"index_data": PackedByteArray("AAABAAIAAQADAAQAAQAEAAUAAQAGAAMAAQAFAAcACAAHAAUACAAFAAkABwAIAAoACgAIAAsADAAGAAEADAABAAAAAAANAAwAAAAOAA0ADgAPAA0ADQAPABAADwAOABEADwARABIAEwAMABQABgAMABUAFQAMABMABgAVABYAFgAVABcAGAAGABYAGAAWABkAEwAaABUAEwAbABoAHAAaABsAHAAbAB0AGgAcAB4AHgAcAB8A"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 32,
+"vertex_data": PackedByteArray("l3UAAJBTAABfVgAAF24AAF9WAACQUwAAX1YAACWjAABfVgAAnogAAEBTAACeiAAAl3UAACWjAABAUwAAF24AAAAAAAAlowAAQFMAACWjAABAUwAAkFMAAAAAAACQUwAAZ4oAAJBTAABnigAAlU8AAJd1AACVTwAAn6kAAAAAAACfqQAAlU8AAF9WAACVTwAAX1YAAAAAAACfqQAAF24AAJ+pAACQUwAAn6kAAJ6IAABnigAAJaMAAJ+pAAAlowAAl3UAAP//AABnigAA//8AAL6sAACeiAAAvqwAABduAAD//wAAkFMAAL6sAACQUwAAvqwAACWjAAD//wAAJaMAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_brwpm"]
+resource_name = "OfficeLayouts_Cube_005"
+lightmap_size_hint = Vector2i(330, 390)
+_surfaces = [{
+"aabb": AABB(-12.3, 0, -19.3, 24.6, 1e-05, 19.3),
+"attribute_data": PackedByteArray("AAAAAAAAgD90cT0+/FqnPgAAAAAAAIA/DJjGOl9G3D4AAAAAAACAPwyYxjr8Wqc+AAAAAAAAgD8AAAAAAAAAAAAAAAAAAIA/AAAAAAAAAAAAAAAAAACAPwAAAAAAAAAAAAAAAAAAgD8lyNM+ghhIPwAAAAAAAIA/JcjTPiqSYj8AAAAAAACAP8JB3T4qkmI/AAAAAAAAgD90cT0+kA4jPwAAAAAAAIA/DJjGOpAOIz8AAAAAAACAP8JB3T6CGEg/AAAAAAAAgD9z/mw/0Qt9PwAAAAAAAIA/wkHdPtELfT8AAAAAAACAP8JB3T7ani0/AAAAAAAAgD9z/mw/2p4tPwAAAAAAAIA/JVqdPvxapz4AAAAAAACAPyVanT4vap8+AAAAAAAAgD90cT0+L2qfPgAAAAAAAIA/SUz7PoEKqDoAAAAAAACAP0lM+z4vap8+AAAAAAAAgD8MmMY6L2qfPgAAAAAAAIA/DJjGOoEKqDoAAAAAAACAP0lM+z5fRtw+AAAAAAAAgD9JTPs+/FqnPgAAAAAAAIA/SUz7PuCYCD8AAAAAAACAPyVanT6QDiM/AAAAAAAAgD9JTPs+kA4jPwAAAAAAAIA/dHE9Pvurfz8AAAAAAACAPyVanT77q38/AAAAAAAAgD9bWAI/4JgIPwAAAAAAAIA/W1gCP19G3D4AAAAAAACAP7Scfz/8Wqc+AAAAAAAAgD9bWAI//FqnPgAAAAAAAIA/W1gCP5AOIz8AAAAAAACAP7Scfz+QDiM/"),
+"format": 34359742519,
+"index_count": 90,
+"index_data": PackedByteArray("AAABAAIAAwAEAAUABgAHAAgAAQAJAAoABgAIAAsADAALAAgADAAIAA0ACwAMAA4ADgAMAA8AEAAJAAEAEAABAAAAAAARABAAAAASABEAEgATABEAEQATABQAEwASABUAEwAVABYAFwAQABgACQAQABkAGQAQABcACQAZABoAGgAZABsAHAAJABoAHAAaAB0AFwAeABkAFwAfAB4AIAAeAB8AIAAfACEAHgAgACIAIgAgACMA"),
+"material": SubResource("StandardMaterial3D_o6pom"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 36,
+"vertex_data": PackedByteArray("2AWAvwAAAABOAFDBPAGAwAAAAACJADDBPAGAwAAAAABOAFDBPAGAwAAAAACJADDBPAGAwAAAAAAAAuDAPAGAwAAAAADEABDBPAGAwAAAAACJADDBPAGAwAAAAADEABDBM5qJwAAAAADEABDB2AWAvwAAAAAAAuDAPAGAwAAAAAAAAuDAM5qJwAAAAACJADDBzcxEwQAAAAAAAuDAM5qJwAAAAAAAAuDAM5qJwAAAAABOAFDBzcxEwQAAAABOAFDBEPN/PwAAAABOAFDBEPN/PwAAAAB+zVTB2AWAvwAAAAB+zVTBVPx/QAAAAABmZprBVPx/QAAAAAB+zVTBPAGAwAAAAAB+zVTBPAGAwAAAAABmZprBVPx/QAAAAACJADDBVPx/QAAAAABOAFDBVPx/QAAAAADEABDBEPN/PwAAAAAAAuDAVPx/QAAAAAAAAuDA2AWAvwAAAAAAAAAAEPN/PwAAAAAAAAAAIpeJQAAAAADEABDBIpeJQAAAAACJADDBzcxEQQAAAABOAFDBIpeJQAAAAABOAFDBIpeJQAAAAAAAAuDAzcxEQQAAAAAAAuDA/3/9//7//7//f/3//v//v/9//f/+//+//3/9//7//7//f/3//v//v/9//f/+//+//3/9//7//7//f/3//v//v/9//f/+//+//3/9//7//7//f/3//v//v/9//f/+//+//3/9//7//7//f/3//v//v/9//f/+//+//3/9//7//7//f/3//v//v/9//f/+//+//3/9//7//7//f/3//v//v/9//f/+//+//3/9//7//7//f/3//v//v/9//f/+//+//3/9//7//7//f/3//v//v/9//f/+//+//3/9//7//7//f/3//v//v/9//f/+//+//3/9//7//7//f/3//v//v/9//f/+//+//3/9//7//7//f/3//v//v/9//f/+//+/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_ui74t")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uef6n"]
+size = Vector3(3.4, 2, 5)
+
+[sub_resource type="GDScript" id="GDScript_o5w3y"]
+script/source = "extends Area3D
+
+
+func _ready() -> void:
+	body_entered.connect(onBodyEntered)
+	
+@export var door_4: Door
+
+func onBodyEntered(body : Node3D) -> void:
+	if body is GrabbableProp:
+		if body.linear_velocity.length_squared() > 25.0:
+			print(\"unlocked\")
+			door_4.unlock()
+"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o5w3y"]
+size = Vector3(2, 2.6, 0.7)
+
+[sub_resource type="GDScript" id="GDScript_5snpj"]
+script/source = "extends Node
+
+@export var zombie: Zombie
+@export var door : Door
+@export var tutorialChange : Node3D
+@export_multiline var newText : String
+
+func _ready() -> void:
+	zombie.dead.connect(onZDead)
+
+func onZDead() -> void:
+	door.unlock()
+	tutorialChange.text = newText
+
+
+func _on_player_chair_damaged() -> void:
+	if PlayerManager.health < 5:
+		zombie.damage = 0
+"
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ch2c7"]
+resource_local_to_scene = true
+friction = 0.0
+bounce = 0.4
+
+[sub_resource type="GDScript" id="GDScript_ch2c7"]
+script/source = "extends Area3D
+
+
+
+func _on_body_entered(body: Node3D) -> void:
+	if body is Player:
+		body.levelTransition(\"res://Scenes/Maps/SafeRoom/SafeRoom.tscn\")
+"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5snpj"]
+size = Vector3(2.65, 3.75, 1.8)
+
 [node name="Tutorial" type="Node3D"]
+script = ExtResource("1_5snpj")
 
 [node name="Elevator" parent="." instance=ExtResource("1_0klb4")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 2)
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_5snpj")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
 [node name="TutorialWalls" type="MeshInstance3D" parent="StaticBody3D"]
 material_override = SubResource("StandardMaterial3D_605vl")
 mesh = SubResource("ArrayMesh_63j4r")
-skeleton = NodePath("")
-
-[node name="TutorialFloor" type="MeshInstance3D" parent="StaticBody3D"]
-material_override = SubResource("ShaderMaterial_2iq6n")
-mesh = SubResource("ArrayMesh_brwpm")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
@@ -187,581 +255,10 @@ cast_shadow = 3
 mesh = SubResource("ArrayMesh_2iq6n")
 skeleton = NodePath("")
 
-[node name="Probes" type="Node3D" parent="."]
-visible = false
-
-[node name="LightmapProbeGrid" type="Node3D" parent="Probes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.35, -3.44309)
-script = ExtResource("2_6rh3t")
-size = Vector3(1, 1.5, 6.11647)
-probes_number = Vector3i(2, 2, 4)
-far_distance = 1.0
-object_size = 1.0
-metadata/_custom_type_script = ExtResource("2_6rh3t")
-
-[node name="LightmapProbe 0, 0, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.75, 3.05824)
-
-[node name="LightmapProbe 0, 0, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.75, 1.01941)
-
-[node name="LightmapProbe 0, 0, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.75, -1.01941)
-
-[node name="LightmapProbe 0, 0, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.75, -3.05824)
-
-[node name="LightmapProbe 0, 1, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -0.75, 3.05824)
-
-[node name="LightmapProbe 0, 1, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -0.75, 1.01941)
-
-[node name="LightmapProbe 0, 1, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -0.75, -1.01941)
-
-[node name="LightmapProbe 0, 1, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -0.75, -3.05824)
-
-[node name="LightmapProbe 1, 0, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.75, 3.05824)
-
-[node name="LightmapProbe 1, 0, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.75, 1.01941)
-
-[node name="LightmapProbe 1, 0, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.75, -1.01941)
-
-[node name="LightmapProbe 1, 0, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.75, -3.05824)
-
-[node name="LightmapProbe 1, 1, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -0.75, 3.05824)
-
-[node name="LightmapProbe 1, 1, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -0.75, 1.01941)
-
-[node name="LightmapProbe 1, 1, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -0.75, -1.01941)
-
-[node name="LightmapProbe 1, 1, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -0.75, -3.05824)
-
-[node name="LightmapProbeGrid2" type="Node3D" parent="Probes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0625923, 1.35, -10.0029)
-script = ExtResource("2_6rh3t")
-size = Vector3(6.6552, 1.5, 4.84921)
-probes_number = Vector3i(5, 2, 4)
-far_distance = 1.0
-object_size = 1.0
-metadata/_custom_type_script = ExtResource("2_6rh3t")
-
-[node name="LightmapProbe 0, 0, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3276, 0.75, 2.4246)
-
-[node name="LightmapProbe 0, 0, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3276, 0.75, 0.808201)
-
-[node name="LightmapProbe 0, 0, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3276, 0.75, -0.808201)
-
-[node name="LightmapProbe 0, 0, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3276, 0.75, -2.4246)
-
-[node name="LightmapProbe 0, 1, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3276, -0.75, 2.4246)
-
-[node name="LightmapProbe 0, 1, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3276, -0.75, 0.808201)
-
-[node name="LightmapProbe 0, 1, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3276, -0.75, -0.808201)
-
-[node name="LightmapProbe 0, 1, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3276, -0.75, -2.4246)
-
-[node name="LightmapProbe 1, 0, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6638, 0.75, 2.4246)
-
-[node name="LightmapProbe 1, 0, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6638, 0.75, 0.808201)
-
-[node name="LightmapProbe 1, 0, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6638, 0.75, -0.808201)
-
-[node name="LightmapProbe 1, 0, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6638, 0.75, -2.4246)
-
-[node name="LightmapProbe 1, 1, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6638, -0.75, 2.4246)
-
-[node name="LightmapProbe 1, 1, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6638, -0.75, 0.808201)
-
-[node name="LightmapProbe 1, 1, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6638, -0.75, -0.808201)
-
-[node name="LightmapProbe 1, 1, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6638, -0.75, -2.4246)
-
-[node name="LightmapProbe 2, 0, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 2.4246)
-
-[node name="LightmapProbe 2, 0, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0.808201)
-
-[node name="LightmapProbe 2, 0, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, -0.808201)
-
-[node name="LightmapProbe 2, 0, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, -2.4246)
-
-[node name="LightmapProbe 2, 1, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, 2.4246)
-
-[node name="LightmapProbe 2, 1, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, 0.808201)
-
-[node name="LightmapProbe 2, 1, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, -0.808201)
-
-[node name="LightmapProbe 2, 1, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, -2.4246)
-
-[node name="LightmapProbe 3, 0, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6638, 0.75, 2.4246)
-
-[node name="LightmapProbe 3, 0, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6638, 0.75, 0.808201)
-
-[node name="LightmapProbe 3, 0, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6638, 0.75, -0.808201)
-
-[node name="LightmapProbe 3, 0, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6638, 0.75, -2.4246)
-
-[node name="LightmapProbe 3, 1, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6638, -0.75, 2.4246)
-
-[node name="LightmapProbe 3, 1, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6638, -0.75, 0.808201)
-
-[node name="LightmapProbe 3, 1, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6638, -0.75, -0.808201)
-
-[node name="LightmapProbe 3, 1, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6638, -0.75, -2.4246)
-
-[node name="LightmapProbe 4, 0, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3276, 0.75, 2.4246)
-
-[node name="LightmapProbe 4, 0, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3276, 0.75, 0.808201)
-
-[node name="LightmapProbe 4, 0, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3276, 0.75, -0.808201)
-
-[node name="LightmapProbe 4, 0, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3276, 0.75, -2.4246)
-
-[node name="LightmapProbe 4, 1, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3276, -0.75, 2.4246)
-
-[node name="LightmapProbe 4, 1, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3276, -0.75, 0.808201)
-
-[node name="LightmapProbe 4, 1, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3276, -0.75, -0.808201)
-
-[node name="LightmapProbe 4, 1, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3276, -0.75, -2.4246)
-
-[node name="LightmapProbeGrid3" type="Node3D" parent="Probes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.36259, 1.35, -10.0029)
-script = ExtResource("2_6rh3t")
-size = Vector3(6.6552, 1.5, 4.84921)
-probes_number = Vector3i(5, 2, 4)
-far_distance = 1.0
-object_size = 1.0
-metadata/_custom_type_script = ExtResource("2_6rh3t")
-
-[node name="LightmapProbe 0, 0, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3276, 0.75, 2.4246)
-
-[node name="LightmapProbe 0, 0, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3276, 0.75, 0.808201)
-
-[node name="LightmapProbe 0, 0, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3276, 0.75, -0.808201)
-
-[node name="LightmapProbe 0, 0, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3276, 0.75, -2.4246)
-
-[node name="LightmapProbe 0, 1, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3276, -0.75, 2.4246)
-
-[node name="LightmapProbe 0, 1, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3276, -0.75, 0.808201)
-
-[node name="LightmapProbe 0, 1, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3276, -0.75, -0.808201)
-
-[node name="LightmapProbe 0, 1, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3276, -0.75, -2.4246)
-
-[node name="LightmapProbe 1, 0, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6638, 0.75, 2.4246)
-
-[node name="LightmapProbe 1, 0, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6638, 0.75, 0.808201)
-
-[node name="LightmapProbe 1, 0, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6638, 0.75, -0.808201)
-
-[node name="LightmapProbe 1, 0, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6638, 0.75, -2.4246)
-
-[node name="LightmapProbe 1, 1, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6638, -0.75, 2.4246)
-
-[node name="LightmapProbe 1, 1, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6638, -0.75, 0.808201)
-
-[node name="LightmapProbe 1, 1, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6638, -0.75, -0.808201)
-
-[node name="LightmapProbe 1, 1, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6638, -0.75, -2.4246)
-
-[node name="LightmapProbe 2, 0, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 2.4246)
-
-[node name="LightmapProbe 2, 0, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0.808201)
-
-[node name="LightmapProbe 2, 0, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, -0.808201)
-
-[node name="LightmapProbe 2, 0, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, -2.4246)
-
-[node name="LightmapProbe 2, 1, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, 2.4246)
-
-[node name="LightmapProbe 2, 1, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, 0.808201)
-
-[node name="LightmapProbe 2, 1, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, -0.808201)
-
-[node name="LightmapProbe 2, 1, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, -2.4246)
-
-[node name="LightmapProbe 3, 0, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6638, 0.75, 2.4246)
-
-[node name="LightmapProbe 3, 0, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6638, 0.75, 0.808201)
-
-[node name="LightmapProbe 3, 0, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6638, 0.75, -0.808201)
-
-[node name="LightmapProbe 3, 0, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6638, 0.75, -2.4246)
-
-[node name="LightmapProbe 3, 1, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6638, -0.75, 2.4246)
-
-[node name="LightmapProbe 3, 1, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6638, -0.75, 0.808201)
-
-[node name="LightmapProbe 3, 1, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6638, -0.75, -0.808201)
-
-[node name="LightmapProbe 3, 1, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6638, -0.75, -2.4246)
-
-[node name="LightmapProbe 4, 0, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3276, 0.75, 2.4246)
-
-[node name="LightmapProbe 4, 0, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3276, 0.75, 0.808201)
-
-[node name="LightmapProbe 4, 0, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3276, 0.75, -0.808201)
-
-[node name="LightmapProbe 4, 0, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3276, 0.75, -2.4246)
-
-[node name="LightmapProbe 4, 1, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3276, -0.75, 2.4246)
-
-[node name="LightmapProbe 4, 1, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3276, -0.75, 0.808201)
-
-[node name="LightmapProbe 4, 1, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3276, -0.75, -0.808201)
-
-[node name="LightmapProbe 4, 1, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3276, -0.75, -2.4246)
-
-[node name="LightmapProbeGrid4" type="Node3D" parent="Probes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.38741, 1.35, -10.0029)
-script = ExtResource("2_6rh3t")
-size = Vector3(6.6552, 1.5, 4.84921)
-probes_number = Vector3i(5, 2, 4)
-far_distance = 1.0
-object_size = 1.0
-metadata/_custom_type_script = ExtResource("2_6rh3t")
-
-[node name="LightmapProbe 0, 0, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3276, 0.75, 2.4246)
-
-[node name="LightmapProbe 0, 0, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3276, 0.75, 0.808201)
-
-[node name="LightmapProbe 0, 0, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3276, 0.75, -0.808201)
-
-[node name="LightmapProbe 0, 0, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3276, 0.75, -2.4246)
-
-[node name="LightmapProbe 0, 1, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3276, -0.75, 2.4246)
-
-[node name="LightmapProbe 0, 1, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3276, -0.75, 0.808201)
-
-[node name="LightmapProbe 0, 1, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3276, -0.75, -0.808201)
-
-[node name="LightmapProbe 0, 1, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3276, -0.75, -2.4246)
-
-[node name="LightmapProbe 1, 0, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6638, 0.75, 2.4246)
-
-[node name="LightmapProbe 1, 0, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6638, 0.75, 0.808201)
-
-[node name="LightmapProbe 1, 0, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6638, 0.75, -0.808201)
-
-[node name="LightmapProbe 1, 0, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6638, 0.75, -2.4246)
-
-[node name="LightmapProbe 1, 1, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6638, -0.75, 2.4246)
-
-[node name="LightmapProbe 1, 1, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6638, -0.75, 0.808201)
-
-[node name="LightmapProbe 1, 1, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6638, -0.75, -0.808201)
-
-[node name="LightmapProbe 1, 1, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6638, -0.75, -2.4246)
-
-[node name="LightmapProbe 2, 0, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 2.4246)
-
-[node name="LightmapProbe 2, 0, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0.808201)
-
-[node name="LightmapProbe 2, 0, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, -0.808201)
-
-[node name="LightmapProbe 2, 0, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, -2.4246)
-
-[node name="LightmapProbe 2, 1, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, 2.4246)
-
-[node name="LightmapProbe 2, 1, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, 0.808201)
-
-[node name="LightmapProbe 2, 1, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, -0.808201)
-
-[node name="LightmapProbe 2, 1, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, -2.4246)
-
-[node name="LightmapProbe 3, 0, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6638, 0.75, 2.4246)
-
-[node name="LightmapProbe 3, 0, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6638, 0.75, 0.808201)
-
-[node name="LightmapProbe 3, 0, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6638, 0.75, -0.808201)
-
-[node name="LightmapProbe 3, 0, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6638, 0.75, -2.4246)
-
-[node name="LightmapProbe 3, 1, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6638, -0.75, 2.4246)
-
-[node name="LightmapProbe 3, 1, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6638, -0.75, 0.808201)
-
-[node name="LightmapProbe 3, 1, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6638, -0.75, -0.808201)
-
-[node name="LightmapProbe 3, 1, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6638, -0.75, -2.4246)
-
-[node name="LightmapProbe 4, 0, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3276, 0.75, 2.4246)
-
-[node name="LightmapProbe 4, 0, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3276, 0.75, 0.808201)
-
-[node name="LightmapProbe 4, 0, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3276, 0.75, -0.808201)
-
-[node name="LightmapProbe 4, 0, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3276, 0.75, -2.4246)
-
-[node name="LightmapProbe 4, 1, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3276, -0.75, 2.4246)
-
-[node name="LightmapProbe 4, 1, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3276, -0.75, 0.808201)
-
-[node name="LightmapProbe 4, 1, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3276, -0.75, -0.808201)
-
-[node name="LightmapProbe 4, 1, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3276, -0.75, -2.4246)
-
-[node name="LightmapProbeGrid5" type="Node3D" parent="Probes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0374073, 1.35, -16.4029)
-script = ExtResource("2_6rh3t")
-size = Vector3(6.6552, 1.5, 4.84921)
-probes_number = Vector3i(5, 2, 4)
-far_distance = 1.0
-object_size = 1.0
-metadata/_custom_type_script = ExtResource("2_6rh3t")
-
-[node name="LightmapProbe 0, 0, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3276, 0.75, 2.4246)
-
-[node name="LightmapProbe 0, 0, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3276, 0.75, 0.808201)
-
-[node name="LightmapProbe 0, 0, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3276, 0.75, -0.808201)
-
-[node name="LightmapProbe 0, 0, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3276, 0.75, -2.4246)
-
-[node name="LightmapProbe 0, 1, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3276, -0.75, 2.4246)
-
-[node name="LightmapProbe 0, 1, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3276, -0.75, 0.808201)
-
-[node name="LightmapProbe 0, 1, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3276, -0.75, -0.808201)
-
-[node name="LightmapProbe 0, 1, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3276, -0.75, -2.4246)
-
-[node name="LightmapProbe 1, 0, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6638, 0.75, 2.4246)
-
-[node name="LightmapProbe 1, 0, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6638, 0.75, 0.808201)
-
-[node name="LightmapProbe 1, 0, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6638, 0.75, -0.808201)
-
-[node name="LightmapProbe 1, 0, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6638, 0.75, -2.4246)
-
-[node name="LightmapProbe 1, 1, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6638, -0.75, 2.4246)
-
-[node name="LightmapProbe 1, 1, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6638, -0.75, 0.808201)
-
-[node name="LightmapProbe 1, 1, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6638, -0.75, -0.808201)
-
-[node name="LightmapProbe 1, 1, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6638, -0.75, -2.4246)
-
-[node name="LightmapProbe 2, 0, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 2.4246)
-
-[node name="LightmapProbe 2, 0, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0.808201)
-
-[node name="LightmapProbe 2, 0, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, -0.808201)
-
-[node name="LightmapProbe 2, 0, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, -2.4246)
-
-[node name="LightmapProbe 2, 1, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, 2.4246)
-
-[node name="LightmapProbe 2, 1, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, 0.808201)
-
-[node name="LightmapProbe 2, 1, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, -0.808201)
-
-[node name="LightmapProbe 2, 1, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, -2.4246)
-
-[node name="LightmapProbe 3, 0, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6638, 0.75, 2.4246)
-
-[node name="LightmapProbe 3, 0, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6638, 0.75, 0.808201)
-
-[node name="LightmapProbe 3, 0, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6638, 0.75, -0.808201)
-
-[node name="LightmapProbe 3, 0, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6638, 0.75, -2.4246)
-
-[node name="LightmapProbe 3, 1, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6638, -0.75, 2.4246)
-
-[node name="LightmapProbe 3, 1, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6638, -0.75, 0.808201)
-
-[node name="LightmapProbe 3, 1, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6638, -0.75, -0.808201)
-
-[node name="LightmapProbe 3, 1, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6638, -0.75, -2.4246)
-
-[node name="LightmapProbe 4, 0, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3276, 0.75, 2.4246)
-
-[node name="LightmapProbe 4, 0, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3276, 0.75, 0.808201)
-
-[node name="LightmapProbe 4, 0, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3276, 0.75, -0.808201)
-
-[node name="LightmapProbe 4, 0, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3276, 0.75, -2.4246)
-
-[node name="LightmapProbe 4, 1, 0" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3276, -0.75, 2.4246)
-
-[node name="LightmapProbe 4, 1, 1" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3276, -0.75, 0.808201)
-
-[node name="LightmapProbe 4, 1, 2" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3276, -0.75, -0.808201)
-
-[node name="LightmapProbe 4, 1, 3" type="LightmapProbe" parent="Probes/LightmapProbeGrid5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3276, -0.75, -2.4246)
+[node name="TutorialFloor" type="MeshInstance3D" parent="StaticBody3D"]
+material_override = SubResource("ShaderMaterial_2iq6n")
+mesh = SubResource("ArrayMesh_brwpm")
+skeleton = NodePath("")
 
 [node name="LightmapGI" type="LightmapGI" parent="."]
 generate_probes_subdiv = 0
@@ -919,3 +416,126 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05, 0, -19.3)
 
 [node name="FilingCabinet6" parent="Props" instance=ExtResource("11_4liku")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -19.3)
+
+[node name="PlayerChair" parent="." instance=ExtResource("12_dm1oh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -16.3)
+
+[node name="TutorialText" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TutorialText"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Label" type="Label" parent="TutorialText/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_constants/outline_size = 7
+theme_override_font_sizes/font_size = 24
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Door" parent="." instance=ExtResource("14_o5w3y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.65)
+locked = true
+
+[node name="Door2" parent="." instance=ExtResource("14_o5w3y")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.15, 0, -10)
+
+[node name="Door3" parent="." instance=ExtResource("14_o5w3y")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.15, 0, -10)
+
+[node name="Door4" parent="." instance=ExtResource("14_o5w3y")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -9.68575e-08, 0, -13.15)
+locked = true
+
+[node name="TutorialAreas" type="Node3D" parent="."]
+
+[node name="TutorialA1" type="Area3D" parent="TutorialAreas" node_paths=PackedStringArray("tutorialLabel")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15.9)
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("13_uef6n")
+text = "The door is stuck.
+Pick something up using the interact button.
+Then spin around using the directional controls.
+Once an arrow appears, you can use inteact again to throw."
+tutorialLabel = NodePath("../../TutorialText/MarginContainer/Label")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TutorialAreas/TutorialA1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0.5, -0.900001)
+shape = SubResource("BoxShape3D_uef6n")
+
+[node name="TutorialA2" type="Area3D" parent="TutorialAreas" node_paths=PackedStringArray("tutorialLabel")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9.4)
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("13_uef6n")
+text = "The zombie in the next room has the key to the exit door.
+Grab anything you can to defend yourself.
+Throw objects at the zombie to defeat it.
+If you're cornered, spinning without holding anything and then pressing interact will boost you.
+Later you can upgrade your boost at a crafting table, allowing you to boost by pressing boost."
+tutorialLabel = NodePath("../../TutorialText/MarginContainer/Label")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TutorialAreas/TutorialA2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0.5, -0.900001)
+shape = SubResource("BoxShape3D_uef6n")
+
+[node name="DoorBreak" type="Area3D" parent="TutorialAreas" node_paths=PackedStringArray("door_4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -13.2)
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+script = SubResource("GDScript_o5w3y")
+door_4 = NodePath("../../Door4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TutorialAreas/DoorBreak"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, -0.2)
+shape = SubResource("BoxShape3D_o5w3y")
+
+[node name="ZombieDie" type="Node" parent="TutorialAreas" node_paths=PackedStringArray("zombie", "door", "tutorialChange")]
+script = SubResource("GDScript_5snpj")
+zombie = NodePath("../../Zombie")
+door = NodePath("../../Door")
+tutorialChange = NodePath("../TutorialA2")
+newText = "Great! The door is open.
+Remember, you can grab almost anything to defend yourself. 
+Bigger objects require upgraded strength for you to grab them.
+Go into the elevator to proceed."
+
+[node name="Zombie" parent="." instance=ExtResource("15_5snpj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8.95, 0, -9.95)
+physics_material_override = SubResource("PhysicsMaterial_ch2c7")
+damage = 1
+spawnChance = 1.0
+explorationArea = 1.0
+
+[node name="TPArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.75)
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = SubResource("GDScript_ch2c7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TPArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0249999, 1.175, -0.4)
+shape = SubResource("BoxShape3D_5snpj")
+
+[connection signal="damaged" from="PlayerChair" to="TutorialAreas/ZombieDie" method="_on_player_chair_damaged"]
+[connection signal="body_entered" from="TPArea" to="TPArea" method="_on_body_entered"]

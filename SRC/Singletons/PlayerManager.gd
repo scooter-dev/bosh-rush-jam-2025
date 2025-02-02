@@ -21,11 +21,16 @@ var launchPower : float = 0.25 #How fast launched items fly
 var grabStrength : int = 1 #How strong the player is to grab bigger/heavier items
 var rotSpeedLimit : float = 6.0 #How fast the max speed of the player is
 var turnSpeed : float = 0.25 #How fast rotation builds up
+var luck : float = 4.0
 
 var str_lv : int = 1
 var chair_lv : int = 1
 var armor : int = 0
 var boost : int = 0
+
+var maxBoostFuel : float = 100.0
+var boostRecovery : float = 5.0
+var boostFuel : float = 100.0
 
 const strMax : int = 8
 const chairMax : int = 7
@@ -79,31 +84,31 @@ func getUpgradeRequirements(upg : int) -> Dictionary:
 		e_upg.ARMOR:
 			match armor:
 				0:
-					return {e_items.TAPE : 4, e_items.PHONE_BOOK : 1}
+					return {e_items.STAPLES : 4, e_items.TAPE : 4, e_items.PHONE_BOOK : 1}
 				1:
-					return {e_items.TAPE : 6, e_items.PHONE_BOOK : 2}
+					return {e_items.STAPLES : 6, e_items.TAPE : 6, e_items.PHONE_BOOK : 2}
 				2:
-					return {e_items.TAPE : 8, e_items.PHONE_BOOK : 3}
+					return {e_items.STAPLES : 10, e_items.TAPE : 8, e_items.PHONE_BOOK : 3}
 				3:
-					return {e_items.TAPE : 15, e_items.PHONE_BOOK : 6}
+					return {e_items.STAPLES : 15, e_items.TAPE : 15, e_items.PHONE_BOOK : 6}
 				4:
-					return {e_items.TAPE : 30, e_items.PHONE_BOOK : 16}
+					return {e_items.STAPLES : 35, e_items.TAPE : 30, e_items.PHONE_BOOK : 16}
 				5,_:
-					return {e_items.TAPE : 55, e_items.PHONE_BOOK : 40}
+					return {e_items.STAPLES : 55, e_items.TAPE : 55, e_items.PHONE_BOOK : 40}
 		e_upg.BOOST:
 			match boost:
 				0:
-					return {e_items.TAPE : 5, e_items.SODA : 2, e_items.TUBING : 2}
+					return {e_items.STAPLES : 5, e_items.TAPE : 5, e_items.SODA : 2, e_items.TUBING : 2}
 				1:
-					return {e_items.TAPE : 10, e_items.SODA : 6, e_items.TUBING : 4}
+					return {e_items.STAPLES : 10, e_items.TAPE : 10, e_items.SODA : 6, e_items.TUBING : 4}
 				2:
-					return {e_items.TAPE : 15, e_items.SODA : 12, e_items.TUBING : 8}
+					return {e_items.STAPLES : 20 ,e_items.TAPE : 15, e_items.SODA : 12, e_items.TUBING : 8}
 				3:
-					return {e_items.TAPE : 25, e_items.SODA : 20, e_items.TUBING : 16, e_items.WIRES : 5}
+					return {e_items.STAPLES : 30, e_items.TAPE : 25, e_items.SODA : 20, e_items.TUBING : 16, e_items.WIRES : 5}
 				4:
-					return {e_items.TAPE : 40, e_items.SODA : 30, e_items.TUBING : 25, e_items.WIRES : 10, e_items.CIRCUIT_BOARD : 3}
+					return {e_items.STAPLES : 45, e_items.TAPE : 40, e_items.SODA : 30, e_items.TUBING : 25, e_items.WIRES : 10, e_items.CIRCUIT_BOARD : 3}
 				5:
-					return {e_items.TAPE : 50, e_items.SODA : 40, e_items.TUBING : 30, e_items.WIRES : 10, e_items.CIRCUIT_BOARD : 8, e_items.CHIP : 2}
+					return {e_items.STAPLES : 55, e_items.TAPE : 50, e_items.SODA : 40, e_items.TUBING : 30, e_items.WIRES : 10, e_items.CIRCUIT_BOARD : 8, e_items.CHIP : 2}
 	return {}
 
 func hasUpgradeRequirements(upg : int) -> bool:
@@ -134,6 +139,7 @@ func upgradePlayer(upg : int) -> bool:
 				7:
 					launchPower = 0.5
 			str_lv += 1
+			luck += 3
 		e_upg.CHAIR:
 			if chair_lv == chair_lv:
 				return false
@@ -151,6 +157,7 @@ func upgradePlayer(upg : int) -> bool:
 				6:
 					rotSpeedLimit = 16.0
 			chair_lv += 1
+			luck += 3
 		e_upg.ARMOR:
 			armor += 1
 		e_upg.BOOST:
@@ -158,24 +165,37 @@ func upgradePlayer(upg : int) -> bool:
 				return false
 			match boost:
 				0:
+					maxBoostFuel = 120
+					boostRecovery = 10.0
 					boostStrength = 0.3
 					boostCooldown = 1.0
 				1:
 					boostStrength = 0.35
 					boostCooldown = 0.7
+					maxBoostFuel = 140
+					boostRecovery = 15.0
 				2:
 					boostStrength = 0.39
 					boostCooldown = 0.5
+					maxBoostFuel = 160
+					boostRecovery = 25.0
 				3:
 					boostStrength = 0.42
 					boostCooldown = 0.3
+					maxBoostFuel = 185
+					boostRecovery = 35.0
 				4:
 					boostStrength = 0.46
 					boostCooldown = 0.25
+					maxBoostFuel = 200
+					boostRecovery = 45.0
 				5:
 					boostStrength = 0.5
 					boostCooldown = 0.1
+					maxBoostFuel = 250
+					boostRecovery = 80.0
 			boost += 1
+			luck += 3
 	return true
 
 
@@ -237,3 +257,6 @@ func removeMoney(qtty : int) -> bool:
 	else:
 		money = money - qtty
 		return true
+
+func _physics_process(delta: float) -> void:
+	boostFuel = min(maxBoostFuel, boostFuel + delta * boostRecovery)

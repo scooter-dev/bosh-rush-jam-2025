@@ -6,6 +6,7 @@ class_name Zombie
 @export var speed : float = 8
 @export var damage : int = 3
 @export var spawnChance : float = 0.5
+@export var explorationArea : float = 5.0
 
 ##How long the zombie chases the player when losing sight
 @export var memory : float = 4.0
@@ -66,7 +67,7 @@ func sMode() -> void:
 				mode = CHASING
 			elif chaseTarget:
 				mode = LOSING
-			elif ((global_position - spawnPosition) * Vector3(1,0,1)).length_squared() > 25:
+			elif ((global_position - spawnPosition) * Vector3(1,0,1)).length_squared() > explorationArea * explorationArea:
 				mode = RETURNING
 		CHASING:
 			if !target:
