@@ -1,7 +1,5 @@
 extends MarginContainer
 
-class_name InventoryMargin
-
 enum e_items {GLUE, STAPLES, TAPE, PHONE_BOOK, SODA, CANDY, TUBING, WIRES, CHIP, CIRCUIT_BOARD, PEN, LASER_POINTER, OIL}
 
 @export var inventoryGrid: GridContainer
