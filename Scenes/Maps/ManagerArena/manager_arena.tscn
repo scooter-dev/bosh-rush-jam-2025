@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=4 uid="uid://chqwq6decod5a"]
+[gd_scene load_steps=45 format=4 uid="uid://chqwq6decod5a"]
 
 [ext_resource type="Shader" uid="uid://cm8puby5gs7hp" path="res://SRC/Shaders/rgbTextureTriplanar.gdshader" id="1_3hiah"]
 [ext_resource type="Script" uid="uid://dnev02fq78g5" path="res://Scenes/Maps/Level.gd" id="1_3n1o1"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://bdehricvsx6gs" path="res://SRC/Props/door.tscn" id="17_jqn54"]
 [ext_resource type="PackedScene" uid="uid://bb4f5h5c4tiu7" path="res://Scenes/boss_cutscene.tscn" id="18_opehn"]
 [ext_resource type="Shader" uid="uid://d20ryyciv7x8g" path="res://SRC/Shaders/Sky.gdshader" id="19_n8iev"]
+[ext_resource type="AudioStream" uid="uid://brjq2pho3qgbu" path="res://Assets/Audio/Boss.ogg" id="20_b3h13"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_2q4ae"]
 vertices = PackedVector3Array(-0.5, 0.5, 9.5, -0.25, 0.5, 14.5, 0.5, 0.5, 14.5, 0.75, 0.5, 9.5, -7.25, 0.5, -1.25, 7.5, 0.5, -1.25, -7.25, 0.5, 9.5, 7.5, 0.5, 9.5)
@@ -1036,4 +1037,5 @@ transform = Transform3D(0.945439, 0.113186, -0.305506, 0, 0.937713, 0.34741, 0.3
 environment = SubResource("Environment_1stub")
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("20_b3h13")
 autoplay = true

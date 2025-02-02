@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=4 uid="uid://cuolxi58vd3gm"]
+[gd_scene load_steps=43 format=4 uid="uid://cuolxi58vd3gm"]
 
 [ext_resource type="Script" uid="uid://dnev02fq78g5" path="res://Scenes/Maps/Level.gd" id="1_vyj83"]
 [ext_resource type="Shader" uid="uid://drr0gce6cncf3" path="res://SRC/Shaders/darkness.gdshader" id="2_0db1k"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://bb4f5h5c4tiu7" path="res://Scenes/boss_cutscene.tscn" id="15_7pjft"]
 [ext_resource type="Shader" uid="uid://d20ryyciv7x8g" path="res://SRC/Shaders/Sky.gdshader" id="16_ytwkt"]
 [ext_resource type="PackedScene" uid="uid://dd5kl7gsjrhdu" path="res://SRC/Enemies/Bosses/CEOBoss/ceoBoss.tscn" id="17_0db1k"]
+[ext_resource type="AudioStream" uid="uid://brjq2pho3qgbu" path="res://Assets/Audio/Boss.ogg" id="18_dwobt"]
 
 [sub_resource type="Gradient" id="Gradient_xph0m"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
@@ -1029,5 +1030,6 @@ transform = Transform3D(-0.984476, 0, -0.175521, 0, 1, 0, 0.175521, 0, -0.984476
 unlockDoor = NodePath("../Door")
 
 [node name="CEOBossSong" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_dwobt")
 autoplay = true
 bus = &"Music"

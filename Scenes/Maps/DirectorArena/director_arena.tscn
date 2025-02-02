@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=4 uid="uid://cepkn6c8imc7a"]
+[gd_scene load_steps=43 format=4 uid="uid://cepkn6c8imc7a"]
 
 [ext_resource type="Script" uid="uid://dnev02fq78g5" path="res://Scenes/Maps/Level.gd" id="1_cb3nb"]
 [ext_resource type="Shader" uid="uid://drr0gce6cncf3" path="res://SRC/Shaders/darkness.gdshader" id="1_h2j7t"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://bdehricvsx6gs" path="res://SRC/Props/door.tscn" id="15_u7qvb"]
 [ext_resource type="PackedScene" uid="uid://bb4f5h5c4tiu7" path="res://Scenes/boss_cutscene.tscn" id="16_idbnn"]
 [ext_resource type="Shader" uid="uid://d20ryyciv7x8g" path="res://SRC/Shaders/Sky.gdshader" id="17_34ehc"]
+[ext_resource type="AudioStream" uid="uid://brjq2pho3qgbu" path="res://Assets/Audio/Boss.ogg" id="18_qhr5i"]
 
 [sub_resource type="Gradient" id="Gradient_xph0m"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
@@ -1029,4 +1030,5 @@ shape = SubResource("BoxShape3D_34ehc")
 environment = SubResource("Environment_cx3ww")
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_qhr5i")
 autoplay = true
